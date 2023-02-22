@@ -115,7 +115,7 @@ code {
 .list-item {
     align-items: left;
     display: grid;
-    grid-template-columns: auto 20% 5%;
+    grid-template-columns: 20% auto 5%;
 }
 
 .list-item img {
@@ -285,13 +285,13 @@ ol li a {
         display: block;
     }
     .maingrid {
-        grid-template-columns: auto;
+        grid-template-columns: 100%;
     }
     .fourgrid {
         grid-template-columns: auto auto;
     }
     .big-font {
-      ''  font-size: 350%;
+        font-size: 350%;
     }
     .prevgrid {
         grid-template-columns: 50% 50%;
@@ -299,9 +299,6 @@ ol li a {
     .tilegrid {
         grid-template-columns: auto 50% auto 50% auto;
         grid-row: auto auto;
-    }
-    .list-item {
-        grid-template-columns: auto 16% 0%;
     }
 }
 
@@ -312,15 +309,27 @@ ol li a {
     }
 }
 
-@media screen and (max-width: 700px) {
-    .big-font {
-        font-size: 250% !important;
-    }
-}
-
 @media screen and (max-width: 600px) {
     .big-font {
         font-size: 200% !important;
+    }
+    .list-item {
+        grid-template-columns: auto;
+    }
+    .list-item img {
+        display: none;
+    }
+    .normal-font {
+        font-size: 150% !important;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .big-font {
+        font-size: 125% !important;
+    }
+    .normal-font {
+        font-size: 100% !important;
     }
 }
 

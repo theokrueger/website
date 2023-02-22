@@ -63,7 +63,6 @@
 
       <!-- START page content -->
       <span>
-
         <!-- mobile navbar -->
         <div id="mobile" class="fob" align="center">
           <a href="/index.html" class="mobilenav" {% if MAKE_SLUG == "index" %} style="font-weight: bold" {% endif %}>home</a>
@@ -108,6 +107,8 @@
 
             {% block listing %}
             <a href="{{ BASE_URL }}/blog/{{ FILENAME }}/" class="list-item nodecorate">
+              <img src="{{ THUMBNAIL }}">
+
               <span>
                 <text class="medium-font underline">{{ TITLE }}</text>
                 <br>
@@ -116,8 +117,6 @@
                   {{ DESCRIPTION }}
                 </text>
               </span>
-
-              <img src="{{ THUMBNAIL }}">
             </a>
             <br>
             {% endblock %}
@@ -238,7 +237,7 @@
 
       <!-- mobile spacer -->
       <p id="mobile" class="small-font">
-        <span class="rotate-90" style="font-size: 115%;">©</span>theokrueger
+        <span class="rotate-90" style="font-size: 115%;">©</span><a href="mailto:{{ AUTHOR_EMAIL }}" class="nodecorate">theokrueger </a>
         <br>
         <a href="{{ SITE_SOURCE }}" class="nodecorate">view source</a>
       </p>

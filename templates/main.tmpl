@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% ifdef DESCRIPTION %}{{ DESCRIPTION }}{% else %}{{ SITE_DESCRIPTION }}{% endif %}">
+    <title>{% ifdef TITLE %}{{ TITLE }}{% else %}{{ SITE_TITLE }}{% endif %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ BASE_URL }}/assets/style.css">
+    <script type="text/javascript" src="{{ BASE_URL }}/assets/all.js" async></script>
+    <link href="{{ BASE_URL }}/atom.xml" rel="alternate" type="application/atom+xml" title="{{ SITE_TITLE }}" />
+  </head>
+  <body>
+    <span class="maingrid">
+
+      <!-- START desktop sidebar -->
+      <span id="desktop">
+        <!-- sidebar buttons -->
+        <ul class="sidebar fixed">
+
+          <!-- home -->
+          <li class="sidebarbutton">
+            <a href="/index.html#top" class="sidebar-entry">
+              {% if MAKE_SLUG == "index" %}>{% endif %} home
+            </a>
+          </li>
+
+          <!-- blog -->
+          <li class="sidebarbutton">
+            <a href="/blog/index.html#top" class="sidebar-entry">
+              {% if MAKE_TYPE == "post" %}>{% endif %} blog
+            </a>
+            <ul class="sidebarentry"><a href="/blog/index.html" class="sidebar-entry small-font sidebarentrytext">
+                posts
+            </a></ul>
+            <ul class="sidebarentry"><a href="/blog/index.html" class="sidebar-entry small-font sidebarentrytext">
+                tags
+            </a></ul>
+          </li>
+
+          <!-- about -->
+          <li class="sidebarbutton">
+            <a href="/about/index.html" class="sidebar-entry">
+              {% if MAKE_SLUG == "about" %}>{% endif %} about
+            </a>
+          </li>
+
+        </ul>
+
+        <!-- sidebar footer -->
+        <span class="footer fixed">
+          <text class="small-font"><span class="rotate-90" style="font-size: 115%;">©</span><a href="mailto:{{ AUTHOR_EMAIL }}" class="nodecorate">theokrueger</a></text>
+          <br>
+          <text class="small-font">
+            <a href="https://gitlab.com/theokrueger/website" class="nodecorate">
+              view source
+            </a>
+          </text>
+        </span>
+
+      </span>
+      <!-- END desktop sidebar -->
+
+      <!-- START page content -->
+      <span>
+
+        <!-- mobile navbar -->
+        <div id="mobile" class="fob" align="center">
+          <a href="/index.html" class="mobilenav" {% if MAKE_SLUG == "index" %} style="font-weight: bold" {% endif %}>home</a>
+          <a href="/blog/index.html" class="mobilenav"{% if MAKE_TYPE == "post" %} style="font-weight: bold" {% endif %}>blog</a>
+          <a href="/about/index.html" class="mobilenav"{% if MAKE_SLUG == "about" %} style="font-weight: bold" {% endif %}>about</a>
+        </div>
+
+        <!-- START header block -->
+        <span id="top"></span>
+        {% block entry %}
+        <div>
+          <text class="big-font">
+            {% ifdef TITLE %}{{ TITLE }}{% else %}{{ SITE_TITLE }}{% endif %}
+          </text>
+
+          <!-- below may be changed by js -->
+          <p class="normal-font nobmargin" style="text-align: right;" {% ifndef SUBTITLE %} id="main-subtitle" {% endif %}>
+            {% ifdef SUBTITLE  %} {{ SUBTITLE }} {% else %} no blog needs javascript {% endif %}
+          </p>
+
+        </div>
+        {% endblock %}
+        <!-- END header block -->
+
+        <!-- START post stuff -->
+        {% block listing_once %}
+
+        <div>
+          <text class="big-font">
+            {{ SITE_TITLE }}/blog
+          </text>
+          <!-- duplicate here because you cant nest defs -->
+          <p class="normal-font nobmargin" style="text-align: right;">
+            all posts listing
+          </p>
+
+        </div>
+
+        <div>
+          <span class="list">
+        {% endblock %}
+
+            {% block listing %}
+            <a href="{{ BASE_URL }}/blog/{{ FILENAME }}/" class="list-item nodecorate">
+              <span>
+                <text class="medium-font underline">{{ TITLE }}</text>
+                <br>
+                <text>
+                  {% ifdef DATE_FORMATTED %}Published: {{ DATE_FORMATTED }} <br/> {% endif %}
+                  {{ DESCRIPTION }}
+                </text>
+              </span>
+
+              <img src="{{ THUMBNAIL }}">
+            </a>
+            <br>
+            {% endblock %}
+
+        {% block listing_once %}
+          </span>
+        </div>
+        {% endblock %}
+        <!-- END poststuff -->
+
+        <!-- START single entry stuff -->
+        {% block entry %}
+
+        {{ CONTENT }}
+
+        {% ifdef IS_HOME %}
+        <!-- START recent posts carousel -->
+        <div class="content-block">
+          <text class="mediumer-font"><b>
+              recent posts
+          </b></text>
+          <p class="medium-font">click on any image to open the post</p>
+          <span class="tilegrid">
+
+            <span></span>
+
+            <!-- first post -->
+            <a href="{{ ITEM_ONE_LINK }}" class="tile nodecorate">
+
+              <img class="tileimg" align="middle"
+                   src="{{ ITEM_ONE_IMAGE }}">
+
+              <p class="tiletext medium-font">
+                {{ ITEM_ONE_TITLE }}
+              </p>
+
+              <p class="nodecorate">
+                {{ ITEM_ONE_TEXT }}
+              </p>
+
+            </a>
+
+            <span></span>
+
+            <!-- second post -->
+            <a href="{{ ITEM_TWO_LINK }}" class="tile nodecorate">
+
+              <img class="tileimg" align="middle"
+                   src="{{ ITEM_TWO_IMAGE }}">
+
+              <p class="tiletext medium-font">
+                {{ ITEM_TWO_TITLE }}
+              </p>
+
+              <p class="nodecorate">
+                {{ ITEM_TWO_TEXT }}
+              </p>
+
+            </a>
+
+            </a>
+
+            <span></span>
+            <!-- 2nd row on mobile -->
+            <span></span>
+
+            <!-- third post -->
+            <a href="{{ ITEM_THREE_LINK }}" class="tile nodecorate">
+
+              <img class="tileimg" align="middle"
+                   src="{{ ITEM_THREE_IMAGE }}">
+
+              <p class="tiletext medium-font">
+                {{ ITEM_THREE_TITLE }}
+              </p>
+
+              <p class="nodecorate">
+                {{ ITEM_THREE_TEXT }}
+              </p>
+
+            </a>
+
+            <span></span>
+
+            <!-- fourth post -->
+            <a href="{{ ITEM_FOUR_LINK }}" class="tile nodecorate">
+
+              <img class="tileimg" align="middle"
+                   src="{{ ITEM_FOUR_IMAGE }}">
+
+              <p class="tiletext medium-font">
+                {{ ITEM_FOUR_TITLE }}
+              </p>
+
+              <p class="nodecorate">
+                {{ ITEM_FOUR_TEXT }}
+              </p>
+
+            </a>
+
+            <span></span>
+
+          </span>
+
+          <p style="text-align: right;" class="medium-font collapse-parent"><a href="blog/index.html" class="nodecorate">
+              see all posts --><span class="collapse-child"></span>
+          </a></p>
+
+        </div>
+        <!-- END recent posts carousel -->
+
+        {% endif %}
+        {% endblock %}
+        <!-- END single entry stuff -->
+
+      </span>
+      <!-- END page content -->
+
+      <!-- mobile spacer -->
+      <p id="mobile" class="small-font">
+        <span class="rotate-90" style="font-size: 115%;">©</span>theokrueger
+        <br>
+        <a href="{{ SITE_SOURCE }}" class="nodecorate">view source</a>
+      </p>
+
+    </span>
+    <!-- END main grid -->
+  </body>
+</html>

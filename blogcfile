@@ -1,0 +1,42 @@
+[global]
+AUTHOR_NAME = theokrueger
+AUTHOR_EMAIL = contact@theokrueger.dev
+SITE_TITLE = theokrueger.dev
+SITE_TAGLINE = personal webpage
+SITE_SOURCE = https://gitlab.com/theokrueger/website
+BASE_DOMAIN = https://theokrueger.dev
+
+[settings]
+atom_ext = .xml
+atom_order = DESC
+atom_posts_per_page = 5
+;atom_template = //TODO
+
+; ISO time (ex 2023-02-20 15:28)
+date_format = %F %R
+
+locale = en_US.utf8
+content_dir = content
+;html_ext = /index.html
+html_order = DESC
+index_prefix = blog
+template_dir = templates
+;listing_entry = //TODO
+
+main_template = main.tmpl
+pagination_prefix = blog/page
+post_prefix = blog
+posts_per_page = 20
+posts_sort = 1
+source_ext = .txt
+tag_prefix = tag
+
+[posts]
+first-post
+
+[pages]
+index
+about
+
+[copy]
+assets

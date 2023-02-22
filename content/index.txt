@@ -1,0 +1,26 @@
+TITLE: theokrueger.dev
+IS_HOME: 1
+
+ITEM_ONE_TITLE: item one
+ITEM_ONE_TEXT: item one body text
+ITEM_ONE_LINK: /blog/index.html
+ITEM_ONE_IMAGE: https://www.mediacollege.com/adobe/premiere/version/pro-cs6/images/CS6_media-offline.png
+
+ITEM_TWO_TITLE: item two
+ITEM_TWO_TEXT: item two body text
+ITEM_TWO_LINK: /index.html
+ITEM_TWO_IMAGE: https://www.mediacollege.com/adobe/premiere/version/pro-cs6/images/CS6_media-offline.png
+
+ITEM_THREE_TITLE: item thre
+ITEM_THREE_TEXT: item three body text
+ITEM_THREE_LINK: /about/index.html
+ITEM_THREE_IMAGE: https://www.mediacollege.com/adobe/premiere/version/pro-cs6/images/CS6_media-offline.png
+
+ITEM_FOUR_TITLE: item four
+ITEM_FOUR_TEXT: item four body text
+ITEM_FOUR_LINK: /
+ITEM_FOUR_IMAGE: https://www.mediacollege.com/adobe/premiere/version/pro-cs6/images/CS6_media-offline.png
+-------------------------
+<div>
+homepage content goes here
+</div>

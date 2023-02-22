@@ -1,0 +1,13 @@
+TITLE: first post
+SUBTITLE: test subtitile
+DESCRIPTION: a short summary of the article
+DATE: 2023-02-21 00:36
+THUMBNAIL: /assets/img/first-post/thumbnail.jpg
+-------------------------
+
+
+<div>
+
+asdsadasd
+
+</div>

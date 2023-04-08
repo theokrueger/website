@@ -92,10 +92,13 @@
         <!-- START post stuff -->
 
         <div>
-          <text class="big-font">
-            {{ SITE_TITLE }}/blog
-          </text>
           <!-- duplicate here because you cant nest ifdefs -->
+          <span style="display: grid; grid-template-columns: auto 5%;">
+            <text class="big-font">
+              {{ SITE_TITLE }}/blog
+            </text>
+            <a href="/atom.xml" class="nodecorate"><img src="/assets/img/rss.svg" style="max-width: 24px; margin-left: auto; float: right;"></a>
+          </span>
           <p class="normal-font nobmargin" style="text-align: right;">
             all posts listing
           </p>

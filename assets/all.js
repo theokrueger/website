@@ -24,7 +24,7 @@ const idsToModify = {
                 'RTFM',
                 'man theokrueger.dev',
                 'tldr: website',
-                '',
+                'posix compliant',
         ],
 };
 

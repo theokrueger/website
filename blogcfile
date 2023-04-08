@@ -30,67 +30,13 @@ template_dir = templates
 main_template = main.tmpl
 pagination_prefix = blog/page
 post_prefix = blog
-posts_per_page = 10
+posts_per_page = 5
 posts_sort = 1
 source_ext = .txt
 tag_prefix = tag
 
 [posts]
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
-first-post
+template
 
 [pages]
 index

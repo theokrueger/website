@@ -1,0 +1,134 @@
+TITLE: template post title
+SUBTITLE: subtitle of post
+SUMMARY: a short summary of the article
+DATE: 1970-01-01 00:00
+EDITED_DATE: 1999-12-31 11:59
+THUMBNAIL: /link/to/thumnail/image.svg_or_jpeg
+-------------------------
+
+this is the first line of content, automatically included in a div
+
+</div><div>
+
+include a "</div><div>" as above to create a new div
+
+</div><div>
+
+`Paragraphs`
+
+This is a paragraph.
+
+This is another paragraph.
+
+
+`Headers`
+
+# H1
+
+## H2
+
+### H3
+
+#### H4
+
+
+`Blockquotes`
+
+> Hello,
+> This is the blockquote example!
+
+> *this gets parsed again*
+
+> <b>html tags work too</b>
+
+
+`Unordered Lists`
+
+* First
+  item
+* Second item
+* Third item
+
+   Ordered Lists
+
+1.  First
+    item
+2.  Second item
+10. Tenth item
+
+1234\. This is not a list
+
+`Code Blocks`
+
+       Code blocs are defined by indenting the lines with one or more whitespace characters.
+
+`Horizontal Rules`
+
+3 stars
+
+***
+
+3 dashes
+
+---
+
+3 pluses
+
++++
+
+`HTML Blocks`
+
+<p>This is raw HTML</p>
+
+This is an usual paragraph
+
+
+`Excerpt Separator`
+
+The excerpt is separated from the full content of a page/post using a paragraph with a sequence of 2 or more ´.´ characters.
+After parsing, the excerpt will be part of the full content as well.
+no idea what this means
+
+
+`Inline Elements`
+
+**text**
+__text__
+
+*text*
+_text_
+
+_**text**_
+*__text__*
+__*text*__
+**_text_**
+
+`code`
+``code``
+
+![image](picture.jpg)
+![image]
+(picture.jpg)
+
+[link](/)
+[link]
+(/)
+
+[![image link](picture.jpg)](/)
+[![image link]
+(picture.jpg)]
+(/)
+
+[[https://theokrueger.dev]].
+
+en dash --
+
+em dash ---
+
+</div><div>
+
+do not include an extra closing "</div>" or the website may break
+
+</div>
+
+although you technically could do it, it is unsupported

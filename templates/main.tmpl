@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{% ifdef DESCRIPTION %}{{ DESCRIPTION }}{% else %}{{ SITE_DESCRIPTION }}{% endif %}">
-    <title>{% ifdef TITLE %}{{ TITLE }}{% else %}{{ SITE_TITLE }}{% endif %}</title>
+    {% block entry %}
+    <title> {% ifdef TITLE %}{{ TITLE }}{% else %}{{ SITE_TITLE }}{% endif %} </title>
+    {% endblock %}
+    {% block listing_once %}
+    <!-- duplication required due to blogc stupididty (or maybe its just me probably) -->
+    <title> {{ SITE_TITLE }}/blog </title>
+    {% endblock %}
     <link rel="stylesheet" type="text/css" href="{{ BASE_URL }}/assets/style.css">
     <script type="text/javascript" src="{{ BASE_URL }}/assets/all.js" async></script>
     <link href="{{ BASE_URL }}/atom.xml" rel="alternate" type="application/atom+xml" title="{{ SITE_TITLE }}" />
@@ -50,7 +56,7 @@
         <!-- sidebar footer -->
         <span class="footer fixed">
           <text class="small-font"><span class="rotate-90" style="font-size: 115%;">©</span><a href="mailto:{{ AUTHOR_EMAIL }}" class="nodecorate">theokrueger</a></text>
-          <br>
+          <br/>
           <text class="small-font">
             <a href="https://gitlab.com/theokrueger/website" class="nodecorate">
               view source
@@ -115,14 +121,14 @@
 
               <span>
                 <text class="medium-font underline">{{ TITLE }}</text>
-                <br>
+                <br/>
                 <text>
                   {% ifdef DATE_FORMATTED %}Published: {{ DATE_FORMATTED }} <br/> {% endif %}
                   {{ SUMMARY }}
                 </text>
               </span>
             </a>
-            <br>
+            <br/>
             {% endblock %}
 
         {% block listing_once %}
@@ -255,9 +261,12 @@
       <!-- mobile spacer -->
       <p id="mobile" class="small-font">
         <span class="rotate-90" style="font-size: 115%;">©</span><a href="mailto:{{ AUTHOR_EMAIL }}" class="nodecorate">theokrueger </a>
-        <br>
+        <br/>
         <a href="{{ SITE_SOURCE }}" class="nodecorate">view source</a>
       </p>
+
+      <!-- desktop spacer -->
+      <pre class="hidemobile"/>
 
     </span>
     <!-- END main grid -->

@@ -21,6 +21,5 @@ ITEM_FOUR_TEXT: item four body text
 ITEM_FOUR_LINK: /
 ITEM_FOUR_IMAGE: https://www.mediacollege.com/adobe/premiere/version/pro-cs6/images/CS6_media-offline.png
 -------------------------
-<div>
+
 homepage content goes here
-</div>

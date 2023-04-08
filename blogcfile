@@ -1,10 +1,14 @@
 [global]
-AUTHOR_NAME = theokrueger
-AUTHOR_EMAIL = contact@theokrueger.dev
 SITE_TITLE = theokrueger.dev
 SITE_TAGLINE = personal webpage
 SITE_SOURCE = https://gitlab.com/theokrueger/website
 BASE_DOMAIN = https://theokrueger.dev
+
+AUTHOR_NAME = theokrueger
+AUTHOR_EMAIL = contact@theokrueger.dev
+AUTHOR_GITLAB = https://gitlab.com/theokrueger
+AUTHOR_GITHUB = https://github.com/theokrueger
+AUTHOR_MATRIX = https://matrix.to/#/@theokrueger:matrix.org
 
 [settings]
 atom_ext = .xml
@@ -88,10 +92,10 @@ first-post
 first-post
 first-post
 
-
 [pages]
 index
 about
 
 [copy]
 assets
+robots.txt

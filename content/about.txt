@@ -1,5 +1,30 @@
+IS_ABOUT: 1
 TITLE: theokrueger.dev/about
+SUBTITLE: RTFM
 -------------------------
-<div>
-about content goes here
-</div>
+
+
+This website was made using [blogc](https://blogc.rgm.io/) v0.20.1.
+You can find the source for this page [here](https://gitlab.com/theokrueger/website).
+
+Both blogc and this webpage are licensed under the [BSD 3-Clause](https://tldrlegal.com/license/bsd-3-clause-license-\(revised\)) license.
+
+</div><div>
+
+# where
+
+You can find and contact me at any of these places:
+
+<span class="small-font aboutgrid">
+  <a href="mailto:contact@theokrueger.dev" class="nodecorate"> <img src="/assets/img/about/email.svg"></a>
+  <a href="https://gitlab.com/theokrueger" class="nodecorate"> <img src="/assets/img/about/gitlab.svg"> </a>
+  <a href="https://github.com/theokrueger" class="nodecorate"> <img  src="/assets/img/about/github.svg"> </a>
+  <a href="https://matrix.to/#/@theokrueger:matrix.org" class="nodecorate"> <img src="/assets/img/about/matrix.svg"></a>
+  <a href="https://t.me/theokrueger" class="nodecorate"> <img src="/assets/img/about/telegram.svg"></a>
+  <span class="hidemobile"></span>
+  <text class="hidemobile"> Email </text>
+  <text class="hidemobile"> GitLab </text>
+  <text class="hidemobile"> GitHub </text>
+  <text class="hidemobile"> Matrix </text>
+  <text class="hidemobile"> Telegram </text>
+</span>

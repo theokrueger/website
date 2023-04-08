@@ -20,14 +20,14 @@
 
           <!-- home -->
           <li class="sidebarbutton">
-            <a href="/index.html#top" class="sidebar-entry">
+            <a href="/index.html" class="sidebar-entry">
               {% if MAKE_SLUG == "index" %}>{% endif %} home
             </a>
           </li>
 
           <!-- blog -->
           <li class="sidebarbutton">
-            <a href="/blog/index.html#top" class="sidebar-entry">
+            <a href="/blog/index.html" class="sidebar-entry">
               {% if MAKE_TYPE == "post" %}>{% endif %} blog
             </a>
             <ul class="sidebarentry"><a href="/blog/index.html" class="sidebar-entry small-font sidebarentrytext">
@@ -70,31 +70,32 @@
           <a href="/about/index.html" class="mobilenav"{% if MAKE_SLUG == "about" %} style="font-weight: bold" {% endif %}>about</a>
         </div>
 
-        <!-- START header block -->
         <span id="top"></span>
         {% block entry %}
+        <!-- START header block -->
         <div>
-          <text class="big-font">
-            {% ifdef TITLE %}{{ TITLE }}{% else %}{{ SITE_TITLE }}{% endif %}
-          </text>
-
+          <span style="display: grid; grid-template-columns: auto 5%;">
+            <text class="big-font">
+              {% ifdef TITLE %}{{ TITLE }}{% else %}{{ SITE_TITLE }}{% endif %}
+            </text>
+            <a href="/atom.xml" class="nodecorate"><img src="/assets/img/rss.svg" style="max-width: 24px; margin-left: auto; float: right;"></a>
+          </span>
           <!-- below may be changed by js -->
-          <p class="normal-font nobmargin" style="text-align: right;" {% ifndef SUBTITLE %} id="main-subtitle" {% endif %}>
+          <p class="normal-font nobmargin" style="text-align: right;" {% ifndef SUBTITLE %} id="main-subtitle" {% endif %} {% ifdef IS_ABOUT %} id="about-subtitle" {% endif %}>
             {% ifdef SUBTITLE  %} {{ SUBTITLE }} {% else %} no blog needs javascript {% endif %}
           </p>
-
         </div>
-        {% endblock %}
         <!-- END header block -->
+        {% endblock %}
 
-        <!-- START post stuff -->
         {% block listing_once %}
+        <!-- START post stuff -->
 
         <div>
           <text class="big-font">
             {{ SITE_TITLE }}/blog
           </text>
-          <!-- duplicate here because you cant nest defs -->
+          <!-- duplicate here because you cant nest ifdefs -->
           <p class="normal-font nobmargin" style="text-align: right;">
             all posts listing
           </p>
@@ -114,7 +115,7 @@
                 <br>
                 <text>
                   {% ifdef DATE_FORMATTED %}Published: {{ DATE_FORMATTED }} <br/> {% endif %}
-                  {{ DESCRIPTION }}
+                  {{ SUMMARY }}
                 </text>
               </span>
             </a>
@@ -124,13 +125,19 @@
         {% block listing_once %}
           </span>
         </div>
-        {% endblock %}
         <!-- END poststuff -->
+        {% endblock %}
 
-        <!-- START single entry stuff -->
         {% block entry %}
+        <!-- START single entry stuff -->
 
-        {{ CONTENT }}
+        {% ifdef CONTENT %}
+        <contentformat>
+          <div>
+            {{ CONTENT }}
+          </div>
+        </contentformat>
+        {% endif %}
 
         {% ifdef IS_HOME %}
         <!-- START recent posts carousel -->
@@ -140,8 +147,6 @@
           </b></text>
           <p class="medium-font">click on any image to open the post</p>
           <span class="tilegrid">
-
-            <span></span>
 
             <!-- first post -->
             <a href="{{ ITEM_ONE_LINK }}" class="tile nodecorate">
@@ -158,8 +163,6 @@
               </p>
 
             </a>
-
-            <span></span>
 
             <!-- second post -->
             <a href="{{ ITEM_TWO_LINK }}" class="tile nodecorate">
@@ -179,9 +182,7 @@
 
             </a>
 
-            <span></span>
             <!-- 2nd row on mobile -->
-            <span></span>
 
             <!-- third post -->
             <a href="{{ ITEM_THREE_LINK }}" class="tile nodecorate">
@@ -199,8 +200,6 @@
 
             </a>
 
-            <span></span>
-
             <!-- fourth post -->
             <a href="{{ ITEM_FOUR_LINK }}" class="tile nodecorate">
 
@@ -217,7 +216,6 @@
 
             </a>
 
-            <span></span>
 
           </span>
 
@@ -229,11 +227,11 @@
         <!-- END recent posts carousel -->
 
         {% endif %}
-        {% endblock %}
         <!-- END single entry stuff -->
+        {% endblock %}
 
-        <!-- START pagination -->
         {% block listing_once %}
+        <!-- START pagination -->
         <div style="padding: 0px;">
           <p style="text-align: center;" class="medium-font">
             {% if FIRST_PAGE < PREVIOUS_PAGE %}<a class="nodecorate" href="{{ BASE_URL }}/blog/page/{{ FIRST_PAGE }}" style="text-align: left; padding: 1.5%;"> [<< </a> {% endif %}
@@ -245,8 +243,8 @@
             {% if LAST_PAGE > NEXT_PAGE %}<a class="nodecorate" href="{{ BASE_URL }}/blog/page/{{ LAST_PAGE }}" style="text-align: right; padding: 1.5%;"> >>] </a> {% endif %}
           </p>
         </div>
-        {% endblock %}
         <!-- END pagination -->
+        {% endblock %}
 
       </span>
       <!-- END page content -->

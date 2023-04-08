@@ -1,14 +1,14 @@
 # theokrueger.dev
-https://theokrueger.dev sources. site built with blogc.
 
-## known issues
+https://theokrueger.dev sources. site built with [blogc](https://blogc.rgm.io/) v0.20.1
 
-* no sane pagination
+# why
 
-* too many posts per page
+https://theokrueger.dev/about
 
-* no about
+# todo
 
-* no real posts
+[heres the list](TODO.md)
 
-* no home text
+# license
+both blogc and this webpage are licensed under the [BSD 3-Clause](https://tldrlegal.com/license/bsd-3-clause-license-\(revised\)) license

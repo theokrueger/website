@@ -1,7 +1,7 @@
 console.log('javascript enabled for this webpage');
-{
-        /* set flavour text on load*/
-        var subtitles = [
+
+const idsToModify = {
+        "main-subtitle" : [
                 'not actually a developer',
                 '$5 and your message here',
                 'anti-lua activist',
@@ -16,10 +16,21 @@ console.log('javascript enabled for this webpage');
                 'a true gakster',
                 'washing machine pro',
                 'jumping over lazy dogs',
-                'the dragon of mahjong',
                 'kaballa dolla heister',
-        ];
-        if (document.getElementById("main-subtitle")) {
-                document.getElementById("main-subtitle").innerHTML = subtitles[Math.floor(Math.random() * subtitles.length)];
+                '早上好中国。现在我没有冰淇淋！',
+                'not cut out for webdev',
+        ],
+        "about-subtitle" : [
+                'RTFM',
+                'man theokrueger.dev',
+                'tldr: website',
+                '',
+        ],
+};
+
+for (const [k, v] of Object.entries(idsToModify)) {
+        const elem = document.getElementById(k);
+        if (elem) {
+                elem.innerHTML = idsToModify[k][Math.floor(Math.random() * idsToModify[k].length)];
         }
 }

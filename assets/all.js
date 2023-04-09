@@ -18,7 +18,6 @@ const idsToModify = {
                 'jumping over lazy dogs',
                 'kaballa dolla heister',
                 '早上好中国。现在我没有冰淇淋！',
-                'not cut out for webdev',
         ],
         "about-subtitle" : [
                 'RTFM',

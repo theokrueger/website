@@ -1,5 +1,4 @@
 /* START defaults */
-
 body, html {
     background-color: #cfcfcf;
     height: 100%;
@@ -30,27 +29,21 @@ code {
 /* END defaults */
 
 /* START fonts */
-
 .big-font {
-    font-size: 500%;
+    font-size: 400%;
 }
 
-.mediumer-font, contentformat div h1 {
-    font-size: 250% !important;
-}
-
-.normal-font {
-    font-size: 200% !important;
+.subtitle-font, contentformat div h1 {
+    font-size: 250%;
 }
 
 .medium-font, contentformat div text, contentformat div p {
-    font-size: 150% !important;
+    font-size: 150%;
 }
 
 .small-font {
-    font-size: 100% !important;
+    font-size: 100%;
 }
-
 /* END fonts */
 
 /* START items */
@@ -63,10 +56,15 @@ code {
     text-decoration: none;
     text-align: center;
 }
-
 /* END items */
 
-/* START tiles */
+/* START tiling */
+.maingrid {
+    display: grid;
+    grid-template-columns: 15% auto;
+    background-color: #00000000;
+    padding: 0px;
+}
 
 .tilegrid {
     align-items: center;
@@ -100,10 +98,20 @@ code {
     white-space: nowrap;
 }
 
-/* END tiles */
+.aboutgrid {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 12% 12% 12% 12% 12% auto;
+    column-gap: 4%
+}
 
-/* START list */
+.aboutgrid img {
+    max-height: 100px;
+    padding: 15%;
+}
+/* END tiling */
 
+/* START posts listing */
 .list {
     align-items: left;
     display: grid;
@@ -124,11 +132,9 @@ code {
     align: center;
     padding: 10%;
 }
-
-/* END list */
+/* END posts listing */
 
 /* START span collapse */
-
 .collapse-parent {}
 
 .collapse-child {
@@ -141,41 +147,9 @@ code {
     width: 0px;
     display: inline-block;
 }
-
 /* END span collapse */
 
-/* START grid */
-
-.fourgrid {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    background-color: #00000000;
-    padding: 0px;
-}
-
-.maingrid {
-    display: grid;
-    grid-template-columns: 15% auto;
-    background-color: #00000000;
-    padding: 0px;
-}
-
-.aboutgrid {
-    text-align: center;
-    display: grid;
-    grid-template-columns: 12% 12% 12% 12% 12% auto;
-    column-gap: 4%
-}
-
-.aboutgrid img {
-    max-height: 100px;
-    padding: 15%;
-}
-
-/* END grid */
-
 /* START sidebar */
-
 .sidebar {
     border-radius: 5px;
     top: auto;
@@ -217,11 +191,9 @@ code {
     border-style: solid;
     border-width: 2px;
 }
-
 /* END sidebar */
 
-/* START sidebar entry expansion */
-
+/* START desktop sidebar entry expansion */
 .sidebarbutton {
     display: block;
 }
@@ -244,10 +216,9 @@ code {
 .sidebarbutton:hover .sidebarentrytext {
     color: #000000FF;
 }
+/* END desktop sidebar entry expansion */
 
-/* END sidebar entry expansion */
-
-/* START attributes */
+/* START modifiers */
 .rotate-90 {
     position: relative;
     transform: rotate(-180deg);
@@ -276,28 +247,23 @@ ol li a {
     margin-bottom: 0px;
 }
 
-/* END attributes */
+/* END modifiers */
 
-/* START mobile "support" */
-
-#desktop {
+/* START mobile scaling */
+.hidemobile {
     display: block;
 }
 
-#mobile {
+.showmobile {
     display: none;
 }
 
-@media screen and (max-width: 1000px) {
-    /* why must i make this so godawful */
-    #desktop {
-        display: none;
-    }
-    #mobile {
-        display: block;
-    }
+@media screen and (max-width: 900px) {
     .hidemobile {
         display: none;
+    }
+    .showmobile {
+        display: block;
     }
     .maingrid {
         grid-template-columns: 100%;
@@ -309,9 +275,6 @@ ol li a {
         grid-template-columns: auto auto auto auto auto;
         column-gap: 3%
     }
-    .big-font {
-        font-size: 350%;
-    }
     .prevgrid {
         grid-template-columns: 50% 50%;
     }
@@ -319,36 +282,31 @@ ol li a {
         grid-template-columns: 50% 50%;
         grid-row: auto auto;
     }
-}
-
-@media screen and (max-width: 1250px) {
-    .big-font {
-        font-size: 300% !important;
-        font-weight: bold;
+    .aboutgrid {
+        grid-template-columns: auto auto auto auto auto;
+        column-gap: 3%
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
     .big-font {
-        font-size: 200% !important;
+        font-size: 5vw;
+        font-weight: bold;
+    }
+    .subtitle-font, contentformat div h1 {
+        font-size: 3.5vw;
+    }
+    .medium-font, contentformat div text, contentformat div p {
+        font-size: 2.5vw;
+    }
+    .small-font {
+        font-size: 2vw;
     }
     .list-item {
         grid-template-columns: auto;
     }
     .list-item img {
         display: none;
-    }
-    .normal-font {
-        font-size: 150% !important;
-    }
-}
-
-@media screen and (max-width: 350px) {
-    .big-font {
-        font-size: 125% !important;
-    }
-    .normal-font {
-        font-size: 100% !important;
     }
 }
 
@@ -370,17 +328,15 @@ ol li a {
     bottom: 0%;
     right: 5%;
 }
-/* END mobile "support" */
+/* END mobile scaling */
 
 /* START content formatting */
-
 contentformat div {}
-contentformat div h1 { /* inherits from mediumer-font */ }
+contentformat div h1 { /* inherits from subtitle-font */ }
 contentformat div text { /* inherits from medium-font */ }
 contentformat div p { /* inherits from medium-font */ }
 contentformat div blockquote {}
 contentformat div ol {}
 contentformat div li {}
 contentformat div code {}
-
-/* END */
+/* END content formatting */

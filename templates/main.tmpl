@@ -20,7 +20,7 @@
     <span class="maingrid">
 
       <!-- START desktop sidebar -->
-      <span id="desktop">
+      <span class="hidemobile">
         <!-- sidebar buttons -->
         <ul class="sidebar fixed">
 
@@ -70,7 +70,7 @@
       <!-- START page content -->
       <span>
         <!-- mobile navbar -->
-        <div id="mobile" class="fob" align="center">
+        <div class="showmobile fob" align="center">
           <a href="/index.html" class="mobilenav" {% if MAKE_SLUG == "index" %} style="font-weight: bold" {% endif %}>home</a>
           <a href="/blog/index.html" class="mobilenav"{% if MAKE_TYPE == "post" %} style="font-weight: bold" {% endif %}>blog</a>
           <a href="/about/index.html" class="mobilenav"{% if MAKE_SLUG == "about" %} style="font-weight: bold" {% endif %}>about</a>
@@ -87,7 +87,7 @@
             <a href="/atom.xml" class="nodecorate"><img src="/assets/img/rss.svg" style="max-width: 24px; margin-left: auto; float: right;"></a>
           </span>
           <!-- below may be changed by js -->
-          <p class="normal-font nobmargin" style="text-align: right;" {% ifndef SUBTITLE %} id="main-subtitle" {% endif %} {% ifdef IS_ABOUT %} id="about-subtitle" {% endif %}>
+          <p class="subtitle-font nobmargin" style="text-align: right;" {% ifndef SUBTITLE %} id="main-subtitle" {% endif %} {% ifdef IS_ABOUT %} id="about-subtitle" {% endif %}>
             {% ifdef SUBTITLE  %} {{ SUBTITLE }} {% else %} no blog needs javascript {% endif %}
           </p>
         </div>
@@ -105,7 +105,7 @@
             </text>
             <a href="/atom.xml" class="nodecorate"><img src="/assets/img/rss.svg" style="max-width: 24px; margin-left: auto; float: right;"></a>
           </span>
-          <p class="normal-font nobmargin" style="text-align: right;">
+          <p class="subtitle-font nobmargin" style="text-align: right;">
             all posts listing
           </p>
 
@@ -148,94 +148,7 @@
         </contentformat>
         {% endif %}
 
-        {% ifdef IS_HOME %}
-        <!-- START recent posts carousel -->
-        <div class="content-block">
-          <text class="mediumer-font"><b>
-              recent posts
-          </b></text>
-          <p class="medium-font">click on any image to open the post</p>
-          <span class="tilegrid">
 
-            <!-- first post -->
-            <a href="{{ ITEM_ONE_LINK }}" class="tile nodecorate">
-
-              <img class="tileimg" align="middle"
-                   src="{{ ITEM_ONE_IMAGE }}">
-
-              <p class="tiletext medium-font">
-                {{ ITEM_ONE_TITLE }}
-              </p>
-
-              <p class="nodecorate">
-                {{ ITEM_ONE_TEXT }}
-              </p>
-
-            </a>
-
-            <!-- second post -->
-            <a href="{{ ITEM_TWO_LINK }}" class="tile nodecorate">
-
-              <img class="tileimg" align="middle"
-                   src="{{ ITEM_TWO_IMAGE }}">
-
-              <p class="tiletext medium-font">
-                {{ ITEM_TWO_TITLE }}
-              </p>
-
-              <p class="nodecorate">
-                {{ ITEM_TWO_TEXT }}
-              </p>
-
-            </a>
-
-            </a>
-
-            <!-- 2nd row on mobile -->
-
-            <!-- third post -->
-            <a href="{{ ITEM_THREE_LINK }}" class="tile nodecorate">
-
-              <img class="tileimg" align="middle"
-                   src="{{ ITEM_THREE_IMAGE }}">
-
-              <p class="tiletext medium-font">
-                {{ ITEM_THREE_TITLE }}
-              </p>
-
-              <p class="nodecorate">
-                {{ ITEM_THREE_TEXT }}
-              </p>
-
-            </a>
-
-            <!-- fourth post -->
-            <a href="{{ ITEM_FOUR_LINK }}" class="tile nodecorate">
-
-              <img class="tileimg" align="middle"
-                   src="{{ ITEM_FOUR_IMAGE }}">
-
-              <p class="tiletext medium-font">
-                {{ ITEM_FOUR_TITLE }}
-              </p>
-
-              <p class="nodecorate">
-                {{ ITEM_FOUR_TEXT }}
-              </p>
-
-            </a>
-
-
-          </span>
-
-          <p style="text-align: right;" class="medium-font collapse-parent"><a href="blog/index.html" class="nodecorate">
-              see all posts --><span class="collapse-child"></span>
-          </a></p>
-
-        </div>
-        <!-- END recent posts carousel -->
-
-        {% endif %}
         <!-- END single entry stuff -->
         {% endblock %}
 
@@ -259,8 +172,8 @@
       <!-- END page content -->
 
       <!-- mobile spacer -->
-      <p id="mobile" class="small-font">
-        <span class="rotate-90" style="font-size: 115%;">©</span><a href="mailto:{{ AUTHOR_EMAIL }}" class="nodecorate">theokrueger </a>
+      <p class="showmobile small-font">
+        <span class="rotate-90" style="font-size: 1.5vw;">©</span><a href="mailto:{{ AUTHOR_EMAIL }}" class="nodecorate">theokrueger </a>
         <br/>
         <a href="{{ SITE_SOURCE }}" class="nodecorate">view source</a>
       </p>

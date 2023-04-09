@@ -3,7 +3,7 @@ SUBTITLE: subtitle of post
 SUMMARY: a short summary of the article
 DATE: 1970-01-01 00:00
 EDITED_DATE: 1999-12-31 11:59
-THUMBNAIL: /link/to/thumnail/image.svg_or_jpeg
+THUMBNAIL: /link/to/thumnail/if/applicable/image.svg_or_jpeg
 -------------------------
 
 this is the first line of content, automatically included in a div

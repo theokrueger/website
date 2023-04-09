@@ -2,7 +2,26 @@ IS_ABOUT: 1
 TITLE: theokrueger.dev/about
 SUBTITLE: RTFM
 -------------------------
+# who
 
+I'm theokrueger, someone just bored enough to try starting their own blog.
+
+More will be added here as I actually do things worth talking about.
+
+</div><div>
+
+# what
+
+This is my website for posting whatever my heart desires.
+
+Nothing on this website expresses the opinions of any person, organisation, or employer related to me, including myself.
+Nothing said here should be interpreted as advice, I shrug all responsibility for the actions you take. If there is a problem with the content on this website, reach out to any of my [contacts](#where) immediately.
+
+I am not a professional *anything*, seek qualified individuals for sound counsel.
+
+</div><div>
+
+# how
 
 This website was made using [blogc](https://blogc.rgm.io/) v0.20.1.
 You can find the source for this page [here](https://gitlab.com/theokrueger/website).
@@ -21,7 +40,7 @@ You can find and contact me at any of these places:
   <a href="https://github.com/theokrueger" class="nodecorate"> <img  src="/assets/img/about/github.svg"> </a>
   <a href="https://matrix.to/#/@theokrueger:matrix.org" class="nodecorate"> <img src="/assets/img/about/matrix.svg"></a>
   <a href="https://t.me/theokrueger" class="nodecorate"> <img src="/assets/img/about/telegram.svg"></a>
-  <span class="hidemobile"></span>
+  <br/>
   <text class="hidemobile"> Email </text>
   <text class="hidemobile"> GitLab </text>
   <text class="hidemobile"> GitHub </text>

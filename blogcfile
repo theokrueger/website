@@ -37,10 +37,6 @@ tag_prefix = tag
 
 [posts]
 template
-template
-template
-template
-template
 
 [pages]
 index

@@ -115,24 +115,38 @@
           <span class="list">
         {% endblock %}
 
-            {% block listing %}
-            <a href="{{ BASE_URL }}/blog/{{ FILENAME }}/" class="list-item nodecorate">
-              <img src="{{ THUMBNAIL }}">
+        {% block listing %}
+        <a href="{{ BASE_URL }}/blog/{{ FILENAME }}/" class="list-item nodecorate">
+          {% ifdef THUMBNAIL %}
+          <img src="{{ THUMBNAIL }}">
+          {% endif %}
+          {% ifndef THUMBNAIL %}
+          <img src="/assets/img/about/matrix.svg">
+          {% endif %}
 
-              <span>
-                <text class="medium-font underline">{{ TITLE }}</text>
-                <br/>
-                <text>
-                  {% ifdef DATE_FORMATTED %}Published: {{ DATE_FORMATTED }} <br/> {% endif %}
-                  {{ SUMMARY }}
-                </text>
-              </span>
-            </a>
+          <span>
+            <text class="subtitle-font underline">{{ TITLE }}</text>
             <br/>
-            {% endblock %}
+            <p class="medium-font">
+              {{ SUMMARY }}
+            </p>
+            <p class="small-font">
+              {% ifdef DATE %}Published: {{ DATE }} {% ifdef UPDATED %}<br/> Updated: {{ UPDATED }} {% endif %}{% endif %}
+            </p>
+            <p class="small-font">
+              {{ DESCRIPTION }}
+            </p>
+            <p style="text-align: right;" class="small-font collapse-parent">
+              read more --><span class="collapse-child"></span>
+            </p>
+          </span>
+        </a>
+        <hr style="padding: 12px; width: 100%;border: 0;border-top: 1px dashed grey;">
+        {% endblock %}
 
         {% block listing_once %}
           </span>
+        <a href="#top" class="nodecorate medium-font"><p style="text-align: center; margin: 0;margin-top: 3px;"> back to top </p></a>
         </div>
         <!-- END poststuff -->
         {% endblock %}

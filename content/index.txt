@@ -5,6 +5,8 @@ TITLE: theokrueger.dev
 
 [Read latest posts](blog/index.html)
 
+TODO something to read goes here
+
 </div><div>
 
 # favourite posts
@@ -14,7 +16,7 @@ click on the image to open the post
 <span class="tilegrid">
   <a href="/" class="tile nodecorate">
     <img class="tileimg" align="middle"
-         src="/assets/img/first-post/thumbnail.jpg">
+         src="/assets/img/about/matrix.svg">
     <p class="tiletext medium-font">
       item 1 title
     </p>

@@ -12,12 +12,10 @@
   - [x] make title header scale better
 - [] content sercurity policies
 
-## blog
+## content
 
 - [] make actual posts
 - [] tags
 - [] include edited date in postings
-
-## about
-
 - [x] line up 'where' svgs properly
+- [] put some text at homepage

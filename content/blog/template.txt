@@ -2,11 +2,21 @@ TITLE: template post title
 SUBTITLE: subtitle of post
 SUMMARY: a short summary of the article
 DATE: 1970-01-01 00:00
-UPDATED: 1999-12-31 11:59
-ATHUMBNAIL: /link/to/thumnail/if/applicable/image.svg_or_jpeg
+DATE_UPDATED: 1999-12-31 11:59
+THUMBNAIL: /link/to/thumnail/if/applicable/image.svg_or_jpeg
+TAGS: template test pain suffering
 -------------------------
 
-this is the first line of content, automatically included in a div
+this is the first line of content, automatically included in a div.
+the first paragraph is automatically included as part of the DESCRIPTION variable.
+the quick brown fox jumps over the lazy dog.
+some six sick sphinx seriously sell super soakers? bdfgjqtvwxz.
+html tags included in a paragraph like <div> *arent* parsed.
+the DESCRIPTION variable also performs no parsing.
+this template basically serves as a visual for the documentation from `man blogc-source`, as well as my terrible implementation of entries.
+it serves no real purpose in the actual webpage, please remember to remove it from deployment
+
+this second paragraph is not included in that variable
 
 </div><div>
 

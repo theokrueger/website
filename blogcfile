@@ -14,7 +14,7 @@ AUTHOR_MATRIX = https://matrix.to/#/@theokrueger:matrix.org
 atom_ext = .xml
 atom_order = DESC
 atom_posts_per_page = 5
-;atom_template = //TODO
+atom_template = atom.xml
 
 ; ISO time (ex 2023-02-20 15:28)
 date_format = %F %R

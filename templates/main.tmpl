@@ -131,7 +131,7 @@
               {{ SUMMARY }}
             </p>
             <p class="small-font">
-              {% ifdef DATE %}Published: {{ DATE }} {% ifdef UPDATED %}<br/> Updated: {{ UPDATED }} {% endif %}{% endif %}
+              {% ifdef DATE %}Published: {{ DATE_FORMATTED }} {% ifdef DATE_UPDATED %}<br/> Updated: {{ DATE_UPDATED_FORMATTED }} {% endif %}{% endif %}
             </p>
             <p class="small-font">
               {{ DESCRIPTION }}

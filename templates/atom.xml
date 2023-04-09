@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">{{ SITE_TITLE }}</title>
+  <id>{{ BASE_DOMAIN }}/atom.xml</id>
+  <updated>{{ DATE_FIRST_FORMATTED }}</updated>
+  <link href="{{ BASE_DOMAIN }}{{ BASE_URL }}/" />
+  <link href="{{ BASE_DOMAIN }}{{ BASE_URL }}/atom.xml" rel="self" />
+  <generator uri="https://blogc.rgm.io/" version="{{ BLOGC_VERSION }}">
+    blogc {{ BLOGC_VERSION }}
+  </generator>
+  <rights>copyleft theokrueger, licensed under the BSD 3-Clause license</rights>
+  <author>
+    <name>{{ AUTHOR_NAME }}</name>
+    <email>{{ AUTHOR_EMAIL }}</email>
+    <uri>{{ BASE_DOMAIN }}</uri>
+  </author>
+  <subtitle type="text">{{ SITE_TAGLINE }}</subtitle>
+  {% block listing %}
+  <entry>
+    <title type="text">{{ TITLE }}</title>
+    <id>{{ BASE_DOMAIN }}/post/{{ FILENAME }}/</id>
+    <updated>{% ifdef DATE_UPDATED %}{{ DATE_UPDATED_FORMATTED }}{% endif %}{% ifndef DATE_UPDATED %}{{ DATE_FORMATTED }}{% endif %}</updated>
+    <published>{{ DATE_FORMATTED }}</published>
+    <link href="{{ BASE_DOMAIN }}{{ BASE_URL }}/blog/{{ FILENAME }}/" />
+    <author>
+      <name>{{ AUTHOR_NAME }}</name>
+      <email>{{ AUTHOR_EMAIL }}</email>
+      <uri>{{ BASE_DOMAIN }}</uri>
+    </author>
+    <summary>{{ SUMMARY }}</summary>
+    <content type="html"><![CDATA[<div>{{ CONTENT }}</div>]]></content>
+  </entry>
+  {% endblock %}
+</feed>

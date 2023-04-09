@@ -3,6 +3,7 @@
 ## site
 
 - [] publish initial version to https://theokrueger.dev/
+- [] localisation eventually
 
 ## main.tmpl
 
@@ -15,7 +16,7 @@
 ## content
 
 - [] make actual posts
-- [] tags
+- [x] tags
 - [] include edited date in postings
 - [x] line up 'where' svgs properly
-- [] put some text at homepage
+- [] put some text in homepage

@@ -4,13 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{% ifdef DESCRIPTION %}{{ DESCRIPTION }}{% else %}{{ SITE_DESCRIPTION }}{% endif %}">
+    <meta name="author" content="{{ AUTHOR_NAME }}">
     {% block entry %}
     <title> {% ifdef TITLE %}{{ TITLE }}{% else %}{{ SITE_TITLE }}{% endif %} </title>
+    <meta name="keywords" content="{% ifdef TAGS %}{% foreach TAGS %}{{ FOREACH_ITEM }} {% endforeach %}{% endif %}{% ifdef SUMMARY %} {% endif %}{{ SITE_KEYWORDS }}">
+    <meta name="description" content="{% ifdef SUMMARY %}{{ SUMMARY }}{% endif %}{% ifndef SUMMARY %}{{ SITE_TAGLINE }}{% endif %}">
     {% endblock %}
     {% block listing_once %}
     <!-- duplication required due to blogc stupididty (or maybe its just me probably) -->
     <title> {{ SITE_TITLE }}/blog </title>
+    <meta name="keywords" content="{{ SITE_KEYWORDS }} listing posts all content">
+    <meta name="description" content="Listing for all posts on {{ SITE_TITLE }}. Blog with a focus on technology, privacy, security, and programming.">
     {% endblock %}
     <link rel="stylesheet" type="text/css" href="{{ BASE_URL }}/assets/style.css">
     <script type="text/javascript" src="{{ BASE_URL }}/assets/all.js" async></script>
@@ -36,12 +40,14 @@
             <a href="/blog/index.html" class="sidebar-entry">
               {% if MAKE_TYPE == "post" %}>{% endif %} blog
             </a>
+            <!--
             <ul class="sidebarentry"><a href="/blog/index.html" class="sidebar-entry small-font sidebarentrytext">
                 posts
             </a></ul>
             <ul class="sidebarentry"><a href="/blog/index.html" class="sidebar-entry small-font sidebarentrytext">
                 tags
             </a></ul>
+            -->
           </li>
 
           <!-- about -->
@@ -77,8 +83,9 @@
         </div>
 
         <span id="top"></span>
-        {% block entry %}
+
         <!-- START header block -->
+        {% block entry %}
         <div>
           <span style="display: grid; grid-template-columns: auto 5%;">
             <text class="big-font">
@@ -91,11 +98,11 @@
             {% ifdef SUBTITLE  %} {{ SUBTITLE }} {% else %} no blog needs javascript {% endif %}
           </p>
         </div>
-        <!-- END header block -->
         {% endblock %}
+        <!-- END header block -->
 
+        <!-- START posts listing stuff -->
         {% block listing_once %}
-        <!-- START post stuff -->
 
         <div>
           <!-- duplicate here because you cant nest ifdefs -->
@@ -117,30 +124,38 @@
 
         {% block listing %}
         <a href="{{ BASE_URL }}/blog/{{ FILENAME }}/" class="list-item nodecorate">
-          {% ifdef THUMBNAIL %}
-          <img src="{{ THUMBNAIL }}">
-          {% endif %}
-          {% ifndef THUMBNAIL %}
-          <img src="/assets/img/about/matrix.svg">
-          {% endif %}
-
           <span>
             <text class="subtitle-font underline">{{ TITLE }}</text>
+
             <br/>
-            <p class="medium-font">
+
+            <text class="medium-font">
               {{ SUMMARY }}
-            </p>
+            </text>
+
             <p class="small-font">
-              {% ifdef DATE %}Published: {{ DATE_FORMATTED }} {% ifdef DATE_UPDATED %}<br/> Updated: {{ DATE_UPDATED_FORMATTED }} {% endif %}{% endif %}
+              {% ifdef DATE %}Published: {{ DATE_FORMATTED }} {% ifdef DATE_UPDATED %}, Updated: {{ DATE_UPDATED_FORMATTED }} {% endif %}{% endif %}
             </p>
+
             <p class="small-font">
               {{ DESCRIPTION }}
             </p>
             <p style="text-align: right;" class="small-font collapse-parent">
+              {% ifdef TAGS %}
+              <group class="small-font nobmargin" style="float:left;">
+                {% foreach TAGS %}
+                <tag>
+                  {{ FOREACH_ITEM }}
+                </tag>
+                {% endforeach %}
+              </group>
+              {% endif %}
+
               read more --><span class="collapse-child"></span>
             </p>
           </span>
         </a>
+
         <hr style="padding: 12px; width: 100%;border: 0;border-top: 1px dashed grey;">
         {% endblock %}
 
@@ -148,23 +163,51 @@
           </span>
         <a href="#top" class="nodecorate medium-font"><p style="text-align: center; margin: 0;margin-top: 3px;"> back to top </p></a>
         </div>
-        <!-- END poststuff -->
         {% endblock %}
+        <!-- END posts listing stuff -->
 
-        {% block entry %}
         <!-- START single entry stuff -->
-
+        {% block entry %}
         {% ifdef CONTENT %}
         <contentformat>
+          {% ifdef TAGS %}
+          <div>
+          {% else %}{% if USE_TOC == "1" %}
+          <div>
+          {% endif %}{% endif %}
+
+            {% if USE_TOC == "1" %}
+            <h1 class="nobmargin"> table of contents </h1>
+            <toc style="margin: 0;">
+              {{ TOCTREE }}
+            </toc>
+            {% endif %}
+
+            {% ifdef TAGS %}
+            <group class="small-font nobmargin">
+              Tags:
+              {% foreach TAGS %}
+              <tag>
+                {{ FOREACH_ITEM }}
+              </tag>
+              {% endforeach %}
+            </group>
+            <br/>
+            {% endif %}
+
+        {% ifdef TAGS %}
+            </div>
+        {% else %}{% if USE_TOC == "1" %}
+            </div>
+        {% endif %}{% endif %}
+
           <div>
             {{ CONTENT }}
           </div>
         </contentformat>
         {% endif %}
-
-
-        <!-- END single entry stuff -->
         {% endblock %}
+        <!-- END single entry stuff -->
 
         {% block listing_once %}
         <!-- START pagination -->

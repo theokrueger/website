@@ -27,7 +27,7 @@ const idsToModify = {
         ],
 };
 
-for (const [k, v] of Object.entries(idsToModify)) {
+for (const [k, _] of Object.entries(idsToModify)) {
         const elem = document.getElementById(k);
         if (elem) {
                 elem.innerHTML = idsToModify[k][Math.floor(Math.random() * idsToModify[k].length)];

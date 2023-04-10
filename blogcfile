@@ -1,14 +1,12 @@
 [global]
 SITE_TITLE = theokrueger.dev
-SITE_TAGLINE = personal webpage
+SITE_TAGLINE = Blog about technology, privacy, security, and programming.
+SITE_KEYWORDS = theokrueger dev blog programming developer news tech technology opinion article site git rss atom feed
 SITE_SOURCE = https://gitlab.com/theokrueger/website
 BASE_DOMAIN = https://theokrueger.dev
 
 AUTHOR_NAME = theokrueger
 AUTHOR_EMAIL = contact@theokrueger.dev
-AUTHOR_GITLAB = https://gitlab.com/theokrueger
-AUTHOR_GITHUB = https://github.com/theokrueger
-AUTHOR_MATRIX = https://matrix.to/#/@theokrueger:matrix.org
 
 [settings]
 atom_ext = .xml
@@ -36,6 +34,18 @@ source_ext = .txt
 tag_prefix = tag
 
 [posts]
+template
+template
+template
+template
+template
+template
+template
+template
+template
+template
+template
+template
 template
 
 [pages]

@@ -121,16 +121,7 @@ code {
 }
 
 .list-item {
-    align-items: left;
-    display: grid;
-    grid-template-columns: 20% auto 5%;
-}
 
-.list-item img {
-    width: 80%;
-    height: 80%
-    align: center;
-    padding: 10%;
 }
 /* END posts listing */
 
@@ -192,6 +183,18 @@ code {
     border-width: 2px;
 }
 /* END sidebar */
+
+/* START smaller custom elements */
+tag {
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    border-color: #000000;
+    border-style: solid;
+    border-width: 1px;
+    margin: 2px;
+    padding: 2px;
+}
+/* END smaller custom elements */
 
 /* START desktop sidebar entry expansion */
 .sidebarbutton {
@@ -336,7 +339,19 @@ contentformat div h1 { /* inherits from subtitle-font */ }
 contentformat div text { /* inherits from medium-font */ }
 contentformat div p { /* inherits from medium-font */ }
 contentformat div blockquote {}
+contentformat div ul {}
 contentformat div ol {}
 contentformat div li {}
 contentformat div code {}
+
+
+contentformat div toc ul li a {
+    /* table of contents */
+    color: #000;
+    text-decoration: none;
+}
+contentformat div toc {
+    /* table of contents */
+    font-size: 3vw;
+}
 /* END content formatting */

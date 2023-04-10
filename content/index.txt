@@ -7,6 +7,9 @@ TITLE: theokrueger.dev
 
 TODO something to read goes here
 
+ignore wrong spacing at bottom of this block please.
+
+<!--
 </div><div>
 
 # recent posts
@@ -24,7 +27,7 @@ click on the image to open the post
       item one text
     </p>
   </a>
-  <!--
+
   <a href="/" class="tile nodecorate">
     <img class="tileimg" align="middle"
          src="/assets/img/first-post/thumbnail.jpg">
@@ -35,6 +38,7 @@ click on the image to open the post
       item one text
     </p>
   </a>
+
   <a href="/" class="tile nodecorate">
     <img class="tileimg" align="middle"
          src="/assets/img/first-post/thumbnail.jpg">
@@ -45,6 +49,7 @@ click on the image to open the post
       item one text
     </p>
   </a>
+
   <a href="/" class="tile nodecorate">
     <img class="tileimg" align="middle"
          src="/assets/img/first-post/thumbnail.jpg">
@@ -55,7 +60,7 @@ click on the image to open the post
       item one text
     </p>
   </a>
-  -->
+
 </span>
 <p style="text-align: right;" class="medium-font collapse-parent"><a href="blog/index.html" class="nodecorate">
     see all posts --><span class="collapse-child"></span>

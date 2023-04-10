@@ -4,6 +4,7 @@
 
 - [] publish initial version to https://theokrueger.dev/
 - [] localisation eventually
+- [] seo
 
 ## main.tmpl
 
@@ -17,6 +18,7 @@
 
 - [] make actual posts
 - [x] tags
-- [] include edited date in postings
+  - [] tag 'search' page (man blogc-pagination; man blogc-make)
+- [x] include edited date in postings
 - [x] line up 'where' svgs properly
 - [] put some text in homepage

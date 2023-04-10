@@ -37,7 +37,7 @@ code {
     font-size: 250%;
 }
 
-.medium-font, contentformat div text, contentformat div p {
+.medium-font, contentformat div text, contentformat div p, contentformat div toc {
     font-size: 150%;
 }
 
@@ -299,7 +299,7 @@ ol li a {
     .subtitle-font, contentformat div h1 {
         font-size: 3.5vw;
     }
-    .medium-font, contentformat div text, contentformat div p {
+    .medium-font, contentformat div text, contentformat div p, contentformat div toc {
         font-size: 2.75vw;
     }
     .small-font {
@@ -350,8 +350,5 @@ contentformat div toc ul li a {
     color: #000;
     text-decoration: none;
 }
-contentformat div toc {
-    /* table of contents */
-    font-size: 3vw;
-}
+contentformat div toc { /* inherits from medium-font */ }
 /* END content formatting */

@@ -151,7 +151,7 @@
               </group>
               {% endif %}
 
-              read more --><span class="collapse-child"></span>
+              read more --&gt<span class="collapse-child"></span>
             </p>
           </span>
         </a>
@@ -213,13 +213,13 @@
         <!-- START pagination -->
         <div style="padding: 0px;">
           <p style="text-align: center;" class="medium-font">
-            {% if FIRST_PAGE < PREVIOUS_PAGE %}<a class="nodecorate" href="{{ BASE_URL }}/blog/page/{{ FIRST_PAGE }}" style="text-align: left; padding: 1.5%;"> [<< </a> {% endif %}
+            {% if FIRST_PAGE < PREVIOUS_PAGE %} <a class="nodecorate" href="{{ BASE_URL }}/blog/page/{{ FIRST_PAGE }}" style="text-align: left; padding: 1.5%;"> [&lt&lt </a> {% endif %}
 
-            {% ifdef PREVIOUS_PAGE %}<a href="{{ BASE_URL }}/blog/page/{{ PREVIOUS_PAGE }}" class="nodecorate" style="text-align: left; padding: 1.5%;"> <-- </a> {% endif %}
+            {% ifdef PREVIOUS_PAGE %} <a href="{{ BASE_URL }}/blog/page/{{ PREVIOUS_PAGE }}" class="nodecorate" style="text-align: left; padding: 1.5%;"> &lt-- </a> {% endif %}
             <text> page {{ CURRENT_PAGE }} of {{ LAST_PAGE }} </text>
-            {% ifdef NEXT_PAGE %}<a href="{{ BASE_URL }}/blog/page/{{ NEXT_PAGE }}" class="nodecorate" style="text-align: right; padding: 1.5%;"> --> </a> {% endif %}
+            {% ifdef NEXT_PAGE %}<a href="{{ BASE_URL }}/blog/page/{{ NEXT_PAGE }}" class="nodecorate" style="text-align: right; padding: 1.5%;"> --&gt </a> {% endif %}
 
-            {% if LAST_PAGE > NEXT_PAGE %}<a class="nodecorate" href="{{ BASE_URL }}/blog/page/{{ LAST_PAGE }}" style="text-align: right; padding: 1.5%;"> >>] </a> {% endif %}
+            {% if LAST_PAGE > NEXT_PAGE %}<a class="nodecorate" href="{{ BASE_URL }}/blog/page/{{ LAST_PAGE }}" style="text-align: right; padding: 1.5%;"> &gt&gt] </a> {% endif %}
           </p>
         </div>
         <!-- END pagination -->

@@ -63,5 +63,5 @@ click on the image to open the post
 
 </span>
 <p style="text-align: right;" class="medium-font collapse-parent"><a href="blog/index.html" class="nodecorate">
-    see all posts --><span class="collapse-child"></span>
+    see all posts --&gt<span class="collapse-child"></span>
 </a></p>

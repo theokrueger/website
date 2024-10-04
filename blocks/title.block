@@ -4,12 +4,25 @@
 style: |
   .blink \{
     animation: blinker 1s step-start infinite;
-    color: var(--highlight-color);
+    color: transparent;
   }
 
   @keyframes blinker \{
-    50% \{
+    0% \{
+      display: none;
       color: transparent;
+    }
+    50% \{
+      display: none;
+      color: transparent;
+    }
+    51% \{
+      display: inline;
+      color: var(--highlight-color);
+    }
+    100% \{
+      display: inline;
+      color: var(--highlight-color);
     }
   }
 
@@ -20,7 +33,7 @@ div:
         - '{TITLE}'
         - t:
             - _class: blink
-            - '█'
+            - '&block;'
       _class: huge-font
   - br: ''
   - span:

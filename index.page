@@ -1,0 +1,26 @@
+# theokrueger.dev index
+# (c) theokrueger 2024
+# GPL-3.0 Licensed
+
+html:
+  - !DEF ['PAGE_TITLE', 'index']
+  - !INCLUDE /blocks/head.block
+  - body:
+      - !INCLUDE /blocks/title.block
+      - !INCLUDE /blocks/footer.block
+      - div:
+          _id: recent
+          h1: Recent Posts
+          h2: 'Updated {TODAY}'
+          ul:
+            - li: item1
+            - li: item2
+            - li: item3
+      - div:
+          _id: about
+          h1: title test
+          h2: subtitle test
+          p: body text
+      - div:
+          _style: 'height: 200vh;'
+          a: 'test'

@@ -1,0 +1,34 @@
+# theokrueger.dev title block
+# (c) theokrueger 2024
+# GPL-3.0 Licensed
+style: |
+  .blink \{
+    animation: blinker 1s step-start infinite;
+    color: var(--highlight-color);
+  }
+
+  @keyframes blinker \{
+    50% \{
+      color: transparent;
+    }
+  }
+
+div:
+  - _id: title
+  - span:
+      text:
+        - '{TITLE}'
+        - t:
+            - _class: blink
+            - '█'
+      _class: huge-font
+  - br: ''
+  - span:
+      text: '{SUBTITLE}'
+      _class: large-font
+
+  - br: ''
+  - p:
+      - 'Witty one-liner goes here'
+      - _id: !IF ['{TITLE_FLAVOUR_ID}', '{TITLE_FLAVOUR_ID}', flavour-text]
+      - _align: right

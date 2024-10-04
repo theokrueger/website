@@ -1,0 +1,21 @@
+# theokrueger.dev website metadata
+# (c) theokrueger 2024
+
+# Define global variables
+- !DEF [TITLE, 'theokrueger.dev']
+- !DEF [SUBTITLE, 'Personal webpage']
+- !DEF [DESCRIPTION, "theokrueger's personal blog"]
+- !DEF [SITE_BASEURL, 'https://theokrueger.dev']
+- !DEF [CONTACT_INFO, 'contact@theokrueger.dev']
+- !DEF [KEYWORDS, 'theokrueger,blog,programming,technology']
+- !DEF [AUTHOR, theokrueger]
+- !DEF [STYLESHEET, /assets/style.css]
+- !DEF [JSFILE, /assets/script.js]
+#- !DEF [FAVICON, /assets/favicon.ico]
+- !DEF [SOURCE, 'https://gitlab.com/theokrueger/website']
+
+# Copy some files to root of output directory
+- !COPY '{STYLESHEET}'
+- !COPY '{JSFILE}'
+#- !COPY '{FAVICON}'
+- !COPY '/robots.txt'

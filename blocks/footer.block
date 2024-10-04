@@ -1,0 +1,103 @@
+# theokrueger.dev footer block
+# styled similar to emacs modeline
+# (c) theokrueger 2024
+# GPL-3.0 Licensed
+
+style: |
+  .footer \{
+    border-radius: 0px;
+    border-width: 2px;
+    border-color: var(--accent-border);
+    background-color: var(--accent-color);
+    margin: 0px;
+    width: 100vw;
+    position: fixed;
+    bottom: 0vh;
+    left: 0vh;
+    right: 100vw;
+    --footer-height: calc(100vh - var(--font-size) - 2px);
+    top: var(--footer-height);
+    padding: 2px;
+  }
+
+  .navtoggler \{
+    appearance: button;
+    cursor: pointer;
+    border-color: var(--highlight-color);
+    border-style: solid none solid none;
+    border-width: 1px 0px;
+    display: inline-block;
+  }
+
+  input[type=checkbox] \{
+    display: none;
+  }
+
+  .navbar \{
+    display: none;
+  }
+
+  \#nav-toggle:checked ~ .navbar \{
+    display: block;
+    background-color: var(--fg-color);
+    margin: 0px;
+    width: 100vw;
+    position: fixed;
+    bottom: calc(100vh - var(--footer-height));
+    left: 0vh;
+    right: 100vw;
+    padding: 2px;
+    border-color: var(--accent-color);
+    border-style: var(--border-style) none none none;
+    border-width: calc((100vh - var(--footer-height)) / pow(var(--golden-ratio), 3));
+  }
+
+
+# footer
+div:
+  - !IF ['{PAGE_TITLE}', '', !DEF ['PAGE_TITLE', 'scratch']]
+  - _class: medium-large-font footer
+  - 'U:%%@'
+  # nav toggler
+  - span:
+      _style: 'margin: 0px var(--font-size);'
+      _class: hoverable
+      label:
+        - _class: navtoggler
+        - _for: nav-toggle
+        - '{PAGE_TITLE} ^'
+      input:
+        _id: nav-toggle
+        _type: checkbox
+        _autocomplete: 'off'
+      # navigation bar
+      span:
+        _class: navbar
+        ul:
+          - li: one
+          - li: two
+          - li: three
+
+  # home button
+  - a:
+      - _id: 'scroll-progress'
+      - _class: nodecorate hoverable
+      - _href: '#title'
+      - 'Top'
+
+  # right side
+  - span:
+      - _style: 'padding-right: var(--font-size); float: right;'
+      - a:
+          _href: 'mailto:{CONTACT_INFO}'
+          _class: nodecorate hoverable
+          c:
+            _class: rotate-90
+            t: ©
+          t: 'theokrueger'
+      - ' | '
+      - a:
+          _class: nodecorate hoverable
+          _href: '{SOURCE}'
+          _target: '_blank'
+          t: source

@@ -50,11 +50,22 @@ style: |
     border-color: var(--accent-color);
     border-style: var(--border-style) none none none;
     border-width: calc((100vh - var(--footer-height)) / pow(var(--golden-ratio), 3));
+    box-shadow: 0px -9px 9px var(--tint-color);
   }
 
   .navbar * \{
+    margin: 0px;
+    padding: 0px var(--default-padding);
     text-decoration: none;
     color: var(--text-color);
+  }
+
+  .navbar > ul * \{
+    width: 100vw;
+  }
+
+  .navbar > ul > li:hover \{
+    background-color: var(--selection-color);
   }
 
 
@@ -82,22 +93,18 @@ div:
           - _style: 'list-style-type: none;'
           - li:
               a:
-                - _class: hoverable
                 - _href: '/'
                 - Home
           - li:
               a:
-                - _class: hoverable
                 - _href: '/posts'
                 - Posts
           - li:
               a:
-                - _class: hoverable
                 - _href: '/portfolio'
                 - Portfolio
           - li:
               a:
-                - _class: hoverable
                 - _href: '/about'
                 - About
 

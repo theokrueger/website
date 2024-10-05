@@ -7,7 +7,7 @@ console.log('javascript enabled for this webpage');
 
 /* Replace the flavour text with a random selection */
 const idsToModify = {
-    'flavour-text' : [
+    'generic-flavour' : [
         'anti-lua activist',
         'button box enthusiast',
         'datamania is real',
@@ -15,9 +15,11 @@ const idsToModify = {
         'commit victimless crimes',
         'on the beatfloor',
         'jumping over lazy dogs',
-	'ema(cs)xxing'
+	'ema(cs)xxing',
+	'subtitles are hard',
+	'read the EULA!!1!',
     ],
-    'about-subtitle' : [
+    'about-flavour' : [
         'RTFM',
         'man theokrueger.dev',
         'tldr: website',

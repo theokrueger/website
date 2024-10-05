@@ -3,9 +3,10 @@
 # GPL-3.0 Licensed
 
 html:
-  - !DEF ['PAGE_TITLE', 'index']
+  - !DEF [FOOTER_NAME, index]
   - !INCLUDE /blocks/head.block
   - body:
+      - !DEF [TITLE_FLAVOUR_ID, generic-flavour]
       - !INCLUDE /blocks/title.block
       - !INCLUDE /blocks/footer.block
       - div:

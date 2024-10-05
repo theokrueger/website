@@ -1,0 +1,17 @@
+# theokrueger.dev index
+# (c) theokrueger 2024
+# GPL-3.0 Licensed
+
+html:
+  - !DEF [TITLE, '{TITLE}/about']
+  - !DEF [FOOTER_NAME, about]
+  - !INCLUDE /blocks/head.block
+  - body:
+      - !DEF [TITLE_FLAVOUR_ID, about-flavour]
+      - !INCLUDE /blocks/title.block
+      - !INCLUDE /blocks/footer.block
+      - div:
+          h1: Who
+          p: ash
+      - div:
+          h1:  ash

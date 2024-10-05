@@ -1,0 +1,12 @@
+# theokrueger.dev index
+# (c) theokrueger 2024
+# GPL-3.0 Licensed
+
+html:
+  - !DEF [TITLE, '{TITLE}/portfolio']
+  - !DEF [FOOTER_NAME, portfolio]
+  - !INCLUDE /blocks/head.block
+  - body:
+      - !DEF [TITLE_FLAVOUR_ID, generic-flavour]
+      - !INCLUDE /blocks/title.block
+      - !INCLUDE /blocks/footer.block

@@ -23,7 +23,9 @@ style: |
 div:
   - _id: title
   - span:
-      text:
+      a:
+        - _href: '/index.html'
+        - _class: nodecorate
         - '{TITLE}'
         - t:
             - _class: blink
@@ -37,5 +39,5 @@ div:
   - br: ''
   - p:
       - 'Witty one-liner goes here'
-      - _id: !IF ['{TITLE_FLAVOUR_ID}', '{TITLE_FLAVOUR_ID}', flavour-text]
+      - _id: !IF ['{TITLE_FLAVOUR_ID}', '{TITLE_FLAVOUR_ID}', generic-flavour]
       - _align: right

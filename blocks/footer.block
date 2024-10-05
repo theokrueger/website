@@ -52,10 +52,15 @@ style: |
     border-width: calc((100vh - var(--footer-height)) / pow(var(--golden-ratio), 3));
   }
 
+  .navbar * \{
+    text-decoration: none;
+    color: var(--text-color);
+  }
+
 
 # footer
 div:
-  - !IF ['{PAGE_TITLE}', '', !DEF ['PAGE_TITLE', 'scratch']]
+  - !IF ['{FOOTER_NAME}', '', !DEF ['FOOTER_NAME', 'scratch']]
   - _class: medium-large-font footer
   - 'U:%%@'
   # nav toggler
@@ -65,7 +70,7 @@ div:
       label:
         - _class: navtoggler
         - _for: nav-toggle
-        - '{PAGE_TITLE} ^'
+        - '{FOOTER_NAME} ^'
       input:
         _id: nav-toggle
         _type: checkbox
@@ -74,9 +79,27 @@ div:
       span:
         _class: navbar
         ul:
-          - li: one
-          - li: two
-          - li: three
+          - _style: 'list-style-type: none;'
+          - li:
+              a:
+                - _class: hoverable
+                - _href: '/'
+                - Home
+          - li:
+              a:
+                - _class: hoverable
+                - _href: '/posts'
+                - Posts
+          - li:
+              a:
+                - _class: hoverable
+                - _href: '/portfolio'
+                - Portfolio
+          - li:
+              a:
+                - _class: hoverable
+                - _href: '/about'
+                - About
 
   # home button
   - a:
@@ -98,6 +121,6 @@ div:
       - ' | '
       - a:
           _class: nodecorate hoverable
-          _href: '{SOURCE}'
+          _href: '{SITE_SOURCE}'
           _target: '_blank'
           t: source

@@ -8,7 +8,7 @@ pages:
     - mkdir -p 'public'
   script:
     - cargo install --debug ssgen
-    - ssgen --debug --input ./ --output ./public
+    - ssgen --enable-shell --debug --input ./ --output ./public
   artifacts:
     paths:
       - public

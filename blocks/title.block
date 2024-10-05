@@ -8,18 +8,12 @@ style: |
   }
 
   @keyframes blinker \{
-    0% \{
-      display: none;
-      color: transparent;
-    }
+    0%,
     50% \{
       display: none;
       color: transparent;
     }
-    51% \{
-      display: inline;
-      color: var(--highlight-color);
-    }
+    51%,
     100% \{
       display: inline;
       color: var(--highlight-color);

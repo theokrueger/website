@@ -11,7 +11,7 @@ html:
       - div:
           _id: recent
           h1: Recent Posts
-          h2: 'Updated {TODAY}'
+          h2: 'Updated {DATE_BUILT} {TIME_BUILT}'
           ul:
             - li: item1
             - li: item2

@@ -42,11 +42,26 @@ head:
       ' ',
     ]
   ]
-  # favicon
-  - !IF ['{FAVICON}',
-    link: {
-      _rel: 'icon',
-      _type: 'image/x-icon',
-      _href: '{FAVICON}',
-    }
-  ]
+  # favicon from https://favicon.io/favicon-converter/
+  - !DEF ['FAVICON_DIR', '/assets/favicon']
+  - link:
+      _rel: 'icon'
+      _type: 'image/x-icon'
+      _href: '{FAVICON_DIR}/favicon.ico'
+  - link:
+      _rel: 'icon'
+      _type: 'image/png'
+      _sizes: '32x32'
+      _href: '{FAVICON_DIR}/favicon-32x32.png'
+  - link:
+      _rel: 'icon'
+      _type: 'image/png'
+      _sizes: '16x16'
+      _href: '{FAVICON_DIR}/favicon-16x16.png'
+  - link:
+      _rel: 'apple-touch-icon'
+      _sizes: '180x180'
+      _href: '{FAVICON_DIR}/apple-touch-icon.png'
+  - link:
+      _rel: 'manifest'
+      _href: '{FAVICON_DIR}/site.webmanifest'

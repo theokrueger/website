@@ -11,11 +11,13 @@
 - !DEF [AUTHOR, theokrueger]
 - !DEF [STYLESHEET, /assets/style.css]
 - !DEF [JSFILE, /assets/script.js]
-#- !DEF [FAVICON, /assets/favicon.ico]
 - !DEF [SOURCE, 'https://gitlab.com/theokrueger/website']
 
+# Automatically generated vars
+- !DEF [DATE_BUILT, !SHELL_CMD [date, '+%F']]
+- !DEF [TIME_BUILT, !SHELL_CMD [date, '+%R']]
+- !DEF [VERSION, !SHELL_CMD [ssgen, '--version']]
+
 # Copy some files to root of output directory
-- !COPY '{STYLESHEET}'
-- !COPY '{JSFILE}'
-#- !COPY '{FAVICON}'
+- !COPY_DIR '/assets'
 - !COPY '/robots.txt'

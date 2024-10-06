@@ -52,9 +52,4 @@ html:
                   _href: '/assets/TOS.txt'
                   _target: '_blank'
                   t: 'Terms of Service'
-              - ' and the '
-              - a:
-                  _href: '/assets/EULA.txt'
-                  _target: '_blank'
-                  t: 'End-User License Agreement'
               - ' (real).'

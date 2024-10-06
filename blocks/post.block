@@ -7,17 +7,28 @@
   # summary or list format
   - !IF
       - '{POST_SUMMARY_ONLY}'
-      # summary
-      - 'TODO summary'
+      # summary format
+      - [
+        p: {g: ' > ', a: [_href: '{LINK_TO_POST}', '{TITLE}'], t: ' - {DATE_CREATED}', _class: medium-font},
+        p: [!SUBSTRING [0, 250, '{POST_SUMMARY}',], '...', _class: small-font],
+      ]
       # list format
       - [
-        a: [_href: '{LINK_TO_POST}', '{TITLE}'],
-        ' - {SUBTITLE}'
+        a: [_href: '{LINK_TO_POST}', '{TITLE}',],
+        ' - {SUBTITLE}',
       ]
   # full page format
   - html:
       - !INCLUDE /blocks/head.block
       - body:
-          - !INCLUDE /blocks/title.block
+          - !DEF [
+              SUBSUBTITLE,
+              [
+                !IF ['{DATE_CREATED}', 'Created: {DATE_CREATED}',],
+                !IF ['{DATE_CREATED}', !IF ['{DATE_MODIFIED}', '<br/>'],],
+                !IF ['{DATE_MODIFIED}', 'Updated: {DATE_MODIFIED}',],
+              ],
+            ]
           - !INCLUDE /blocks/footer.block
+          - !INCLUDE /blocks/title.block
           - '{POST_CONTENT}'

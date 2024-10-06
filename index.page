@@ -7,8 +7,26 @@ html:
   - !INCLUDE /blocks/head.block
   - body:
       - !DEF [TITLE_FLAVOUR_ID, generic-flavour]
-      - !INCLUDE /blocks/title.block
       - !INCLUDE /blocks/footer.block
+      - !INCLUDE /blocks/title.block
       - div:
-          h1: Work in progress
-          p: Check back in a (long) while to see something.
+          - h1: Recent Posts
+          - !DEF [POST_SUMMARY_ONLY, 'true']
+          - !FOREACH [
+              [page],
+              [
+                !DEF [LINK_TO_POST, '/posts/{page}.html'],
+                !INCLUDE '/posts/{page}.page',
+              ],
+              ['2024/genesis'],
+            ]
+      - div:
+          - h1: Best Posts
+          - !DEF [POST_SUMMARY_ONLY, 'true']
+          - !FOREACH [
+              [page],
+              [
+                !DEF [LINK_TO_POST, '/posts/{page}.html'],
+                !INCLUDE '/posts/{page}.page',
+              ],
+            ]

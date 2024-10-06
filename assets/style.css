@@ -21,6 +21,7 @@
 
   --default-margin: 5px;
   --default-padding: 10px;
+  --content-side-margin: 15vw;
 
   --text-color: #101010;
 
@@ -46,7 +47,7 @@ h2 {
 div {
   border-radius: var(--border-radius);
   background-color: var(--fg-color);
-  margin: var(--default-margin);
+  margin: var(--default-margin) calc(var(--default-margin) + var(--content-side-margin));
   border-color: var(--border-color);
   border-style: var(--border-style);
   border-width: var(--border-width);
@@ -97,12 +98,12 @@ p,
 text,
 li,
 h3 {
-  --font-size: calc(var(--default-font-scale) * pow(var(--golden-ratio), 0.66));
+  --font-size: calc(var(--default-font-scale) * pow(var(--golden-ratio), 0.5));
   font-size: var(--font-size);
 }
 
 .small-font {
-  --font-size: calc(var(--default-font-scale) * pow(var(--golden-ratio), 0.5));
+  --font-size: calc(var(--default-font-scale) * pow(var(--golden-ratio), 0.2));
   font-size: var(--font-size);
 }
 /* END fonts */
@@ -131,11 +132,16 @@ h3 {
 
 /* START media queries */
 /* START phone sized */
+@media only screen and (max-width: 1280px) {
+  :root {
+    --content-side-margin: 0px;
+  }
+}
 @media only screen and (max-width: 800px) {
   /* START mobile fonts */
   .huge-font {
     --font-size: calc(
-      var(--default-font-scale) * pow(var(--golden-ratio), 1.75)
+      var(--default-font-scale) * pow(var(--golden-ratio), 1.5)
     );
     font-size: var(--font-size);
   }
@@ -143,14 +149,14 @@ h3 {
   .large-font,
   h1 {
     --font-size: calc(
-      var(--default-font-scale) * pow(var(--golden-ratio), 1.5)
+      var(--default-font-scale) * pow(var(--golden-ratio), 1)
     );
     font-size: var(--font-size);
   }
 
   .medium-large-font,
   h2 {
-    --font-size: calc(var(--default-font-scale) * pow(var(--golden-ratio), 1));
+    --font-size: calc(var(--default-font-scale) * pow(var(--golden-ratio), 0.5));
     font-size: var(--font-size);
   }
 
@@ -160,14 +166,14 @@ h3 {
   li,
   h3 {
     --font-size: calc(
-      var(--default-font-scale) * pow(var(--golden-ratio), 0.75)
+      var(--default-font-scale) * pow(var(--golden-ratio), 0)
     );
     font-size: var(--font-size);
   }
 
   .small-font {
     --font-size: calc(
-      var(--default-font-scale) * pow(var(--golden-ratio), 0.5)
+      var(--default-font-scale) * pow(var(--golden-ratio), -0.5)
     );
     font-size: var(--font-size);
   }
@@ -180,21 +186,21 @@ h3 {
   /* START tiny fonts */
   .huge-font {
     --font-size: calc(
-      var(--default-font-scale) * pow(var(--golden-ratio), 1.25)
+      var(--default-font-scale) * pow(var(--golden-ratio), 1)
     );
     font-size: var(--font-size);
   }
 
   .large-font,
   h1 {
-    --font-size: calc(var(--default-font-scale) * pow(var(--golden-ratio), 1));
+    --font-size: calc(var(--default-font-scale) * pow(var(--golden-ratio), 0.75));
     font-size: var(--font-size);
   }
 
   .medium-large-font,
   h2 {
     --font-size: calc(
-      var(--default-font-scale) * pow(var(--golden-ratio), 0.75)
+      var(--default-font-scale) * pow(var(--golden-ratio), 0.5)
     );
     font-size: var(--font-size);
   }
@@ -205,14 +211,14 @@ h3 {
   li,
   h3 {
     --font-size: calc(
-      var(--default-font-scale) * pow(var(--golden-ratio), 0.5)
+      var(--default-font-scale) * pow(var(--golden-ratio), 0)
     );
     font-size: var(--font-size);
   }
 
   .small-font {
     --font-size: calc(
-      var(--default-font-scale) * pow(var(--golden-ratio), 0.35)
+      var(--default-font-scale) * pow(var(--golden-ratio), -0.5)
     );
     font-size: var(--font-size);
   }

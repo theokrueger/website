@@ -36,4 +36,5 @@ div:
   - br: ''
     # optional subtitle
   - !IF ['{SUBTITLE}', {span: ['{SUBTITLE}', _class: large-font], br: ''}]
-  - !IF ['{TITLE_FLAVOUR_ID}', {p: ['Witty one-liner goes here', _id: '{TITLE_FLAVOUR_ID}', _align: right]}]
+  - !IF ['{TITLE_FLAVOUR_ID}', {p: ['Witty one-liner goes here', _class: small-font, _id: '{TITLE_FLAVOUR_ID}', _align: right]}]
+  - !IF ['{SUBSUBTITLE}', {p: ['{SUBSUBTITLE}', _class: small-font, _align: right]}]

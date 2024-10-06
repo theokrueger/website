@@ -3,18 +3,36 @@
 # GPL-3.0 Licensed
 
 - !DEF [TITLE, Genesis]
-- !DEF [SUBTITLE, Not that one book...]
+- !DEF [SUBTITLE, 'No, not the book.']
 - !DEF [FOOTER_NAME, genesis]
-- !DEF [TITLE_FLAVOUR_ID, '']
-
+- !DEF [TITLE_FLAVOUR_ID, ''] # no flavor text
+- !DEF [DATE_CREATED, '2024-10-06']
+- !DEF [DATE_MODIFIED, '']
+- !DEF [
+    POST_SUMMARY,
+    "I created this website. There really isn't much to say about something as menial as that.
+    Of course, I could pretend to have some grand vision of what this site is going to be, and that
+    one day I might look back proudly on what I have made and be proud of the quality posts I've made.
+    But I shouldn't have to explain why that's stupid."
+  ]
 ---
 
 !DEF
   - POST_CONTENT
-  - div:
-      h1: In the beginning...
-      p: There was nothing
-
+  - post:
+      - div:
+          - h1: In the beginning...
+          - p: '{POST_SUMMARY}'
+          - p: |
+              In reality, the sole purpose of this site is to serve as my long term memory.
+              There are countless projects and ambitions of old that, for one reason or another, have
+              entirely excused themselves from my mindspace. For the things important enough to
+              spend a few minutes typing about here, I hopefully can invite them back into my head
+              some time in the future. Plus, I need something to put on a business card :D
+          - p: |
+              That's it. Thats the first post. Pretty underwhelming you say? Yeah, probably.
+              I only really needed some text here to make the post template. Should have just used
+              Lorem Ipsum... Enjoy the website.
 ---
 
 !INCLUDE '/blocks/post.block'

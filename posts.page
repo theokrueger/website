@@ -9,16 +9,16 @@ html:
   - !INCLUDE /blocks/head.block
   - body:
       - !DEF [TITLE_FLAVOUR_ID, generic-flavour]
-      - !INCLUDE /blocks/title.block
       - !INCLUDE /blocks/footer.block
-  - !DEF [POST_LIST_ONLY, 'true']
-  - div:
-    - h1: 2024
-    - !FOREACH [
-        [page],
-        [
-          !DEF ['LINK_TO_POST', '/posts/2024/{page}.html'],
-          p: !INCLUDE '/posts/2024/{page}.page'
-        ],
-        [genesis],
-      ]
+      - !INCLUDE /blocks/title.block
+      - !DEF [POST_LIST_ONLY, 'true']
+      - div:
+        - h1: 2024
+        - !FOREACH [
+            [page],
+            [
+              !DEF ['LINK_TO_POST', '/posts/2024/{page}.html'],
+              p: !INCLUDE '/posts/2024/{page}.page'
+            ],
+            [genesis],
+          ]

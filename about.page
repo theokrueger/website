@@ -9,8 +9,8 @@ html:
   - !INCLUDE /blocks/head.block
   - body:
       - !DEF [TITLE_FLAVOUR_ID, about-flavour]
-      - !INCLUDE /blocks/title.block
       - !INCLUDE /blocks/footer.block
+      - !INCLUDE /blocks/title.block
       - div:
           - h1: Who
           - p:

@@ -19,6 +19,7 @@ const idsToModify = {
 	'ema(cs)xxing',
 	'subtitles are hard',
 	'read the EULA!!1!',
+	'addicted to efficiency',
     ],
     'about-flavour' : [
         'RTFM',
@@ -66,8 +67,8 @@ async function typeElement(elem, addRandomFlair) {
 	elem.innerHTML += txt.charAt(i);
     }
 
-    // 10% mhankce for random flair
-    if (addRandomFlair && Math.random() < 0.1) {
+    // 10% chance for random flair
+    if (addRandomFlair && Math.random() < 0.06) {
 	// type flair
 	await sleep(Math.random() * 5000 + 1000);
 	const flair = " " + typingFlairs[Math.floor(Math.random() * typingFlairs.length)];
@@ -77,7 +78,7 @@ async function typeElement(elem, addRandomFlair) {
 	}
 
 	// remove flair
-	await sleep(Math.random() * 5000 + 1000);
+	await sleep(Math.random() * 3000 + 1000);
 	for (let i=flair.length; i >= 0; i--) {
 	    await sleep(typingSpeed * 3);
 	    elem.innerHTML = elem.innerHTML.substring(0, len + i);
@@ -86,4 +87,5 @@ async function typeElement(elem, addRandomFlair) {
 }
 
 /* type some elements */
-typeElement(document.getElementById("title-text"), true);
+const shouldAddFlair = !window.location.pathname.includes('/posts/');
+typeElement(document.getElementById("title-text"), shouldAddFlair);

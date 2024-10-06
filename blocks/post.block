@@ -1,0 +1,23 @@
+# theokrueger.dev index
+# (c) theokrueger 2024
+# GPL-3.0 Licensed
+
+!IF
+  - '{POST_SUMMARY_ONLY}{POST_LIST_ONLY}'
+  # summary or list format
+  - !IF
+      - '{POST_SUMMARY_ONLY}'
+      # summary
+      - 'TODO summary'
+      # list format
+      - [
+        a: [_href: '{LINK_TO_POST}', '{TITLE}'],
+        ' - {SUBTITLE}'
+      ]
+  # full page format
+  - html:
+      - !INCLUDE /blocks/head.block
+      - body:
+          - !INCLUDE /blocks/title.block
+          - !INCLUDE /blocks/footer.block
+          - '{POST_CONTENT}'

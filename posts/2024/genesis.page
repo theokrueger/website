@@ -1,0 +1,20 @@
+# theokrueger.dev index
+# (c) theokrueger 2024
+# GPL-3.0 Licensed
+
+- !DEF [TITLE, Genesis]
+- !DEF [SUBTITLE, Not that one book...]
+- !DEF [FOOTER_NAME, genesis]
+- !DEF [TITLE_FLAVOUR_ID, '']
+
+---
+
+!DEF
+  - POST_CONTENT
+  - div:
+      h1: In the beginning...
+      p: There was nothing
+
+---
+
+!INCLUDE '/blocks/post.block'

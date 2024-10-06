@@ -108,9 +108,9 @@ h3 {
 /* END fonts */
 
 /* START modifiers */
-.rotate-90 {
+.rotate-180 {
   position: relative;
-  transform: rotate(-180deg) translate(0, calc());
+  transform: rotate(-180deg);
   display: inline-block;
 }
 

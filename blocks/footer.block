@@ -127,7 +127,7 @@ div:
           _href: 'mailto:{CONTACT_INFO}'
           _class: nodecorate hoverable
           c:
-            _class: rotate-90
+            _class: rotate-180
             t: ©
           t: 'theokrueger'
       - ' | '

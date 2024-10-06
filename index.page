@@ -10,18 +10,5 @@ html:
       - !INCLUDE /blocks/title.block
       - !INCLUDE /blocks/footer.block
       - div:
-          _id: recent
-          h1: Recent Posts
-          h2: 'Updated {DATE_BUILT} {TIME_BUILT}'
-          ul:
-            - li: item1
-            - li: item2
-            - li: item3
-      - div:
-          _id: about
-          h1: title test
-          h2: subtitle test
-          p: body text
-      - div:
-          _style: 'height: 200vh;'
-          a: 'test'
+          h1: Work in progress
+          p: Check back in a (long) while to see something.

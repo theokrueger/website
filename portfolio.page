@@ -5,8 +5,28 @@
 html:
   - !DEF [TITLE, '{TITLE}/portfolio']
   - !DEF [FOOTER_NAME, portfolio]
+  - !DEF [SUBTITLE, 'Public Projects Portfolio']
   - !INCLUDE /blocks/head.block
   - body:
       - !DEF [TITLE_FLAVOUR_ID, generic-flavour]
       - !INCLUDE /blocks/title.block
       - !INCLUDE /blocks/footer.block
+      - div:
+          - h1: 2024
+          - p:
+              - a:
+                  - _href: 'https://crates.io/crates/ssgen'
+                  - SSGen
+              - ' - A [S]tatic [S]ite [Gen]erator written in Rust'
+          - p:
+              - a:
+                  - _href: '/posts/buckshock-roulette'
+                  - Buckshock Roulette
+              - ' - A painful IRL gambling game based on Buckshot Roulette'
+      - div:
+          - h1: 2023 and Earlier
+          - p:
+              - a:
+                  - _href: 'https://modworkshop.net/user/oruga'
+                  -  Modworkshop Profile
+              - ' - A collection of mods for 2015 game PAYDAY 2'

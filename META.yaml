@@ -16,7 +16,7 @@
 # Automatically generated vars
 - !DEF [DATE_BUILT, !SHELL_CMD [date, '+%F']]
 - !DEF [TIME_BUILT, !SHELL_CMD [date, '+%R']]
-- !DEF [VERSION, !SHELL_CMD [ssgen, '--version']]
+- !DEF [SSGEN_VERSION, !SHELL_CMD [ssgen, '--version']]
 
 # Copy some files to root of output directory
 - !COPY_DIR '/assets'

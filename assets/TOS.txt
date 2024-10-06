@@ -1,0 +1,47 @@
+TERMS OF SERVICE:
+  Please read the following Terms of Service carefully.
+
+CONDITIONS OF USE:
+    If you are a human, partially human, previously human, or will be a human
+  in the future, you are permitted to interact with this website according to
+  the terms dictated in this document. Likewise, dogs, cats, elephants, platypi,
+  kangaroos, cheetahs, koalas, pandas, and all other mammals EXCEPT for
+  the Javan Tiger or friends of any Javan Tigers are permitted to interact
+  with this website. Insects are not permitted, with the exception of any
+  caterpillars or ex-caterpillars. (Ex-caterpillars who have been reincarnated
+  do not count as caterpillars, but reincarnated Javan tigers still count as
+  Javan tigers).
+
+    If you do not fall into the previous categories, you may submit an appeal
+  to my lawyer (who I will not be providing the contact form, since they are
+  very shy). If your appeal is approved, you will be thenafter allowed to use
+  this site according to the same restrictions as a human.
+
+    Exceptions are not and will not be granted to any automated scraping tools,
+  especially any tools whose outputs are used in any capacity for training
+  ("learning", "teaching") of any programs utilising neural networks or other
+  forms of artificial intelligence ("AI").
+
+PRIVACY POLICY:
+    No data of any kind is collected by this website(to my knowledge, there may
+  be a few cameras hidden in a tree outside your home, but those have absolutely
+  nothing to do with me).
+
+    This website is hosted using GitLab Pages, so refer to their privacy
+  policy to really know if this is spyware.
+
+COPYWRONG:
+    The content on this website is provided for the noble cause of worsening
+  humanity according to the terms of the GNU General Public License Version 3.
+
+    Note that since the current state of Large Language Models ("LLM", "LLMs")
+  cannot guarantee these terms are respected, they are explicitly forbidden from
+  utilising the content on this site in any way, shape, or form.
+
+COMMUNICATIONS:
+    Contact me via email with a warrant for my arrest so I can consider fleeing
+  to a foreign country.
+
+APPLICABLE LAW:
+    The law is a social construct, so if you simply do not believe in it then
+  it will not exist.

@@ -32,11 +32,8 @@ div:
             - '&block;'
       _class: huge-font
   - br: ''
-  - span:
-      text: '{SUBTITLE}'
-      _class: large-font
-
-  - br: ''
+    # optional subtitle
+  - !IF ['{SUBTITLE}', {span: ['{SUBTITLE}', _class: large-font], br: ''}]
   - p:
       - 'Witty one-liner goes here'
       - _id: !IF ['{TITLE_FLAVOUR_ID}', '{TITLE_FLAVOUR_ID}', generic-flavour]

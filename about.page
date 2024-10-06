@@ -4,6 +4,7 @@
 
 html:
   - !DEF [TITLE, '{TITLE}/about']
+  - !DEF [SUBTITLE, '']
   - !DEF [FOOTER_NAME, about]
   - !INCLUDE /blocks/head.block
   - body:
@@ -11,7 +12,49 @@ html:
       - !INCLUDE /blocks/title.block
       - !INCLUDE /blocks/footer.block
       - div:
-          h1: Who
-          p: ash
+          - h1: Who
+          - p:
+              - 'Anything that would be included here can instead be found by viewing either my '
+              - a:
+                  - _href: '/portfolio'
+                  - Portfolio
+              - ' or my '
+              - a:
+                  - _href: '/posts'
+                  - Posts
+              - '.'
       - div:
-          h1:  ash
+          - h1: How
+          - p:
+              - 'Built using '
+              - a:
+                  _href: 'https://crates.io/crates/ssgen'
+                  t: '{SSGEN_VERSION}'
+          - p:
+              - 'Styled after Emacs and the deprecated '
+              - a:
+                  _href: 'https://git.savannah.gnu.org/cgit/emacs.git/tree/etc/themes/light-blue-theme.el'
+                  t: 'light-blue-theme.el'
+          - p:
+              - 'View the source code for this page '
+              - a:
+                  _href: '{SITE_SOURCE}'
+                  t: here
+              - '.'
+          - p:
+              - 'Contact me through email at '
+              - a:
+                  _href: 'mailto:{CONTACT_INFO}'
+                  t: '{CONTACT_INFO}'
+          - p:
+              - 'By browsing (or scraping) this site, you agree to the '
+              - a:
+                  _href: '/assets/TOS.txt'
+                  _target: '_blank'
+                  t: 'Terms of Service'
+              - ' and the '
+              - a:
+                  _href: '/assets/EULA.txt'
+                  _target: '_blank'
+                  t: 'End-User License Agreement'
+              - ' (real).'

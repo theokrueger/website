@@ -68,6 +68,11 @@ style: |
     background-color: var(--selection-color);
   }
 
+  .navbar > ul > li > a \{
+    width: 100vw;
+    display: block;
+  }
+
 
 # footer
 div:

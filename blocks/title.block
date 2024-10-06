@@ -10,13 +10,13 @@ style: |
   @keyframes blinker \{
     0%,
     50% \{
-      display: none;
-      color: transparent;
+      display: inline;
+      color: var(--highlight-color);
     }
     51%,
     100% \{
-      display: inline;
-      color: var(--highlight-color);
+      display: none;
+      color: transparent;
     }
   }
 
@@ -24,12 +24,14 @@ div:
   - _id: title
   - span:
       a:
-        - _href: '/index.html'
-        - _class: nodecorate
-        - '{TITLE}'
-        - t:
-            - _class: blink
-            - '&block;'
+        _href: '/index.html'
+        _class: nodecorate
+        t:
+          - _id: title-text
+          - '{TITLE}'
+        b:
+          - _class: blink
+          - '&block;'
       _class: huge-font
   - br: ''
     # optional subtitle

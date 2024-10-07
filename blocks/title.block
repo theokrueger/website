@@ -10,12 +10,10 @@ style: |
   @keyframes blinker \{
     0%,
     50% \{
-      display: inline;
       color: var(--highlight-color);
     }
     51%,
     100% \{
-      display: none;
       color: transparent;
     }
   }
@@ -25,14 +23,13 @@ div:
   - span:
       a:
         _href: '/index.html'
-        _class: nodecorate
+        _class: nodecorate huge-font
         t:
           - _id: title-text
           - '{TITLE}'
         b:
           - _class: blink
           - '&block;'
-      _class: huge-font
   - br: ''
     # optional subtitle
   - !IF ['{SUBTITLE}', {span: ['{SUBTITLE}', _class: large-font], br: ''}]

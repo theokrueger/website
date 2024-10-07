@@ -12,11 +12,11 @@ style: |
     margin: 0px;
     width: 100vw;
     position: fixed;
-    bottom: 0vh;
+    bottom: 0px;
     left: 0vh;
     right: 100vw;
-    --footer-height: calc(100vh - var(--font-size) - 2px);
-    top: var(--footer-height);
+    --footer-height: calc(var(--font-size) - 8px);
+    height: var(--footer-height);
     padding: 2px;
   }
 
@@ -35,22 +35,22 @@ style: |
 
   .navbar \{
     display: none;
-  }
-
-  \#nav-toggle:checked ~ .navbar \{
-    display: block;
     background-color: var(--fg-color);
     margin: 0px;
     width: 100vw;
     position: fixed;
-    bottom: calc(100vh - var(--footer-height));
+    bottom: calc(var(--footer-height) + 8px);
     left: 0vh;
     right: 100vw;
     padding: 2px;
     border-color: var(--accent-color);
     border-style: var(--border-style) none none none;
-    border-width: calc((100vh - var(--footer-height)) / pow(var(--golden-ratio), 3));
+    border-width: calc((var(--footer-height)) / pow(var(--golden-ratio), 3));
     box-shadow: 0px -9px 9px var(--tint-color);
+  }
+
+  \#nav-toggle:checked ~ .navbar \{
+    display: block;
   }
 
   .navbar * \{

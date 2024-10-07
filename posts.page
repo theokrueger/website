@@ -17,8 +17,8 @@ html:
         - !FOREACH [
             [page],
             [
-              !DEF ['LINK_TO_POST', '/posts/2024/{page}.html'],
-              p: !INCLUDE '/posts/2024/{page}.page'
+              !DEF ['LINK_TO_POST', '/post/2024/{page}.html'],
+              p: !INCLUDE '/post/2024/{page}.page'
             ],
             [genesis],
           ]

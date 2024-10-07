@@ -15,9 +15,11 @@ style: |
     bottom: 0px;
     left: 0vh;
     right: 100vw;
-    --footer-height: calc(var(--font-size) - 8px);
+    --footer-height: calc(var(--font-size) + env(safe-area-inset-bottom, 0));
     height: var(--footer-height);
-    padding: 2px;
+    padding: 0px;
+    margin: 0px;
+    z-index: 1;
   }
 
   .navtoggler \{
@@ -39,7 +41,7 @@ style: |
     margin: 0px;
     width: 100vw;
     position: fixed;
-    bottom: calc(var(--footer-height) + 8px);
+    bottom: calc(var(--footer-height) + 4px); /* where does this 4px come from */
     left: 0vh;
     right: 100vw;
     padding: 2px;
@@ -47,6 +49,7 @@ style: |
     border-style: var(--border-style) none none none;
     border-width: calc((var(--footer-height)) / pow(var(--golden-ratio), 3));
     box-shadow: 0px -9px 9px var(--tint-color);
+    z-index: -1;
   }
 
   \#nav-toggle:checked ~ .navbar \{

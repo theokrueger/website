@@ -5,6 +5,7 @@
 - !DEF [TITLE, Genesis]
 - !DEF [SUBTITLE, 'No, not the book.']
 - !DEF [FOOTER_NAME, genesis]
+- !DEF [KEYWORDS, '{KEYWORDS}']
 - !DEF [TITLE_FLAVOUR_ID, ''] # no flavor text
 - !DEF [DATE_CREATED, '2024-10-06']
 - !DEF [DATE_MODIFIED, '']

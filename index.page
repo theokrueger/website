@@ -18,6 +18,7 @@ html:
                 !DEF [LINK_TO_POST, '/post/{page}.html'],
                 !INCLUDE '/post/{page}.page',
               ],
+              ['2024/robots/robots'],
               ['2024/genesis'],
             ]
       - div:
@@ -26,7 +27,8 @@ html:
           - !FOREACH [
               [page],
               [
-                !DEF [LINK_TO_POST, '/posts/{page}.html'],
-                !INCLUDE '/posts/{page}.page',
+                !DEF [LINK_TO_POST, '/post/{page}.html'],
+                !INCLUDE '/post/{page}.page',
               ],
+              ['2024/robots/robots']
             ]

@@ -20,5 +20,6 @@ html:
               !DEF ['LINK_TO_POST', '/post/2024/{page}.html'],
               p: !INCLUDE '/post/2024/{page}.page'
             ],
+            [robots/robots],
             [genesis],
           ]

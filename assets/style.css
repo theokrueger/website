@@ -26,6 +26,7 @@
   --text-color: #101010;
 
   --tint-color: #00000035;
+  --tint-color-alt: #ffffff35;
 
   background-color: var(--bg-color);
   font-family: var(--font-family);
@@ -47,7 +48,8 @@ h2 {
 div {
   border-radius: var(--border-radius);
   background-color: var(--fg-color);
-  margin: var(--default-margin) calc(var(--default-margin) + var(--content-side-margin));
+  margin: var(--default-margin)
+    calc(var(--default-margin) + var(--content-side-margin));
   border-color: var(--border-color);
   border-style: var(--border-style);
   border-width: var(--border-width);
@@ -108,6 +110,21 @@ h3 {
 }
 /* END fonts */
 
+/* START custom nodes */
+red {
+  color: red;
+}
+green {
+  color: green;
+}
+blue {
+  color: blue;
+}
+yellow {
+  color: yellow;
+}
+/* END custom nodes */
+
 /* START modifiers */
 .rotate-180 {
   position: relative;
@@ -148,15 +165,15 @@ h3 {
 
   .large-font,
   h1 {
-    --font-size: calc(
-      var(--default-font-scale) * pow(var(--golden-ratio), 1)
-    );
+    --font-size: calc(var(--default-font-scale) * pow(var(--golden-ratio), 1));
     font-size: var(--font-size);
   }
 
   .medium-large-font,
   h2 {
-    --font-size: calc(var(--default-font-scale) * pow(var(--golden-ratio), 0.5));
+    --font-size: calc(
+      var(--default-font-scale) * pow(var(--golden-ratio), 0.5)
+    );
     font-size: var(--font-size);
   }
 
@@ -165,9 +182,7 @@ h3 {
   text,
   li,
   h3 {
-    --font-size: calc(
-      var(--default-font-scale) * pow(var(--golden-ratio), 0)
-    );
+    --font-size: calc(var(--default-font-scale) * pow(var(--golden-ratio), 0));
     font-size: var(--font-size);
   }
 
@@ -185,15 +200,15 @@ h3 {
 @media only screen and (max-width: 450px) {
   /* START tiny fonts */
   .huge-font {
-    --font-size: calc(
-      var(--default-font-scale) * pow(var(--golden-ratio), 1)
-    );
+    --font-size: calc(var(--default-font-scale) * pow(var(--golden-ratio), 1));
     font-size: var(--font-size);
   }
 
   .large-font,
   h1 {
-    --font-size: calc(var(--default-font-scale) * pow(var(--golden-ratio), 0.75));
+    --font-size: calc(
+      var(--default-font-scale) * pow(var(--golden-ratio), 0.75)
+    );
     font-size: var(--font-size);
   }
 
@@ -210,9 +225,7 @@ h3 {
   text,
   li,
   h3 {
-    --font-size: calc(
-      var(--default-font-scale) * pow(var(--golden-ratio), 0)
-    );
+    --font-size: calc(var(--default-font-scale) * pow(var(--golden-ratio), 0));
     font-size: var(--font-size);
   }
 

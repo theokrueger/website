@@ -24,7 +24,7 @@ head:
   ]
   # site title
   - !IF ['{TITLE}', title: '{TITLE}']
-  # .css file
+  # main .css file
   - !IF ['{STYLESHEET}',
     link: {
       _rel: 'stylesheet',
@@ -32,7 +32,7 @@ head:
       _href: '{STYLESHEET}',
     }
   ]
-  # .js file
+  # main .js file
   - !IF ['{JSFILE}',
     script: [
       _type: 'text/javascript',
@@ -42,7 +42,7 @@ head:
       ' ',
     ]
   ]
-  # favicon from https://favicon.io/favicon-converter/
+  # FAVICON from https://favicon.io/favicon-converter/
   - !DEF ['FAVICON_DIR', '/assets/favicon']
   - link:
       _rel: 'icon'
@@ -65,3 +65,5 @@ head:
   - link:
       _rel: 'manifest'
       _href: '{FAVICON_DIR}/site.webmanifest'
+  # anything extra
+  - '{HEAD_EXTRA}'

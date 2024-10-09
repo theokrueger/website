@@ -1,0 +1,42 @@
+:root {
+  --modal-side-margin: var(--content-side-margin);
+  --modal-top-margin: 5vh;
+}
+
+button {
+  background-color: var(--tint-color-alt);
+  color: var(--text-color);
+  border-color: var(--tint-color);
+  border-style: var(--border-style);
+  border-width: 1px;
+}
+
+#blur-all {
+  display: none;
+  backdrop-filter: blur(15px) grayscale(50%);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  background: var(--tint-color-alt);
+  border-style: none;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  width: calc(90vw - var(--modal-side-margin));
+  height: auto;
+  margin: 0px;
+  border-radius: var(--border-radius);
+  background-color: var(--fg-color);
+  border-color: var(--border-color);
+  border-style: var(--border-style);
+  border-width: var(--border-width);
+  padding: var(--default-padding);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

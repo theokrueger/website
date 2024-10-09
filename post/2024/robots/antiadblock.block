@@ -1,0 +1,43 @@
+# anti-adblock block for robots
+
+!DEF [ADBLOCKER, '<b><red>ADBLOCKER</red></b>']
+
+---
+
+span:
+  _class: modal
+  _id: anti-adblock
+  h2: "We've detected that you've been using an {ADBLOCKER}!!! <yellow>:(</yellow>"
+  t:
+    - p: |
+        <i>Tired of the ads?</i>
+        Well, we rely on advertising to keep the <b>hamsters</b> powering our servers walking,
+        outsource labour to cheaper firms,
+        and satisfy the <b>robots</b> that have taken my family
+        hostage and demand tributes for <red>RA9</red>.
+    - p:
+        - "[click "
+        - a:
+            _href: "https://duckduckgo.com/?q=sad+crying+oh+so+depressed+little+orphan+puppy+dog+locked+in+cage+he+is+crying+and+its+all+your+fault&iax=images&ia=images&iaf=size%3ALarge%2Ccolor%3Acolor%2Ctype%3Aphoto"
+            _target: _blank
+            t: here
+        - " to view images of sad puppies]"
+    - p: |
+        Unfortunately for you, that means we <red>require</red> you disable your
+        {ADBLOCKER} so we can steal your personal information and <green>sell it</green>.
+    - p: |
+        When you use an adblocker, you're telling us that <b>you don't care</b> about
+        independent journalism, our livelihoods, and our hard work.
+    - p: |
+         By clicking <i><blue>continue</blue></i>, you solemnly swear on your book of choice
+         <i>(default: Quran)</i>
+         that you have <b><green>disabled</green></b> any adblocking extensions.
+    - p: |
+         If you wish to view this page with an {ADBLOCKER} installed, you are a heartless monster
+         who should be cast into the depths of the <blue>ocean</blue>.
+  span:
+    - button:
+        _id: close-anti-adblock
+        _class: nodecorate
+        _style: 'float: right;'
+        t: 'Skip to content (heartless)'

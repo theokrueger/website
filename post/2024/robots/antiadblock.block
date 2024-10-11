@@ -5,7 +5,7 @@
 ---
 
 span:
-  _class: modal
+  _class: modal center-fixed
   _id: anti-adblock
   h2: "We've detected that you've been using an {ADBLOCKER}!!! <yellow>:(</yellow>"
   t:
@@ -38,6 +38,6 @@ span:
   span:
     - button:
         _id: close-anti-adblock
-        _class: nodecorate
+        _class: nodecorate hoverable
         _style: 'float: right;'
         t: 'Skip to content (heartless)'

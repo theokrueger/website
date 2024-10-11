@@ -1,0 +1,28 @@
+# newsletter for robots
+
+span:
+  _class: modal bottom-left-fixed
+  _id: newsletter
+  _style: "width: calc(35vw - var(--modal-side-margin));"
+  button:
+    _style: "float: right;"
+    _class: nodecorate hoverable
+    _id: close-newsletter
+    t: "❌"
+  h2: "Subscribe to our Newsletter!"
+  p: |
+    Support our super awesome journalism by allowing us to sell your
+    email address to thousands of third parties! For profit!!
+  t:
+    _style: "display: block; text-align: center;"
+    input:
+      _style: "width: 80%;"
+      _type: email
+      _placeholder: you@example.com
+    span:
+      - _style: "display: block;height: 0.5vh;"
+      - ''
+    button:
+      _class: hoverable
+      _id: subscribe-newsletter
+      t: "Subscribe!"

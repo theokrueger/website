@@ -9,7 +9,7 @@
 - !DEF [FOOTER_NAME, robots]
 - !DEF [KEYWORDS, '{KEYWORDS}']
 - !DEF [TITLE_FLAVOUR_ID, ''] # no flavor text
-- !DEF [DATE_CREATED, '']
+- !DEF [DATE_CREATED, '2024-10-32']
 - !DEF [DATE_MODIFIED, '']
 - !DEF
     - POST_SUMMARY
@@ -52,12 +52,13 @@
   - !DEF
     - 'POST_CONTENT'
     - post:
+        - _id: post-content
         - span:
             - _id: blur-all
             - ' '
-        # anti adblock popup
+        # annoyances
         - !INCLUDE './antiadblock.block'
-
+        - !INCLUDE './newsletter.block'
         # site content
         - div:
             - h1: Blah Blah Blah

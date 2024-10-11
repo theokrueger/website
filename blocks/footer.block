@@ -4,6 +4,11 @@
 # GPL-3.0 Licensed
 
 style: |
+  :root \{
+    --footer-height: calc(var(--font-size) + env(safe-area-inset-bottom, 0));
+    --footer-top: calc(var(--footer-height) + 4px); /* where does this 4px come from */
+  }
+
   .footer \{
     border-radius: 0px;
     border-width: 2px;
@@ -15,7 +20,6 @@ style: |
     bottom: 0px;
     left: 0vh;
     right: 100vw;
-    --footer-height: calc(var(--font-size) + env(safe-area-inset-bottom, 0));
     height: var(--footer-height);
     padding: 0px;
     margin: 0px;
@@ -41,7 +45,7 @@ style: |
     margin: 0px;
     width: 100vw;
     position: fixed;
-    bottom: calc(var(--footer-height) + 4px); /* where does this 4px come from */
+    bottom: var(--footer-top);
     left: 0vh;
     right: 100vw;
     padding: 2px;

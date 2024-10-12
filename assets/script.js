@@ -28,7 +28,8 @@ async function addFlavour() {
       "RTFM",
       "man theokrueger.dev",
       "tldr: website",
-      "posix compliant",
+      "(not) posix compliant",
+      "no gangstalking",
     ],
   };
 

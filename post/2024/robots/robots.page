@@ -53,12 +53,13 @@
     - 'POST_CONTENT'
     - post:
         - _id: post-content
+        # annoyances
+        - !INCLUDE './newsletter.block'
+        - !INCLUDE './notifications.block'
         - span:
             - _id: blur-all
             - ' '
-        # annoyances
         - !INCLUDE './antiadblock.block'
-        - !INCLUDE './newsletter.block'
         # site content
         - div:
             - h1: Blah Blah Blah

@@ -10,6 +10,14 @@ async function unblur() {
   animateFadeOut(blurElem, "none");
 }
 
+function getOffset(elem) {
+  const rect = elem.getBoundingClientRect();
+  return {
+    left: rect.left + window.scrollX,
+    top: rect.top + window.scrollY,
+  };
+}
+
 /* Animations */
 const animationSteps = 25;
 const animationTimeMs = 75;
@@ -17,7 +25,7 @@ const animationTimeMs = 75;
 async function animateFadeIn(
   elem,
   display,
-  animationTimeMs = 75,
+  animationTimeMs = 100,
   animationSteps = 25,
 ) {
   const stepTime = animationTimeMs / animationSteps;
@@ -32,24 +40,24 @@ async function animateFadeIn(
 
 async function animateFadeOut(
   elem,
-  display,
-  animationTimeMs = 75,
+  animationTimeMs = 100,
   animationSteps = 25,
 ) {
   const stepTime = animationTimeMs / animationSteps;
-  elem.style.opacity = "0%";
-  elem.style.display = display;
-  for (let i = 0; i < animationSteps; ++i) {
+  elem.style.opacity = "100%";
+  for (let i = animationSteps; i >= 0; --i) {
     elem.style.opacity = ((i * 100) / animationSteps).toString() + "%";
     await sleep(stepTime);
   }
-  elem.style.opacity = "100%";
+  elem.style.opacity = "0%";
+  elem.style.display = "none";
 }
 
 async function animateSlideIn(
   elem,
   display,
-  animationTimeMs = 75,
+  direction,
+  animationTimeMs = 100,
   animationSteps = 25,
 ) {
   const stepTime = animationTimeMs / animationSteps;
@@ -75,7 +83,7 @@ var annoyances = [
     await animateFadeIn(antiAdblockElem, "block");
 
     closeAntiAdblockButton.addEventListener("click", async function () {
-      animateFadeOut(antiAdblockElem, "none");
+      animateFadeOut(antiAdblockElem);
       await unblur();
     });
   },
@@ -86,34 +94,55 @@ var annoyances = [
     const subscribeNewsletterButton = document.getElementById(
       "subscribe-newsletter",
     );
-    await animateSlideIn(newsletterElem, "block");
+    await animateSlideIn(newsletterElem, "block", "N");
 
     subscribeNewsletterButton.addEventListener("click", async function () {
       newsletterElem.innerHTML =
         "<p>Thanks for subscribing! Expect 400,000 emails shortly</p>";
       await sleep(2000);
-      animateFadeOut(newsletterElem, "none");
+      animateFadeOut(newsletterElem);
     });
 
     closeNewsletterButton.addEventListener("click", async function () {
-      animateFadeOut(newsletterElem, "none");
+      animateFadeOut(newsletterElem);
     });
+  },
+  // Notifications
+  async function () {
+    const newsletterElem = document.getElementById("notifications");
+    newsletterElem.style.display = "block";
+
+    for (let i = 0; i < 6; ++i) {
+      const notification = document.getElementById(
+        "notification-" + i.toString(),
+      );
+      const notificationButton = document.getElementById(
+        "close-notification-" + i.toString(),
+      );
+      notificationButton.addEventListener("click", async function () {
+        animateFadeOut(notification);
+      });
+      await animateSlideIn(notification, "block", "W");
+      await sleep(Math.random() * 30000 + 5000);
+    }
   },
 ];
 
 async function annoyUser() {
-  // await sleep(3500);
-  // // run a random annoyance every 5-20 seconds
+  // await sleep(Math.random() * 60000 + 20000);
+  // // run a random annoyance every 20-60 seconds
   // while (annoyances.length > 0) {
   //   const i = Math.floor(Math.random() * annoyances.length);
-  //   await annoyances[i]();
-  //   await sleep(Math.random() * 15000 + 5000);
+  //   annoyances[i]();
   //   annoyances.splice(i, 1);
+  //   await sleep(Math.random() * 45000 + 15000);
   // }
   // test anti-adblocker
-  await annoyances[0]();
+  //annoyances[0]();
   // test newsletter
-  await annoyances[1]();
+  // annoyances[1]();
+  // test notifications
+  annoyances[2]();
 }
 
 // IDEAS (not yet implemented)

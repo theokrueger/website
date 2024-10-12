@@ -105,7 +105,12 @@ h3 {
 }
 
 .small-font {
-  --font-size: calc(var(--default-font-scale) * pow(var(--golden-ratio), 0.2));
+  --font-size: var(--default-font-scale);
+  font-size: var(--font-size);
+}
+
+.tiny-font {
+  --font-size: calc(var(--default-font-scale) / var(--golden-ratio));
   font-size: var(--font-size);
 }
 /* END fonts */

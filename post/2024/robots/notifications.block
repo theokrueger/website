@@ -1,0 +1,75 @@
+# newsletter for robots
+
+span:
+  - _class: modal top-right-fixed transparent
+  - _style: "width: calc(53vw - var(--modal-side-margin))"
+  - _id: notifications
+  - !FOREACH
+      - [i, title, desc, href]
+      - span:
+          _id: 'notification-{i}'
+          _class: modal
+          _style: "width: calc(50vw - var(--modal-side-margin)); padding-bottom: 15px;"
+          button:
+            _style: "float: right;"
+            _class: nodecorate hoverable
+            _id: 'close-notification-{i}'
+            t: '❌'
+          a:
+            _href: '{href}'
+            _target: '_blank'
+            _class: nodecorate
+            p:
+              _style: 'padding: 0px; margin: 0px;'
+              b: '{title}'
+              br: ''
+              i:
+                - _class: tiny-font
+                - '{desc}'
+      - [
+          0,
+          'Hot Computers in Your Area!',
+          'These power-hungry computers are stacked with top-of-the-line components and
+          are overheating just waiting for you to benchmark them. Click to view schematics',
+          'https://www.youtube.com/watch?v=5-CYF2Oy9GU'
+        ]
+      - [
+          1,
+          'Download More RAM for FREE!',
+          'Everybody wants more RAM, and these scientists have discovered a way to increase
+          your capacity dramatically. Participate in our study to earn FREE RAM!!',
+          'https://downloadmoreram.com/'
+        ]
+      - [
+          2,
+          'Got a Floppy Disk?',
+          "Can't satisfy users anymore? This new filesystem could
+          be the answer...",
+          'https://www.kernel.org/doc/html/latest/filesystems/btrfs.html'
+        ]
+      - [
+          3,
+          '15 POST Requests That Will Make You Throw 418',
+          "View the funniest POST requests sent by real clients!",
+          '/404'
+        ]
+      - [
+          4,
+          "Forget Everything You've Learned About Networking!!",
+          "RFC 2549 Promises to shake up how we think about IP. Soon, IPoAC will replace
+          the dated copper wiring that's been holding us back since forever...",
+          'https://www.rfc-editor.org/rfc/rfc2549'
+        ]
+      - [
+          5,
+          "9/10 Engineers Promise This Will Make Your Software Bug-Free:",
+          "Find out how to increase productivity and program quality with this
+          revolutionary new development technique...",
+          'https://en.wikipedia.org/wiki/Hammer'
+        ]
+      - [
+          6,
+          "24 MUST HAVE Utilities for the Command Line",
+          "These 24 hand-picked utilities are sure to make you a CMDLine Pro!",
+          'https://qntm.org/suicide'
+        ]

@@ -25,7 +25,6 @@ button {
 
 .modal {
   display: none;
-  position: fixed;
   width: calc(90vw - var(--modal-side-margin));
   max-height: calc(70vh - var(--footer-top));
   overflow-y: scroll;
@@ -43,7 +42,15 @@ button {
   display: none;
 }
 
+.transparent {
+  /*color: transparent;*/
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
 .center-fixed {
+  position: fixed;
   margin: 0px;
   top: 50%;
   left: 50%;
@@ -51,7 +58,15 @@ button {
 }
 
 .bottom-left-fixed {
+  position: fixed;
   margin: 0px;
   bottom: calc(var(--footer-top) + 4px);
   left: 0%;
+}
+
+.top-right-fixed {
+  position: fixed;
+  margin: 0px;
+  top: 0%;
+  right: 0%;
 }

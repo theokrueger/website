@@ -12,7 +12,23 @@ html:
       - !INCLUDE /blocks/footer.block
       - !INCLUDE /blocks/title.block
       - div:
+          - h1: 2025
+          - p:
+              - a:
+                  - _href: 'https://gitlab.com/theokrueger/suprglidr'
+                  - suprglidr.
+              - ' - A one-button macropad for fancy FPS movement'
+      - div:
           - h1: 2024
+          - p:
+              - a:
+                  - _href: 'https://github.com/theokrueger/speedpub'
+                  - SpeedPUB
+              - ' - An experimental assisted-reading technology for language learners.'
+              - a:
+                  - _href: 'https://devpost.com/software/untitled-project-03byqsepgkdf'
+                  - Winner
+              - ' of the 2024 HackUMass Grand Prize'
           - p:
               - a:
                   - _href: 'https://crates.io/crates/ssgen'

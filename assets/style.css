@@ -77,6 +77,24 @@ code::-webkit-scrollbar {
 }
 /* END defaults */
 
+/* START text align */
+.center-align-text {
+  text-align: center;
+}
+
+.left-align-text {
+  text-align: left;
+}
+
+.right-align-text {
+  text-align: right;
+}
+
+.justify-text {
+  text-align: justify;
+}
+/* END text align */
+
 /* START fonts */
 .huge-font {
   --font-size: calc(var(--default-font-scale) * pow(var(--golden-ratio), 3));

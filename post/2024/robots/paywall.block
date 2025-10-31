@@ -1,0 +1,43 @@
+# paywall popup
+
+span:
+  _class: modal bottom-center-fixed center-align-text
+  _id: paywall
+  h2: "You are currently logged-out."
+  t:
+    - p: |
+        Our journalism relies on your support to stay solvent.
+        Gain access to limited free articles (like this!), news alerts, sensationalised slop headlines, podcasts lacking in host diversity or real discourse, and some daily games.
+  span:
+    - _class: left-align-text
+    - h3: Email Address
+    - input:
+        _id: paywall-email
+        _name: paywall-email
+        _type: email
+        _placeholder: ''
+        _autocapitalize: none
+        _autocomplete: username
+    - h2:
+        - _id: paywall-error
+        - _style: "color: var(--highlight-color)"
+        - ""
+    - br: ''
+    - button:
+        _id: continue-paywall
+        _class: nodecorate hoverable light-pattern-button
+        _style: 'float: center; width: 80%; font-size: 2rem; height: 3rem;'
+        t: 'Continue'
+    - p:
+        - _style: "color: var(--tint-color); font-size: 0.75rem"
+        - By continuing, you agree to our Terms of Service, Terms of Use, Terms of Engagement, Terms of Sale, Privacy Policy, and Terms of 'Just Click the Button', including a binding forced arbitration clause. You can opt out of these at any time by sending a USPS certified mail to our headquarters in Guatamala from a valid US postal address, alongside documentation (such as a Passport or Driver's License) to prove your identity.
+
+    - p: |
+        Don't have an account yet? Don't fret! Subscribe now for only <s>$14.99</s>$4.69/Month! (Billed Anually).
+        That's 150% off!
+
+    - button:
+        _id: close-paywall
+        _class: nodecorate hoverable dark-pattern-button
+        _style: 'float: right;'
+        t: 'No thank you!'

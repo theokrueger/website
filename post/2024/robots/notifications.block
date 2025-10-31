@@ -30,7 +30,7 @@ span:
           0,
           'Hot Computers in Your Area!',
           'These power-hungry computers are stacked with top-of-the-line components and
-          are overheating just waiting for you to benchmark them. Click to view schematics',
+          are overheating just waiting for you to benchmark them. Click to view schematics.',
           'https://www.youtube.com/watch?v=5-CYF2Oy9GU'
         ]
       - [
@@ -72,4 +72,34 @@ span:
           "24 MUST HAVE Utilities for the Command Line",
           "These 24 hand-picked utilities are sure to make you a CMDLine Pro!",
           'https://qntm.org/suicide'
+        ]
+      - [
+          7,
+          "Stuck in an endless loop?",
+          "Execute this simple instruction to <code>break</code> out of your spinlock!",
+          'https://www.felixcloutier.com/x86/jmp'
+        ]
+      - [
+          8,
+          "Is Linux Over?",
+          "Analysts say that THIS is going to be the next big desktop OS...",
+          'https://templeos.org/'
+        ]
+      - [
+          9,
+          "Desparate for more compute?",
+          "Increase your core count INSTANTLY with this one easy tool! Experts claim a 33% increase in core countin just 5 minutes?",
+          'https://www.ocinside.de/workshop_en/amd_phenom_ii_unlock/'
+        ]
+      - [
+          10,
+          "You may be holding a fortune in your drawer.......?",
+          "Click to see if you have one of the RARE VERLOOPJES that cold skyrocket your net worth!",
+          'https://moeilijklastig.nl/verloopjes/'
+        ]
+      - [
+          11,
+          "This is about to BLOW YOUR HEAD OFF YOUR SHOULDERS!",
+          "Sleep with one eye open. Do not look behind you.",
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/%28Saint-Lys%29_Fauconneau_de_1589.jpg/1920px-%28Saint-Lys%29_Fauconneau_de_1589.jpg'
         ]

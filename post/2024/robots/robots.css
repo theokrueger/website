@@ -21,6 +21,7 @@ button {
   border-radius: 0;
   background: var(--tint-color-alt);
   border-style: none;
+  user-select: none;
 }
 
 .modal {
@@ -49,6 +50,13 @@ button {
   box-shadow: none;
 }
 
+.top-right-fixed {
+  position: fixed;
+  margin: 0px;
+  top: 0%;
+  right: 0%;
+}
+
 .center-fixed {
   position: fixed;
   margin: 0px;
@@ -63,10 +71,37 @@ button {
   bottom: calc(var(--footer-top) + 4px);
   left: 0%;
 }
-
-.top-right-fixed {
+.bottom-center-fixed {
   position: fixed;
   margin: 0px;
-  top: 0%;
-  right: 0%;
+  bottom: calc(var(--footer-top) + 4px);
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+#paywall-email {
+  width: 80%;
+  height: 3rem;
+  font-size: 2rem;
+  letter-spacing: normal;
+  background-color: var(--accent-color);
+  border-color: var(--accent-border);
+  border-radius: var(--border-radius);
+  font-family: var(--font-family);
+}
+
+.light-pattern-button {
+  text-align: center;
+  font-family: var(--font-family);
+  background-color: var(--accent-color);
+  border-color: var(--accent-border);
+  border-radius: var(--border-radius);
+}
+
+.dark-pattern-button {
+  font-family: var(--font-family);
+  color: var(--tint-color);
+  background-color: var(--tint-color-alt);
+  border-color: var(--tint-color-alt);
+  border-radius: var(--border-radius);
 }

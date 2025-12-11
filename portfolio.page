@@ -24,7 +24,7 @@ html:
               - a:
                   - _href: 'https://github.com/theokrueger/speedpub'
                   - SpeedPUB
-              - ' - An experimental assisted-reading technology for language learners.'
+              - ' - An experimental assisted-reading technology for language learners. '
               - a:
                   - _href: 'https://devpost.com/software/untitled-project-03byqsepgkdf'
                   - Winner
@@ -36,7 +36,7 @@ html:
               - ' - A [S]tatic [S]ite [Gen]erator written in Rust'
           - p:
               - a:
-                  - _href: '/posts/buckshock-roulette'
+                  - _href: 'https://github.com/theokrueger/buckshock-roulette'
                   - Buckshock Roulette
               - ' - A painful IRL gambling game based on Buckshot Roulette'
       - div:

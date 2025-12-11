@@ -78,6 +78,13 @@ button {
   left: 50%;
   transform: translate(-50%, 0%);
 }
+.bottom-right-fixed {
+  position: fixed;
+  margin: 0px;
+  bottom: calc(var(--footer-top) + 4px);
+  left: 100%;
+  transform: translate(-100%, 0%);
+}
 
 #paywall-email {
   width: 80%;
@@ -104,4 +111,41 @@ button {
   background-color: var(--tint-color-alt);
   border-color: var(--tint-color-alt);
   border-radius: var(--border-radius);
+}
+
+/* Livechat */
+#livechat-chatbox {
+  display: block;
+  overflow: scroll;
+  overflow-block: scroll;
+  /* hide scrollbar in code blocks */
+  -ms-overflow-style: none; /* IE & Edge (Legacy) */
+  scrollbar-width: none; /* Firefox */
+  background-color: var(--tint-color);
+  border-color: var(--accent-border);
+  border-radius: var(--border-radius);
+  border-width: 2px;
+  max-height: 35vh;
+}
+
+.livechat-chat-incoming {
+  clear: both;
+  float: left;
+  background-color: var(--selection-color);
+  font-size: 1em;
+  padding: 0.5em;
+  margin: 0.5em;
+  border-radius: var(--border-radius);
+  max-width: 80%;
+}
+
+.livechat-chat-outgoing {
+  clear: both;
+  float: right;
+  background-color: var(--accent-border);
+  font-size: 1em;
+  padding: 0.5em;
+  margin: 0.25em;
+  border-radius: var(--border-radius);
+  max-width: 80%;
 }

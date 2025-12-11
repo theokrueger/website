@@ -23,13 +23,19 @@ async function addFlavour() {
       "subtitles are hard",
       "read the EULA!!1!",
       "addicted to efficiency",
+      "javascript is optional",
+      "is a structural hazard",
+      "site untested on blink",
+      "best experienced on palemoon",
+      "what is a design language",
     ],
     "about-flavour": [
       "RTFM",
-      "man theokrueger.dev",
+      "man 7 theokrueger.dev",
       "tldr: website",
       "(not) posix compliant",
-      "no gangstalking",
+      "no gangstalking allowed",
+      "know thy enemy",
     ],
   };
 

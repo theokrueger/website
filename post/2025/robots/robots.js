@@ -1,5 +1,8 @@
 /* Script file for the 'I am not a robot' post */
 
+/* import */
+import { Doctor } from "./doctor.js";
+
 /* Util */
 const blurElem = document.getElementById("blur-all");
 var blurCount = 0;
@@ -26,13 +29,10 @@ function getOffset(elem) {
 }
 
 /* Animations */
-const animationSteps = 25;
-const animationTimeMs = 75;
-
 async function animateFadeIn(
   elem,
   display,
-  animationTimeMs = 100,
+  animationTimeMs = 250,
   animationSteps = 25,
 ) {
   const stepTime = animationTimeMs / animationSteps;
@@ -47,7 +47,7 @@ async function animateFadeIn(
 
 async function animateFadeOut(
   elem,
-  animationTimeMs = 100,
+  animationTimeMs = 200,
   animationSteps = 25,
 ) {
   const stepTime = animationTimeMs / animationSteps;
@@ -106,7 +106,6 @@ var annoyances = [
     const subscribeNewsletterButton = document.getElementById(
       "subscribe-newsletter",
     );
-    await animateFadeIn(newsletterElem, "block", "N");
 
     subscribeNewsletterButton.addEventListener("click", async function () {
       newsletterElem.innerHTML =
@@ -118,6 +117,7 @@ var annoyances = [
     closeNewsletterButton.addEventListener("click", async function () {
       animateFadeOut(newsletterElem);
     });
+    await animateFadeIn(newsletterElem, "block");
   },
   // Notifications
   async function () {
@@ -155,9 +155,6 @@ var annoyances = [
     const continuePaywallButton = document.getElementById("continue-paywall");
     const paywallEmailField = document.getElementById("paywall-email");
     const paywallErrorText = document.getElementById("paywall-error");
-
-    blur();
-    await animateFadeIn(paywallElem, "block");
 
     const closePaywallFunc = async function () {
       animateFadeOut(paywallElem);
@@ -200,18 +197,124 @@ var annoyances = [
       await sleep(2000);
       closePaywallFunc();
     });
+
+    blur();
+    await animateFadeIn(paywallElem, "block");
+  },
+  // Live Chat
+  async function () {
+    const livechatElem = document.getElementById("livechat");
+    const closeLivechatButton = document.getElementById("close-livechat");
+    const messageBox = document.getElementById("livechat-messagebox");
+    const chatHistory = document.getElementById("livechat-chatbox");
+    const sendChatButton = document.getElementById("send-message-livechat");
+    const chatboxTitle = document.getElementById("livechat-chatbox-title");
+    const typingIndicator = document.getElementById(
+      "livechat-typing-indicator",
+    );
+    const doctor = new Doctor();
+
+    let sendChat = async function () {
+      let text = messageBox.value;
+      messageBox.value = "";
+      if (text === "") return;
+      chatHistory.innerHTML +=
+        '<span class="livechat-chat-outgoing">' + text + "</span>";
+      chatHistory.scrollTop = chatHistory.scrollHeight;
+
+      await sleep(2000);
+      recvChat(doctor.ask(text));
+    };
+
+    let showTyping = function () {
+      typingIndicator.style.color = "var(--text-color)";
+    };
+    let hideTyping = function () {
+      typingIndicator.style.color = "rgba(0,0,0,0)";
+    };
+
+    let recvChat = async function (text) {
+      const time = text.length * (30 + 5 * Math.random());
+      const pauses = Math.max(1, Math.floor((time / 400) * Math.random()));
+      for (let i = 0; i < pauses; ++i) {
+        const dt = (time / pauses) * (0.85 + 0.3 * Math.random());
+        showTyping();
+        await sleep(dt);
+        hideTyping();
+        await sleep(50 + 2000 * Math.random());
+      }
+      chatHistory.innerHTML +=
+        '<span class="livechat-chat-incoming">' + text + "</span>";
+      chatHistory.scrollTop = chatHistory.scrollHeight;
+    };
+
+    closeLivechatButton.addEventListener("click", async function () {
+      animateFadeOut(livechatElem);
+    });
+
+    await animateFadeIn(livechatElem, "block");
+    await sleep(250);
+
+    chatboxTitle.innerHTML = "Connecting";
+    await sleep(750);
+    for (let j = 0; j < 5; ++j) {
+      chatboxTitle.innerHTML += ".";
+      await sleep(400 + 100 * Math.random());
+      if (Math.random() > 0.9 - j * 0.1) {
+        break;
+      }
+    }
+    chatboxTitle.innerHTML = "Connection Established!";
+    await sleep(2000);
+    const names = [
+      "Amanda L.",
+      "Geoff J.",
+      "Gordon F.",
+      "Jeremy E.",
+      "Christian C.",
+      "Alice Z.",
+      "Ben R.",
+      "Clara M.",
+      "David S.",
+      "Ella B.",
+      "Frank D.",
+      "Grace K.",
+      "Hannah G.",
+      "Ian P.",
+      "Jack V.",
+      "Kara F.",
+      "Liam H.",
+      "Maya J.",
+      "Noah Q.",
+      "Olivia E.",
+      "Paul R.",
+      "Quinn N.",
+      "Rachel C.",
+      "Sam Z.",
+      "Tina L.",
+      "Will S.",
+    ];
+    chatboxTitle.innerHTML =
+      "You are chatting with: " +
+      names[Math.floor(Math.random() * names.length)];
+    await sleep(1500);
+    await recvChat("Hi, how can I help you today?");
+
+    sendChatButton.addEventListener("click", async function () {
+      await sendChat();
+    });
   },
 ];
 
 async function annoyUser() {
-  await sleep(Math.random() * 7000 + 2000);
-  // run a random annoyance every 20-40 seconds
-  while (annoyances.length > 0) {
-    const i = Math.floor(Math.random() * annoyances.length);
-    annoyances[i]();
-    annoyances.splice(i, 1);
-    await sleep(Math.random() * 20000 + 20000);
-  }
+  // await sleep(Math.random() * 7000 + 2000);
+  // // run a random annoyance every 20-40 seconds
+  // while (annoyances.length > 0) {
+  //   const i = Math.floor(Math.random() * annoyances.length);
+  //   annoyances[i]();
+  //   annoyances.splice(i, 1);
+  //   await sleep(Math.random() * 20000 + 20000);
+  // }
   // test anti-adblocker
   //annoyances[0]();
   // test newsletter
@@ -220,6 +323,8 @@ async function annoyUser() {
   //annoyances[2]();
   // test paywall
   //annoyances[3]();
+  // test livechat
+  annoyances[4]();
 }
 
 // IDEAS (not yet implemented)

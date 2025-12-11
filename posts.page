@@ -13,6 +13,16 @@ html:
       - !INCLUDE /blocks/title.block
       - !DEF [POST_LIST_ONLY, 'true']
       - div:
+        - h1: 2025
+        - !FOREACH [
+            [page],
+            [
+              !DEF ['LINK_TO_POST', '/post/2025/{page}.html'],
+              p: !INCLUDE '/post/2025/{page}.page'
+            ],
+            [robots/robots],
+          ]
+      - div:
         - h1: 2024
         - !FOREACH [
             [page],
@@ -20,6 +30,5 @@ html:
               !DEF ['LINK_TO_POST', '/post/2024/{page}.html'],
               p: !INCLUDE '/post/2024/{page}.page'
             ],
-            [robots/robots],
             [genesis],
           ]

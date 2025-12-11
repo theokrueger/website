@@ -1,0 +1,71 @@
+# theokrueger.dev index
+# (c) theokrueger 2024
+# GPL-3.0 Licensed
+
+# declarations
+- !DEF [INCLUDE_WHOLE_PAGE, !IF ['{POST_SUMMARY_ONLY}{POST_LIST_ONLY}', '', 'true',]]
+- !DEF [TITLE, 'I am not a Robot.']
+- !DEF [SUBTITLE, "Can't you just trust me?"]
+- !DEF [FOOTER_NAME, robots]
+- !DEF [KEYWORDS, 'web2,web3,{KEYWORDS}']
+- !DEF [TITLE_FLAVOUR_ID, ''] # no flavor text
+- !DEF [DATE_CREATED, '2025-10-31']
+- !DEF [DATE_MODIFIED, '']
+- !DEF
+    - POST_SUMMARY
+    - An interactive complaint about trying to use the Internet.
+---
+
+# extras to include when whole post is rendered
+!IF
+  - '{INCLUDE_WHOLE_PAGE}'
+  - [
+      !DEF [EXTRA_SCRIPT, './robots.js'],
+      !DEF [EXTRA_STYLE, './robots.css'],
+      !DEF [DOCTOR_SCRIPT, './doctor.js'],
+      !DEF [
+        HEAD_EXTRA,
+        {
+          script: [
+            _type: 'module',
+            _src: '{EXTRA_SCRIPT}',
+            _defer: '',
+            ' ',
+          ],
+          link: {
+            _rel: 'stylesheet',
+            _type: 'text/css',
+            _href: '{EXTRA_STYLE}',
+          },
+        },
+      ],
+      !COPY '{EXTRA_STYLE}',
+      !COPY '{EXTRA_SCRIPT}',
+      !COPY './doctor.js',
+    ]
+
+---
+
+# actual content
+!IF
+  - '{INCLUDE_WHOLE_PAGE}'
+  - !DEF
+    - 'POST_CONTENT'
+    - post:
+        - _id: post-content
+        # annoyances
+        - !INCLUDE './livechat.block'
+        - !INCLUDE './newsletter.block'
+        - !INCLUDE './notifications.block'
+        - span:
+            - _id: blur-all
+            - ' '
+        - !INCLUDE './antiadblock.block'
+        - !INCLUDE './paywall.block'
+        # site content
+        - div:
+            - h1: Skippable Introduction
+            - p: arsars
+---
+
+!INCLUDE '/blocks/post.block'

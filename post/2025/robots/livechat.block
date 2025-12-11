@@ -1,0 +1,40 @@
+# live chat for robots
+
+span:
+  _class: modal bottom-right-fixed
+  _id: livechat
+  _style: "width: calc(40vw - var(--modal-side-margin));"
+  button:
+    _style: "float: right;"
+    _class: nodecorate hoverable
+    _id: close-livechat
+    t: "❌"
+  h2: "Live Support Agent"
+  p: Need support? Talk to our real, human live agent today!
+  span:
+    _id: livechat-chatbox
+    p:
+      - _id: livechat-chatbox-title
+      - _style: "text-align: center; margin: 0.25em; text-size: 0.75em; margin-botton:0px;"
+      - Awaiting Connection
+  t:
+    _class: center-align-text
+    _style: "display: block;"
+    p:
+      - _id: livechat-typing-indicator
+      - _class: left-align-text
+      - _style: 'margin: 0px;padding:2px; font-size: 0.75em; color: rgba(0,0,0,0);'
+      - "They are typing..."
+    input:
+      _id: livechat-messagebox
+      _style: "width: 70%;"
+      _type: text
+      _placeholder: Send a Message
+    span:
+      - _style: "width: 5%;"
+      - ' '
+    button:
+      _style: "width: 20% !important;"
+      _class: hoverable light-pattern-button
+      _id: send-message-livechat
+      t: "Send"

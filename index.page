@@ -18,7 +18,7 @@ html:
                 !DEF [LINK_TO_POST, '/post/{page}.html'],
                 !INCLUDE '/post/{page}.page',
               ],
-              ['2024/robots/robots'],
+              ['2025/robots/robots'],
               ['2024/genesis'],
             ]
       - div:
@@ -30,5 +30,24 @@ html:
                 !DEF [LINK_TO_POST, '/post/{page}.html'],
                 !INCLUDE '/post/{page}.page',
               ],
-              ['2024/robots/robots']
+              ['2025/robots/robots']
             ]
+      - div:
+          h1: Sitemap
+          p: |
+            You can navigate the site using the yellow status bar (mode line) at the bottom of your screen. Click on the current buffer (red, marked with '^') to change pages.
+            <br><br>
+            Fellow Emacs enthusiasts note the lack of minibuffer -- That is intentional.
+            Do not crucify me for the inaccuracy.
+            <br><br>
+            In case the status bar does not work for whatever reason, consult the sitemap below instead.
+          ul: !FOREACH [
+                [name, page, desc],
+                '<h3><a href="./{page}">{name}</a> - {desc}</h3>',
+                ['Index', 'index', 'You are here.'],
+                ['Posts', 'posts', 'Posts made on this site.'],
+                ['Portfolio', 'portfolio', 'Projects made by or heavily involved with myself.'],
+                ['About', 'about', 'About the author (me).'],
+              ]
+
+

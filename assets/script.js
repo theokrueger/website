@@ -3,10 +3,9 @@
 /// (c) theokrueger 2024
 /// GPL-3.0 Licensed
 
-console.log("javascript enabled for this webpage");
+import { sleep } from "./util.js";
 
-/* Util Functions */
-const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+console.log("javascript enabled for this webpage");
 
 /* Replace the flavour text with a random selection */
 async function addFlavour() {
@@ -39,7 +38,7 @@ async function addFlavour() {
     ],
   };
 
-  for (const [k, _] of Object.entries(idsToModify)) {
+  for (const [k] of Object.entries(idsToModify)) {
     const elem = document.getElementById(k);
     if (elem) {
       elem.innerHTML =
@@ -57,7 +56,7 @@ async function addScrollPercent() {
     document.documentElement.clientHeight;
 
   if (scrollProgressBox) {
-    window.addEventListener("scroll", (event) => {
+    window.addEventListener("scroll", () => {
       let frac = (this.scrollY * 100) / maxHeightY;
       let s = "";
       if (frac > 95) {

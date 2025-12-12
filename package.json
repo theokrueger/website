@@ -1,0 +1,25 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "this node package is just for eslint",
+  "main": "assets/script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint $(find assets/ blocks/ post/ -name \\*.js)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/theokrueger/website.git"
+  },
+  "author": "theokrueger",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://gitlab.com/theokrueger/website/issues"
+  },
+  "homepage": "https://theokrueger.dev",
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0"
+  }
+}

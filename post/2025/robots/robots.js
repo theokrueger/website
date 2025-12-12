@@ -2,6 +2,7 @@
 
 /* import */
 import { Doctor } from "./doctor.js";
+import { sleep } from "/assets/util.js";
 
 /* Util */
 const blurElem = document.getElementById("blur-all");
@@ -20,13 +21,13 @@ async function unblur() {
   }
 }
 
-function getOffset(elem) {
-  const rect = elem.getBoundingClientRect();
-  return {
-    left: rect.left + window.scrollX,
-    top: rect.top + window.scrollY,
-  };
-}
+// unction getOffset(elem) {
+//   const rect = elem.getBoundingClientRect();
+//   return {
+//     left: rect.left + window.scrollX,
+//     top: rect.top + window.scrollY,
+//   };
+// }
 
 /* Animations */
 async function animateFadeIn(
@@ -70,7 +71,7 @@ async function animateSlideIn(
   const stepTime = animationTimeMs / animationSteps;
   const oldpos = elem.style.position;
   const oldright = elem.style.right;
-  const width = elem.style.width;
+  // const width = elem.style.width;
   elem.style.display = display;
   elem.style.position = "relative";
   for (let i = 0; i < animationSteps; ++i) {

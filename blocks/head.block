@@ -35,7 +35,7 @@ head:
   # main .js file
   - !IF ['{JSFILE}',
     script: [
-      _type: 'text/javascript',
+      _type: 'module',
       _src: '{JSFILE}',
       _defer: '',
       # this is a (nonessential) hack due to the weirdness of defer tag

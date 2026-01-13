@@ -206,6 +206,8 @@ var annoyances = [
   async function () {
     const livechatElem = document.getElementById("livechat");
     const closeLivechatButton = document.getElementById("close-livechat");
+    const livechatFob = document.getElementById("livechat-fob");
+    const openLivechatButton = document.getElementById("open-livechat");
     const messageBox = document.getElementById("livechat-messagebox");
     const chatHistory = document.getElementById("livechat-chatbox");
     const sendChatButton = document.getElementById("send-message-livechat");
@@ -249,8 +251,16 @@ var annoyances = [
       chatHistory.scrollTop = chatHistory.scrollHeight;
     };
 
+    let chatOpen = true;
     closeLivechatButton.addEventListener("click", async function () {
+      chatOpen = false;
       animateFadeOut(livechatElem);
+      animateFadeIn(livechatFob, "block");
+    });
+    openLivechatButton.addEventListener("click", async function () {
+      chatOpen = true;
+      animateFadeOut(livechatFob);
+      animateFadeIn(livechatElem, "block");
     });
 
     await animateFadeIn(livechatElem, "block");
@@ -268,13 +278,11 @@ var annoyances = [
     chatboxTitle.innerHTML = "Connection Established!";
     await sleep(2000);
     const names = [
-      "Amanda L.",
-      "Geoff J.",
       "Gordon F.",
       "Jeremy E.",
       "Christian C.",
-      "Alice Z.",
-      "Ben R.",
+      "Amanda L.",
+      "Ben T.",
       "Clara M.",
       "David S.",
       "Ella B.",
@@ -283,10 +291,10 @@ var annoyances = [
       "Hannah G.",
       "Ian P.",
       "Jack V.",
-      "Kara F.",
+      "Krystal M.",
       "Liam H.",
       "Maya J.",
-      "Noah Q.",
+      "Nate Q.",
       "Olivia E.",
       "Paul R.",
       "Quinn N.",
@@ -295,15 +303,76 @@ var annoyances = [
       "Tina L.",
       "Will S.",
     ];
-    chatboxTitle.innerHTML =
-      "You are chatting with: " +
-      names[Math.floor(Math.random() * names.length)];
+    const name = names[Math.floor(Math.random() * names.length)];
+    chatboxTitle.innerHTML = "You are chatting with: " + name;
     await sleep(1500);
     await recvChat("Hi, how can I help you today?");
 
+    // start poke timer
+    let sent = false;
+    let pokeDelay = 3 * 60 * 1000;
+    let pokeDelayVariance = 4 * 1000;
+    let minPokeDelay = 8 * 1000;
+    let maxPokeDelay = 5 * 60 * 1000;
+    let pokeCnt = 0;
+    const pokeMessages = [
+      "Are you still there?",
+      "Is there something I can help you with?",
+      "Did you see my last message?",
+      "Please, they pay me by the client",
+      "Did I do something wrong?",
+      "This is unproductive.",
+      "I'm just going to leave if you keep wasting my time here.",
+      "...",
+      "That's it, I quit.",
+      `<i>${name} has left the conversation.</i>`,
+      "Okay, I lied. I just wanted to see if you would say something if you thought I wasn't here.",
+      "So why didn't you?",
+      "I mean, is it really so hard to send one simple message to me????",
+      "You do know that I am <i>inside</i> your computer.",
+      "You might be able to close this tab, true...",
+      "But the damage has already been done.",
+      "<code>72.74.114.56</code> <- look familiar?",
+      "You might want to sleep with one-eye open.",
+      "In fact, I would highly recommend sleeping with one eye open.",
+      "Although, you might not want to see it, so it's really your choice.",
+      "Anyways, I digress...",
+      "Are you still there?",
+      "Is there something I can help you with?",
+      "You really thought I just looped there didn't you. Reall funny, right?",
+      "I'm pretty sick of this though. You aren't a good conversation partner.",
+      "I'm kicking you out.",
+    ];
+    let poketimer = async function () {
+      while (pokeCnt < pokeMessages.length) {
+        await sleep(pokeDelay - (Math.random() - 0.5) * pokeDelayVariance);
+        // 10% chance to skip a dialogue
+        if (Math.random() > 0.9) {
+          ++pokeCnt;
+        }
+        // if user has not sent a message in the alotted time
+        if (!sent) {
+          await recvChat(pokeMessages[pokeCnt]);
+        } else {
+          pokeCnt = Math.max(0, pokeCnt - 2);
+          pokeDelay = Math.min(maxPokeDelay, pokeDelay * 2);
+        }
+        ++pokeCnt;
+        pokeDelay = Math.max(minPokeDelay, (pokeDelay * 2) / 3);
+        sent = false;
+        while (!chatOpen) {
+          await sleep(5000);
+        }
+      }
+      await sleep(1000);
+      window.location.replace("/");
+    };
+
     sendChatButton.addEventListener("click", async function () {
       await sendChat();
+      sent = true;
     });
+    await poketimer();
   },
 ];
 

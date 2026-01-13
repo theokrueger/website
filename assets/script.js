@@ -1,9 +1,8 @@
+import { sleep } from "./util.js";
 /// Global script file for theokrueger.dev
 ///
 /// (c) theokrueger 2024
 /// GPL-3.0 Licensed
-
-import { sleep } from "./util.js";
 
 console.log("javascript enabled for this webpage");
 
@@ -57,7 +56,7 @@ async function addScrollPercent() {
 
   if (scrollProgressBox) {
     window.addEventListener("scroll", () => {
-      let frac = (this.scrollY * 100) / maxHeightY;
+      let frac = (window.scrollY * 100) / maxHeightY;
       let s = "";
       if (frac > 95) {
         s = "Bot";
@@ -78,27 +77,28 @@ async function typeElement(elem, addRandomFlair) {
   const txt = elem.innerHTML;
   let len = elem.innerHTML.length;
   const typingSpeed = 777 / len; // ms delay between chars
+  const variance = 100; // variance between typing letters
   elem.innerHTML = "";
   for (let i = 0; i < len; i++) {
-    await sleep(typingSpeed);
+    await sleep(typingSpeed + (variance * Math.random() - variance / 2));
     elem.innerHTML += txt.charAt(i);
   }
 
-  // 10% chance for random flair
+  // 6% chance for random flair
   if (addRandomFlair && Math.random() < 0.06) {
     // type flair
     await sleep(Math.random() * 5000 + 1000);
     const flair =
       " " + typingFlairs[Math.floor(Math.random() * typingFlairs.length)];
     for (let i = 0; i < flair.length; i++) {
-      await sleep(typingSpeed * 5);
+      await sleep(typingSpeed * 8);
       elem.innerHTML += flair.charAt(i);
     }
 
     // remove flair
     await sleep(Math.random() * 3000 + 1000);
     for (let i = flair.length; i >= 0; i--) {
-      await sleep(typingSpeed * 3);
+      await sleep(typingSpeed);
       elem.innerHTML = elem.innerHTML.substring(0, len + i);
     }
   }

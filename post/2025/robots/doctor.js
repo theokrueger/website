@@ -7,7 +7,7 @@ export { Doctor };
 // Maintainer: theokrueger
 // Keywords: games
 
-// This file is part of theokrueger.dev.
+// This file is part of doctor.js.
 
 // doctor.js is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -48,7 +48,14 @@ export { Doctor };
 // Code:
 /* HELPERS */
 function member(a, b) {
-  return b.some((x) => eq(a, x)); // TODO fix
+  if (typeof a !== "object") {
+    a = [a];
+  }
+  return a.some((x) => b.some((y) => x === y));
+}
+
+function memq(a, b) {
+  return member(a, b);
 }
 
 function eq(a, b) {
@@ -60,22 +67,27 @@ function cdr(lst) {
 }
 
 function car(lst) {
-  return lst.length >= 1 ? lst[0] : [];
+  return lst.length >= 1 ? [lst[0]] : [];
 }
 
 function cadr(lst) {
-  return lst.length >= 2 ? lst[1] : [];
+  return lst.length >= 2 ? [lst[1]] : [];
 }
 
 function caddr(lst) {
-  return lst.length >= 3 ? lst[2] : [];
+  return lst.length >= 3 ? [lst[2]] : [];
 }
 
 function cddr(lst) {
   return lst.length >= 3 ? lst.slice(2) : [];
 }
 
+function random(i) {
+  return Math.floor(Math.random() * i);
+}
+
 function dollar(lst) {
+  // UNFAITHFUL kinda
   const front = lst.shift();
   lst.push(front);
   return front;
@@ -88,22 +100,6 @@ function slashslash(lst) {
     return lst;
   }
   return lst.toString();
-}
-
-function doctor_cadr(lst) {
-  return car(cdr(lst));
-}
-
-function doctor_caddr(lst) {
-  return car(cdr(cdr(lst)));
-}
-
-function doctor_cddr(lst) {
-  return cdr(cdr(lst));
-}
-
-function doctor_dollar(lst) {
-  return dollar(lst);
 }
 
 function randlist(lst) {
@@ -123,18 +119,18 @@ class Doctor {
     this.subj = [];
     this.obj = [];
     this.feared = [];
-    this.repetitiveShortness = 0;
+    this.repetitive_shortness = [0, 0];
     this.mad = [];
-    this.rmsFlag = [];
-    this.elizaFlag = [];
-    this.zippyFlag = [];
-    this.suicideFlag = [];
+    this.rms_flag = false;
+    this.eliza_flag = false;
+    this.zippy_flag = false;
+    this.suicide_flag = false;
     this.lover = "your partner";
     this.bak = [];
     this.lincount = 0;
-    this.printUpdase = [];
-    this.printSpace = [];
-    this.howdyFlag = [];
+    this.print_upcase = [];
+    this.print_space = [];
+    this.howdy_flag = [];
     this.object = [];
     this.sent = [];
     this.typos = [
@@ -142,8 +138,22 @@ class Doctor {
       ["theyre", "they're", "they are"],
       ["hes", "he's", "he is"],
       ["he7s", "he's", "hes is"],
-      // TODO finish
+      ["im", "i'm", "you are"],
+      ["i7m", "i'm", "you are"],
+      ["isa", "isa a", "is a"],
+      ["thier", "their", "their"],
+      ["dont", "don't", "do not"],
+      ["don7t", "don't", "do not"],
+      ["you7re", "you're", "i am"],
+      ["you7ve", "you've", "i have"],
+      ["you7ll", "you'll", "i will"],
     ];
+    this.doctor_correction = {};
+    this.doctor_expansion = {};
+    this.typos.forEach((a) => {
+      this.doctor_correction[a[0]] = a[1];
+      this.doctor_expansion[a[1]] = a[2];
+    });
     this.repdict = {
       my: "your",
       me: "you",
@@ -608,46 +618,61 @@ class Doctor {
       "are you sorry",
       "are you satisfied with the fact that",
     ];
-
-    this.sexlist = ["AREYOU AFRAIDOF sex"];
-
-    this.neglst = ["why not"];
-
-    this.beclst = ["is ti becaus SENT that you came to me"];
-
-    this.shotbeclst = ["BOTHER i ask you that"];
-
-    this.thlst = ["how do you reconcile THINGS"];
-
-    this.remlst = ["earlier you said HISTORY"];
-
-    this.toklst = ["is this how you relax"];
-
-    this.states = ["do you this.FOUND often?"];
-
-    this.stallmanlst = ["DESCRIBE your FEELINGSABOUT him"];
-
-    this.schoollst = ["DESCRIBE your FOUND"];
-
-    this.improve = ["be better"];
-
-    this.elizalst = ["AREYOU SURE"];
-
-    this.sportslst = ["tell me SOMETHING about FOUND"];
-
-    this.mathlst = ["DESCRIBE SOMETHING about math"];
-
-    this.zippylst = ["AREYOU Zippy?"];
-
-    this.chatlst = ["MAYBE we could chat"];
-
-    this.abuselst = ["PLEASE try to be less abusive"];
-
-    this.abusewords = ["boring"];
-
-    this.howareyoulst = ["how are you"];
-
-    this.whereoutp = ["huh"];
+    this.improve = ["improve", "be better", "be improved", "be higher"];
+    this.abusewords = [
+      "boring",
+      "bozo",
+      "clown",
+      "clumsy",
+      "cretin",
+      "dumb",
+      "dummy",
+      "fool",
+      "foolish",
+      "gnerd",
+      "gnurd",
+      "idiot",
+      "jerk",
+      "lose",
+      "loser",
+      "louse",
+      "lousy",
+      "luse",
+      "luser",
+      "moron",
+      "nerd",
+      "nurd",
+      "oaf",
+      "oafish",
+      "reek",
+      "stink",
+      "stupid",
+      "tool",
+      "toolish",
+      "twit",
+    ];
+    this.howareyoulst = [
+      "how are you",
+      "hows it going",
+      "hows it going eh",
+      "how's it going",
+      "how's it going eh",
+      "how goes it",
+      "whats up",
+      "whats new",
+      "what's up",
+      "what's new",
+      "howre you",
+      "how're you",
+      "how's everything",
+      "how is everything",
+      "how do you do",
+      "how's it hanging",
+      "que pasa",
+      "how are you doing",
+      "what do you say",
+    ];
+    this.whereoutp = ["huh", "remem", "rthing"];
 
     this.bye = [
       "good bye",
@@ -686,6 +711,20 @@ class Doctor {
     this.famlst_cnt = -1;
     this.machlst_cnt = -1;
     this.deathlst_cnt = -1;
+    this.neglst_cnt = -1;
+    this.beclst_cnt = -1;
+    this.shortbeclst_cnt = -1;
+    this.thlst_cnt = -1;
+    this.remlst_cnt = -1;
+    this.states_cnt = -1;
+    this.stallmanlst_cnt = -1;
+    this.schoollst_cnt = -1;
+    this.elizalst_cnt = -1;
+    this.sportslst_cnt = -1;
+    this.mathlst_cnt = -1;
+    this.zippylst_cnt = -1;
+    this.chatlst_cnt = -1;
+    this.abuselst_cnt = -1;
   }
 
   /* GETTERS FOR SUBSTITUTE STRINGS */
@@ -991,23 +1030,475 @@ class Doctor {
     return [indexwrappedlist(l, this.sexlst_cnt)()];
   }
 
+  get neglst() {
+    ++this.neglst_cnt;
+    let l = [
+      () => {
+        return `why not?`;
+      },
+      () => {
+        return `${dollar(this.bother)} i ask that?`;
+      },
+      () => {
+        return `why not?`;
+      },
+      () => {
+        return `why not?`;
+      },
+      () => {
+        return `how come?`;
+      },
+      () => {
+        return `${dollar(this.bother)} i ask that?`;
+      },
+    ];
+    return [indexwrappedlist(l, this.neglst_cnt)()];
+  }
+
+  get beclst() {
+    ++this.beclst_cnt;
+    let l = [
+      () => {
+        return `is it because ${slashslash(this.sent)} that you came to me?`;
+      },
+      () => {
+        return `${dollar(this.bother)} ${slashslash(this.sent)}?`;
+      },
+      () => {
+        return `when did you first know that ${slashslash(this.sent)}?`;
+      },
+      () => {
+        return `is it the fact that ${slashslash(this.sent)} the real reason?`;
+      },
+      () => {
+        return `does the fact that ${slashslash(this.sent)} explain anything else?`;
+      },
+      () => {
+        return `${dollar(this.areyou)} ${dollar(this.sure)} ${slashslash(this.sent)}?`;
+      },
+    ];
+    return [indexwrappedlist(l, this.beclst_cnt)()];
+  }
+
+  get shortbeclst() {
+    ++this.shortbeclst_cnt;
+    let l = [
+      () => {
+        return `${dollar(this.bother)} i ask you that?`;
+      },
+      () => {
+        return `that's not much of an answer!`;
+      },
+      () => {
+        return `${dollar(this.inter)} why won't you talk about it?`;
+      },
+      () => {
+        return `speak up!`;
+      },
+      () => {
+        return `${dollar(this.areyou)} ${dollar(this.afraidof)} talking about it?`;
+      },
+      () => {
+        return `dont be ${dollar(this.afraidof)} elaborating`;
+      },
+      () => {
+        return `${dollar(this.please)} do into more detail`;
+      },
+    ];
+    return [indexwrappedlist(l, this.shortbeclst_cnt)()];
+  }
+
+  get thlst() {
+    ++this.thlst_cnt;
+    let l = [
+      () => {
+        return `${dollar(this.maybe)} ${dollar(this.things)} ${dollar(this.arerelated)} this.`;
+      },
+      () => {
+        return `is it because of ${dollar(this.things)} that you are goint through all this?`;
+      },
+      () => {
+        return `how do you reconcile ${dollar(this.things)}?`;
+      },
+      () => {
+        return `${dollar(this.maybe)} this ${dollar(this.isrelated)} ${dollar(this.things)}?`;
+      },
+    ];
+    return [indexwrappedlist(l, this.thlst_cnt)()];
+  }
+
+  get toklst() {
+    ++this.toklst_cnt;
+    let l = [
+      () => {
+        return `is this how you relax?`;
+      },
+      () => {
+        return `how long have you been smoking grass?`;
+      },
+      () => {
+        return `${dollar(this.areyou)} ${dollar(this.afraidof)} of being drawn to using harder stuff?`;
+      },
+    ];
+    return [indexwrappedlist(l, this.toklst_cnt)()];
+  }
+
+  get states() {
+    ++this.states_cnt;
+    let l = [
+      () => {
+        return `do you get ${slashslash(this.found)} often?`;
+      },
+      () => {
+        return `do you enjoy being ${slashslash(this.found)}?`;
+      },
+      () => {
+        return `what makes you ${slashslash(this.found)}?`;
+      },
+      () => {
+        return `how often ${dollar(this.areyou)} ${slashslash(this.found)}?`;
+      },
+      () => {
+        return `when were you last ${slashslash(this.found)}?`;
+      },
+    ];
+    return [indexwrappedlist(l, this.states_cnt)()];
+  }
+
+  get stallmanlst() {
+    ++this.stallmanlst_cnt;
+    let l = [
+      () => {
+        return `${dollar(this.describe)} your ${dollar(this.feelingsabout)} him.`;
+      },
+      () => {
+        return `${dollar(this.areyou)} a friend of Stallman?.`;
+      },
+      () => {
+        return `${dollar(this.bother)} Stallman is ${dollar(this.randomadjective)}?`;
+      },
+      () => {
+        return `${dollar(this.ibelieve)} you are ${dollar(this.afriadof)} him.`;
+      },
+    ];
+    return [indexwrappedlist(l, this.stallmanlst_cnt)()];
+  }
+
+  get schoollst() {
+    ++this.schoollst_cnt;
+    let l = [
+      () => {
+        return `${dollar(this.describe)} your ${slashslash(this.found)}.`;
+      },
+      () => {
+        return `${dollar(this.bother)} your grades could  ${dollar(this.improve)}?`;
+      },
+      () => {
+        return `${dollar(this.areyou)} ${dollar(this.afraidof)} ${slashslash(this.found)}?`;
+      },
+      () => {
+        return `${dollar(this.maybe)} this ${dollar(this.isrelated)} to your attitude.`;
+      },
+      () => {
+        return `${dollar(this.areyou)} absent often?`;
+      },
+      () => {
+        return `${dollar(this.maybe)} you should study ${dollar(this.something)}.`;
+      },
+    ];
+    return [indexwrappedlist(l, this.shoollst_cnt)()];
+  }
+  get elizalst() {
+    ++this.elizalst_cnt;
+    let l = [
+      () => {
+        return `${dollar(this.areyou)} ${dollar(this.sure)}?`;
+      },
+      () => {
+        return `${dollar(this.ibelieve)} you have ${dollar(this.problems)} with ${slashslash(this.found)}.`;
+      },
+      () => {
+        return `${dollar(this.whysay)} ${slashslash(this.sent)}?`;
+      },
+    ];
+    return [indexwrappedlist(l, this.elizalst_cnt)()];
+  }
+  get sportslst() {
+    ++this.sportslst_cnt;
+    let l = [
+      () => {
+        return `tell me ${dollar(this.something)} about ${slashslash(this.found)}`;
+      },
+      () => {
+        return `${dollar(this.describe)} ${dollar(this.relation)} ${slashslash(this.found)}.`;
+      },
+      () => {
+        return `do you find ${slashslash(this.found)} ${dollar(this.randomadjective)}?`;
+      },
+    ];
+    return [indexwrappedlist(l, this.sportslst_cnt)()];
+  }
+
+  get mathlst() {
+    ++this.mathlst_cnt;
+    let l = [
+      () => {
+        return `${dollar(this.describe)} ${dollar(this.something)} about math.`;
+      },
+      () => {
+        return `${dollar(this.maybe)} your ${dollar(this.problems)} ${dollar(this.arerelated)} ${slashslash(this.found)}.`;
+      },
+      () => {
+        return `i do'nt know much ${slashslash(this.found)}, but ${dollar(this.continue)}.`; // do'nt is [sic]
+      },
+    ];
+    return [indexwrappedlist(l, this.mathlst_cnt)()];
+  }
+
+  get zippylst() {
+    ++this.zippylst_cnt;
+    let l = [
+      () => {
+        return `${dollar(this.areyou)} Zippy?`;
+      },
+      () => {
+        return `${dollar(this.ibelieve)} you have some serious ${dollar(this.problems)}.`;
+      },
+      () => {
+        return `${dollar(this.bother)} you are a pinhead?`;
+      },
+    ];
+    return [indexwrappedlist(l, this.zippylst_cnt)()];
+  }
+
+  get chatlst() {
+    ++this.chatlst_cnt;
+    let l = [
+      () => {
+        return `${dollar(this.maybe)} we could chat.`;
+      },
+      () => {
+        return `${dollar(this.please)} ${dollar(this.describe)} ${dollar(this.something)} about chat mode.`;
+      },
+      () => {
+        return `${dollar(this.bother)} our discussion is so ${dollar(this.randomadjective)}`;
+      },
+    ];
+    return [indexwrappedlist(l, this.chatlst_cnt)()];
+  }
+
+  get abuselst() {
+    ++this.abuselst_cnt;
+    let l = [
+      () => {
+        return `${dollar(this.please)} try to be less abusive.`;
+      },
+      () => {
+        return `${dollar(this.describe)} why you call me ${slashslash(this.found)}`;
+      },
+      () => {
+        return `i've had enough of you!`;
+      },
+    ];
+    return [indexwrappedlist(l, this.abuselst_cnt)()];
+  }
+
+  /* UTILS */
+  doctor_cadr(lst) {
+    return car(cdr(lst));
+  }
+  doctor_caddr(lst) {
+    return car(cdr(cdr(lst)));
+  }
+  doctor_cddr(lst) {
+    return cdr(cdr(lst));
+  }
+  doctor_dollar(lst) {
+    return dollar(lst); // UNFAITHFUL kinda
+  }
+
+  doctor_defq(sent) {
+    this.found = [];
+    let temp = [
+      "means",
+      "applies",
+      "mean",
+      "refers",
+      "refer",
+      "related",
+      "similar",
+      "defined",
+      "associated",
+      "linked",
+      "like",
+      "same",
+    ];
+    while (temp.length > 0) {
+      if (memq(car(temp), sent)) {
+        this.found = [car(temp)];
+        temp = [];
+      }
+      temp = cdr(temp);
+    }
+    return this.found;
+  }
+
+  doctor_def(x) {
+    return `the word ${x} means ${this.doctor_meaning(x)} to me`;
+  }
+
+  doctor_meaning(x) {
+    return this.meanings[x] ?? "nil"; // nil is faithful here, although i'd prefer if it was 'nothing'
+  }
+
+  doctor_put_meaning(symb, val) {
+    this.meanings[symb] = val;
+  }
+
+  doctor_fixup(sent) {
+    return [cdr()].concat([cdr(sent)]); // TODO finish
+  }
+
+  doctor_shorten(sent) {
+    let foo,
+      retval = false;
+    let temp = [
+      "because",
+      "but",
+      "however",
+      "besides",
+      "anyway",
+      "until",
+      "while",
+      "that",
+      "except",
+      "why",
+      "how",
+    ];
+    while (temp.length > 0) {
+      foo = memq(car(temp), sent);
+      if (foo && foo.length > 3) {
+        sent = foo;
+        temp = []; // TODO
+        retval = true;
+      } else {
+        temp = cdr(temp);
+      }
+    }
+    return retval;
+  }
+
   /* RUNTIME */
   ask(query) {
     ++this.lincount;
-    const sent = query.toLowerCase();
+    let sent = query.toLowerCase().split(" ");
+    if (typeof sent !== "object") {
+      sent = [sent];
+    }
     this.sent = sent;
     try {
-      return this.doc(sent, sent.split(" "));
+      return this.doc();
     } catch (e) {
       return e;
     }
   }
 
-  doc(sent) {
+  doc() {
     let s = "";
-    if (sent === "foo") {
+    if (eq(this.sent, ["foo"])) {
       s += `bar! ${dollar(this.please)} ${dollar(this.continue)}`;
+    } else if (member(this.sent, this.howareyoulst)) {
+      s += `i'm ok. ${dollar(this.describe)} yourself.`;
+    } else if (
+      member(this.sent, [
+        "good bye",
+        "see you later",
+        "i quit",
+        "so long",
+        "go away",
+        "get lost",
+      ]) ||
+      memq(car(this.sent), [
+        "bye",
+        "halt",
+        "break",
+        "quit",
+        "done",
+        "exit",
+        "goodbye",
+        "bye,",
+        "stop",
+        "pause",
+        "goodbye,",
+        "stop",
+        "pause",
+      ])
+    ) {
+      s += dollar(this.bye);
+    } else if (
+      eq(car(this.sent), ["you"]) &&
+      memq(this.doctor_cadr(this.sent), this.abusewords)
+    ) {
+      this.found = this.doctor_cadr(this.sent);
+      s += this.abuselst;
+    } else if (eq(car(this.sent), "whatmeans")) {
+      s += this.doctor_def(cadr(this.sent));
+    } else if (eq(this.sent, ["parse"])) {
+      s += ```subj = ${this.subj},  verb = ${this.verb} 
+        object phrase = ${this.obj}, noun form = ${this.noun} 
+        current keyword is = ${this.keyword},  most recent possessive is ${this.owner} 
+        sentence used was...  ${slashslash(this.bak)}```;
     }
+    // ;; else if (eq(car(this.sent) "forget")) {
+    // ;;   this.sent = [];
+    // ;;   s += `${dollar(this.isee)} ${dollar(this.please} ${dollar(this.continue)}`
+    // ;; }
+    else {
+      if (this.doctor_defq(this.sent)) {
+        this.doctor_define(this.sent, this.found);
+      }
+      if (this.sent.length > 12) {
+        this.sent = this.doctor_shorten(this.sent);
+      }
+      this.sent = this.doctor_correct_spelling(
+        this.doctor_replace(this.sent, this.repdict),
+      );
+      if (
+        !memq("me", this.sent) &&
+        !memq("i".this.sent) &&
+        memq("am", this.sent)
+      ) {
+        this.sent = this.doctor_replace(this.sent, { am: "are" });
+      }
+
+      if (car(this.sent) == "yow") {
+        this.doctor_zippy();
+      } else if (this.sent.length < 2) {
+        if (this.doctor_meaning(car(this.sent)) == "howdy") {
+          this.doctor_howdy();
+        } else {
+          this.doctor_short();
+        }
+      } else {
+        if (memq("am", this.sent)) {
+          this.sent = this.doctor_replace(this.sent, { me: "i" });
+        }
+        this.sent = this.doctor_fixup(this.sent);
+        if (car(this.sent) == "do" && this.doctor_cadr(this.sent) == "not") {
+          if (random(3) == 0) {
+            s += `are you ${dollar(this.afraidof)} that?`;
+          } else if (random(2) == 0) {
+            s += `don't tell me what to do. i am the psychiatrist here!`;
+            this.doctor_rthing();
+          } else {
+            s += `${dollar(this.whysay)} that i shouldn't ${this.doctor_cddr(this.sent)}?`;
+          }
+          this.doctor_go(this.doctor_wherego(this.sent));
+        }
+      }
+    }
+
+    this.bak = this.sent;
 
     if (s === "") {
       throw new Error(

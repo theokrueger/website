@@ -128,6 +128,10 @@ button {
   max-height: 35vh;
 }
 
+#livechat-fob {
+  display: block;
+}
+
 .livechat-chat-incoming {
   clear: both;
   float: left;

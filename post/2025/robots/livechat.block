@@ -1,5 +1,16 @@
 # live chat for robots
 
+# fob
+fob:
+  _class: bottom-right-fixed
+  _id: livechat-fob
+  _style: "width: max(24px, 5vw); height: max(24px, 5vw); display: none;"
+  button:
+    _id: 'open-livechat'
+    _class: hoverable light-pattern-button
+    t: 🗩 # this is a speech bubble
+
+# chatbox
 span:
   _class: modal bottom-right-fixed
   _id: livechat

@@ -18,20 +18,20 @@ html:
                 !DEF [LINK_TO_POST, '/post/{page}.html'],
                 !INCLUDE '/post/{page}.page',
               ],
-              ['2025/robots/robots'],
+#              ['2025/robots/robots'],
               ['2024/genesis'],
             ]
-      - div:
-          - h1: Best Posts
-          - !DEF [POST_SUMMARY_ONLY, 'true']
-          - !FOREACH [
-              [page],
-              [
-                !DEF [LINK_TO_POST, '/post/{page}.html'],
-                !INCLUDE '/post/{page}.page',
-              ],
-              ['2025/robots/robots']
-            ]
+#      - div:
+#          - h1: Best Posts
+#          - !DEF [POST_SUMMARY_ONLY, 'true']
+#          - !FOREACH [
+#              [page],
+#              [
+#                !DEF [LINK_TO_POST, '/post/{page}.html'],
+#                !INCLUDE '/post/{page}.page',
+#              ],
+#              ['2025/robots/robots']
+#            ]
       - div:
           h1: Sitemap
           p: |

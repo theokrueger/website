@@ -13,8 +13,9 @@ html:
       - !INCLUDE /blocks/title.block
       - div:
           - h1: Who
+          - p: I go by 'theokrueger'. I am interested in cooking, baking, and computer systems. This site is content-driven rather than personality-driven.
           - p:
-              - 'Anything that would be included here can instead be found by viewing either my '
+              - 'Anything else that would be included here can instead be found by viewing either my '
               - a:
                   - _href: '/portfolio'
                   - Portfolio
@@ -23,6 +24,14 @@ html:
                   - _href: '/posts'
                   - Posts
               - '.'
+          - p:
+              - 'You can contact me through email at '
+              - a:
+                  _href: 'mailto:{CONTACT_INFO}'
+                  t: '{CONTACT_INFO}'
+      - div:
+          - h1: What
+          - p: I try to only post interesting or interactive things, which inevitably leads to inactivity. Almost everything will be computer-related because that is how I spend my free time.
       - div:
           - h1: How
           - p:
@@ -41,11 +50,6 @@ html:
                   _href: '{SITE_SOURCE}'
                   t: here
               - '.'
-          - p:
-              - 'Contact me through email at '
-              - a:
-                  _href: 'mailto:{CONTACT_INFO}'
-                  t: '{CONTACT_INFO}'
           - p:
               - 'By browsing (or scraping) this site, you agree to the '
               - a:

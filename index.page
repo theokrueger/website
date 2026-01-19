@@ -10,6 +10,9 @@ html:
       - !INCLUDE /blocks/footer.block
       - !INCLUDE /blocks/title.block
       - div:
+          h1: This site is a work in progress!
+          p: It may have been around 3 years I have started slowly chipping away at this (as in, working for one day a year on this site and its tooling), but it is still under construction as I prepare an actually enjoyable debut post. Come back later, nobody is home.
+      - div:
           - h1: Recent Posts
           - !DEF [POST_SUMMARY_ONLY, 'true']
           - !FOREACH [

@@ -15,9 +15,23 @@ html:
           - h1: 2025
           - p:
               - a:
+                  - _href: 'https://github.com/theokrueger/interdict'
+                  - Interdict.
+              - ' - A smart, fully transparent proxy-throttler for effective aversive conditioning. '
+              - a:
+                  - _href: 'https://devpost.com/software/interdict'
+                  - Winner
+              - ' of the 2025 HackUMass "Best Software" award.'
+          - p:
+              - a:
+                  - _href: 'https://gitlab.com/theokrueger/tary'
+                  - Tary (work in progress)
+              - ' - A multi-interface secreTary to manage your life using a receipt printer.'
+          - p:
+              - a:
                   - _href: 'https://gitlab.com/theokrueger/suprglidr'
                   - suprglidr.
-              - ' - A one-button macropad for fancy FPS movement'
+              - ' - A one-button macropad for fancy FPS movement.'
       - div:
           - h1: 2024
           - p:
@@ -28,21 +42,21 @@ html:
               - a:
                   - _href: 'https://devpost.com/software/untitled-project-03byqsepgkdf'
                   - Winner
-              - ' of the 2024 HackUMass Grand Prize'
+              - ' of the 2024 HackUMass Grand Prize.'
           - p:
               - a:
                   - _href: 'https://crates.io/crates/ssgen'
                   - SSGen
-              - ' - A [S]tatic [S]ite [Gen]erator written in Rust'
+              - ' - A [S]tatic [S]ite [Gen]erator written in Rust.'
           - p:
               - a:
                   - _href: 'https://github.com/theokrueger/buckshock-roulette'
                   - Buckshock Roulette
-              - ' - A painful IRL gambling game based on Buckshot Roulette'
+              - ' - A painful IRL gambling game based on Buckshot Roulette.'
       - div:
           - h1: 2023 and Earlier
           - p:
               - a:
                   - _href: 'https://modworkshop.net/user/oruga'
                   -  Modworkshop Profile
-              - ' - A collection of mods for 2015 videogame PAYDAY 2'
+              - ' - A collection of mods for 2015 videogame PAYDAY 2.'

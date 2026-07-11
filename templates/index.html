@@ -1,8 +1,12 @@
 {% extends "root.html" %}
+{% import "components/mod.html" as macros %}
 
 {% block content %}
-<h1 class="title">
-  This is my blog made with Zola.
-</h1>
-<p><a href="{{ get_url(path='@/blog/_index.md') }}">Posts</a>.</p>
+
+{{ title::new(title="theokrueger.dev", subtitle="Personal Webpage", subsubtitle="test") }}
+{{ footer::new(name="test") }}
+<!-- <h1 class="title"> -->
+<!--   This is my blog made with Zola. -->
+<!-- </h1> -->
+<!-- <p><a href="{{ get_url(path='@/blog/_index.md') }}">Posts</a>.</p> -->
 {% endblock content %}

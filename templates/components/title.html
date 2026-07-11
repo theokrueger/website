@@ -1,0 +1,22 @@
+{% macro new(title, subtitle, subsubtitle) %}
+<div id="title">
+  <span>
+    {% if title %}
+    <a href="{{ config.base_url }}" id="title-text">
+      {{ title }}<span id="title-cursor">&block;</span>
+    </a>
+    {% endif %}
+
+    {% if subtitle %}
+    <br/>
+    <span id="subtitle">{{ subtitle }}</span>
+    {% endif %}
+
+    {% if subsubtitle %}
+    <br/>
+    <p id="subsubtitle">{{ subsubtitle }}</p>
+    {% endif %}
+
+  </span>
+</div>
+{% endmacro new %}

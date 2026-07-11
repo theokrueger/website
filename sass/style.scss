@@ -1,0 +1,242 @@
+@use 'sass:math';
+
+$font-family: monospace;
+$default-font-scale: 1em;
+
+$bg-color: #d3d3d3;
+$fg-color: #add8e6;
+$text-color: #101010;
+
+$border-color: #00000015;
+$border-radius: 5px;
+$border-width: 3px;
+$border-style: solid;
+
+$accent-color: #ffec8b;
+$accent-border: #fafad2;
+
+$highlight-color: red;
+$selection-color: #bbffbb;
+$tint-color: #00000035;
+
+$default-margin: 5px;
+$default-padding: 10px;
+$content-side-margin: 15vw;
+
+:root {
+    background-color: $bg-color;
+    font-family: $font-family;
+    scroll-behavior: smooth;
+    color: $text-color;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    
+}
+
+details {
+    transition: 0.2s;
+}
+
+h1, h2 {
+    margin: $default-margin;
+}
+
+div {
+    border-radius: $border-radius;
+    background-color: $fg-color;
+    margin: $default-margin;
+    border-color: $border-color;
+    border-style: $border-style;
+    border-width: $border-width;
+    padding: $default-padding;
+}
+
+/* FONTS */
+@function font-ratio($n) {
+    $golden-ratio: 1.618033988749895;
+    $scale: $default-font-scale * math.pow($golden-ratio,$n);
+    @return $scale;
+}
+@mixin huge-font {
+    font-size: font-ratio(3);
+}
+.huge-font {
+    @include huge-font;
+}
+@mixin large-font {
+    font-size: font-ratio(2);
+}
+.large-font {
+    @include large-font;
+}
+@mixin normal-font {
+    font-size: font-ratio(1);
+}
+.normal-font {
+    @include normal-font
+}
+@mixin small-font {
+    font-size: font-ratio(0.5);
+}
+.small-font {
+    @include small-font;
+}
+@mixin tiny-font {
+    font-size: font-ratio(0.25);
+}
+.tiny-font {
+    @include tiny-font;
+}
+		
+
+/* MODIFIERS */
+@mixin no-decoration {
+    color: $text-color;
+    text-decoration: none;
+}
+
+@mixin rotate-180 {
+    position: relative;
+    transform: rotate(-180deg);
+    display: inline-block;
+}
+.rotate-180 {
+    @include rotate-180;
+}
+
+@mixin right-align-text {
+    text-align: right;
+}
+@mixin left-align-text {
+    text-align: left;
+}
+@mixin center-align-text {
+    text-align: center;
+}
+@mixin justify-text {
+    text-align: justify;
+}
+
+.hoverable {
+    border-color: transparent;
+    border-style: $border-style;
+}
+.hoverable:hover {
+	border-color: $tint-color;
+	cursor: pointer;
+}
+
+/* IDS */
+#title-text {
+    @include huge-font;
+    @include no-decoration;
+}
+#title-cursor {
+    animation: blink 1s step-start infinite;
+    color: transparent;
+}
+#subtitle {
+    @include large-font;
+}
+#subsubtitle {
+    @include small-font;
+    @include right-align-text;
+    margin-bottom: 0px;
+}
+
+/* ANIMATIONS */
+@keyframes blink {
+    0%, 50% {
+	color: $highlight-color;
+    }
+    51%, 100% {
+	color: transparent;
+    }
+}
+
+
+/* FOOTER */
+$footer-font-size: font-ratio(1);
+$footer-height: $footer-font-size;//calc($footer-font-size + env(safe-area-inset-bottom, 0));
+$footer-top: calc($footer-height + 2px);
+#footer {
+    border-radius: 0px;
+    border-width: 2px 0px 0px 0px;
+    border-color: $accent-color;
+    background-color: $accent-color;
+    margin: 0px;
+    width: 100vw;
+    position: fixed;
+    bottom: 0px;
+    left: 0vh;
+    right: 100vw;
+    height: $footer-height;
+    padding: 0px;
+    margin: 0px;
+    z-index: 1;
+    font-size: $footer-font-size;
+}
+#nav {
+    margin: 0px $footer-font-size;
+}
+#nav-toggler-label {
+    appearance: button;
+    cursor: pointer;
+    border-color: $highlight-color;
+    border-style: solid none solid none;
+    border-width: 1px 0px;
+    display: inline-block;
+}
+#nav-toggler-button {
+    display:none;
+}
+#nav-toggler-button:checked ~ #nav-menu {
+    display: block;
+}
+
+#nav-menu {
+    display: none;
+    background-color: $fg-color;
+    margin: 0px;
+    width: 100vw;
+    position: fixed;
+    bottom: $footer-top;
+    left: 0vh;
+    right: 100vw;
+    padding: 2px;
+    border-color: $accent-color;
+    border-style: $border-style none none none;
+    border-width: $footer-height / $footer-font-size;
+    box-shadow: 0px -9px 9px $tint-color;
+    z-index: -1;
+}
+#nav-menu * {
+    margin: 0px;
+    padding: 0px $default-padding;
+    text-decoration: none;
+    color: $text-color;
+}
+#nav-menu > ul {
+    list-style-type: none;
+    width: 100vw;
+}
+#nav-menu > ul > li:hover {
+    background-color: $selection-color;
+}
+#nav-menu > ul > li > a {
+    width: 100vw;
+    display: block;
+}
+#nav-scroll-progress {
+    @include no-decoration;
+}
+#nav-copyright {
+    padding-right: $footer-font-size;
+    float: right;
+}
+#nav-copyright > a {
+    @include no-decoration;
+}

@@ -1,0 +1,30 @@
+{% macro new(name) %}
+<div id="footer">
+  U:%%@
+  <span id="nav">
+    <!-- clickable btn -->
+    <label id="nav-toggler-label" for="nav-toggler-button" class="hoverable">
+      {% if name %}{{ name }}{% else %}Scratch{% endif %} ^
+    </label>
+    <input id="nav-toggler-button" type="checkbox" autocomplete="off"/>
+
+    <!-- navlist -->
+    <span id="nav-menu">
+      <ul>
+	<li><a href="/" class="hoverable">Home</a></li>
+	<li><a href="/" class="hoverable">Posts</a></li>
+	<li><a href="/" class="hoverable">Portfolio</a></li>
+	<li><a href="/" class="hoverable">About</a></li>
+      </ul>
+    </span>
+  </span>
+  <!-- return to top button -->
+  <a id="nav-scroll-progress" href="#title" class="hoverable">Top</a>
+  <!-- right side -->
+  <span id="nav-copyright">
+    <a href="mailto:{{ config.extra.contact | safe }}" class="hoverable"><t class="rotate-180">©</t> theokrueger</a>
+    |
+    <a href="{{ config.extra.source | safe}}" target="_blank" class="hoverable">source</a>
+  </span>
+</div>
+{% endmacro new %}

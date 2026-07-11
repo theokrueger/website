@@ -26,4 +26,5 @@ include_title = true
 
 
 [extra]
-# Put all your custom variables here
+source = "https://gitlab.com/theokrueger/website"
+contact = "contact@theokrueger.dev"

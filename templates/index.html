@@ -5,9 +5,9 @@
 
 {{ title::new(title=section.title, subtitle=section.description, subsubtitle=section.extra.subsubtitle, flavor_id=section.extra.flavor_id) }}
 
-<div>
+<div id="content">
   {{ section.content | safe }}
 </div>
 
-{{ footer::new(name="index") }}
+{{ footer::new(name=section.extra.footer_name) }}
 {% endblock content %}

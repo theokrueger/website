@@ -1,7 +1,8 @@
 +++
-title = "My first post"
-date = 2019-11-27
-section.title = "aaaa"
+title = "first"
+description = "last"
+extra.subsubtitle = "only"
+extra.flavor_id = ""
+extra.footer_name = "posts"
 +++
-
 This is my first blog post.

@@ -3,11 +3,11 @@
 
 {% block content %}
 
-{{ title::new(title=page.title, subtitle=page.description, subsubtitle="", flavor_id="") }}
+{{ title::new(title=page.title, subtitle=page.description, subsubtitle=page.extra.subsubtitle, flavor_id=page.extra.flavor_id) }}
 
-<div>
+<div id="content">
   {{ page.content | safe }}
 </div>
 
-{{ footer::new(name="index") }}
+{{ footer::new(name=page.extra.footer_name) }}
 {% endblock content %}

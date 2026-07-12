@@ -1,5 +1,7 @@
 +++
 title = "List of blog posts"
 sort_by = "date"
-page_template = "post.html"
+description = "personal webpage"
+extra.subsubtitle = ""
+extra.flavor_id = "generic"
 +++

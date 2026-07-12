@@ -1,9 +1,9 @@
 {% macro new(name) %}
 <div id="footer">
-  U:%%@
+  <span>U:%%@</span>
   <span id="nav">
     <!-- clickable btn -->
-    <label id="nav-toggler-label" for="nav-toggler-button" class="hoverable">
+    <label id="nav-toggler-label" for="nav-toggler-button" class="hoverable" tabindex="0">
       {% if name %}{{ name }}{% else %}Scratch{% endif %} ^
     </label>
     <input id="nav-toggler-button" type="checkbox" autocomplete="off"/>
@@ -28,5 +28,5 @@
   </span>
 </div>
 <!-- end spacing -->
-<span id="footer-bottom-spacer">Hello from the bottom of the page :)</span>
+<div id="footer-bottom-spacer"></div>
 {% endmacro new %}

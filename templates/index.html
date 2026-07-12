@@ -3,34 +3,11 @@
 
 {% block content %}
 
-{{ title::new(title="theokrueger.dev", subtitle="personal webpage", subsubtitle="", flavor_id="generic") }}
+{{ title::new(title=section.title, subtitle=section.description, subsubtitle=section.extra.subsubtitle, flavor_id=section.extra.flavor_id) }}
 
 <div>
   {{ section.content | safe }}
 </div>
 
-<!-- <div> -->
-<!--   <h2>Sitemap</h2> -->
-<!--   <p> -->
-<!--     You can navigate the site using the yellow status bar (mode line) located at the bottom of your screen. -->
-<!--     Click on the current buffer (marked with a '^') to change pages. -->
-<!--   </p> -->
-<!--   <p> -->
-<!--     In case the status bar does not work for whatever reason, consult the sitemap below instead. -->
-<!--   </p> -->
-<!--   <ul> -->
-<!--     {% set index_sm = ["Index", "You are here.", "/"] %} -->
-<!--     {% set posts_sm = ["Posts", "Posts made on this site.", "/posts/"] %} -->
-<!--     {% set port_sm = ["Portfolio", "Projects that include me.", "/portfolio"] %} -->
-<!--     {% set about_sm = ["About", "About this website and the author (me).", "/about"] %} -->
-<!--     {% set sm = [index_sm, posts_sm, port_sm, about_sm] %} -->
-<!--     {% for tdu in sm %} -->
-<!--	<li> -->
-<!--	  <a href="{{ config.base_url }}{{ tdu[2] | safe }}">{{ tdu[0] }}</a> - {{ tdu[1] }} -->
-<!--	</li> -->
-<!--     {% endfor %} -->
-<!--   </ul> -->
-
-</div>
 {{ footer::new(name="index") }}
 {% endblock content %}

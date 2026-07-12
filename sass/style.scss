@@ -1,7 +1,53 @@
 @use 'sass:math';
 
+/* FONTS */
 $font-family: monospace;
-$default-font-scale: 1em;
+$default-font-scale: 1rem;
+
+@function font-ratio($n) {
+    $golden-ratio: 1.618033988749895;
+    $scale: $default-font-scale * math.pow($golden-ratio, $n);
+    $cap: 100vw/20;
+    @return min($scale, $cap);
+}
+@mixin huge-font {
+    font-size: font-ratio(3);
+}
+.huge-font {
+    @include huge-font;
+}
+@mixin largehuge-font {
+    font-size: font-ratio(2);
+}
+.largehuge-font {
+    @include largehuge-font;
+}
+@mixin large-font {
+    font-size: font-ratio(1);
+}
+.large-font {
+    @include large-font;
+}
+@mixin normal-font {
+    font-size: font-ratio(0);
+}
+.normal-font {
+    @include normal-font
+}
+@mixin small-font {
+    font-size: font-ratio(-0.5);
+}
+.small-font {
+    @include small-font;
+}
+@mixin tiny-font {
+    font-size: font-ratio(-1);
+}
+.tiny-font {
+    @include tiny-font;
+}
+
+/* STYLE */
 
 $bg-color: #d3d3d3;
 $fg-color: #add8e6;
@@ -33,15 +79,23 @@ $content-side-margin: 15vw;
 }
 
 body {
-    
+    @include normal-font;
 }
 
 details {
     transition: 0.2s;
 }
 
-h1, h2 {
-    margin: $default-margin;
+h1 {
+    @include largehuge-font;
+}
+
+h2 {
+    @include large-font;
+}
+
+h3 {
+    @include normal-font;
 }
 
 div {
@@ -54,44 +108,10 @@ div {
     padding: $default-padding;
 }
 
-/* FONTS */
-@function font-ratio($n) {
-    $golden-ratio: 1.618033988749895;
-    $scale: $default-font-scale * math.pow($golden-ratio, $n);
-    @return $scale;
-}
-@mixin huge-font {
-    font-size: font-ratio(3);
-}
-.huge-font {
-    @include huge-font;
-}
-@mixin large-font {
-    font-size: font-ratio(1);
-}
-.large-font {
-    @include large-font;
-}
-@mixin normal-font {
-    font-size: font-ratio(0);
-}
-.normal-font {
-    @include normal-font
-}
-@mixin small-font {
-    font-size: font-ratio(-0.5);
-}
-.small-font {
-    @include small-font;
-}
-@mixin tiny-font {
-    font-size: font-ratio(-1);
-}
-.tiny-font {
-    @include tiny-font;
+ul {
+    list-style-type: square;
 }
 		
-
 /* MODIFIERS */
 @mixin no-decoration {
     color: $text-color;
@@ -163,9 +183,8 @@ div {
     }
 }
 
-
 /* FOOTER */
-$footer-font-size: font-ratio(0.55);
+$footer-font-size: font-ratio(1);
 $footer-height: calc($footer-font-size + env(safe-area-inset-bottom, 0));
 $footer-top: calc($footer-height + 2px);
 #footer {
@@ -182,14 +201,13 @@ $footer-top: calc($footer-height + 2px);
     right: 100vw;
     font-size: $footer-font-size;
     height: $footer-height;
-    margin: 0px;
     z-index: 1;
 }
 #footer-bottom-spacer {
     height: $footer-height;
     border-radius: 0px;
-    padding: 2px 0px 0px 0px;
-    margin: 0px;
+    padding: 2px;
+    margin: 2px;
     border-width: 0px;
     border-color: transparent;
     background-color: transparent;
@@ -197,17 +215,19 @@ $footer-top: calc($footer-height + 2px);
 }
 #nav {
     margin: 0px $footer-font-size;
+    padding: 0px;
 }
 #nav-toggler-label {
     appearance: button;
     cursor: pointer;
     border-color: $highlight-color;
     border-style: solid none solid none;
+    height: calc($footer-height - 2px);
     border-width: 1px 0px;
     display: inline-block;
 }
 #nav-toggler-button {
-    display:none;
+    display: none;
 }
 #nav-toggler-button:checked ~ #nav-menu {
     display: block;

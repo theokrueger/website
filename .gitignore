@@ -8,6 +8,7 @@ public/
 .#*
 
 # npm
+package-lock.json
 .env
 .env.*
 !.env.example

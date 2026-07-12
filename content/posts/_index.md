@@ -2,7 +2,7 @@
 title = "theokrueger.dev/posts"
 description = "all posts listing"
 extra.subsubtitle = ""
-extra.flavor_id = "generic"
+extra.flavor_id = "generic-flavor"
 extra.footer_name = "posts"
 +++
-list of all posts
+<!-- intentionally left blank -->

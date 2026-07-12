@@ -2,19 +2,19 @@
 <div id="title">
   <span>
     {% if title %}
-    <a href="{{ config.base_url }}" id="title-text">
-      {{ title }}<span id="title-cursor">&block;</span>
-    </a>
+    <span id="title-title">
+      <a href="{{ config.base_url }}" id="title-text">{{ title | safe }}</a><span id="title-cursor">&block;</span>
+    </span>
     {% endif %}
 
     {% if subtitle %}
     <br/>
-    <span id="subtitle">{{ subtitle }}</span>
+    <span id="subtitle">{{ subtitle | safe }}</span>
     {% endif %}
 
     <br/>
     <p {% if flavor_id %}id="{{ flavor_id }}"{% endif %} class="flavor-text">
-      {% if subsubtitle %}{{ subsubtitle }}{% else %}<span style="color: transparent;">secret text :)</span>{% endif %}
+      {% if subsubtitle %}{{ subsubtitle | safe }}{% else %}<span style="color: transparent;">secret text :)</span>{% endif %}
     </p>
   </span>
 </div>

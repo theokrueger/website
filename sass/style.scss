@@ -57,7 +57,7 @@ div {
 /* FONTS */
 @function font-ratio($n) {
     $golden-ratio: 1.618033988749895;
-    $scale: $default-font-scale * math.pow($golden-ratio,$n);
+    $scale: $default-font-scale * math.pow($golden-ratio, $n);
     @return $scale;
 }
 @mixin huge-font {
@@ -67,25 +67,25 @@ div {
     @include huge-font;
 }
 @mixin large-font {
-    font-size: font-ratio(2);
+    font-size: font-ratio(1);
 }
 .large-font {
     @include large-font;
 }
 @mixin normal-font {
-    font-size: font-ratio(1);
+    font-size: font-ratio(0);
 }
 .normal-font {
     @include normal-font
 }
 @mixin small-font {
-    font-size: font-ratio(0.5);
+    font-size: font-ratio(-0.5);
 }
 .small-font {
     @include small-font;
 }
 @mixin tiny-font {
-    font-size: font-ratio(0.25);
+    font-size: font-ratio(-1);
 }
 .tiny-font {
     @include tiny-font;
@@ -142,10 +142,16 @@ div {
     @include large-font;
 }
 #subsubtitle {
-    @include small-font;
+    @include normal-font;
     @include right-align-text;
     margin-bottom: 0px;
 }
+.flavor-text {
+    @include normal-font;
+    @include right-align-text;
+    margin-bottom: 0px;
+}
+
 
 /* ANIMATIONS */
 @keyframes blink {
@@ -159,25 +165,35 @@ div {
 
 
 /* FOOTER */
-$footer-font-size: font-ratio(1);
-$footer-height: $footer-font-size;//calc($footer-font-size + env(safe-area-inset-bottom, 0));
+$footer-font-size: font-ratio(0.55);
+$footer-height: calc($footer-font-size + env(safe-area-inset-bottom, 0));
 $footer-top: calc($footer-height + 2px);
 #footer {
     border-radius: 0px;
     border-width: 2px 0px 0px 0px;
-    border-color: $accent-color;
+    border-color: $accent-border;
     background-color: $accent-color;
     margin: 0px;
+    padding: 0px;
     width: 100vw;
     position: fixed;
     bottom: 0px;
     left: 0vh;
     right: 100vw;
+    font-size: $footer-font-size;
     height: $footer-height;
-    padding: 0px;
     margin: 0px;
     z-index: 1;
-    font-size: $footer-font-size;
+}
+#footer-bottom-spacer {
+    height: $footer-height;
+    border-radius: 0px;
+    padding: 2px 0px 0px 0px;
+    margin: 0px;
+    border-width: 0px;
+    border-color: transparent;
+    background-color: transparent;
+    color: transparent;
 }
 #nav {
     margin: 0px $footer-font-size;
@@ -206,7 +222,7 @@ $footer-top: calc($footer-height + 2px);
     bottom: $footer-top;
     left: 0vh;
     right: 100vw;
-    padding: 2px;
+    padding: 0px;
     border-color: $accent-color;
     border-style: $border-style none none none;
     border-width: $footer-height / $footer-font-size;
@@ -220,6 +236,7 @@ $footer-top: calc($footer-height + 2px);
     color: $text-color;
 }
 #nav-menu > ul {
+    padding: 0px;
     list-style-type: none;
     width: 100vw;
 }

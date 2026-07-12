@@ -11,20 +11,22 @@
     <!-- navlist -->
     <span id="nav-menu">
       <ul>
-	<li><a href="/" class="hoverable">Home</a></li>
-	<li><a href="/" class="hoverable">Posts</a></li>
-	<li><a href="/" class="hoverable">Portfolio</a></li>
-	<li><a href="/" class="hoverable">About</a></li>
+	<li><a href="/">home</a></li>
+	<li><a href="/posts">posts</a></li>
+	<li><a href="/portfolio">portfolio</a></li>
+	<!-- <li><a href="/about">About</a></li> -->
       </ul>
     </span>
   </span>
   <!-- return to top button -->
-  <a id="nav-scroll-progress" href="#title" class="hoverable">Top</a>
+  <a id="nav-scroll-progress" href="#title" class="hoverable">top</a>
   <!-- right side -->
   <span id="nav-copyright">
-    <a href="mailto:{{ config.extra.contact | safe }}" class="hoverable"><t class="rotate-180">©</t> theokrueger</a>
+    <a href="mailto:{{ config.extra.contact | safe }}" class="hoverable"><t class="rotate-180">©</t>theokrueger</a>
     |
     <a href="{{ config.extra.source | safe}}" target="_blank" class="hoverable">source</a>
   </span>
 </div>
+<!-- end spacing -->
+<span id="footer-bottom-spacer">Hello from the bottom of the page :)</span>
 {% endmacro new %}

@@ -1,5 +1,5 @@
 +++
-title = "/posts"
+title = "/posts/"
 description = "all posts listing"
 extra.subsubtitle = ""
 extra.flavor_id = "generic-flavor"

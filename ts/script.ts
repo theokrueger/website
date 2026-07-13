@@ -45,10 +45,11 @@ async function addScrollPercent() {
         document.documentElement.clientHeight;
       const frac = (window.scrollY * 100) / maxHeightY;
       let s = "";
-      if (frac > 95) {
-        s = "Bot";
-      } else if (frac < 5 || maxHeightY === 0) {
-        s = "Top";
+      if (frac < 1 || maxHeightY <= 0 || Number.isNaN(frac)) {
+        s = "bot";
+      }
+      else if (frac > 99) {
+        s = "top";
       } else {
         s = Math.floor(frac).toString() + "%";
       }

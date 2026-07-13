@@ -1,10 +1,17 @@
-import { sleep, chance_percent, random_number, key_near, Keymap } from "./util.js";
+import {
+  sleep,
+  chance_percent,
+  random_number,
+  key_near,
+  Keymap,
+  random_elem,
+} from "./util.js";
 
 console.log("javascript enabled for this webpage");
 
 /* Replace the flavour text with a random selection */
 async function addFlavour() {
-  const idsToModify: {[id: string] : string[]} = {
+  const idsToModify: { [id: string]: string[] } = {
     "generic-flavor": [
       "anti-lua activist",
       "button box enthusiast",
@@ -27,8 +34,7 @@ async function addFlavour() {
   for (const [k] of Object.entries(idsToModify)) {
     const elem = document.getElementById(k);
     if (elem) {
-      elem.innerHTML =
-        idsToModify[k]![Math.floor(Math.random() * idsToModify[k]!.length)]!;
+      elem.innerHTML = random_elem(idsToModify[k]!);
     }
   }
 }
@@ -47,8 +53,7 @@ async function addScrollPercent() {
       let s = "";
       if (frac < 1 || maxHeightY <= 0 || Number.isNaN(frac)) {
         s = "bot";
-      }
-      else if (frac > 99) {
+      } else if (frac > 99) {
         s = "top";
       } else {
         s = Math.floor(frac).toString() + "%";
@@ -60,9 +65,13 @@ async function addScrollPercent() {
 addScrollPercent();
 
 /* Fancy typing animation */
-async function typeElement(elem: Element | null, addRandomFlair: boolean, allowMistakes: boolean) {
+async function typeElement(
+  elem: Element | null,
+  addRandomFlair: boolean,
+  allowMistakes: boolean,
+) {
   if (!elem) {
-    return
+    return;
   }
 
   const typingFlairs = [":)", ":D", ";)", ":]", ":3", ":O"];
@@ -70,20 +79,22 @@ async function typeElement(elem: Element | null, addRandomFlair: boolean, allowM
   const len = elem.innerHTML.length;
   const typingSpeed = 50; // ms delay between chars
 
-
   let make_mistake = false;
   let mistake_start = 0;
   let mistake_end = 0;
   const mistake_buffer: string[] = [];
   if (allowMistakes && len > 4 && chance_percent(2)) {
     make_mistake = true;
-    mistake_start = Math.floor(random_number(0,len-1));
-    mistake_end = Math.min(Math.floor(random_number(1,4)) + mistake_start, len-1);
+    mistake_start = Math.floor(random_number(0, len - 1));
+    mistake_end = Math.min(
+      Math.floor(random_number(1, 4)) + mistake_start,
+      len - 1,
+    );
     console.log(mistake_start, mistake_end);
   }
 
   elem.innerHTML = "";
-  for (let i = 0; i < len; i++) {  
+  for (let i = 0; i < len; i++) {
     await sleep(typingSpeed);
 
     // type mistakes if they must be typed
@@ -95,17 +106,17 @@ async function typeElement(elem: Element | null, addRandomFlair: boolean, allowM
     }
     // remove typed mistakes
     else if (mistake_buffer.length > 0) {
-      await sleep(typingSpeed*2);
+      await sleep(typingSpeed * 2);
       for (let j = 0; j < mistake_buffer.length; j++) {
-	elem.innerHTML = elem.innerHTML.slice(0,-1);
-	await sleep(typingSpeed/1.5);
-	console.log(elem.innerHTML, mistake_buffer);
+        elem.innerHTML = elem.innerHTML.slice(0, -1);
+        await sleep(typingSpeed / 1.5);
+        console.log(elem.innerHTML, mistake_buffer);
       }
-      await sleep(typingSpeed*3);
+      await sleep(typingSpeed * 3);
       while (mistake_buffer.length > 0) {
-	const chr = mistake_buffer.shift();
-	elem.innerHTML += chr;
-	await sleep(typingSpeed);
+        const chr = mistake_buffer.shift();
+        elem.innerHTML += chr;
+        await sleep(typingSpeed);
       }
     }
     // resume typing normally
@@ -116,15 +127,14 @@ async function typeElement(elem: Element | null, addRandomFlair: boolean, allowM
   if (addRandomFlair && chance_percent(6)) {
     // type flair
     await sleep(random_number(1000, 5000));
-    const flair =
-      " " + typingFlairs[Math.floor(Math.random() * typingFlairs.length)];
+    const flair = " " + random_elem(typingFlairs);
     for (let i = 0; i < flair.length; i++) {
       await sleep(typingSpeed * 8);
       elem.innerHTML += flair.charAt(i);
     }
 
     // remove flair
-    await sleep(random_number(1000,3000));
+    await sleep(random_number(1000, 3000));
     for (let i = flair.length; i >= 0; i--) {
       await sleep(typingSpeed);
       elem.innerHTML = elem.innerHTML.substring(0, len + i);

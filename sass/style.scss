@@ -1,70 +1,68 @@
-@use 'sass:math';
+@use "sass:math";
 
 /* FONTS */
 $font-family: monospace;
 $default-font-scale: 1rem;
 
 @function font-ratio($n) {
-    $golden-ratio: 1.6180;
-    $scale: $default-font-scale * math.pow($golden-ratio, $n);
-    $cap: 100vw / 16;
+  $golden-ratio: 1.618;
+  $scale: $default-font-scale * math.pow($golden-ratio, $n);
+  $cap: 100vw / 16;
 
-    @return min($scale, $cap);
+  @return min($scale, $cap);
 }
 
 @mixin huge-font {
-    font-size: font-ratio(3);
+  font-size: font-ratio(3);
 }
 
 .huge-font {
-    @include huge-font;
+  @include huge-font;
 }
 
 @mixin largehuge-font {
-    font-size: font-ratio(2);
+  font-size: font-ratio(2);
 }
 
 .largehuge-font {
-    @include largehuge-font;
+  @include largehuge-font;
 }
 
 @mixin large-font {
-    font-size: font-ratio(1);
+  font-size: font-ratio(1);
 }
 
 .large-font {
-    @include large-font;
+  @include large-font;
 }
 
 @mixin normal-font {
-    font-size: font-ratio(0);
+  font-size: font-ratio(0);
 }
 
 .normal-font {
-    @include normal-font
+  @include normal-font;
 }
 
 @mixin small-font {
-    font-size: font-ratio(-0.5);
+  font-size: font-ratio(-0.5);
 }
 
 .small-font {
-    @include small-font;
+  @include small-font;
 }
 
 @mixin tiny-font {
-    font-size: font-ratio(-1);
+  font-size: font-ratio(-1);
 }
 
 .tiny-font {
-    @include tiny-font;
+  @include tiny-font;
 }
 
 /* STYLE */
 $red: #fd0506;
 $purple: #b369b2;
-
-
 $bg-color: #d3d3d3;
 $fg-color: #add8e6;
 $text-color: #10100b;
@@ -73,7 +71,7 @@ $border-radius: 5px;
 $border-width: 3px;
 $border-style: solid;
 $accent-color: #eee8aa;
-$accent-border: #ffffcc;
+$accent-border: #ffc;
 $highlight-color: $red;
 $selection-color: #b5ffd1;
 $tint-color: #00000035;
@@ -81,138 +79,140 @@ $default-margin: 5px;
 $default-padding: 10px;
 $content-side-margin: 15vw;
 
-
 :root {
-    background-color: $bg-color;
-    font-family: $font-family;
-    scroll-behavior: smooth;
-    color: $text-color;
-    margin: 0;
-    padding: 0;
+  background-color: $bg-color;
+  font-family: $font-family;
+  scroll-behavior: smooth;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    @include normal-font;
+  @include normal-font;
 }
 
 details {
-    transition: 0.2s;
+  transition: 0.2s;
 }
 
 h1 {
-    @include largehuge-font;
+  @include largehuge-font;
 }
 
 h2 {
-    @include large-font;
+  @include large-font;
 }
 
 h3 {
-    @include normal-font;
+  @include normal-font;
 }
 
 div {
-    border-radius: $border-radius;
-    background-color: $fg-color;
-    margin: $default-margin;
-    border-color: $border-color;
-    border-style: $border-style;
-    border-width: $border-width;
-    padding: $default-padding;
+  border-radius: $border-radius;
+  background-color: $fg-color;
+  margin: $default-margin;
+  border-color: $border-color;
+  border-style: $border-style;
+  border-width: $border-width;
+  padding: $default-padding;
 }
 
 ul {
-    list-style-type: square;
+  list-style-type: square;
 }
-		
+
 /* MODIFIERS */
 @mixin no-decoration {
-    color: $text-color;
-    text-decoration: none;
+  color: $text-color;
+  text-decoration: none;
 }
 
 @mixin rotate-180 {
-    position: relative;
-    transform: rotate(-180deg);
-    display: inline-block;
+  position: relative;
+  transform: rotate(-180deg);
+  display: inline-block;
 }
 
 .rotate-180 {
-    @include rotate-180;
+  @include rotate-180;
 }
 
 @mixin right-align-text {
-    text-align: right;
+  text-align: right;
 }
 
 @mixin left-align-text {
-    text-align: left;
+  text-align: left;
 }
 
 @mixin center-align-text {
-    text-align: center;
+  text-align: center;
 }
 
 @mixin justify-text {
-    text-align: justify;
+  text-align: justify;
 }
 
-a, .hoverable {
-    border-color: transparent;
-    border-style: $border-style;
+a,
+.hoverable {
+  border-color: transparent;
+  border-style: $border-style;
 }
 
-a:hover, .hoverable:hover {
-    border-color: $tint-color;
-    cursor: pointer;
+a:hover,
+.hoverable:hover {
+  border-color: $tint-color;
+  cursor: pointer;
 }
 
 /* IDS */
 #title-title {
-    @include huge-font;
+  @include huge-font;
 }
 
 #title-text {
-    @include no-decoration;
+  @include no-decoration;
 }
 
 #title-cursor {
-    animation: blink 1s step-start infinite;
-    color: transparent;
+  animation: blink 1s step-start infinite;
+  color: transparent;
 }
 
 #subtitle {
-    @include large-font;
+  @include large-font;
 }
 
 #subsubtitle {
-    @include normal-font;
-    @include right-align-text;
+  @include normal-font;
+  @include right-align-text;
 
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .flavor-text {
-    @include normal-font;
-    @include right-align-text;
+  @include normal-font;
+  @include right-align-text;
 
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 #content > :first-child {
-    margin-top: 0;
+  margin-top: 0;
 }
-
 
 /* ANIMATIONS */
 @keyframes blink {
-    0%, 50% {
-	color: $highlight-color;
-    }
+  0%,
+  50% {
+    color: $highlight-color;
+  }
 
-    51%, 100% {
-	color: transparent;
-    }
+  51%,
+  100% {
+    color: transparent;
+  }
 }
 
 /* FOOTER */
@@ -221,110 +221,112 @@ $footer-height: calc($footer-font-size + env(safe-area-inset-bottom, 0));
 $footer-top: calc($footer-height + 4px);
 
 #footer {
-    border-radius: 0;
-    border-width: 2px 0 0;
-    border-color: $accent-border;
-    background-color: $accent-color;
-    padding: 0 0 2px;
-    margin: 0;
-    width: 100vw;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 100vw;
-    font-size: $footer-font-size;
-    line-height: 1;
-    height: $footer-height;
-    z-index: 1;
+  border-radius: 0;
+  border-width: 2px 0 0;
+  border-color: $accent-border;
+  background-color: $accent-color;
+  padding: 0 0 2px;
+  margin: 0;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 100vw;
+  font-size: $footer-font-size;
+  line-height: 1;
+  height: $footer-height;
+  z-index: 1;
 }
 
 #footer-bottom-spacer {
-    height: $footer-height;
-    border-radius: 0;
-    padding: 2px;
-    margin: 2px;
-    border-width: 0;
-    border-color: transparent;
-    background-color: transparent;
-    color: transparent;
+  height: $footer-height;
+  border-radius: 0;
+  padding: 2px;
+  margin: 2px;
+  border-width: 0;
+  border-color: transparent;
+  background-color: transparent;
+  color: transparent;
 }
 
 #footer-bottom-text {
-    @include right-align-text;
-    @include small-font;
-    margin: 0px;
+  @include right-align-text;
+  @include small-font;
+
+  margin: 0;
 }
+
 #footer-bottom-text > a {
-    @include no-decoration;
+  @include no-decoration;
 }
 
 #nav {
-    margin: 0 $footer-font-size;
-    padding: 0;
+  margin: 0 $footer-font-size;
+  padding: 0;
 }
 
 #nav-toggler-label {
-    appearance: auto;
-    cursor: pointer;
-    border-color: $highlight-color;
-    border-style: solid none;
-    border-width: 1px 0;
-    display: inline-block;
+  appearance: auto;
+  cursor: pointer;
+  border-color: $highlight-color;
+  border-style: solid none;
+  border-width: 1px 0;
+  display: inline-block;
 }
 
 #nav-toggler-button {
-    display: none;
+  display: none;
 }
 
 #nav-toggler-button:checked ~ #nav-menu {
-    display: block;
+  display: block;
 }
 
 #nav-menu {
-    display: none;
-    background-color: $fg-color;
-    margin: 0;
-    width: 100vw;
-    position: fixed;
-    bottom: $footer-top;
-    left: 0;
-    right: 100vw;
-    padding: 0;
-    border-color: $accent-color;
-    border-style: $border-style none none none;
-    border-width: $footer-height / $footer-font-size;
-    box-shadow: 0 -9px 9px $tint-color;
-    z-index: -1;
+  display: none;
+  background-color: $fg-color;
+  margin: 0;
+  width: 100vw;
+  position: fixed;
+  bottom: $footer-top;
+  left: 0;
+  right: 100vw;
+  padding: 0;
+  border-color: $accent-color;
+  border-style: $border-style none none none;
+  border-width: $footer-height / $footer-font-size;
+  box-shadow: 0 -9px 9px $tint-color;
+  z-index: -1;
 }
 
 #nav-menu * {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    color: $text-color;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: $text-color;
 }
 
 #nav-menu > ul {
-    list-style-type: none;
-    width: 100vw;
+  list-style-type: none;
+  width: 100vw;
 }
 
 #nav-menu > ul > li {
-    padding: 2px $default-padding;
-    border-color: transparent;
+  padding: 2px $default-padding;
+  border-color: transparent;
 }
 
 #nav-menu > ul > li:hover {
-    background-color: $selection-color;
+  background-color: $selection-color;
 }
 
 #nav-menu > ul > li > a {
-    width: 100vw;
-    display: block;
-    border-color: transparent;
-    color: $purple;
+  width: 100vw;
+  display: block;
+  border-color: transparent;
+  color: $purple;
 }
 
 #nav-scroll-progress {
-    @include no-decoration;
+  @include no-decoration;
 }

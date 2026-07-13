@@ -1,5 +1,5 @@
 +++
-title = "theokrueger.dev/portfolio"
+title = "/portfolio"
 description = "public projects portfolio"
 extra.subsubtitle = ""
 extra.flavor_id = "portfolio-flavor"

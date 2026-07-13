@@ -20,13 +20,10 @@
   </span>
   <!-- return to top button -->
   <a id="nav-scroll-progress" href="#title" class="hoverable">top</a>
-  <!-- right side -->
-  <span id="nav-copyright">
-    <a href="mailto:{{ config.extra.contact | safe }}" class="hoverable"><t class="rotate-180">©</t>theokrueger</a>
-    |
-    <a href="{{ config.extra.source | safe}}" target="_blank" class="hoverable">source</a>
-  </span>
 </div>
-<!-- end spacing -->
+<!-- bottom spacing -->
+<p id="footer-bottom-text">
+  <a href="mailto:{{ config.extra.contact | safe }}"><t class="rotate-180">©</t>theokrueger</a> | <a href="{{ config.extra.source | safe}}" target="_blank">view source</a>
+</p>
 <div id="footer-bottom-spacer"></div>
 {% endmacro new %}

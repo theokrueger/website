@@ -7,7 +7,7 @@ $default-font-scale: 1rem;
 @function font-ratio($n) {
     $golden-ratio: 1.6180;
     $scale: $default-font-scale * math.pow($golden-ratio, $n);
-    $cap: 100vw / 20;
+    $cap: 100vw / 16;
 
     @return min($scale, $cap);
 }
@@ -217,7 +217,6 @@ $footer-height: calc($footer-font-size + env(safe-area-inset-bottom, 0));
 $footer-top: calc($footer-height + 4px);
 
 #footer {
-    white-space: nowrap;
     border-radius: 0;
     border-width: 2px 0 0;
     border-color: $accent-border;
@@ -244,6 +243,15 @@ $footer-top: calc($footer-height + 4px);
     border-color: transparent;
     background-color: transparent;
     color: transparent;
+}
+
+#footer-bottom-text {
+    @include right-align-text;
+    @include small-font;
+    margin: 0px;
+}
+#footer-bottom-text > a {
+    @include no-decoration;
 }
 
 #nav {
@@ -311,14 +319,5 @@ $footer-top: calc($footer-height + 4px);
 }
 
 #nav-scroll-progress {
-    @include no-decoration;
-}
-
-#nav-copyright {
-    padding-right: $footer-font-size;
-    float: right;
-}
-
-#nav-copyright > a {
     @include no-decoration;
 }

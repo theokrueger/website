@@ -61,22 +61,26 @@ $default-font-scale: 1rem;
 }
 
 /* STYLE */
+$red: #fd0506;
+$purple: #b369b2;
+
 
 $bg-color: #d3d3d3;
 $fg-color: #add8e6;
-$text-color: #101010;
+$text-color: #10100b;
 $border-color: #00000015;
 $border-radius: 5px;
 $border-width: 3px;
 $border-style: solid;
-$accent-color: #ffec8b;
-$accent-border: #fafad2;
-$highlight-color: red;
-$selection-color: #bfb;
+$accent-color: #eee8aa;
+$accent-border: #ffffcc;
+$highlight-color: $red;
+$selection-color: #b5ffd1;
 $tint-color: #00000035;
 $default-margin: 5px;
 $default-padding: 10px;
 $content-side-margin: 15vw;
+
 
 :root {
     background-color: $bg-color;
@@ -153,14 +157,14 @@ ul {
     text-align: justify;
 }
 
-.hoverable {
+a, .hoverable {
     border-color: transparent;
     border-style: $border-style;
 }
 
-.hoverable:hover {
-	border-color: $tint-color;
-	cursor: pointer;
+a:hover, .hoverable:hover {
+    border-color: $tint-color;
+    cursor: pointer;
 }
 
 /* IDS */
@@ -307,6 +311,7 @@ $footer-top: calc($footer-height + 4px);
 
 #nav-menu > ul > li {
     padding: 2px $default-padding;
+    border-color: transparent;
 }
 
 #nav-menu > ul > li:hover {
@@ -316,6 +321,8 @@ $footer-top: calc($footer-height + 4px);
 #nav-menu > ul > li > a {
     width: 100vw;
     display: block;
+    border-color: transparent;
+    color: $purple;
 }
 
 #nav-scroll-progress {

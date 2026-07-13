@@ -90,6 +90,13 @@ $content-side-margin: 15vw;
 
 body {
   @include normal-font;
+  margin: 0px 15vw;
+}
+// remove padding on non-desktop views
+@media only screen and (max-width: 1000px) {
+  body {
+    margin: 0px;
+  }
 }
 
 details {
@@ -200,6 +207,12 @@ a:hover,
 
 #content > :first-child {
   margin-top: 0;
+}
+
+#content > p {
+  padding-left: $default-padding;
+  padding-right: $default-padding;
+  @include justify-text;
 }
 
 /* ANIMATIONS */

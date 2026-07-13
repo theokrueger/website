@@ -90,12 +90,12 @@ $content-side-margin: 15vw;
 
 body {
   @include normal-font;
-  margin: 0px 15vw;
+  margin: $default-margin 15vw;
 }
 // remove padding on non-desktop views
 @media only screen and (max-width: 1000px) {
   body {
-    margin: 0px;
+    margin: $default-margin;
   }
 }
 

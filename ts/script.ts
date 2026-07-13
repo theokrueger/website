@@ -10,27 +10,27 @@ import {
 console.log("javascript enabled for this webpage");
 
 /* Replace the flavour text with a random selection */
-async function addFlavour() {
-  const idsToModify: { [id: string]: string[] } = {
-    "generic-flavor": [
-      "anti-lua activist",
-      "button box enthusiast",
-      "y2k compliant",
-      "on the beatfloor",
-      "jumping over lazy dogs",
-      "subtitles are hard",
-      "javascript is optional",
-      "site untested on blink",
-    ],
-    "portfolio-flavor": [
-      "RTFM",
-      "man 7 theokrueger",
-      "tldr: programming",
-      "know thy enemy",
-      "human-generated slop",
-    ],
-  };
+const idsToModify: { [id: string]: string[] } = {
+  "generic-flavor": [
+    "anti-lua activist",
+    "button box enthusiast",
+    "y2k compliant",
+    "on the beatfloor",
+    "jumping over lazy dogs",
+    "subtitles are hard",
+    "javascript is optional",
+    "site untested on blink",
+  ],
+  "portfolio-flavor": [
+    "RTFM",
+    "man 7 theokrueger",
+    "tldr: programming",
+    "know thy enemy",
+    "human-generated slop",
+  ],
+};
 
+async function addFlavour() {
   for (const [k] of Object.entries(idsToModify)) {
     const elem = document.getElementById(k);
     if (elem) {
@@ -65,6 +65,17 @@ async function addScrollPercent() {
 addScrollPercent();
 
 /* Fancy typing animation */
+const typingFlairs = [":)", ":D", ";)", ":]", ":3", ":O", "TT", "o_O", "._."];
+const legendaryTypingFlairs = [
+  "OwO",
+  "UwU",
+  "owo",
+  "uwu",
+  "0w0",
+  "hi",
+  `i cant explain this in time but ive been locked up and trapped by somebody in the woods and i need help please come find me at 42°24'40.4"N 97°14'49.6"W just off the route 20 and bring protection please i havent seen the daylight in weeks`,
+];
+
 async function typeElement(
   elem: Element | null,
   addRandomFlair: boolean,
@@ -74,7 +85,6 @@ async function typeElement(
     return;
   }
 
-  const typingFlairs = [":)", ":D", ";)", ":]", ":3", ":O"];
   const txt = elem.innerHTML;
   const len = elem.innerHTML.length;
   const typingSpeed = 50; // ms delay between chars
@@ -124,10 +134,14 @@ async function typeElement(
   }
 
   // 6% chance for random flair
-  if (addRandomFlair && chance_percent(6)) {
+  if (addRandomFlair && chance_percent(5)) {
     // type flair
     await sleep(random_number(1000, 5000));
-    const flair = " " + random_elem(typingFlairs);
+    let flair = " " + random_elem(typingFlairs);
+    if (chance_percent(0.1)) {
+      // overall 1/20,000 chance
+      flair = " " + random_elem(legendaryTypingFlairs);
+    }
     for (let i = 0; i < flair.length; i++) {
       await sleep(typingSpeed * 8);
       elem.innerHTML += flair.charAt(i);

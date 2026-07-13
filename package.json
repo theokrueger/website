@@ -4,7 +4,7 @@
   "description": "this node package is just for eslint",
   "main": "assets/script.js",
   "scripts": {
-    "lint": "npx eslint $(find static -regex '.*\\.\\(js\\|css\\)');npx stylelint $(find sass -regex '.*\\.scss')"
+    "lint": "npx eslint $(find ts -regex '.*\\.ts');npx stylelint $(find sass -regex '.*\\.scss')"
   },
   "repository": {
     "type": "git",
@@ -17,10 +17,12 @@
   "homepage": "https://theokrueger.dev",
   "devDependencies": {
     "@eslint/css": "^0.14.1",
-    "@eslint/js": "^9.39.1",
-    "eslint": "^9.39.1",
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
     "globals": "^16.5.0",
     "stylelint": "^17.14.0",
-    "stylelint-config-standard-scss": "^17.0.0"
+    "stylelint-config-standard-scss": "^17.0.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.63.0"
   }
 }

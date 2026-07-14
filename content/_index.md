@@ -6,7 +6,7 @@ extra.flavor_id = "generic-flavor"
 extra.footer_name = "index"
 +++
 
-[latest post](@/posts/bikeshedding.md) - bikeshedding wrote this site and made it terrible.
+[latest post](@/posts/bikeshedding/index.md) - bikeshedding wrote this site and made it terrible.
 
 [all posts](@/posts/_index.md)
 

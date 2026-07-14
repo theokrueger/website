@@ -1,7 +1,12 @@
 @use "sass:math";
 
 /* FONTS */
-$font-family: monospace;
+@font-face {
+  font-family: IBMPlexMono;
+  src: url(/fonts/ibmplexmono/regular.woff2);
+}
+
+$font-family: IBMPlexMono;
 $default-font-scale: 1rem;
 
 @function font-ratio($n) {
@@ -37,7 +42,7 @@ $default-font-scale: 1rem;
 }
 
 @mixin normal-font {
-  font-size: font-ratio(0);
+  font-size: font-ratio(0.25);
 }
 
 .normal-font {
@@ -90,9 +95,14 @@ $content-side-margin: 15vw;
 
 body {
   @include normal-font;
-  margin: $default-margin 15vw;
+  margin: $default-margin 25vw;
 }
 // remove padding on non-desktop views
+@media only screen and (max-width: 1500px) {
+  body {
+    margin: $default-margin 15vw;
+  }
+}
 @media only screen and (max-width: 1000px) {
   body {
     margin: $default-margin;
@@ -105,17 +115,24 @@ details {
 
 h1 {
   @include largehuge-font;
+  line-height: 1;
 }
 
 h2 {
   @include large-font;
+  line-height: 1;
 }
 
 h3 {
   @include normal-font;
+  line-height: 1;
 }
 
-div {
+code {
+  color: $purple;
+}
+
+body > div {
   border-radius: $border-radius;
   background-color: $fg-color;
   margin: $default-margin;
@@ -212,7 +229,6 @@ a:hover,
 #content > p {
   padding-left: $default-padding;
   padding-right: $default-padding;
-  @include justify-text;
 }
 
 /* ANIMATIONS */

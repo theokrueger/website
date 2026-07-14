@@ -1,0 +1,38 @@
+{% if nth == 1 %}
+<style>
+.flickity-carousel {
+  border-color: transparent;
+  background-color: transparent;
+  margin: auto;
+}
+.carousel-cell > img {
+  width: 100%;
+}
+.carousel-cell > p {
+  text-align: center;
+}
+.flickity-viewport {
+  transition: height 0.2s;
+}
+</style>
+{% endif %}
+
+<div class="flickity-carousel-{{ nth }} flickity-carousel">
+  {% if caption %}<p style="text-align: center;">{{ caption | safe }}</p>{% endif %}
+  {% for arr in images %}
+  {% set image = resize_image(path=arr[0], width=width, height=height, op=op, format=format) %}
+  <span class="carousel-cell">
+    <img src="{{ image.url }}" />
+    {% if arr[1] %}<p>{{ arr[1] | safe }}</p>{% endif %}
+  </span>
+  {% endfor %}
+</div>
+
+<script>
+new Flickity( document.querySelector('.flickity-carousel-{{ nth }}'), {
+  adaptiveHeight: true,
+  imagesLoaded: true,
+  cellSelector: '.carousel-cell',
+});
+</script>
+<br/>

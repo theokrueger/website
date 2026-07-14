@@ -42,7 +42,7 @@ $default-font-scale: 1rem;
 }
 
 @mixin normal-font {
-  font-size: font-ratio(0);
+  font-size: $default-font-scale;
 }
 
 .normal-font {
@@ -214,7 +214,7 @@ a:hover,
 }
 
 #subtitle {
-  font-size: max(min(calc(font-ratio(3) - 1em), font-ratio(1)), 1em);
+  font-size: max(min(calc(font-ratio(3) - 1rem), font-ratio(1)), 1rem);
 }
 
 #subsubtitle {

@@ -65,8 +65,9 @@ async function addScrollPercent() {
 addScrollPercent();
 
 /* Fancy typing animation */
-const typingFlairs = [":)", ":D", ";)", ":]", ":3", ":O", "TT", "o_O", "._."];
+const typingFlairs = [":)", ":D", ";)", ":]", ":3", ":O", "o_O", "._."];
 const legendaryTypingFlairs = [
+  "T_T",
   "OwO",
   "UwU",
   "owo",

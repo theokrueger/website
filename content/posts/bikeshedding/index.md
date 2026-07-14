@@ -3,7 +3,7 @@ title = "On Bikeshedding"
 description = "Perfection is the worst product you've ever used."
 date = 2026-07-14
 extra.flavor_id = ""
-extra.footer_name = "bikeshedding"
+extra.footer_name = "bkshd"
 extra.extern.slideshow = true
 +++
 # * The voices 

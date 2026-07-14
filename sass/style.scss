@@ -202,6 +202,8 @@ a:hover,
 /* IDS */
 #title-title {
   @include huge-font;
+  margin: $default-margin 0px;
+  font-weight: normal;
 }
 
 #title-text {
@@ -223,6 +225,8 @@ a:hover,
 
 #subtitle {
   font-size: max(min(calc(font-ratio(3) - 1rem), font-ratio(1)), 1rem);
+  margin: $default-margin 0px;
+  font-weight: normal;
 }
 
 #subsubtitle {

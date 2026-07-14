@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA_Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="theokrueger" />
+    {% if page %}
+      {% set_global desc = page.description %}
+    {% elif section %}
+      {% set_global desc = section.description %}
+    {% else %}
+      {# probably only the 404 page #}
+      {% set_global desc = "a personal web-blog by theokrueger" %}
+    {% endif %}
+    <meta name="description" content="{{ desc }}">
     <title>theokrueger.dev</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">

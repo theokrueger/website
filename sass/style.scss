@@ -213,6 +213,14 @@ a:hover,
   color: transparent;
 }
 
+#rss-button {
+    display: inline-block;
+    width: $default-font-scale;
+    height: $default-font-scale;
+}
+
+#rss-button-img {}
+
 #subtitle {
   font-size: max(min(calc(font-ratio(3) - 1rem), font-ratio(1)), 1rem);
 }

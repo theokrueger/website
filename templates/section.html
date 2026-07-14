@@ -3,7 +3,7 @@
 
 {% block content %}
 
-{{ title::new(title=section.title, subtitle=section.description, subsubtitle=section.extra.subsubtitle, flavor_id=section.extra.flavor_id) }}
+{{ title::new(title=section.title, subtitle=section.description, subsubtitle=section.extra.subsubtitle, flavor_id=section.extra.flavor_id, show_rss=true) }}
 
 <div id="content">
   {{ section.content | safe }}

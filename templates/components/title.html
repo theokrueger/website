@@ -1,9 +1,9 @@
-{% macro new(title, subtitle, subsubtitle, flavor_id) %}
+{% macro new(title, subtitle, subsubtitle, flavor_id, show_rss) %}
 <div id="title">
   <span>
     {% if title %}
     <span id="title-title">
-      <a href="{{ config.base_url }}" id="title-text">{{ title | safe }}</a><span id="title-cursor">&block;</span>
+      <a href="{{ config.base_url }}" id="title-text" rel="self">{{ title | safe }}</a><span id="title-cursor">&block;</span>
     </span>
     {% endif %}
 
@@ -13,9 +13,14 @@
     {% endif %}
 
     <br/>
-    <p {% if flavor_id %}id="{{ flavor_id }}"{% endif %} class="flavor-text">
-      {% if subsubtitle %}{{ subsubtitle | safe }}{% else %}<span style="color: transparent;">secret text :)</span>{% endif %}
-    </p>
+    <p class="flavor-text">
+      <span {% if flavor_id %}id="{{ flavor_id }}"{% endif %}>
+	{% if subsubtitle %}{{ subsubtitle | safe }}{% else %}<span style="color: transparent;">secret text :)</span>{% endif %}
+      </span>
+      {% if show_rss %}
+      <a id="rss-button" href="{{ config.base_url }}/rss.xml"><img id="rss-button-img" src="{{ config.base_url }}/img/rss.svg"/></a>
+      {% endif %}
+      </p>
   </span>
 </div>
 {% endmacro new %}

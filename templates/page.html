@@ -3,7 +3,7 @@
 
 {% block content %}
 
-{{ title::new(title=page.title, subtitle=page.description, subsubtitle=page.extra.subsubtitle, flavor_id=page.extra.flavor_id) }}
+{{ title::new(title=page.title, subtitle=page.description, subsubtitle=page.date, flavor_id=page.extra.flavor_id) }}
 
 <div id="content">
   {{ page.content | safe }}

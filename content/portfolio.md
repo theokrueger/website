@@ -1,10 +1,8 @@
 +++
 title = "/portfolio/"
 description = "public projects portfolio"
-extra.subsubtitle = ""
 extra.flavor_id = "portfolio-flavor"
 extra.footer_name = "portfolio"
-
 +++
 ## * 2026
 [arstyper](https://gitlab.com/theokrueger/arstyper) - Minimalistic terminal-based typing test.

@@ -214,7 +214,7 @@ a:hover,
 }
 
 #subtitle {
-  @include large-font;
+  font-size: max(min(calc(font-ratio(3) - 1em), font-ratio(1)), 1em);
 }
 
 #subsubtitle {

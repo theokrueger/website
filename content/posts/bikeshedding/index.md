@@ -68,7 +68,7 @@ So a new site was born, looking strikingly similar to the first revision[^poorta
 
 [^poortaste]: Due to poor taste.
 
-```
+```md
 TITLE: post title
 -------------------------
 # heading

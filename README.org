@@ -1,0 +1,15 @@
+* [[https://theokrueger.dev][theokrueger.dev]]
+my personal website
+
+** deps
+- install [[https://www.getzola.org/][zola]]
+- install npm
+- ~npm install~
+
+** building
+~./build.sh~
+
+** dev
+- ~npx tsc~ for updating static with transpiled js
+- ~npm run lint~ for linters
+- ~zola serve~ for sitegen

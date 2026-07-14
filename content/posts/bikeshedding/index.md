@@ -103,10 +103,10 @@ Yet in some way, it was beautiful.
 SSGen pages and blocks are turing complete, and at their best felt incredible in terms of power to circularly define context between templates and their content.
 At their worst, you're left fighting HTML shoehorned into a simpler markup language in an environment devoid of debugging and tracing tools.
 
-At some point in complexity however, your design is more of an ASPL[^aspl] over an engine, and has the ergonomics of a cinder block.
+At some point in complexity however, your design is more of a DSL[^dsl] over an engine, and has the ergonomics of a cinder block.
 It turns out that YAML is a horrible choice for writing websites.
 
-[^aspl]: Application Specific Programming Language. I ended up starting on one of these in 2025, but its a footnote for a reason.
+[^dsl]: I ended up starting on one of these in 2025, but its a footnote for a reason.
 
 ```yaml
 - !DEF [TITLE, 'theokrueger.dev']

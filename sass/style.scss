@@ -6,7 +6,7 @@
   src: url(/fonts/ibmplexmono/regular.woff2);
 }
 
-$font-family: IBMPlexMono;
+$font-family: IBMPlexMono, monospace;
 $default-font-scale: 1rem;
 
 @function font-ratio($n) {
@@ -42,7 +42,7 @@ $default-font-scale: 1rem;
 }
 
 @mixin normal-font {
-  font-size: font-ratio(0.25);
+  font-size: font-ratio(0);
 }
 
 .normal-font {
@@ -111,6 +111,15 @@ body {
 
 details {
   transition: 0.2s;
+}
+
+pre {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+pre > code {
+  overflow-x: auto;
 }
 
 h1 {

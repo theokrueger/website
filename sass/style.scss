@@ -68,8 +68,11 @@ $default-font-scale: 1rem;
 /* STYLE */
 $red: #fd0506;
 $purple: #b369b2;
+$teal: #66cdaa;
+$lightblue: #add8e6;
+$lightgreen: #b5ffd1;
 $bg-color: #d3d3d3;
-$fg-color: #add8e6;
+$fg-color: $lightblue;
 $text-color: #10100b;
 $border-color: #00000015;
 $border-radius: 5px;
@@ -78,7 +81,7 @@ $border-style: solid;
 $accent-color: #eee8aa;
 $accent-border: #ffc;
 $highlight-color: $red;
-$selection-color: #b5ffd1;
+$selection-color: $lightgreen;
 $tint-color: #00000035;
 $default-margin: 5px;
 $default-padding: 10px;
@@ -91,6 +94,11 @@ $content-side-margin: 15vw;
   color: $text-color;
   margin: 0;
   padding: 0;
+}
+
+::selection {
+  color: inherit;
+  background: $selection-color;
 }
 
 body {

@@ -31,10 +31,10 @@ $font-family: ibmplexmono, monospace;
 $default-font-scale: 1rem;
 
 @function font-ratio($n) {
-  $high_cap: 100vw / 16;
   $scale: $default-font-scale * math.pow(1.4, $n);
+  $high-cap: 100vw / 16;
 
-  @return min($scale, $high_cap);
+  @return min($scale, $high-cap);
 }
 
 @mixin huge-font {

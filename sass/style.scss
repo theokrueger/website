@@ -141,6 +141,7 @@ a:hover,
     #title-text {
 	font-weight: bold;
     }
+
     #subtitle {
 	font-style: italic;
     }
@@ -173,11 +174,11 @@ a:hover,
   @include s.medium-font;
 
   font-weight: normal;
-  margin: 0px;
+  margin: 0;
 } 
 
 #content > :first-child {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 #content > p {

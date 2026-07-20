@@ -1,119 +1,61 @@
 @use "sass:math";
+@use "shared" as s;
 
 /* FONTS */
-@font-face {
-  font-family: IBMPlexMono;
-  src: url(/fonts/ibmplexmono/regular.woff2);
-}
-
-$font-family: IBMPlexMono, monospace;
-$default-font-scale: 1rem;
-
-@function font-ratio($n) {
-  $golden-ratio: 1.618;
-  $scale: $default-font-scale * math.pow($golden-ratio, $n);
-  $cap: 100vw / 16;
-
-  @return min($scale, $cap);
-}
-
-@mixin huge-font {
-  font-size: font-ratio(3);
-}
-
 .huge-font {
-  @include huge-font;
-}
-
-@mixin largehuge-font {
-  font-size: font-ratio(2);
+  @include s.huge-font;
 }
 
 .largehuge-font {
-  @include largehuge-font;
-}
-
-@mixin large-font {
-  font-size: font-ratio(1);
+  @include s.largehuge-font;
 }
 
 .large-font {
-  @include large-font;
-}
-
-@mixin normal-font {
-  font-size: $default-font-scale;
+  @include s.large-font;
 }
 
 .normal-font {
-  @include normal-font;
-}
-
-@mixin small-font {
-  font-size: font-ratio(-0.5);
+  @include s.normal-font;
 }
 
 .small-font {
-  @include small-font;
-}
-
-@mixin tiny-font {
-  font-size: font-ratio(-1);
+  @include s.small-font;
 }
 
 .tiny-font {
-  @include tiny-font;
+  @include s.tiny-font; 
 }
 
-/* STYLE */
-$red: #fd0506;
-$purple: #b369b2;
-$teal: #66cdaa;
-$lightblue: #add8e6;
-$lightgreen: #b5ffd1;
-$bg-color: #d3d3d3;
-$fg-color: $lightblue;
-$text-color: #10100b;
-$border-color: #00000015;
-$border-radius: 5px;
-$border-width: 3px;
-$border-style: solid;
-$accent-color: #eee8aa;
-$accent-border: #ffc;
-$highlight-color: $red;
-$selection-color: $lightgreen;
-$tint-color: #00000035;
-$default-margin: 5px;
-$default-padding: 10px;
-$content-side-margin: 15vw;
-
 :root {
-  background-color: $bg-color;
-  font-family: $font-family;
+  background-color: s.$bg-color;
+  font-family: s.$font-family;
   scroll-behavior: smooth;
-  color: $text-color;
+  color: s.$text-color;
   margin: 0;
   padding: 0;
 }
 
 ::selection {
   color: inherit;
-  background: $selection-color;
+  background: s.$selection-color;
 }
 
 body {
-  @include normal-font;
-  margin: $default-margin 25vw;
+  @include s.normal-font;
+
+  margin: s.$default-margin 25vw;
 }
+
 // remove padding on non-desktop views
-@media only screen and (max-width: 1500px) {
+@media only screen and (width <= 1500px) {
   body {
-    margin: $default-margin 15vw;
+    margin: s.$default-margin 15vw;
   }
 }
-@media only screen and (max-width: 1000px) {
+
+@media only screen and (width <= 1000px) {
   body {
-    margin: $default-margin;
+    margin: s.$default-margin;
   }
 }
 
@@ -131,32 +73,35 @@ pre > code {
 }
 
 h1 {
-  @include largehuge-font;
+  @include s.largehuge-font;
+
   line-height: 1;
 }
 
 h2 {
-  @include large-font;
+  @include s.large-font;
+
   line-height: 1;
 }
 
 h3 {
-  @include normal-font;
+  @include s.normal-font;
+
   line-height: 1;
 }
 
 code {
-  color: $purple;
+  color: s.$purple;
 }
 
 body > div {
-  border-radius: $border-radius;
-  background-color: $fg-color;
-  margin: $default-margin;
-  border-color: $border-color;
-  border-style: $border-style;
-  border-width: $border-width;
-  padding: $default-padding;
+  border-radius: s.$border-radius;
+  background-color: s.$fg-color;
+  margin: s.$default-margin;
+  border-color: s.$border-color;
+  border-style: s.$border-style;
+  border-width: s.$border-width;
+  padding: s.$default-padding;
 }
 
 ul {
@@ -164,58 +109,41 @@ ul {
 }
 
 /* MODIFIERS */
-@mixin no-decoration {
-  color: $text-color;
-  text-decoration: none;
-}
-
-@mixin rotate-180 {
-  position: relative;
-  transform: rotate(-180deg);
-  display: inline-block;
-}
-
 .rotate-180 {
-  @include rotate-180;
-}
-
-@mixin right-align-text {
-  text-align: right;
-}
-
-@mixin left-align-text {
-  text-align: left;
-}
-
-@mixin center-align-text {
-  text-align: center;
-}
-
-@mixin justify-text {
-  text-align: justify;
+  @include s.rotate-180;
 }
 
 a,
 .hoverable {
   border-color: transparent;
-  border-style: $border-style;
+  border-style: s.$border-style;
 }
 
 a:hover,
 .hoverable:hover {
-  border-color: $tint-color;
+  border-color: s.$tint-color;
   cursor: pointer;
 }
 
 /* IDS */
 #title-title {
-  @include huge-font;
-  margin: $default-margin 0px;
+  @include s.huge-font;
+
+  margin: s.$default-margin 0;
   font-weight: normal;
 }
 
 #title-text {
-  @include no-decoration;
+  @include s.no-decoration;
+}
+
+@media only screen and (width <= 500px) {
+    #title-text {
+	font-weight: bold;
+    }
+    #subtitle {
+	font-style: italic;
+    }
 }
 
 #title-cursor {
@@ -225,46 +153,43 @@ a:hover,
 
 #rss-button {
     display: inline-block;
-    width: $default-font-scale;
-    height: $default-font-scale;
+    width: s.$default-font-scale;
+    height: s.$default-font-scale;
 }
 
-#rss-button-img {}
+// #rss-button-img {}
 
 #subtitle {
-  font-size: max(min(calc(font-ratio(3) - 1rem), font-ratio(1)), 1rem);
-  margin: $default-margin 0px;
+  @include s.no-decoration;
+  @include s.large-font;
+  
+  margin: s.$default-margin 0;
   font-weight: normal;
 }
 
-#subsubtitle {
-  @include normal-font;
-  @include right-align-text;
+#flavor-text {
+  @include s.no-decoration;
+  @include s.right-align-text;
+  @include s.medium-font;
 
-  margin-bottom: 0;
-}
-
-.flavor-text {
-  @include normal-font;
-  @include right-align-text;
-
-  margin-bottom: 0;
-}
+  font-weight: normal;
+  margin: 0px;
+} 
 
 #content > :first-child {
-  margin-top: 0;
+  margin-top: 0px;
 }
 
 #content > p {
-  padding-left: $default-padding;
-  padding-right: $default-padding;
+  padding-left: s.$default-padding;
+  padding-right: s.$default-padding;
 }
 
 /* ANIMATIONS */
 @keyframes blink {
   0%,
   50% {
-    color: $highlight-color;
+    color: s.$highlight-color;
   }
 
   51%,
@@ -274,15 +199,15 @@ a:hover,
 }
 
 /* FOOTER */
-$footer-font-size: font-ratio(1.2);
+$footer-font-size: s.font-ratio(1.2);
 $footer-height: calc($footer-font-size + env(safe-area-inset-bottom, 0));
 $footer-top: calc($footer-height + 4px);
 
 #footer {
   border-radius: 0;
   border-width: 2px 0 0;
-  border-color: $accent-border;
-  background-color: $accent-color;
+  border-color: s.$accent-border;
+  background-color: s.$accent-color;
   padding: 0 0 2px;
   margin: 0;
   width: 100vw;
@@ -308,14 +233,14 @@ $footer-top: calc($footer-height + 4px);
 }
 
 #footer-bottom-text {
-  @include right-align-text;
-  @include small-font;
+  @include s.right-align-text;
+  @include s.small-font;
 
   margin: 0;
 }
 
 #footer-bottom-text > a {
-  @include no-decoration;
+  @include s.no-decoration;
 }
 
 #nav {
@@ -326,7 +251,7 @@ $footer-top: calc($footer-height + 4px);
 #nav-toggler-label {
   appearance: auto;
   cursor: pointer;
-  border-color: $highlight-color;
+  border-color: s.$highlight-color;
   border-style: solid none;
   border-width: 1px 0;
   display: inline-block;
@@ -342,7 +267,7 @@ $footer-top: calc($footer-height + 4px);
 
 #nav-menu {
   display: none;
-  background-color: $fg-color;
+  background-color: s.$fg-color;
   margin: 0;
   width: 100vw;
   position: fixed;
@@ -350,10 +275,10 @@ $footer-top: calc($footer-height + 4px);
   left: 0;
   right: 100vw;
   padding: 0;
-  border-color: $accent-color;
-  border-style: $border-style none none none;
+  border-color: s.$accent-color;
+  border-style: s.$border-style none none none;
   border-width: $footer-height / $footer-font-size;
-  box-shadow: 0 -9px 9px $tint-color;
+  box-shadow: 0 -9px 9px s.$tint-color;
   z-index: -1;
 }
 
@@ -361,7 +286,7 @@ $footer-top: calc($footer-height + 4px);
   margin: 0;
   padding: 0;
   text-decoration: none;
-  color: $text-color;
+  color: s.$text-color;
 }
 
 #nav-menu > ul {
@@ -370,21 +295,21 @@ $footer-top: calc($footer-height + 4px);
 }
 
 #nav-menu > ul > li {
-  padding: 2px $default-padding;
+  padding: 2px s.$default-padding;
   border-color: transparent;
 }
 
 #nav-menu > ul > li:hover {
-  background-color: $selection-color;
+  background-color: s.$selection-color;
 }
 
 #nav-menu > ul > li > a {
   width: 100vw;
   display: block;
   border-color: transparent;
-  color: $purple;
+  color: s.$purple;
 }
 
 #nav-scroll-progress {
-  @include no-decoration;
+  @include s.no-decoration;
 }

@@ -29,8 +29,8 @@ Bikeshedding. Yak-shaving. Let's do an autopsy.
   ["posts/bikeshedding/img/site-4.png", "2024, designed using SSGen"],
   ["posts/bikeshedding/img/site-5.png", "2026 (current), built with Zola"]
   ], 
-  caption="Revisions of this site 2021-2026",
-  width=1280, height=720, op="scale", format="jpg") }}
+  title="Revisions of this site 2021-2026",
+  width=1280, height=720, op="scale", format="webp") }}
   
 Each site pictured is a significant enough rewrite to be considered an independent revision.
 The design language may be relatively consistent, but more was thrown out than kept between each revision.
@@ -159,11 +159,11 @@ another paragraph
 [link text](https://theokrueger.dev)
 ```
 
-The maintainability is high
-
 Remarkably, Zola's featureset is basically the same as blogc's, with only two additions that I use:
 - Flexible macros in templates, with parameters definable in posts.
 - Batteries-included syntax highlighting in codeblocks.
+
+The maintainability remains very high due to this, although I miss the ability to call external tools without resorting to hacks.
 
 With that hindsight, I could (and should) have just forked blogc to add those missing features and written this post a few years early.
 Yet I'm sure that trying and failing to build my own tooling is the sole reason I'm able to settle for something less than perfect.

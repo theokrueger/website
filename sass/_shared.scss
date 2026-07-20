@@ -1,0 +1,95 @@
+@use "sass:math";
+
+/* STYLE */
+$red: #fd0506;
+$purple: #b369b2;
+$teal: #66cdaa;
+$lightblue: #add8e6;
+$lightgreen: #b5ffd1;
+$bg-color: #d3d3d3;
+$fg-color: $lightblue;
+$text-color: #10100b;
+$border-color: #00000015;
+$border-radius: 5px;
+$border-width: 3px;
+$border-style: solid;
+$accent-color: #eee8aa;
+$accent-border: #ffc;
+$highlight-color: $red;
+$selection-color: $lightgreen;
+$tint-color: #00000035;
+$default-margin: 5px;
+$default-padding: 10px;
+$content-side-margin: 15vw;
+
+@font-face {
+  font-family: ibmplexmono;
+  src: url("/fonts/ibmplexmono/regular.woff2");
+}
+
+$font-family: ibmplexmono, monospace;
+$default-font-scale: 1rem;
+
+@function font-ratio($n) {
+  $high_cap: 100vw / 16;
+  $scale: $default-font-scale * math.pow(1.4, $n);
+
+  @return min($scale, $high_cap);
+}
+
+@mixin huge-font {
+  font-size: font-ratio(4);
+}
+
+@mixin largehuge-font {
+  font-size: font-ratio(3);
+}
+
+@mixin large-font {
+  font-size: font-ratio(2);
+}
+
+@mixin medium-font {
+  font-size: font-ratio(1);
+}
+
+@mixin normal-font {
+  font-size: font-ratio(0);
+}
+
+@mixin small-font {
+  font-size: font-ratio(-1);
+}
+
+@mixin tiny-font {
+  font-size: font-ratio(-2);
+}
+
+/* MODIFIERS */
+@mixin no-decoration {
+  color: $text-color;
+  text-decoration: none;
+}
+
+@mixin rotate-180 {
+  position: relative;
+  transform: rotate(-180deg);
+  display: inline-block;
+}
+
+
+@mixin right-align-text {
+  text-align: right;
+}
+
+@mixin left-align-text {
+  text-align: left;
+}
+
+@mixin center-align-text {
+  text-align: center;
+}
+
+@mixin justify-text {
+  text-align: justify;
+}

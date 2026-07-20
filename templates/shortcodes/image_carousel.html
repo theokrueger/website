@@ -1,33 +1,20 @@
-{% if nth == 1 %}
-<style>
-.flickity-carousel {
-  border-color: transparent;
-  background-color: transparent;
-  margin: auto;
-}
-.carousel-cell {
-  margin: 5px;
-}
-.carousel-cell > img {
-  max-width: 100%;
-  max-height: 40vh;
-}
-.carousel-cell > p {
-  text-align: center;
-}
-.flickity-viewport {
-  transition: height 0.2s;
-}
-</style>
-{% endif %}
-
+<!-- Flickity carousel snippet -->
+<!-- images=[[path,caption],...] -->
+<!-- width, height = int -->
+<!-- title = string-->
+<!-- op, format = enum string (see zola docs) -->
 <div class="flickity-carousel-{{ nth }} flickity-carousel">
-  {% if caption %}<p style="text-align: center;">{{ caption | safe }}</p>{% endif %}
+  {% if title %}
+  <h3 class="flickity-title">{{ title | safe }}</h3>
+  {% endif %}
+
   {% for arr in images %}
-  {% set image = resize_image(path=arr[0], width=width, height=height, op=op, format=format) %}
-  <span class="carousel-cell">
-    <img src="{{ image.url }}" />
-    {% if arr[1] %}<p>{{ arr[1] | safe }}</p>{% endif %}
+    {% set image = resize_image(path=arr[0], width=width, height=height, op=op, format=format, quality=85) %}
+    <span class="carousel-cell">
+      <img src="{{ image.url }}" />
+      {% if arr[1] %}
+	<p><em>{{ arr[1] }}</em></p>
+      {% endif %}
   </span>
   {% endfor %}
 </div>

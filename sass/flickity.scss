@@ -1,0 +1,48 @@
+@use "shared" as s;
+
+.flickity-carousel {
+  border-color: transparent;
+  background-color: transparent;
+  margin: auto;
+}
+
+.carousel-cell {
+  margin: 5px;
+}
+
+.carousel-cell > img {
+  max-width: 100%;
+  max-height: 50vh;
+}
+
+.carousel-cell > p {
+  text-align: center;
+}
+
+.flickity-viewport {
+  transition: height 0.2s;
+}
+
+.flickity-title {
+    @include s.medium-font;
+    
+    text-align: center;
+}
+
+.flickity-button {
+  background: rgba(s.$fg-color, .5);
+  color: s.$text-color;
+}
+
+.flickity-button:hover {
+  background: s.$selection-color;
+  color: s.$purple;
+}
+
+.flickity-page-dots > .dot {
+    background: s.$text-color;
+}
+
+.flickity-page-dots > .is-selected {
+    background: s.$selection-color !important;
+}

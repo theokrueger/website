@@ -4,38 +4,129 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA_Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="theokrueger" />
+    <meta name="author" content="{{ config.author }}" />
+    {# DERIVED #}
     {% if page %}
       {% set_global title = page.title %}
       {% set_global desc = page.description %}
+
+      {% if page.updated %}
+	{% set_global updated = page.updated  %}
+      {% endif %}
+
+      {% if page.date %}
+	{% set_global pubdate = page.date %}
+      {% endif %}
+
+      {% if page.summary %}
+	{% set_global summary = page.summary %}
+      {% endif %}
+
+      {% if page.extra.og_content_type %}
+	{% set_global og_content_type= page.extra.og_content_type %}
+      {% endif %}
+
       {% set_global canonical = page.permalink %}
+
     {% elif section %}
-      {% set_global title = section.title %}
+      {% set_global title = section.title  %}
       {% set_global desc = section.description %}
+
+      {% if section.updated %}
+	{% set_global updated = section.updated  %}
+      {% endif %}
+
+      {% if section.date %}
+	{% set_global pubdate = section.date %}
+      {% endif %}
+
+      {% if section.summary %}
+	{% set_global summary = section.summary %}
+      {% endif %}
+
+      {% if section.extra.og_content_type %}
+	{% set_global og_content_type= section.extra.og_content_type %}
+      {% endif %}
+
       {% set_global canonical = section.permalink %}
+
     {% else %}
       {# probably only the 404 page #}
-      {% set_global title = "theokrueger.dev" %}
-      {% set_global desc = "a personal web-blog by theokrueger" %}
-      {% set_global canonical = "https://theokrueger.dev" %}
+      {% set_global canonical = "https://theokrueger.dev/404.html" %}
     {% endif %}
+
+    {# OPTIONAL #}
+    {% if pubdate %}
+
+    {% endif %}
+    {% if updated %}
+    <meta name="revised" content="{{ updated }}" />
+    {% endif %}
+    {% if summary %}
+    <meta name="summary" content="{{ summary }}" />
+    {% endif %}
+
+    {# DEFAULT #}
+    {% if title and title != "theokrueger.dev" %}
+      {% set_global title = title ~ " - theokrueger.dev" %}
+    {% else %}
+      {% set_global title = "theokrueger.dev" %}
+    {% endif %}
+
+    {% if not desc %}
+      {% set_global desc = "a personal web-blog by theokrueger" %}
+    {% endif %}
+
+    {% if not og_content_type %}
+      {% set_global og_content_type = "article" %}
+    {% endif %}
+
+    <title>{{ title }}</title>
+    <meta name="designer" content="theokrueger" />
+    <meta name="reply-to" content="{{ config.extra.contact }}" />
+    <meta name="owner" content="theokrueger" />
+    <meta name="url" content="{{ config.base_url }}" />
+    <meta name="identifier-URL" content="{{ canonical }}" />
+    <meta name="category" content="Blog" />
+    <meta name="distribution" content="Global" />
+    <meta name="subject" content="{{ desc }}" />
+    <meta name="description" content="{{ desc }}" />
+    <meta name="keywords" content="theokrueger, blog, programming, technology" />
+    <meta name="copyright" content="theokrueger" />
+
+    <meta property="og:title" content="{{ title }}"/>
+    <meta property="og:type" content="{{ og_content_type }}"/>
+    <meta property="og:url" content="{{ canonical }}"/>
+    <meta property="og:description" content="{{ desc }}" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="theokrueger.dev" />
+    {% if og_content_type == "article" %}
+      <meta property="og:article:author" content="{{ config.author }}" />
+      {% if pubdate %}
+	<meta property="og:article:published_time" content="{{ pubdate | date }}" />
+      {% endif %}
+      {% if updated %}
+	<meta property="og:article:modified_time" content="{{ updated | date }}" />
+      {% endif %}
+
+    {% endif %}
+
     <link rel="canonical" href="{{ canonical }}" />
-    <meta name="description" content="{{ desc }}">
-    <title>{{ title }} - theokrueger.dev</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <link rel="alternate" type="application/atom+xml" href="{{ config.base_url }}/atom.xml" />
     <link rel="alternate" type="application/rss+xml" href="{{ config.base_url }}/rss.xml" />
+
     <script type="module" src="/script.js" defer></script>
+
     <!-- external modules -->
     {% if page.extra.extern.slideshow or section.extra.extern.slideshow %}
-    <link rel="stylesheet" href="/flickity/flickity.css" media="screen">
+    <link rel="stylesheet" href="/flickity/flickity.css" media="screen" />
     <script src="/flickity/flickity.pkgd.js"></script>
     {% endif %}
-    <!-- hello from inspect element :D -->
   </head>
 
   <body>

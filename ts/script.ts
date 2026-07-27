@@ -20,6 +20,7 @@ const idsToModify: { [id: string]: string[] } = {
     "subtitles are hard",
     "javascript is optional",
     "site untested on blink",
+    "placeholder text",
   ],
   "portfolio-flavor": [
     "RTFM",
@@ -27,6 +28,7 @@ const idsToModify: { [id: string]: string[] } = {
     "tldr: programming",
     "know thy enemy",
     "human-generated slop",
+    "VLIW will prevail",
   ],
 };
 
@@ -51,10 +53,10 @@ async function addScrollPercent() {
         document.documentElement.clientHeight;
       const frac = (window.scrollY * 100) / maxHeightY;
       let s = "";
-      if (frac < 1 || maxHeightY <= 0 || Number.isNaN(frac)) {
-        s = "bot";
-      } else if (frac > 99) {
+      if (frac < 5 || maxHeightY <= 0 || Number.isNaN(frac)) {
         s = "top";
+      } else if (frac > 95) {
+        s = "bot";
       } else {
         s = Math.floor(frac).toString() + "%";
       }

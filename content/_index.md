@@ -10,6 +10,8 @@ extra.footer_name = "index"
 
 [all posts](@/posts/_index.md)
 
+[portfolio](@portfolio.md)
+
 ## * bestof
 its coming, later.
 

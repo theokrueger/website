@@ -23,7 +23,7 @@
 }
 
 .tiny-font {
-  @include s.tiny-font; 
+  @include s.tiny-font;
 }
 
 :root {
@@ -163,7 +163,7 @@ a:hover,
 #subtitle {
   @include s.no-decoration;
   @include s.large-font;
-  
+
   margin: s.$default-margin 0;
   font-weight: normal;
 }
@@ -175,7 +175,9 @@ a:hover,
 
   font-weight: normal;
   margin: 0;
-} 
+}
+
+/* CONTENT */
 
 #content > :first-child {
   margin-top: 0;
@@ -185,6 +187,19 @@ a:hover,
   padding-left: s.$default-padding;
   padding-right: s.$default-padding;
 }
+
+.content-image {
+  text-align: center;
+}
+
+.content-image > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 35vh;
+  max-width: 100%;
+}
+
 
 /* ANIMATIONS */
 @keyframes blink {

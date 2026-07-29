@@ -6,8 +6,10 @@
 
 {% block content %}
 {% set image = resize_image(path=path, width=width, height=height, op=op, format=format, quality=quality, speed=speed) %}
-<img src="{{ image.url }}" alt="{{ alt }}" />
-{% if caption %}
-  
-{% endif %}
+<span class="content-image">
+  <img src="{{ image.url }}" alt="{{ alt }}" />
+  {% if caption %}
+  <p><em>{{ caption }}</em></p>
+  {% endif %}
+</span>
 {% endblock %}

@@ -181,4 +181,4 @@ Don't let that stop you from trying, I for one will probably never stop random s
 But sometimes, please listen to the expert in you that intrinsically knows the answer.
 Perfection is the worst product you've ever used, not because its good but because it works.
 
-### \*\*\* footnotes
+----

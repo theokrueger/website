@@ -6,6 +6,26 @@
 {{ title::new(title=page.title, subtitle=page.description, subsubtitle=page.date, flavor_id=page.extra.flavor_id, show_rss=false) }}
 
 <div id="content">
+  {% if page.extra.show_toc and page.toc %}
+    <h1>* Contents</h1>
+    <ul class="normal-font" style="list-style-type: none; font-size: 1.25rem;">
+      {% for h1 in page.toc %}
+      <li>
+        <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+        {% if h1.children %}
+        <ul>
+          {% for h2 in h1.children %}
+          <li>
+            <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
   {{ page.content | safe }}
 </div>
 

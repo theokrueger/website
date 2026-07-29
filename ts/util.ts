@@ -56,7 +56,7 @@ const key_near = function (key: string, keymap: Keymap): string {
   }
 
   // return original if key out of bounds
-  if (i >= km.length || j > km[i]!.length) {
+   if (i >= km.length || j >= km[i]!.length) {
     return key;
   }
 

@@ -1,19 +1,21 @@
-<!-- Flickity carousel snippet -->
-<!-- images=[[path,caption],...] -->
-<!-- width, height = int -->
-<!-- title = string-->
-<!-- op, format = enum string (see zola docs) -->
+{% extends "shortcodes/image_args.html" %}
+{#
+Flickity carousel snippet
+ images=[[path,?caption,alt],...]
+#}
+
+{% block content %}
 <div class="flickity-carousel-{{ nth }} flickity-carousel">
   {% if title %}
   <h3 class="flickity-title">{{ title | safe }}</h3>
   {% endif %}
 
   {% for arr in images %}
-    {% set image = resize_image(path=arr[0], width=width, height=height, op=op, format=format, quality=85) %}
+    {% set image = resize_image(path=arr[0], width=width, height=height, op=op, format=format, quality=quality, speed=speed) %}
     <span class="carousel-cell">
-      <img src="{{ image.url }}" />
-      {% if arr[1] %}
-	<p><em>{{ arr[1] }}</em></p>
+      <img src="{{ image.url }}" {% if arr[1] %}alt="{{ arr[2] }}"{% endif %} />
+      {% if arr[1] and arr[1] != "" %}
+        <p><em>{{ arr[1] }}</em></p>
       {% endif %}
   </span>
   {% endfor %}
@@ -27,3 +29,4 @@ new Flickity( document.querySelector('.flickity-carousel-{{ nth }}'), {
 });
 </script>
 <br/>
+{% endblock %}

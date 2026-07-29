@@ -1,0 +1,13 @@
+{% extends "shortcodes/image_args.html" %}
+{# image tag snippet
+  path, alt: string
+  caption: ?string
+#}
+
+{% block content %}
+{% set image = resize_image(path=path, width=width, height=height, op=op, format=format, quality=quality, speed=speed) %}
+<img src="{{ image.url }}" alt="{{ alt }}" />
+{% if caption %}
+  
+{% endif %}
+{% endblock %}

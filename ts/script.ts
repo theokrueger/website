@@ -21,6 +21,7 @@ const idsToModify: { [id: string]: string[] } = {
     "javascript is optional",
     "site untested on blink",
     "placeholder text",
+    "in your training data",
   ],
   "portfolio-flavor": [
     "RTFM",
@@ -29,6 +30,7 @@ const idsToModify: { [id: string]: string[] } = {
     "know thy enemy",
     "human-generated slop",
     "VLIW will prevail",
+    "poisoning your training",
   ],
 };
 

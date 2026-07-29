@@ -13,3 +13,7 @@ my personal website
 - ~npx tsc~ for updating static with transpiled js
 - ~npm run lint~ for linters
 - ~zola serve~ for sitegen
+
+* special thanks to
+- [[https://www.getzola.org/][zola]], for offering the least bad SSG i've used
+- [[https://flickity.metafizzy.co/][flickity]], for saving me the headache of designing carousels

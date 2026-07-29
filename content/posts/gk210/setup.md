@@ -9,7 +9,7 @@ extra.extern.slideshow = false
 draft = true
 +++
 # * Info
-This is the companion piece of *["Private AI for 70$USD"](@/posts/gk210/index.md)*.
+This is the companion piece of *["Private AI for U$70"](@/posts/gk210/index.md)*.
 
 The main reason the Tesla K80 is cheap is because it is obsolete.
 Not necessarily in performance, as it is quite good in that regard (with tempered expectations), but is sorely lacking in modern support.

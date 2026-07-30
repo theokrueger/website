@@ -25,7 +25,6 @@ theme = "catppuccin-mocha"
 [search]
 include_title = true
 
-
 [extra]
 source = "https://gitlab.com/theokrueger/website"
 contact = "contact@theokrueger.dev"

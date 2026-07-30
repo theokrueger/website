@@ -26,6 +26,9 @@
   @include s.tiny-font;
 }
 
+
+/* ELEMENTS */
+
 :root {
   background-color: s.$bg-color;
   font-family: s.$font-family;
@@ -123,6 +126,14 @@ a:hover,
 .hoverable:hover {
   border-color: s.$tint-color;
   cursor: pointer;
+}
+
+.zebra-table > tbody > tr:nth-child(even) {
+    background-color: s.$tint-color;
+}
+
+td {
+  padding-right: 1em;
 }
 
 /* IDS */

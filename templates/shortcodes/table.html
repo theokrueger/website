@@ -1,0 +1,39 @@
+{#
+Create a table from raw text
+  heading: bool
+  zebra: bool
+#}
+{#
+Table format is as follows (strict, not including graves):
+```
+| Heading | a |
+|---------|---|
+| Item    | b |
+```
+#}
+{% set_global td = "td" %}
+{% if heading %}
+  {% set_global td = "th" %}
+{% endif %}
+<div style="width: 100%; overflow-x: scroll;">
+  <table style="border-collapse: collapse;" id="table-{{ nth }}" align="center" {% if zebra %} class="zebra-table" {% endif %}>
+    <tbody>
+      {% for row in body | trim | trim(pat="\n") | trim | split(pat="\n") %}
+        {% if not row or row | trim == "" or row | trim == "|" %}
+          {% continue %}
+        {% endif %}
+        <tr>
+          {% for col in row | trim | trim(pat="|") | trim | split(pat="|") %}
+  	  {% if not col or col | trim == "" %}
+              {% continue %}
+            {% endif %}
+            <{{ td }}>
+    	    {{ col | trim | safe }}
+            </{{ td }}>
+          {% endfor %}
+        </tr>
+        {% set_global td = "td" %}
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

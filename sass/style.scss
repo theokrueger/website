@@ -48,7 +48,7 @@ body {
 }
 
 // remove padding on non-desktop views
-@media only screen and (width <= 1500px) {
+@media only screen and (width <= 1600px) {
   body {
     margin: s.$default-margin 15vw;
   }

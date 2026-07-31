@@ -59,7 +59,7 @@ Which on Gentoo, requires some modification to allow installation.
 {% file_head(type="FILE") %}
 package.accept_keywords
 {% end %}
-```
+```bash
 # Latest CUDA for GK210
 =dev-util/nvidia-cuda-toolkit-11.8.0-r4 ~amd64
 
@@ -77,7 +77,7 @@ llvm-runtimes/* ~amd64
 {% file_head(type="FILE") %}
 package.unmask
 {% end %}
-```
+```bash
 # Nvidia 470 for GK210
 ~x11-drivers/nvidia-drivers-470.256.02
 ```
@@ -85,7 +85,7 @@ package.unmask
 {% file_head(type="FILE") %}
 package.use
 {% end %}
-```
+```bash
 # NVIDIA 470 drivers
 */* VIDEO_CARDS: nvidia
 */* nvidia vdpau nvenc

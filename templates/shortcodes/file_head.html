@@ -1,0 +1,25 @@
+{#
+Create a styled file heading corresponding to a below file block
+  type: ?enum string
+#}
+{% if not type %}
+  {% set_global type = "FILE" %}
+{% endif %}
+
+{% if type == "FILE" %}
+{% elif type == "DIR" %}
+{% elif type == "BASH" %}
+{% elif type == "BASH-ROOT" %}
+  {% set_global disp = "#BASH" %}
+{% else %}
+  {{ throw(message="unknown enum for file_head") }}
+{% endif %}
+
+<span class="file-head">
+  <code class="file-head-type-{{ type | lower }} file-head-type-all">
+    {% if disp %}{{ disp }}{% else %}{{ type }}{% endif %}
+  </code>
+  <code class="file-head-path">
+    {{ body }}
+  </code>
+</span>

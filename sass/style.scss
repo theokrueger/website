@@ -26,9 +26,7 @@
   @include s.tiny-font;
 }
 
-
 /* ELEMENTS */
-
 :root {
   background-color: s.$bg-color;
   font-family: s.$font-family;
@@ -111,6 +109,43 @@ ul {
   list-style-type: square;
 }
 
+/* FILE HEADINGS */
+.file-head {
+  display: grid;
+  grid-template-columns: max-content auto;
+  margin-bottom: -1em;
+  background-color: s.$accent-color;
+}
+
+.file-head-type-all {
+  color: s.$dark-tint-color;
+  font-weight: bold;
+  padding: 0.2em;
+  padding-top: calc(0.2em + 1px);
+}
+.file-head-type-file {
+  background-color: s.$teal;
+}
+
+.file-head-type-dir {
+  background-color: s.$bg-color;
+}
+
+.file-head-type-bash {
+  background-color: s.$lightgreen;
+}
+
+.file-head-type-bash-root {
+  background-color: s.$lightred;
+}
+
+.file-head-path {
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: s.$accent-border;
+  padding: 0.2em;
+}
+
 /* MODIFIERS */
 .rotate-180 {
   @include s.rotate-180;
@@ -129,7 +164,7 @@ a:hover,
 }
 
 .zebra-table > tbody > tr:nth-child(even) {
-    background-color: s.$tint-color;
+  background-color: s.$tint-color;
 }
 
 td {
@@ -149,13 +184,13 @@ td {
 }
 
 @media only screen and (width <= 500px) {
-    #title-text {
-	font-weight: bold;
-    }
+  #title-text {
+    font-weight: bold;
+  }
 
-    #subtitle {
-	font-style: italic;
-    }
+  #subtitle {
+    font-style: italic;
+  }
 }
 
 #title-cursor {
@@ -164,9 +199,9 @@ td {
 }
 
 #rss-button {
-    display: inline-block;
-    width: s.$default-font-scale;
-    height: s.$default-font-scale;
+  display: inline-block;
+  width: s.$default-font-scale;
+  height: s.$default-font-scale;
 }
 
 // #rss-button-img {}
@@ -210,7 +245,6 @@ td {
   max-height: 35vh;
   max-width: 100%;
 }
-
 
 /* ANIMATIONS */
 @keyframes blink {

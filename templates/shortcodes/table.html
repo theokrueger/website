@@ -19,14 +19,11 @@ Table format is as follows (strict, not including graves):
   <table style="border-collapse: collapse;" id="table-{{ nth }}" align="center" {% if zebra %} class="zebra-table" {% endif %}>
     <tbody>
       {% for row in body | trim | trim(pat="\n") | trim | split(pat="\n") %}
-        {% if not row or row | trim == "" or row | trim == "|" %}
+        {% if not row or row | trim == "" %}
           {% continue %}
         {% endif %}
         <tr>
           {% for col in row | trim | trim(pat="|") | trim | split(pat="|") %}
-  	  {% if not col or col | trim == "" %}
-              {% continue %}
-            {% endif %}
             <{{ td }}>
     	    {{ col | trim | safe }}
             </{{ td }}>

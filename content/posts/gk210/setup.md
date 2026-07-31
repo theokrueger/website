@@ -46,6 +46,58 @@ FreeCAD was used, so it is similarly free to actually perform the modifications 
 
 # \* Drivers
 Depending on your distro, drivers range from annoying to impossible to install.
+Read your distribution's guide to installing NVIDIA drivers `470.256.02-r2`.
+The proprietary drivers are your only choice unfortunately, which limits compatibility to Linux 6.6 at maximum.
+
+In my case, the proprietary drivers require
+- Linux `<=6.6`
+- NVIDIA Drivers `470.256.02-r2`
+- CUDA Toolkit `11.8.0-r4`
+
+Which on Gentoo, requires some modification to allow installation.
+
+{% file_head(type="FILE") %}
+package.accept_keywords
+{% end %}
+```
+# Latest CUDA for GK210
+=dev-util/nvidia-cuda-toolkit-11.8.0-r4 ~amd64
+
+# HIP support
+sci-libs/hip* ~amd64
+sci-libs/miopen ~amd64
+dev-util/hip* ~amd64
+dev-util/Tensile ~amd64
+dev-libs/half ~amd64
+dev-libs/hipother ~amd64
+llvm-core/* ~amd64
+llvm-runtimes/* ~amd64
+```
+
+{% file_head(type="FILE") %}
+package.unmask
+{% end %}
+```
+# Nvidia 470 for GK210
+~x11-drivers/nvidia-drivers-470.256.02
+```
+
+{% file_head(type="FILE") %}
+package.use
+{% end %}
+```
+# NVIDIA 470 drivers
+*/* VIDEO_CARDS: nvidia
+*/* nvidia vdpau nvenc
+x11-drivers/nvidia-drivers -kernel-open persistenced
+
+# If you have an AMD GPU in the system as well:
+dev-util/hip -video_cards_amdgpu
+```
+
+Install your Linux 6.6 of choice, select the kernel in `eselect`, run `emerge =x11-drivers/nvidia-drivers-470.256.02-r2 =dev-util/nvidia-cuda-toolkit-11.8.0-r4` and then rebuild world.
+
+At this point, you are ready to actually run things on the K80.
 
 # \* Software
 

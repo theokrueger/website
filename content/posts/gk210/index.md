@@ -22,7 +22,7 @@ And in the increasingly competitive and unprofitable field of training frontier 
 
 As a privacy-forward individual, I find it all a hard pill to swallow.
 Paying extra for API-only, unretained\* tokens is mostly a game of trust (a la ["log-free" VPNs](https://www.theregister.com/security/2017/10/08/vpn-logs-helped-unmask-alleged-net-stalker-say-feds/1116897)).
-If even offered in the first place, ZDR endpoints suffer the same fate as API-only usage in that they are unaffordable compared to say, a subscription to the less private *ClaudeGPT Pro Plus Ultra Unlimited Turbo 64 (Rainbow Edition)++*.
+If even offered in the first place, ZDR endpoints suffer from being API-only in that they are unaffordable compared to say, a subscription to the less private *ClaudeGPT Pro Plus Ultra Unlimited Turbo 64 (Rainbow Edition)++*.
 
 And with my measly 12GiB 6700XT[^sorry], the local landscape is bleak.
 Nine-billion parameters is enough for some tasks, but context is the real killer.
@@ -112,3 +112,4 @@ This mechanism is identical to hybrid-graphics in laptops or Thunderbolt eGPUs.
 conclusion here
 
 ----
+### \*\*\* footnotes

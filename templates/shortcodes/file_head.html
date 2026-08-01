@@ -4,17 +4,20 @@ Create a styled file heading corresponding to a below file block
 #}
 {% if not type %}
   {% set_global type = "FILE" %}
+{% else %}
+  {% set_global type = type | upper %}
 {% endif %}
 
-{# special #}
+{# standard #}
 {% if type == "FILE" %}
 {% elif type == "DIR" %}
 {% elif type == "LOG" %}
 {% elif type == "BASH" %}
+  {% set_global disp = "BASH $" %}
 {% elif type == "BASH-ROOT" %}
-  {% set_global disp = "#BASH" %}
+  {% set_global disp = "BASH #" %}
 
-{# aliases #}
+{# generic #}
 {% elif type == "CMAKE" %}
   {% set_global type = "GENERIC" %}
   {% set_global disp = "CMake" %}

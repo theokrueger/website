@@ -1,6 +1,6 @@
 +++
 title = "Tesla K80 for Local Inference"
-description = "A technical guide."
+description = "The less interesting part."
 date = 1970-01-01
 extra.flavor_id = ""
 extra.show_toc = true
@@ -99,6 +99,15 @@ Install your Linux 6.6 of choice, select the kernel in `eselect`, run `emerge =x
 
 At this point, you are ready to actually run things on the K80.
 
+## \*\* Caveats
+As if there weren't already enough sticking points, one huge caveat for anyone who has more than one NVIDIA GPU in their system is that multiple driver slots are not really a possibility.
+So if one card (say, an RTX 4070) is still supported on the latest `610.xxx` drivers (and only supported on `>=472`), you are SOL if you want the K80 in the same host system.
+
+The workaround to this would be running a [PCIe passthrough](https://wiki.gentoo.org/wiki/GPU_passthrough_with_virt-manager,_QEMU,_and_KVM) of the K80 to a virtual machine.
+This entails some performance overhead as well as reduced resource availability to the K80 (in the form of less available system memory), but could be your only option.
+
+When Linux 6.6 becomes EOL, a VM will be your *only* (relatively sane) option.
+
 # \* Software
 It's not hard to install [llama.cpp](https://github.com/ggml-org/llama.cpp) once you have the dependencies satisfied.
 Just follow their [build instructions](https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md#cuda) for CUDA.
@@ -118,22 +127,23 @@ this version check; however, using an unsupported host compiler may cause
 compilation failure or incorrect run time execution. Use at your own risk.
 ```
 
-Then you will need to install GCC 11, run `export NVCC_PREPEND_FLAGS="-ccbin /usr/bin/gcc-11"` before invoking `cmake`.
+Then you will need to install GCC 11, then `export NVCC_PREPEND_FLAGS="-ccbin /usr/bin/gcc-11"` before invoking `cmake`.
 
 ## \*\* New glibc Compatibility
 Exactly as per [llama.cpp documentation](https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md#fixing-compatibility-issues-with-old-cuda-and-new-glibc), you may run into build issues from `math.h`.
-This is trivially solvable by adding `noexcept (true)` to the ending of 6 functions.
+This is trivially solvable by adding `noexcept (true)` to the ending of 6 function prototypes.
+It is a permanent fix as well, so you won't have do this every time you compile something with `nvcc`.
 
-Here's a (bad but robust) oneliner for it:
+Here's a (bad but robust) script for it:
 
 {% file_head(type="BASH-ROOT") %}
 New glibc fix for old CUDA
 {% end %}
 ```bash
-# Set $f to your cuda math_functions.h file
+# Set $f to your target CUDA's math_functions.h file
 f="/opt/cuda/targets/x86_64-linux/include/crt/math_functions.h"
-cp "$f" "$f.bak"
-sed -E -i 's/^(extern __DEVICE_FUNCTIONS_DECL__ __device_builtin__ )(double|float)( *)(cospi|sinpi|rsqrt)([a-z]*\([a-z ]*\));/\1\2\3\4\5 noexcept (true);/g' "$f"
+cp "$f" "$f.bak" &&
+  sed -E -i 's/^(extern __DEVICE_FUNCTIONS_DECL__ __device_builtin__ )(double|float)( *)(cospi|sinpi|rsqrt)([a-z]*\([a-z ]*\));/\1\2\3\4\5 noexcept (true);/g' "$f"
 
 # Verify that it looks fine
 diff "$f.bak" "$f"

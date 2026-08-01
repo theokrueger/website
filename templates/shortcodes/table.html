@@ -18,14 +18,17 @@ Table format is as follows (strict, not including graves):
 <div style="width: 100%; overflow-x: scroll;">
   <table style="border-collapse: collapse;" id="table-{{ nth }}" align="center" {% if zebra %} class="zebra-table" {% endif %}>
     <tbody>
-      {% for row in body | trim | trim(pat="\n") | trim | split(pat="\n") %}
+      {% for row in body | trim | trim(pat="\n") | split(pat="\n") %}
         {% if not row or row | trim == "" %}
           {% continue %}
         {% endif %}
         <tr>
-          {% for col in row | trim | trim(pat="|") | trim | split(pat="|") %}
+          {% for col in row | trim | trim(pat="|") | split(pat="|") %}
+            {% if not col %}
+              {% continue %}
+            {% endif %}
             <{{ td }}>
-    	    {{ col | trim | safe }}
+    	      {{ col | trim | safe }}
             </{{ td }}>
           {% endfor %}
         </tr>

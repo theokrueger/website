@@ -68,6 +68,9 @@ So a new site was born, looking strikingly similar to the first revision[^poorta
 
 [^poortaste]: Due to poor taste.
 
+{% file_head(type="FILE") %}
+Sample blogc Post
+{% end %}
 ```md
 TITLE: post title
 -------------------------
@@ -108,6 +111,9 @@ It turns out that YAML is a horrible choice for writing websites.
 
 [^dsl]: I ended up starting on one of these in 2025, but its a footnote for a reason.
 
+{% file_head(type="FILE") %}
+Sample SSGen Post
+{% end %}
 ```yaml
 - !DEF [TITLE, 'theokrueger.dev']
 ---
@@ -147,6 +153,9 @@ I browsed through each SSG on Jamstack, making careful note of how it appears to
 The arduous search landed me on Zola, which while not without flaws is about as good as it is ever going to get for this.
 It's fast, its flexible, and offers powerful enough tooling to work around its shortcomings in macros.
 
+{% file_head(type="FILE") %}
+Sample Zola Post
+{% end %}
 ```md
 +++
 title = "theokrueger.dev"
@@ -182,3 +191,4 @@ But sometimes, please listen to the expert in you that intrinsically knows the a
 Perfection is the worst product you've ever used, not because its good but because it works.
 
 ----
+### \*\*\* footnotes

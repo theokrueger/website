@@ -105,7 +105,7 @@ Just follow their [build instructions](https://github.com/ggml-org/llama.cpp/blo
 
 Although, you may run into the two following issues:
 
-### \*\*\* Unsupported GCC Version
+## \*\* Unsupported GCC Version
 If you see some error during compilation about GCC like so:
 
 {% file_head(type="LOG") %}
@@ -120,7 +120,7 @@ compilation failure or incorrect run time execution. Use at your own risk.
 
 Then you will need to install GCC 11, run `export NVCC_PREPEND_FLAGS="-ccbin /usr/bin/gcc-11"` before invoking `cmake`.
 
-### \*\*\* New glibc Compatibility
+## \*\* New glibc Compatibility
 Exactly as per [llama.cpp documentation](https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md#fixing-compatibility-issues-with-old-cuda-and-new-glibc), you may run into build issues from `math.h`.
 This is trivially solvable by adding `noexcept (true)` to the ending of 6 functions.
 
@@ -138,3 +138,7 @@ sed -E -i 's/^(extern __DEVICE_FUNCTIONS_DECL__ __device_builtin__ )(double|floa
 # Verify that it looks fine
 diff "$f.bak" "$f"
 ```
+
+# Appendix
+At this point, you're off to the races with your K80.
+Below are some random tangents that don't quit fit in the [main post](@/posts/gk210/index.md).

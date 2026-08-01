@@ -82,85 +82,87 @@ const legendaryTypingFlairs = [
 ];
 
 async function typeElement(
-  elem: Element | null,
+  elem: Element,
+  text: string,
+  cursor: string,
   addRandomFlair: boolean,
   allowMistakes: boolean,
 ) {
-  if (!elem) {
-    return;
-  }
+  const updateElement = (typed: string, untyped: string) =>
+    (elem.innerHTML = `${typed}${cursor}<span style="color: #00000000">${untyped}</span>`);
 
   const txt = elem.innerHTML;
   const len = elem.innerHTML.length;
   const typingSpeed = 50; // ms delay between chars
 
-  let make_mistake = false;
-  let mistake_start = 0;
-  let mistake_end = 0;
-  const mistake_buffer: string[] = [];
-  if (allowMistakes && len > 4 && chance_percent(2)) {
-    make_mistake = true;
+  updateElement("", txt);
+
+  // 2% chance for mistakes
+  let mistake_start = -1;
+  let mistakes = "";
+  if (allowMistakes && len > 5 && chance_percent(2)) {
     mistake_start = Math.floor(random_number(0, len - 1));
-    mistake_end = Math.min(
-      Math.floor(random_number(1, 4)) + mistake_start,
-      len - 1,
+    const mistake_cnt = Math.min(
+      Math.floor(random_number(2, 5)),
+      len - 1 - mistake_start,
     );
-    console.log(mistake_start, mistake_end);
+    for (let i = 0; i < mistake_cnt; i++) {
+      mistakes += key_near(txt.charAt(mistake_start + i), Keymap.ColemakDh);
+    }
   }
 
-  elem.innerHTML = "";
   for (let i = 0; i < len; i++) {
-    await sleep(typingSpeed);
-
     // type mistakes if they must be typed
-    if (make_mistake && i >= mistake_start && i < mistake_end) {
-      const chr = txt.charAt(i);
-      mistake_buffer.push(chr);
-      elem.innerHTML += key_near(chr, Keymap.ColemakDh);
-      continue;
-    }
-    // remove typed mistakes
-    else if (mistake_buffer.length > 0) {
-      await sleep(typingSpeed * 2);
-      for (let j = 0; j < mistake_buffer.length; j++) {
-        elem.innerHTML = elem.innerHTML.slice(0, -1);
-        await sleep(typingSpeed / 1.5);
-        console.log(elem.innerHTML, mistake_buffer);
-      }
-      await sleep(typingSpeed * 3);
-      while (mistake_buffer.length > 0) {
-        const chr = mistake_buffer.shift();
-        elem.innerHTML += chr;
+    if (i == mistake_start) {
+      for (let j = 0; j < mistakes.length; j++) {
         await sleep(typingSpeed);
+        updateElement(
+          txt.slice(0, i) + mistakes.slice(0, j + 1),
+          txt.slice(i + j + 1),
+        );
+      }
+
+      // then remove them
+      await sleep(typingSpeed * mistakes.length);
+      for (let j = mistakes.length; j >= 0; j--) {
+        updateElement(txt.slice(0, i) + mistakes.slice(0, j), txt.slice(i + j));
+        await sleep(typingSpeed / 1.5);
       }
     }
+
     // resume typing normally
-    elem.innerHTML += txt.charAt(i);
+    await sleep(typingSpeed);
+    updateElement(txt.slice(0, i + 1), txt.slice(i + 1));
   }
 
   // 6% chance for random flair
-  if (addRandomFlair && chance_percent(5)) {
-    // type flair
+  if (addRandomFlair && chance_percent(6)) {
     await sleep(random_number(1000, 5000));
     let flair = " " + random_elem(typingFlairs);
     if (chance_percent(0.1)) {
       // overall 1/20,000 chance
       flair = " " + random_elem(legendaryTypingFlairs);
     }
+
+    // type flair
     for (let i = 0; i < flair.length; i++) {
       await sleep(typingSpeed * 8);
-      elem.innerHTML += flair.charAt(i);
+      updateElement(txt + flair.slice(0, i + 1), "");
     }
 
     // remove flair
     await sleep(random_number(1000, 3000));
     for (let i = flair.length; i >= 0; i--) {
       await sleep(typingSpeed);
-      elem.innerHTML = elem.innerHTML.substring(0, len + i);
+      updateElement(txt + flair.slice(0, i + 1), "");
     }
   }
 }
 
 /* type some elements */
 const shouldAddFlair = !window.location.pathname.includes("/posts/");
-typeElement(document.getElementById("title-text"), shouldAddFlair, true);
+const title = document.getElementById("title-text")!;
+const cursor = document.getElementById("title-cursor")!;
+const cursorText = cursor.outerHTML;
+cursor.outerHTML = "";
+typeElement(title, title.innerHTML, cursorText, shouldAddFlair, true);

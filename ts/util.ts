@@ -47,8 +47,8 @@ const key_near = function (key: string, keymap: Keymap): string {
   const km = keymaps[keymap]!;
 
   find_idx: for (; i < km.length; i++) {
-    for (; j < km[i]!.length; j++) {
-      const cur = km[i]![j];
+    for (j = 0; j < km[i]!.length; j++) {
+      const cur = km[i]!.charAt(j);
       if (cur === keyLower) {
         break find_idx;
       }
@@ -56,7 +56,8 @@ const key_near = function (key: string, keymap: Keymap): string {
   }
 
   // return original if key out of bounds
-   if (i >= km.length || j >= km[i]!.length) {
+  if (i >= km.length || j >= km[i]!.length) {
+    console.log("braek");
     return key;
   }
 

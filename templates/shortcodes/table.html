@@ -15,7 +15,7 @@ Table format is as follows (strict, not including graves):
 {% if heading %}
   {% set_global td = "th" %}
 {% endif %}
-<div style="width: 100%; overflow-x: scroll;">
+<div style="width: 100%; overflow-x: auto;">
   <table style="border-collapse: collapse;" id="table-{{ nth }}" align="center" {% if zebra %} class="zebra-table" {% endif %}>
     <tbody>
       {% for row in body | trim | trim(pat="\n") | split(pat="\n") %}

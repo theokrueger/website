@@ -66,7 +66,8 @@ details {
 
 pre {
   overflow-x: auto;
-  scrollbar-width: none;
+
+  //  scrollbar-width: none;
 }
 
 pre > code {
@@ -123,11 +124,16 @@ ul {
   padding: 0.2em;
   padding-top: calc(0.2em + 1px);
 }
+
 .file-head-type-file {
   background-color: s.$teal;
 }
 
 .file-head-type-dir {
+  background-color: s.$purple;
+}
+
+.file-head-type-log {
   background-color: s.$bg-color;
 }
 
@@ -139,8 +145,12 @@ ul {
   background-color: s.$lightred;
 }
 
+.file-head-type-generic {
+  background-color: s.$accent-border;
+}
+
 .file-head-path {
-  border-width: 1px 0 0 0;
+  border-width: 1px 0 0;
   border-style: solid;
   border-color: s.$accent-border;
   padding: 0.2em;

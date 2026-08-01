@@ -100,4 +100,41 @@ Install your Linux 6.6 of choice, select the kernel in `eselect`, run `emerge =x
 At this point, you are ready to actually run things on the K80.
 
 # \* Software
+It's not hard to install [llama.cpp](https://github.com/ggml-org/llama.cpp) once you have the dependencies satisfied.
+Just follow their [build instructions](https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md#cuda) for CUDA.
 
+Although, you may run into the two following issues:
+
+### \*\*\* Unsupported GCC Version
+If you see some error during compilation about GCC like so:
+
+{% file_head(type="LOG") %}
+nvcc build log
+{% end %}
+```
+132 | #error -- unsupported GNU version! gcc versions later than 11 are not
+supported! The nvcc flag '-allow-unsupported-compiler' can be used to override
+this version check; however, using an unsupported host compiler may cause
+compilation failure or incorrect run time execution. Use at your own risk.
+```
+
+Then you will need to install GCC 11, run `export NVCC_PREPEND_FLAGS="-ccbin /usr/bin/gcc-11"` before invoking `cmake`.
+
+### \*\*\* New glibc Compatibility
+Exactly as per [llama.cpp documentation](https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md#fixing-compatibility-issues-with-old-cuda-and-new-glibc), you may run into build issues from `math.h`.
+This is trivially solvable by adding `noexcept (true)` to the ending of 6 functions.
+
+Here's a (bad but robust) oneliner for it:
+
+{% file_head(type="BASH-ROOT") %}
+New glibc fix for old CUDA
+{% end %}
+```bash
+# Set $f to your cuda math_functions.h file
+f="/opt/cuda/targets/x86_64-linux/include/crt/math_functions.h"
+cp "$f" "$f.bak"
+sed -E -i 's/^(extern __DEVICE_FUNCTIONS_DECL__ __device_builtin__ )(double|float)( *)(cospi|sinpi|rsqrt)([a-z]*\([a-z ]*\));/\1\2\3\4\5 noexcept (true);/g' "$f"
+
+# Verify that it looks fine
+diff "$f.bak" "$f"
+```

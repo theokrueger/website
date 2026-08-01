@@ -6,11 +6,20 @@ Create a styled file heading corresponding to a below file block
   {% set_global type = "FILE" %}
 {% endif %}
 
+{# special #}
 {% if type == "FILE" %}
 {% elif type == "DIR" %}
+{% elif type == "LOG" %}
 {% elif type == "BASH" %}
 {% elif type == "BASH-ROOT" %}
   {% set_global disp = "#BASH" %}
+
+{# aliases #}
+{% elif type == "CMAKE" %}
+  {% set_global type = "GENERIC" %}
+  {% set_global disp = "CMake" %}
+
+{# err #}
 {% else %}
   {{ throw(message="unknown enum for file_head") }}
 {% endif %}

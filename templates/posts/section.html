@@ -1,9 +1,13 @@
 {% extends "root.html" %}
 {% import "components/mod.html" as macros %}
 
+{% block body %}
+{{ body::base() }}
+{% endblock body %}
+
 {% block content %}
 
-{{ title::new(title=section.title, subtitle=section.description, subsubtitle=section.extra.subsubtitle, flavor_id=section.extra.flavor_id, show_rss=true) }}
+{{ title::new(title=section.title, subtitle=section.description, subsubtitle=section.extra.subsubtitle, flavor_id=section.extra.flavor_id, show_rss=section.extra.show_rss) }}
 
 <div id="content">
   {{ section.content | safe }}

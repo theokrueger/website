@@ -11,6 +11,8 @@ extra.footer_name = "portfolio"
 
 [parakeyt](https://github.com/parakeyt) - Custom, fully integrated, parametric Hall Effect keyboard generation for the masses.
 
+[FPSosu!](https://rulesets.info/rulesets/fpsosu) - Double-projected (2D->3D->2D) FPS aim-trainer ruleset/gamemode for osu!lazer.
+
 ## * 2025
 
 [Interdict](https://github.com/theokrueger/interdict) - Smart, fully transparent proxy-throttler for effective aversive conditioning.

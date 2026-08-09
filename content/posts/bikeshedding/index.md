@@ -2,9 +2,11 @@
 title = "On Bikeshedding"
 description = "Perfection is the worst product you've ever used."
 date = 2026-07-14
-extra.flavor_id = ""
-extra.footer_name = "bkshd"
-extra.extern.slideshow = true
+
+[extra]
+flavor_id = ""
+footer_name = "bkshd"
+extern.slideshow = true
 +++
 # * The voices 
 We live in a human world, which entails continuous compromise in and adoption of seemingly strange systems built for the common denominator.

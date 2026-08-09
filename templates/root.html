@@ -121,20 +121,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-    <link rel="manifest" href="/favicon/site.webmanifest" />
-    <link rel="stylesheet" type="text/css" href="/style.css" />
-    <link rel="alternate" type="application/atom+xml" href="{{ config.base_url }}/atom.xml" />
-    <link rel="alternate" type="application/rss+xml" href="{{ config.base_url }}/rss.xml" />
+    <link rel="manifest" href="/favicon/site.web manifest" />
 
-    <script type="module" src="/script.js" defer></script>
-
-    <!-- external modules -->
-    {% if page.extra.extern.slideshow or section.extra.extern.slideshow %}
-    <link rel="stylesheet" href="/flickity/flickity.css" media="screen" />
-    <link rel="stylesheet" href="/flickity.css" media="screen" />
-
-    <script src="/flickity/flickity.pkgd.js"></script>
-    {% endif %}
+    {% block body %}{% endblock body %}
   </head>
 
   <body>

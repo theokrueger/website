@@ -2,10 +2,12 @@
 title = "Private AI for U$70"
 description = "24GiB of VRAM. Unreasonably cheap."
 date = 1970-01-01
-extra.flavor_id = ""
-extra.footer_name = "gk210"
-extra.extern.slideshow = true
 draft = true
+
+[extra]
+flavor_id = ""
+footer_name = "gk210"
+extern.slideshow = true
 +++
 
 # \* An Impulsive Purchase

@@ -1,6 +1,10 @@
 {% extends "root.html" %}
 {% import "components/mod.html" as macros %}
 
+{% block body %}
+{{ body::base() }}
+{% endblock body %}
+
 {% block content %}
 
 <div id="content">

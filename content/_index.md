@@ -1,21 +1,28 @@
 +++
 title = "theokrueger.dev"
 description = "personal webpage"
-extra.subsubtitle = ""
-extra.flavor_id = "generic-flavor"
-extra.footer_name = "index"
+template = "index.html"
+page_template = "posts/post.html"
+
+[extra]
+subsubtitle = ""
+flavor_id = "generic-flavor"
+footer_name = "index"
 +++
 
+## \* directory
 [latest post](@/posts/bikeshedding/index.md) - bikeshedding wrote this site and made it terrible.
 
-[all posts](@/posts/_index.md)
+- [all posts](@/posts/_index.md) - where you should go
+- [portfolio](@/portfolio.md) - public works
+- [micro](@/micro/_index.md) - smaller thoughts, different theme
 
-[portfolio](@/portfolio.md)
+click on '*`index ^`*' at the bottom of your screen to view this directory anywhere!
 
-## * bestof
+## \* bestof
 its coming, later.
 
-## * about
+## \* about
 - site where stuff gets written
 - written by a programmer
 - built w/ [Zola](https://www.getzola.org/)

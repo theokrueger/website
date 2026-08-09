@@ -1,6 +1,10 @@
 {% extends "root.html" %}
 {% import "components/mod.html" as macros %}
 
+{% block body %}
+{{ body::base() }}
+{% endblock body %}
+
 {% block content %}
 {{ title::new(title=page.title, subtitle=page.description, subsubtitle=page.date, flavor_id=page.extra.flavor_id, show_rss=false) }}
 

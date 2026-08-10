@@ -1,7 +1,6 @@
 +++
 title = "Please, fix your website's <pre>!"
 description = "Most of us use phones."
-date = 2026-08-10
 +++
 If you have a personal blog with any preformatted text blocks (i.e. code), please make their overflow scrollable!
 
@@ -20,5 +19,5 @@ pre > code {
 }
 ```
 
-While you're at it, just test your site mobile at all.
+While you're at it, just test your site on mobile at all.
 Its surprising how easy responsive design is these days.

@@ -1,8 +1,14 @@
 {% extends "root.html" %}
 {% import "components/mod.html" as macros %}
 
+{% block body %}
+{{ body::micro() }}
+{% endblock %}
+
 {% block content %}
-<div id="content">
+
+
+{#<div id="content">
   {{ section.content | safe }}
 
 {% set posts_by_year = section.pages | group_by(attribute="year") %}
@@ -22,4 +28,5 @@
     </ul>
 {% endfor %}
 </div>
+#}
 {% endblock content %}

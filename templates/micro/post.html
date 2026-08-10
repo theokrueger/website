@@ -1,6 +1,11 @@
 {% extends "root.html" %}
 {% import "components/mod.html" as macros %}
 
+{% block body %}
+{{ body::micro() }}
+{% endblock %}
+
+
 {% block content %}
 {{ page.content | safe }}
 {% endblock content %}

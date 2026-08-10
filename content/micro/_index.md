@@ -1,14 +1,8 @@
 +++
-title = "/micro/"
+title = "Micro"
 description = "smaller thoughts"
 template = "micro/section.html"
 page_template = "micro/post.html"
-[extra]
-subsubtitle = ""
-flavor_id = "generic-flavor"
-footer_name = "blog"
-no_default_script = true
-no_default_stylesheet = true
-show_rss = false
+generate_feeds = true
 +++
 <!-- intentionally left blank -->

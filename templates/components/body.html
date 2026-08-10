@@ -1,11 +1,16 @@
+{% macro rss_link(base) %}
+
+<link rel="alternate" type="application/atom+xml" href="{{ config.base_url }}/{{ base }}/atom.xml" />
+<link rel="alternate" type="application/rss+xml" href="{{ config.base_url }}/{{ base }}/rss.xml" />
+
+{% endmacro rss_link %}
+
 {% macro base() %}
 {# this body shared by /posts/ and index and 404. main theme for the site basically #}
 <script type="module" src="/script.js" defer></script>
 <link rel="stylesheet" type="text/css" href="/style.css" />
 
-<link rel="alternate" type="application/atom+xml" href="{{ config.base_url }}/posts/atom.xml" />
-<link rel="alternate" type="application/rss+xml" href="{{ config.base_url }}/posts/rss.xml" />
-
+{{ body::rss_link(base="posts") }}
 
 <!-- external modules -->
 {% if page.extra.extern.slideshow or section.extra.extern.slideshow %}
@@ -15,4 +20,12 @@
 <script src="/flickity/flickity.pkgd.js"></script>
 {% endif %}
 
-{% endmacro new %}
+{% endmacro base %}
+
+
+{% macro micro() %}
+{# this body exclusive to /micro/ #}
+
+{{ body::rss_link(base="micro") }}
+
+{% endmacro micro %}

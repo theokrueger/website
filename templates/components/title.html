@@ -2,8 +2,20 @@
 <div id="title">
   <span>
     {% if title %}
-    <h1 id="title-title">
-      <a href="{{ config.base_url }}" id="title-text" rel="self">{{ title | safe }}<span id="title-cursor">&block;</span></a>
+    <!-- noscript title -->
+    <noscript>
+      <h1 id="title-title">
+	<a href="{{ config.base_url }}" id="title-text" rel="self">{{ title | safe }}<span id="title-cursor">&block;</span></a>
+      </h1>
+      <style>
+        .title-script {
+          display: none;
+        }
+      </style>
+    </noscript>
+    <!-- script title -->
+    <h1 id="title-title" class="title-script">
+      <a href="{{ config.base_url }}" id="title-text" class="js-element" rel="self">{{ title | safe }}<span id="title-cursor" class="js-element">&block;</span></a>
     </h1>
     {% endif %}
 

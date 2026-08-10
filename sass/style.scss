@@ -110,6 +110,13 @@ ul {
   list-style-type: square;
 }
 
+// an element that is transparent initially, then transparency is removed as soon as js loads
+.js-element {
+    color: transparent !important;
+    bg-color: transparent !important;
+    border-color: transparent !important;
+}
+
 /* FILE HEADINGS */
 .file-head {
   display: grid;

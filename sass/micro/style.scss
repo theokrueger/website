@@ -1,0 +1,17 @@
+@use "sass:math";
+@use "../shared" as s;
+
+:root {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  color: inherit;
+  background: s.$selection-color;
+}
+
+details {
+  transition: 0.2s;
+}

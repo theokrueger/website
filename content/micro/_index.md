@@ -5,4 +5,5 @@ template = "micro/section.html"
 page_template = "micro/post.html"
 generate_feeds = true
 +++
-<!-- intentionally left blank -->
+The main version of this site requires JavaScript and works best on a desktop.
+You can view a simplified static version

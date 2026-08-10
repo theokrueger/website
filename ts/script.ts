@@ -154,9 +154,14 @@ async function typeElement(
     await sleep(random_number(1000, 3000));
     for (let i = flair.length; i >= 0; i--) {
       await sleep(typingSpeed);
-      updateElement(txt + flair.slice(0, i + 1), "");
+      updateElement(txt + flair.slice(0, i), "");
     }
   }
+}
+/* set visibility of js elements */
+const invis = document.getElementsByClassName("js-element");
+while (invis.length) {
+  invis[0]!.className = invis[0]!.className.replace(/\bjs-element\b/g, "");
 }
 
 /* type some elements */

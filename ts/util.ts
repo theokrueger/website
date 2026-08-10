@@ -7,6 +7,7 @@ export {
   clamp,
   random_index,
   random_elem,
+  pathname_match,
 };
 
 const sleep = (delay: number) =>
@@ -24,6 +25,13 @@ const random_index = <T>(arr: T[]): number =>
   Math.floor(Math.random() * arr.length);
 
 const random_elem = <T>(arr: T[]): T => arr[random_index(arr)]!;
+
+const pathname_match = (s: string): boolean => {
+  const pn = window.location.pathname;
+  return (
+    pn === s || pn === `${s}.html` || pn === `${s}/` || pn === `${s}/index.html`
+  );
+};
 
 enum Keymap {
   Qwerty = 1,

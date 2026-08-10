@@ -1,0 +1,211 @@
+@use "../shared" as s;
+
+// fonts
+$font-family: motivasans, sans-serif;
+
+// acl colors
+$cs-heading: #000;
+$cs-text: #fff;
+$cs-dark-text: rgb(196 202 190);
+$cs-fg: #282d22;
+$cs-bg: #4c5844;
+$cs-light-green: #626d5c;
+$cs-dark-green: #25291b;
+$cs-link: rgb(191 186 80);
+$cs-link-hover: rgb(147 143 60);
+
+// acl properties
+$cs-border-radius: 3px;
+
+// mixins
+@mixin acl-button-gradient {
+  background-image: linear-gradient(to top left, $cs-fg, $cs-light-green);
+}
+
+
+// elements
+body {
+    // TODO figure out how to get rid of this
+  background-color: $cs-bg;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+pre > code {
+  overflow-x: auto;
+}
+
+// desktop
+#acl {
+  font-family: $font-family;
+  font-size: 13px;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  color: $cs-text;
+  background-color: $cs-bg;
+}
+
+#acl *::selection {
+  color: inherit;
+  background: $cs-link;
+}
+
+#acl *a {
+  color: $cs-link;
+  text-decoration: none;
+}
+
+#acl *a:hover {
+  color: $cs-link_hover;
+}
+
+#acl-nav {
+  --side-pad: max(calc((100% - 768px) / 2), 0px);
+
+  display: flex;
+  align-items: center;
+  background-color: $cs-heading;
+  color: $cs-text;
+  width: calc(100% - 2 * var(--side-pad) - 16px * 2);
+  height: 60px;
+  padding: 0 calc(var(--side-pad) + 16px);
+}
+
+#acl-profile {
+  background-color: $cs-fg;
+  width: 768px;
+  margin: 0 auto;
+  border-radius: 0 0 $cs-border-radius $cs-border-radius;
+}
+
+#acl-profile-header {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 220px;
+}
+
+#acl-pfp-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px;
+}
+
+#acl-pfp-image {
+  width: 164px;
+  height: 164px;
+  border: 2px solid $cs-bg;
+}
+
+#acl-info {
+  margin: 32px 16px 0;
+}
+
+#acl-info-username {
+  font-size: 32px;
+}
+
+#acl-info-bio {
+  color: $cs-dark-text;
+}
+
+#acl-extra {
+  width: 240px;
+  margin-left: auto;
+  margin-top: 64px;
+
+  >* {
+      max-width: 224px;
+  }
+}
+
+#acl-extra-level {
+  font-size: 24px;
+}
+
+#acl-extra-badge {
+    @include acl-button-gradient;
+  display: grid;
+  grid-template-columns: 70px auto;
+  width: 100%;
+  height: 70px;
+  border-radius: $cs-border-radius;
+
+  // extensions like noscript convert noscript tags into span sometimes. bleh.
+  > noscript, > span {
+      display: flex;
+      align-item: center;
+  }
+
+  > img, > noscript > img, > span > img {
+    width: 58px;
+    height: 58px;
+    border-radius: $cs-border-radius;
+    margin: 6px;
+  }
+
+  > text, > noscript > text, > span > text {
+    margin: auto 0;
+
+    > h4 {
+	margin: 0;
+    }
+
+    > p {
+	color: $cs-dark-text;
+	margin: 0;
+    }
+  }
+}
+
+#acl-extra-button {
+    @include acl-button-gradient;
+    display: flex;
+    width: 100%;
+    height: 24px;
+    margin-top: 8px;
+    justify-content: center;
+    align-items: center;
+    color: $cs-text !important;
+    border-radius: $cs-border-radius;
+}
+
+#acl-profile-body {
+}
+
+// mobile
+@media screen and (width <= 767px) {
+  #acl-nav {
+    justify-content: center;
+  }
+
+  #acl-profile {
+    width: 95%;
+  }
+
+  #acl-profile-header {
+    height: auto;
+    align-items: left;
+    justify-content: left;
+    padding-top: 12px;
+  }
+
+  #acl-pfp-image {
+    max-width: 164px;
+    max-height: 164px;
+    object-fit: contain;
+  }
+
+  #acl-extra {
+    margin: auto;
+  }
+
+  #acl-pfp-container,
+  #acl-info {
+    width: auto;
+    margin: 16px;
+  }
+}

@@ -30,10 +30,19 @@ $cs_link_hover: rgb(147, 143, 60);
 body {
   margin: 0;
   padding: 0;
+  background-color: $cs_bg;
 }
 
 details {
   transition: 0.2s;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+pre > code {
+  overflow-x: auto;
 }
 
 /* ACCESSIBLE VERSION */
@@ -55,20 +64,21 @@ details {
 #acl *a {
   color: $cs_link;
   text-decoration: none;
+}
 
-  :hover {
-    color: $cs_link_hover;
-  }
+#acl *a:hover {
+  color: $cs_link_hover;
 }
 
 #acl-nav {
+  --side-pad: max(calc((100% - 768px) / 2), 0px);
   display: flex;
   align-items: center;
   background-color: $cs_heading;
   color: $cs_text;
-  width: 100%;
+  width: calc(100% - 2 * var(--side-pad));
   height: 60px;
-  padding: 0 max(calc((100% - 768px) / 2), 0px);
+  padding: 0 var(--side-pad);
 }
 
 #acl-profile {
@@ -132,5 +142,9 @@ details {
 @media screen and (max-width: 767px) {
   #acl-nav {
     justify-content: center;
+  }
+
+  #acl-profile {
+    width: 95%;
   }
 }

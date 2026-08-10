@@ -22,7 +22,6 @@ $cs-border-radius: 3px;
   background-image: linear-gradient(to top left, $cs-fg, $cs-light-green);
 }
 
-
 // elements
 body {
     // TODO figure out how to get rid of this
@@ -87,6 +86,13 @@ pre > code {
   height: 220px;
 }
 
+#acl-pfp-info-flex {
+  display: flex;
+  align-items: start;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
 #acl-pfp-container {
   display: flex;
   align-items: center;
@@ -114,8 +120,7 @@ pre > code {
 
 #acl-extra {
   width: 240px;
-  margin-left: auto;
-  margin-top: 64px;
+  margin: auto 0 auto auto;
 
   >* {
       max-width: 224px;
@@ -127,7 +132,7 @@ pre > code {
 }
 
 #acl-extra-badge {
-    @include acl-button-gradient;
+  @include acl-button-gradient;
   display: grid;
   grid-template-columns: 70px auto;
   width: 100%;
@@ -178,6 +183,11 @@ pre > code {
 
 // mobile
 @media screen and (width <= 767px) {
+    #acl-pfp-info-flex > * {
+	margin: auto;
+	padding: 8px;
+    }
+    
   #acl-nav {
     justify-content: center;
   }
@@ -188,9 +198,9 @@ pre > code {
 
   #acl-profile-header {
     height: auto;
-    align-items: left;
-    justify-content: left;
-    padding-top: 12px;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
   }
 
   #acl-pfp-image {
@@ -200,12 +210,6 @@ pre > code {
   }
 
   #acl-extra {
-    margin: auto;
-  }
-
-  #acl-pfp-container,
-  #acl-info {
-    width: auto;
-    margin: 16px;
+      margin: auto;
   }
 }

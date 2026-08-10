@@ -6,6 +6,49 @@
 {% endblock %}
 
 {% block content %}
+<!-- site version accessible on mobile and noscript -->
+<div id="acl">
+  <!-- navigation -->
+  <div id="acl-nav">
+    <img src="/micro/acl/logo_header.gif" height="70%">
+  </div>
+  <!-- profile -->
+  <div id="acl-profile">
+    <!-- header -->
+    <span id="acl-profile-header">
+      <!-- pfp -->
+      <span id="acl-pfp-container">
+	<img
+	  id="acl-pfp-image"
+	  src="/micro/acl/pfp.gif"
+	  alt="The Caterpillar from The Very Hungry Caterpillar by Eric Carle after eating too much at the picnic."
+	/>
+      </span>
+      <!-- name/bio -->
+      <span id="acl-info">
+	<span id="acl-info-username">theokrueger</span>
+	<p id="acl-info-bio">button box enthusiast</p>
+      </span>
+      <!-- extra -->
+      <span id="acl-extra">
+	<div id="acl-extra-level">
+	  <span>Posts:</span>
+	  <a href="#posts"><em>
+	    {{ section.pages | length }}
+	  </em></a>
+	</div>
+	<div id="acl-extra-badge">
+	  badge
+	</div>
+      </span>
+
+    </span>
+    <!-- body -->
+    <div id="acl-profile-body">
+      body
+    </div>
+  </div>
+</div>
 
 {{ section.content | safe }}
 

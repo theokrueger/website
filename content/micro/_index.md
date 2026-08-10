@@ -1,9 +1,7 @@
 +++
-title = "Micro"
-description = "smaller thoughts"
+title = "Micro Index"
+description = "smaller thoughts on a more personal site"
 template = "micro/section.html"
 page_template = "micro/post.html"
 generate_feeds = true
 +++
-The main version of this site requires JavaScript and works best on a desktop.
-You can view a simplified static version

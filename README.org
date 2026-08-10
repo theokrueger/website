@@ -17,3 +17,9 @@ my personal website
 * special thanks to
 - [[https://www.getzola.org/][zola]], for offering the least bad SSG i've used
 - [[https://flickity.metafizzy.co/][flickity]], for saving me the headache of designing carousels
+- Eric Carle, for creating /The Very Hungry Caterpillar/
+
+* credits
+- everything in /special thanks to/
+- all the [[/static/fonts/README.org][various fonts]] used on this site
+

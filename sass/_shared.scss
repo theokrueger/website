@@ -25,11 +25,16 @@ $default-padding: 10px;
 $content-side-margin: 15vw;
 
 @font-face {
-  font-family: ibmplexmono;
-  src: url("/fonts/ibmplexmono/regular.woff2");
+  font-family: IBMPlexMono;
+  src: url("/fonts/ibmplexmono/IBMPlexMono-Regular.woff2");
 }
 
-$font-family: ibmplexmono, monospace;
+@font-face {
+  font-family: MotivaSans;
+  src: url("/fonts/motivasans/MotivaSansTest-Light.woff2");
+}
+
+$font-family: IBMPlexMono, monospace;
 $default-font-scale: 1rem;
 
 @function font-ratio($n) {

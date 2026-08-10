@@ -1,0 +1,3 @@
+* fonts
+- [[IBM Plex Mono][./ibmplexmono]] by IBM, licensed under [[./ibmplexmono/OFL.txt][OFL]]
+- [[Motiva Sans][./motivasans]] by Rodrigo Saiani, licensed for personal use.

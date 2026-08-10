@@ -1,17 +1,136 @@
 @use "sass:math";
 @use "../shared" as s;
 
+// fonts
+$font-family: MotivaSans, sans-serif;
+
+// colors
+$c_white: white;
+$c_black: #000;
+
+// acl colors
+$cs_heading: #000;
+$cs_text: #fff;
+$cs_dark_text: rgb(196, 202, 190);
+
+$cs_fg: #282d22;
+$cs_bg: #4c5844;
+$cs_light_green: #626d5c;
+$cs_dark_green: #25291b;
+
+$cs_link: rgb(191, 186, 80);
+$cs_link_hover: rgb(147, 143, 60);
+
 :root {
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
 }
 
-::selection {
-  color: inherit;
-  background: s.$selection-color;
+body {
+  margin: 0;
+  padding: 0;
 }
 
 details {
   transition: 0.2s;
+}
+
+/* ACCESSIBLE VERSION */
+// desktop
+#acl {
+  font-family: $font-family;
+  font-size: 13px;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  color: $cs_text;
+  background-color: $cs_bg;
+}
+
+#acl *::selection {
+  color: inherit;
+  background: $cs_link;
+}
+
+#acl *a {
+  color: $cs_link;
+  text-decoration: none;
+
+  :hover {
+    color: $cs_link_hover;
+  }
+}
+
+#acl-nav {
+  display: flex;
+  align-items: center;
+  background-color: $cs_heading;
+  color: $cs_text;
+  width: 100%;
+  height: 60px;
+  padding: 0 max(calc((100% - 768px) / 2), 0px);
+}
+
+#acl-profile {
+  background-color: $cs_fg;
+  width: 768px;
+  margin: 0 auto;
+}
+
+#acl-profile-header {
+  display: flex;
+  width: 100%;
+  height: 220px;
+}
+
+#acl-pfp-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px;
+}
+
+#acl-pfp-image {
+  width: 164px;
+  height: 164px;
+  border: 2px solid $cs_bg;
+}
+
+#acl-info {
+  margin: 32px 16px 0;
+}
+
+#acl-info-username {
+  font-size: 32px;
+}
+
+#acl-info-bio {
+  color: $cs_dark_text;
+}
+
+#acl-extra {
+  width: 200px;
+  margin-left: auto;
+}
+
+#acl-extra-level {
+  margin-top: 64px;
+  font-size: 24px;
+}
+
+#acl-extra-badge {
+  width: 188px;
+  height: 70px;
+  background-image: linear-gradient(to top left, $cs_fg, $cs_light_green);
+  border-radius: 5px;
+}
+
+#acl-profile-body {
+}
+
+// mobile
+@media screen and (max-width: 767px) {
+  #acl-nav {
+    justify-content: center;
+  }
 }

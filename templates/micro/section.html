@@ -61,10 +61,10 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
 	    </noscript>
 	</div>
 	<span id="acl-extra-buttons">
-	  <a href="https://theokrueger.atabook.org/">
+	  <a class="acl-button" href="https://theokrueger.atabook.org/">
 	    Guestbook↗
 	  </a>
-	  <a id="acl-extra-rss" href="./atom.xml">
+	  <a class="acl-button" id="acl-extra-rss" href="./atom.xml">
 	    Feed
 	    <img src="/micro/acl/rss.gif" alt="RSS Button" style="padding-left: 4px;"/>
 	  </a>
@@ -84,14 +84,14 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
 	<!-- links -->
 	<h2>Links</h2>
 	<div id="acl-profile-sidebar-links">
-	  <span><a href="{{ config.base_url }}">Main Site</a></span>
-	  <span><a href="{{ config.base_url }}/portfolio">Portfolio</a></span>
-	  <span><a href="#micros">Micro Archive</a></span>
-	  <span><a href="./atom.xml">RSS/Atom</a></span>
-	  <span><a href="TODO">Badges & Stamps</a></span>
-	  <span><a href="TODO">Item<br/>Line2</a></span>
-	  <span><a href="TODO">Item</a></span>
-	  <span><a href="TODO">Item</a></span>
+	  <span class="acl-button"><a href="{{ config.base_url }}">Main Site</a></span>
+	  <span class="acl-button"><a href="{{ config.base_url }}/portfolio">Portfolio</a></span>
+	  <span class="acl-button"><a href="#micros">Micro Archive</a></span>
+	  <span class="acl-button"><a href="./atom.xml">RSS/Atom</a></span>
+	  <span class="acl-button"><a href="TODO">Badges & Stamps</a></span>
+	  <span class="acl-button"><a href="TODO">Item<br/>Line2</a></span>
+	  <span class="acl-button"><a href="TODO">Item</a></span>
+	  <span class="acl-button"><a href="TODO">Item</a></span>
 	</div>
       </div>
       <!-- end sidebar -->
@@ -112,7 +112,7 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
             <summary>{{ year }}</summary>
             {% for post in posts %}
             <p>
-	      {{ post.month }}.{{ post.day }}:
+	      {{ post.date | date(format="%m.%d") }}:
               <a href="{{ post.permalink }}">{{ post.title }}</a>
               {% if post.description %} - {{ post.description }}{% endif %}</p>
             {% endfor %}

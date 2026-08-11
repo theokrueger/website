@@ -18,6 +18,7 @@ $cs-link-hover: rgb(147 143 60);
 // acl properties
 $cs-border-radius: 4px;
 $cs-col-width: 240px;
+$cs-nav-height: 60px;
 
 // mixins
 @mixin acl-gradient {
@@ -27,6 +28,15 @@ $cs-col-width: 240px;
 // classes
 .acl-dark-text {
   color: $cs-dark-text;
+}
+
+.acl-button:hover {
+  background-image: unset !important;
+  background-color: $cs-link-hover !important;
+  color: $cs-text !important;
+  > a {
+    color: $cs-text !important;
+  }
 }
 
 // elements
@@ -109,6 +119,7 @@ hr {
   position: sticky;
   top: 0;
   overflow-x: auto;
+  z-index: 1;
 
   --side-pad: max(calc((100vw - 768px) / 2), 0px);
 
@@ -117,7 +128,7 @@ hr {
   background-color: $cs-heading;
   color: $cs-text;
   width: calc(100vw - 2 * var(--side-pad) - 16px * 2);
-  height: 60px;
+  height: $cs-nav-height;
   padding: 0 calc(var(--side-pad) + 16px);
 }
 
@@ -259,7 +270,7 @@ hr {
     justify-content: center;
     align-items: center;
     height: 24px;
-    color: $cs-text !important;
+    color: $cs-text;
     border-radius: $cs-border-radius;
   }
 }
@@ -281,9 +292,11 @@ hr {
   $thismargin: 16px;
 
   flex-shrink: 0;
-  margin: 0 $thismargin;
+  margin: 0 $thismargin $thismargin 0;
   width: $cs-col-width - $thismargin;
 
+  position: sticky;
+  top: $cs-nav-height + 20px;
   > * {
     border-radius: $cs-border-radius;
     background-color: $cs-fg2;
@@ -344,6 +357,19 @@ hr {
     > p:first-child {
       margin-top: 4px;
     }
+  }
+}
+
+// desktop only additions
+@media screen and (width >= 1200px) {
+  #acl-profile-sidebar {
+    position: fixed;
+    top: auto;
+    bottom: auto;
+    right: 0;
+    transform: perspective(200px) rotateY(-5deg);
+    transform-origin: center right;
+    transform-style: preserve-3d;
   }
 }
 

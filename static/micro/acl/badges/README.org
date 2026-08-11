@@ -1,4 +1,0 @@
-* badges
-- [[./icon.gif][Icon]] from the /Saints Row: The Third/'s level 5 Steam badge
-- [[./groove-coaster.gif][Dawn Groover]] from /Groove Coaster: Steam Edition/'s level 5 Steam badge
-- [[./apple.gif][An apple]] from /The Very Hungry Caterpillar/.

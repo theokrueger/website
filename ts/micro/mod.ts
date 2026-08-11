@@ -2,15 +2,15 @@ import { pathname_match, random_index } from "../util.js";
 
 console.log("javascript enabled for this webpage");
 
-type BadgeEntry = {
+type BadgeEntry80x80 = {
   img: string;
   title: string;
   desc: string;
 };
 
-function replaceBadge(badges: [BadgeEntry]) {
-  function badgeHTML(badge: BadgeEntry) {
-    return `<img src="/micro/acl/badges/${badge.img}" /><text><h4>${badge.title}</h4><p>${badge.desc}</p></text>`;
+function replace80x80Badge(badges: [BadgeEntry80x80]) {
+  function badgeHTML(badge: BadgeEntry80x80) {
+    return `<img src="/micro/badges/80x80/${badge.img}" /><text><h4>${badge.title}</h4><p>${badge.desc}</p></text>`;
   }
 
   const e = document.getElementById("acl-extra-badge");
@@ -27,7 +27,7 @@ if (pathname_match("/micro")) {
   console.log("running JS for micro index");
 
   // badge replacement
-  const badgeURL = "/micro/acl/badges/badges.json";
+  const badgeURL = "/micro/badges/badges.json";
   fetch(badgeURL)
     .then((resp) => {
       if (!resp.ok) {
@@ -36,6 +36,6 @@ if (pathname_match("/micro")) {
       return resp.json();
     })
     .then((json) => {
-      replaceBadge(json);
+      replace80x80Badge(json["80x80"]);
     });
 }

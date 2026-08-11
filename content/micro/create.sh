@@ -2,12 +2,17 @@
 # create a new post
 cd "$(dirname "$0")"
 
-TITLE="$1"
+TITLE="$(echo "$1" | tr ' ' '-')"
 DATE="$(date '+%F')"
+OUT="$PWD/$DATE-$TITLE.md"
 
 echo \
     "+++
 title = \"$TITLE\"
 description = \"\"
 +++
-" > "$PWD/$DATE-$TITLE.md"
+" > "$OUT"
+
+echo "Created '$OUT'. Open?"
+read
+nano "$OUT"

@@ -20,6 +20,6 @@ my personal website
 - Eric Carle, for creating /The Very Hungry Caterpillar/
 
 * credits
-- everything in /special thanks to/
-- all the [[/static/fonts/README.org][various fonts]] used on this site
-
+- everything in the above /special thanks to/
+- all the [[./static/fonts/README.org][various fonts]] used on this site
+- the [[./static/micro/acl/badges/README.org][micro badges]] used on this site

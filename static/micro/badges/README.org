@@ -1,0 +1,10 @@
+* badges
+
+** 80x80
+- [[./80x80/icon.gif][Icon]] from the /Saints Row: The Third/'s level 5 Steam badge
+- [[./80x80/groove-coaster.gif][Dawn Groover]] from /Groove Coaster: Steam Edition/'s level 5 Steam badge
+- [[./80x80/apple.gif][An apple]] from /The Very Hungry Caterpillar/.
+- [[./80x80/slimecat.gif][The Lucky Slime]] from /Slime Rancher/
+
+** 80x15
+- [[./80x15/test.gif][Test Badge]], made by me

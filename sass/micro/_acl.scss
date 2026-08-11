@@ -22,6 +22,11 @@ $cs-border-radius: 3px;
   background-image: linear-gradient(to top left, $cs-fg, $cs-light-green);
 }
 
+// classes
+.acl-dark-text {
+  color: $cs-dark-text;
+}
+
 // elements
 body {
   // TODO figure out how to get rid of this
@@ -36,6 +41,10 @@ pre > code {
   overflow-x: auto;
 }
 
+hr {
+  color: $cs-link;
+}
+
 // desktop
 #acl {
   font-family: $font-family;
@@ -44,34 +53,55 @@ pre > code {
   -webkit-font-smoothing: none;
   color: $cs-text;
   background-color: $cs-bg;
+  *::selection {
+    color: $cs-text;
+    background: $cs-link;
+  }
+
+  *a {
+    color: $cs-link;
+    text-decoration: none;
+  }
+
+  *a:hover {
+    color: $cs-link-hover;
+  }
+
+  *code {
+    color: s.$purple;
+    font-family: s.$font-family;
+  }
+
+  *details[open] > *:not(summary) {
+    animation: acl-details 0.5s ease-in-out;
+  }
 }
 
-#acl *::selection {
-  color: $cs-text;
-  background: $cs-link;
-}
-
-#acl *a {
-  color: $cs-link;
-  text-decoration: none;
-}
-
-#acl *a:hover {
-  color: $cs-link-hover;
-}
-
-#acl *code {
-  color: $cs-link-hover;
+@keyframes acl-details {
+  0% {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-1em);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    max-height: 100em;
+  }
 }
 
 #acl-nav {
-  --side-pad: max(calc((100% - 768px) / 2), 0px);
+  position: sticky;
+  top: 0;
 
+  --side-pad: max(calc((100vw - 768px) / 2), 0px);
   display: flex;
   align-items: center;
   background-color: $cs-heading;
   color: $cs-text;
-  width: calc(100% - 2 * var(--side-pad) - 16px * 2);
+  width: calc(100vw - 2 * var(--side-pad) - 16px * 2);
   height: 60px;
   padding: 0 calc(var(--side-pad) + 16px);
 }
@@ -149,6 +179,9 @@ pre > code {
 
 #acl-extra-level {
   font-size: 24px;
+  > * {
+    padding: 2px;
+  }
 }
 
 #acl-extra-badge {
@@ -191,16 +224,28 @@ pre > code {
   }
 }
 
-#acl-extra-button {
-  @include acl-gradient;
-  display: flex;
+#acl-extra-buttons {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 4px;
   width: 100%;
-  height: 24px;
   margin-top: 8px;
-  justify-content: center;
-  align-items: center;
-  color: $cs-text !important;
-  border-radius: $cs-border-radius;
+  > a {
+    @include acl-gradient;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+    color: $cs-text !important;
+    border-radius: $cs-border-radius;
+  }
+}
+
+#acl-extra-rss {
+  > img {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 #acl-profile-body {
@@ -265,5 +310,25 @@ pre > code {
 
   #acl-extra {
     margin: auto;
+  }
+}
+
+// post
+#acl-page-title {
+  margin: 0 2%;
+}
+
+#acl-page-description {
+  margin: 0 2%;
+}
+
+#acl-page-link {
+  margin: 0 2%;
+}
+
+#acl-page-content {
+  margin: 0 2%;
+  :first-child {
+    margin-top: 0;
   }
 }

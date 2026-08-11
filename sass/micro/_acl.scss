@@ -7,6 +7,7 @@ $font-family: motivasans, sans-serif;
 $cs-heading: #000;
 $cs-text: #fff;
 $cs-dark-text: rgb(196 202 190);
+$cs-fg2: #15170f;
 $cs-fg: #282d22;
 $cs-bg: #4c5844;
 $cs-light-green: #626d5c;
@@ -15,7 +16,8 @@ $cs-link: rgb(191 186 80);
 $cs-link-hover: rgb(147 143 60);
 
 // acl properties
-$cs-border-radius: 3px;
+$cs-border-radius: 4px;
+$cs-col-width: 240px;
 
 // mixins
 @mixin acl-gradient {
@@ -169,7 +171,7 @@ hr {
 }
 
 #acl-extra {
-  width: 240px;
+  width: $cs-col-width;
   margin: auto 0 auto auto;
 
   > * {
@@ -249,8 +251,34 @@ hr {
 }
 
 #acl-profile-body {
-  padding-bottom: 8px;
+  display: flex;
+  flex-wrap: none;
+}
 
+#acl-profile-sidebar {
+  $thismargin: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: start;
+  padding: 8px;
+  order: 2;
+  margin: 0 $thismargin;
+  background-color: $cs-fg2;
+  border-radius: $cs-border-radius;
+  > span {
+    $thispadding: 4px;
+    border-radius: $cs-border-radius;
+    margin-bottom: 8px;
+    padding: $thispadding;
+    background-color: $cs-fg;
+    width: $cs-col-width - 2 * ($thismargin + $thispadding);
+    font-size: 20px;
+  }
+}
+
+#acl-profile-content {
+  order: 1;
   > p {
     margin: 8px;
   }
@@ -260,6 +288,7 @@ hr {
     @include acl-gradient;
     margin: 0;
     padding: 4px;
+    border-radius: 0 $cs-border-radius $cs-border-radius 0;
   }
 }
 
@@ -310,6 +339,27 @@ hr {
 
   #acl-extra {
     margin: auto;
+  }
+
+  #acl-profile-body {
+    flex-wrap: wrap;
+  }
+  #acl-profile-sidebar {
+    order: 1;
+    flex-direction: row;
+    justify-content: center;
+    margin: 4px auto;
+    padding: 0;
+
+    > span {
+      margin: 4px;
+      width: auto;
+      min-width: 128px;
+    }
+  }
+
+  #acl-profile-content {
+    order: 2;
   }
 }
 

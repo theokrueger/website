@@ -77,6 +77,13 @@ hr {
   *details[open] > *:not(summary) {
     animation: acl-details 0.5s ease-in-out;
   }
+
+  *h2,
+  *h3 {
+    @include acl-gradient;
+    margin: 0;
+    padding: 4px;
+  }
 }
 
 @keyframes acl-details {
@@ -118,7 +125,7 @@ hr {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 4px;
+  padding: 4px 0;
 
   > * {
     padding: 2px;
@@ -252,42 +259,60 @@ hr {
 
 #acl-profile-body {
   display: flex;
-  flex-wrap: none;
+  flex-wrap: nowrap;
+  align-items: start;
+  flex-direction: row-reverse;
 }
 
 #acl-profile-sidebar {
   $thismargin: 16px;
+  flex-shrink: 0;
+  margin: 0 $thismargin;
+  width: $cs-col-width - $thismargin;
+
+  > * {
+    border-radius: $cs-border-radius;
+    background-color: $cs-fg2;
+  }
+
+  > h2 {
+    border-radius: $cs-border-radius $cs-border-radius 0 0;
+  }
+}
+
+#acl-profile-sidebar-status {
+  margin-bottom: 10px;
+  font-size: 16px;
+  padding: 4px;
+  height: 36px - 8px;
+
+  display: grid;
+  align-items: center;
+}
+
+#acl-profile-sidebar-links {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  align-items: start;
-  padding: 8px;
-  order: 2;
-  margin: 0 $thismargin;
-  background-color: $cs-fg2;
-  border-radius: $cs-border-radius;
+  align-items: stretch;
+  border-radius: 0 0 $cs-border-radius $cs-border-radius;
+
   > span {
-    $thispadding: 4px;
     border-radius: $cs-border-radius;
-    margin-bottom: 8px;
-    padding: $thispadding;
     background-color: $cs-fg;
-    width: $cs-col-width - 2 * ($thismargin + $thispadding);
     font-size: 20px;
+    padding: 2px;
+    margin: 2px;
   }
 }
 
 #acl-profile-content {
-  order: 1;
   > p {
     margin: 8px;
   }
 
   > h2,
   > h3 {
-    @include acl-gradient;
-    margin: 0;
-    padding: 4px;
     border-radius: 0 $cs-border-radius $cs-border-radius 0;
   }
 }
@@ -343,23 +368,29 @@ hr {
 
   #acl-profile-body {
     flex-wrap: wrap;
+    align-items: stretch;
   }
+
   #acl-profile-sidebar {
-    order: 1;
-    flex-direction: row;
-    justify-content: center;
+    width: 98%;
     margin: 4px auto;
-    padding: 0;
+  }
+
+  #acl-profile-sidebar-status {
+  }
+
+  #acl-profile-sidebar-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, auto));
+    margin: 0;
+    grid-auto-flow: row dense;
 
     > span {
-      margin: 4px;
+      display: inline-block;
       width: auto;
-      min-width: 128px;
+      height: auto;
+      margin: 2px;
     }
-  }
-
-  #acl-profile-content {
-    order: 2;
   }
 }
 

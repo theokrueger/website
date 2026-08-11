@@ -11,6 +11,7 @@
   <!-- navigation -->
   <div id="acl-nav">
     <a href="/"><img src="/micro/acl/logo_header.gif"></a>
+    <noscript>This page is best with JS enabled! No tracking here :)</noscript>
   </div>
   <!-- profile -->
   <div id="acl-profile">
@@ -30,12 +31,6 @@
 	  <span id="acl-info-username">theokrueger</span>
 	  <p id="acl-info-bio">button box enthusiast
 	  </p>
-	  <!-- TODO make this statement true -->
-	  <!-- <noscript> -->
-	  <!--   <p> -->
-	  <!--     this page is highly interactive,<br/>and is best viewed with JS enabled. -->
-	  <!--   </p> -->
-	  <!-- </noscript> -->
 	</span>
       </span
       <!-- extra -->
@@ -74,10 +69,22 @@
     <span id="acl-profile-body">
       <!-- sidebar -->
       <div id="acl-profile-sidebar">
-	<span><a href="{{ config.base_url }}">Main Site</a></span>
-	<span><a href="{{ config.base_url }}/portfolio">Portfolio</a></span>
-	<span><a href="example.com">stuff</a></span>
-	<span><a href="example.com">things</a></span>
+	<!-- status -->
+	<div id="acl-profile-sidebar-status">
+	  <text>Last Seen: <em class="acl-dark-text">{{ now() | date(format="%F") }}</em></text>
+	</div>
+	<!-- links -->
+	<h2>Links</h2>
+	<div id="acl-profile-sidebar-links">
+	  <span><a href="{{ config.base_url }}">Main Site</a></span>
+	  <span><a href="{{ config.base_url }}/portfolio">Portfolio</a></span>
+	  <span><a href="#micros">Micro Archive</a></span>
+	  <span><a href="./atom.xml">Feed</a></span>
+	  <span><a href="TODO">Badges & Stamps</a></span>
+	  <span><a href="TODO">Item<br/>Line2</a></span>
+	  <span><a href="TODO">Item</a></span>
+	  <span><a href="TODO">Item</a></span>
+	</div>
       </div>
       <!-- end sidebar -->
       <!-- profile content -->
@@ -96,9 +103,8 @@
 	  <details>
             <summary>{{ year }}</summary>
             {% for post in posts %}
-	  {% set d = post.date | split(pat="-") %}
             <p>
-	      {{ d[1] }}.{{ d[2] }}:
+	      {{ post.month }}.{{ post.day }}:
               <a href="{{ post.permalink }}">{{ post.title }}</a>
               {% if post.description %} - {{ post.description }}{% endif %}</p>
             {% endfor %}

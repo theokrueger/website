@@ -1,30 +1,26 @@
-import { pathname_match, random_index } from "../util.js";
+import { pathname_match, random_elem, chance_percent } from "../util.js";
 
 console.log("javascript enabled for this webpage");
-
-type BadgeEntry80x80 = {
-  img: string;
-  title: string;
-  desc: string;
-};
-
-function replace80x80Badge(badges: [BadgeEntry80x80]) {
-  function badgeHTML(badge: BadgeEntry80x80) {
-    return `<img src="/micro/badges/80x80/${badge.img}" /><text><h4>${badge.title}</h4><p>${badge.desc}</p></text>`;
-  }
-
-  const e = document.getElementById("acl-extra-badge");
-  if (!e) {
-    return;
-  }
-  const i = random_index(badges);
-
-  e.innerHTML = badgeHTML(badges[i]!);
-}
 
 // micro homepage
 if (pathname_match("/micro")) {
   console.log("running JS for micro index");
+
+  type BadgeEntry80x80 = {
+    img: string;
+    title: string;
+    desc: string;
+  };
+
+  function replace80x80Badge(badges: [BadgeEntry80x80]) {
+    function badgeHTML(badge: BadgeEntry80x80) {
+      return `<img src="/micro/badges/80x80/${badge.img}" /><text><h4>${badge.title}</h4><p>${badge.desc}</p></text>`;
+    }
+
+    document.getElementById("acl-extra-badge")!.innerHTML = badgeHTML(
+      random_elem(badges),
+    );
+  }
 
   // badge replacement
   const badgeURL = "/micro/badges/badges.json";
@@ -38,4 +34,24 @@ if (pathname_match("/micro")) {
     .then((json) => {
       replace80x80Badge(json["80x80"]);
     });
+
+  // flavor text
+  if (chance_percent(5)) {
+    const flavors: string[] = [
+      "<em>Right behind you.</em>",
+      "Where you should be.",
+      ":D",
+      "Install Firefox Now!",
+      "Do yourself the favour.\nSwitch to Linux.",
+      "Try OpenBSD!",
+      "TODO: fixme.",
+      "macro mini me.",
+      "Turn scrape to scrap.",
+      "REQ x>255px.",
+      "Responsibly responsive.",
+      "Sit loud.",
+    ];
+    document.getElementById("acl-nav-message")!.innerHTML =
+      random_elem(flavors);
+  }
 }

@@ -1,9 +1,8 @@
 {% extends "root.html" %}
 
 {% block body %}
-{{ <body.base /> }}
+{{ <body.base slideshow={page.extra.extern?.slideshow or false}/> }}
 {% endblock body %}
-
 {% block content %}
 
 {{ <title title={page.title} subtitle={page.description} subsubtitle={page.extra.subsubtitle} flavor_id={page.extra.flavor_id} show_rss={page.extra.show_rss} /> }}

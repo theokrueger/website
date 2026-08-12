@@ -1,0 +1,56 @@
+{#
+shared arguments defaults and sanity checks for shortcodes
+ width, height, quality, speed: ?int
+ src, alt: string
+ op, format: ?enum_str
+#}
+{% component images.single(src, alt, width=1280, height=720, quality=85, speed=1, op="scale", format="webp") %}
+{% set image = resize_image(path=src, width=width, height=height, op=op, format=format, quality=quality, speed=speed) %}
+<img src="{{ image.url }}" alt="{{ alt }}" />
+{% endcomponent images.single %}
+
+{# image tag snippet
+  path, alt: string
+  caption: ?string
+#}
+{% component images.captioned(path, alt, caption) %}
+<span class="content-image">
+{{ <images.single src={path} alt={alt} /> }}
+{% if caption != "" %}
+<p><em>{{ caption }}</em></p>
+{% endif %}
+</span>
+{% endcomponent images.captioned %}
+
+{#
+Flickity carousel snippet
+ images=[[path,?caption,alt],...]
+#}
+{% component images.slideshow(images, title="", width=1280, height=720, op="scale") %}
+{# TODO: this is a hack #}
+
+{% set flickity_carousel_count = images | length * images[0][0] | length * ((images[0][1] | length) + 1) %}
+<div class="flickity-carousel-{{ flickity_carousel_count }} flickity-carousel">
+{% if title != "" %}
+<h3 class="flickity-title">{{ title | safe }}</h3>
+{% endif %}
+
+{% for arr in images %}
+<span class="carousel-cell">
+{{ <images.single src={arr[0]} alt={arr?[2] or ""} width={width} height={height} op={op} /> }}
+{% if arr[1] != "" %}
+<p><em>{{ arr[1] }}</em></p>
+{% endif %}
+</span>
+{% endfor %}
+</div>
+
+<script>
+new Flickity( document.querySelector('.flickity-carousel-{{ flickity_carousel_count }}'), {
+adaptiveHeight: true,
+imagesLoaded: true,
+cellSelector: '.carousel-cell',
+});
+</script>
+<br/>
+{% endcomponent images.slideshow %}

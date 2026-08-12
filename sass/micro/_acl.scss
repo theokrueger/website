@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../shared" as s;
 
 // fonts
@@ -22,7 +23,14 @@ $cs-nav-height: 60px;
 
 // mixins
 @mixin acl-gradient {
-  background-image: linear-gradient(to top left, $cs-fg, $cs-light-green);
+  background-image:
+    linear-gradient(
+      to bottom right,
+      color.adjust($cs-light-green, $alpha: -0.07),
+      color.adjust($cs-fg, $alpha: -0.02)
+    ),
+    url("/img/noise.svg");
+  filter: contrast(110%) brightness(95%);
 }
 
 // classes
@@ -34,6 +42,7 @@ $cs-nav-height: 60px;
   background-image: unset !important;
   background-color: $cs-link-hover !important;
   color: $cs-text !important;
+
   > a {
     color: $cs-text !important;
   }
@@ -294,9 +303,9 @@ hr {
   flex-shrink: 0;
   margin: 0 $thismargin $thismargin 8px;
   width: $cs-col-width - $thismargin;
-
   position: sticky;
   top: $cs-nav-height + 20px;
+
   > * {
     border-radius: $cs-border-radius;
     background-color: $cs-fg2;
@@ -370,6 +379,7 @@ hr {
     transform: perspective(200px) rotateY(-5deg);
     transform-origin: center right;
     transform-style: preserve-3d;
+
     > * {
       outline: 1px solid transparent;
     }
@@ -424,7 +434,7 @@ hr {
   }
 
   #acl-profile-sidebar-status {
-      margin-bottom: 4px;
+    margin-bottom: 4px;
   }
 
   #acl-profile-sidebar-links {
@@ -441,7 +451,7 @@ hr {
     }
 
     > h2 {
-	display: none;
+      display: none;
     }
   }
 }

@@ -108,8 +108,8 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
             {% for post in posts | reverse %}
             <p>
 	      {{ post.date | date(format="%m.%d") }}:
-              <a href="{{ post.permalink }}">{{ post.title }}</a>
-              {% if post.description %} - {{ post.description }}{% endif %}</p>
+              <a href="{{ post.permalink }}">{{ post.title | safe }}</a>
+              {% if post.description %} - {{ post.description | safe }}{% endif %}</p>
             {% endfor %}
           </details>
 	  {% endfor %}

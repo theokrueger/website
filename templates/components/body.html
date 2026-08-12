@@ -1,6 +1,6 @@
 {% component body.rss_link(base) %}
   <link rel="alternate" type="application/atom+xml" href="/{{ base }}/atom.xml" />
-  <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
+  <link rel="alternate" type="application/rss+xml" href="/{{ base }}/rss.xml" />
 {% endcomponent body.rss_link %}
 
 {# this body shared by /posts/ and index and 404. main theme for the site basically #}
@@ -24,7 +24,7 @@
   {# this body exclusive to /micro/ #}
 
   <script type="module" src="/micro/mod.js" defer></script>
-  <link rel="stylesheet" type="text/css" href="/micro/style.css" />
+  <link rel="stylesheet" type="text/css" href="/micro/index.css" />
 
   {{ <body.rss_link base="micro" />}}
 {% endcomponent body.micro %}

@@ -1,5 +1,5 @@
 +++
-title = "Please, fix your website's <pre>!"
+title = "Please, fix your website's &#60;pre&#62;!"
 description = "Most of us use phones."
 +++
 If you have a personal blog with any preformatted text blocks (i.e. code), please make their overflow scrollable!

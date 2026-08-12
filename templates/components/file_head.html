@@ -33,7 +33,7 @@ Create a styled file heading corresponding to a below file block
       {% if disp %}{{ disp }}{% else %}{{ type }}{% endif %}
     </code>
     <code class="file-head-path">
-      {{ body }}
+      {{ body | safe }}
     </code>
   </span>
 {% endcomponent file_head %}

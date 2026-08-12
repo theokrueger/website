@@ -5,6 +5,7 @@ date = 1970-01-01
 extra.flavor_id = ""
 extra.show_toc = true
 extra.footer_name = "gk210"
+template = "posts/post.html"
 extra.extern.slideshow = false
 draft = true
 +++

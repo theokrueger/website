@@ -71,8 +71,11 @@ So a new site was born, looking strikingly similar to the first revision[^poorta
 [^poortaste]: Due to poor taste.
 
 {% <file_head type="FILE"> %}
+
 Sample blogc Post
+
 {% </file_head> %}
+
 ```md
 TITLE: post title
 -------------------------
@@ -83,6 +86,7 @@ another paragraph
 
 [link text](https://theokrueger.dev/)
 ```
+
 *A sample blogc post*
 
 Blogc envisions a very straightforward sitemap, and a consistent design language.

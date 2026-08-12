@@ -128,7 +128,7 @@ hr {
   position: sticky;
   top: 0;
   overflow-x: auto;
-  z-index: 1;
+  z-index: 2;
 
   --side-pad: max(calc((100vw - 768px) / 2), 0px);
 
@@ -300,6 +300,7 @@ hr {
 #acl-profile-sidebar {
   $thismargin: 16px;
 
+  z-index: 1;
   flex-shrink: 0;
   margin: 0 $thismargin $thismargin 8px;
   width: $cs-col-width - $thismargin;
@@ -372,8 +373,8 @@ hr {
 @media screen and (width >= 1250px) {
   #acl-profile-sidebar {
     position: fixed;
-    top: auto;
-    bottom: auto;
+    top: 50%;
+    bottom: 50%;
     right: 10px;
     min-width: 256px;
     transform: perspective(200px) rotateY(-5deg);

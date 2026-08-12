@@ -102,10 +102,10 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
 
 	<h2 id="micros">Micros</h2>
 	<span id="acl-all-micros">
-        {% for year, posts in section.pages | group_by(attribute="year") %}
+        {% for year, posts in section.pages | sort(attribute="year") | reverse | group_by(attribute="year") %}
 	  <details {% if loop.first %}open{% endif %}>
             <summary>{{ year }}</summary>
-            {% for post in posts | reverse %}
+            {% for post in posts | sort(attribute="date") | reverse %}
             <p>
 	      {{ post.date | date(format="%m.%d") }}:
               <a href="{{ post.permalink }}">{{ post.title | safe }}</a>

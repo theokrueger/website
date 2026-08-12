@@ -1,0 +1,39 @@
+{#
+Create a styled file heading corresponding to a below file block
+  type: ?enum string
+#}
+{% component file_head(type) %}
+  {% if not type %}
+    {% set_global type = "FILE" %}
+  {% else %}
+    {% set_global type = type | upper %}
+  {% endif %}
+
+  {# standard #}
+  {% if type == "FILE" %}
+  {% elif type == "DIR" %}
+  {% elif type == "LOG" %}
+  {% elif type == "BASH" %}
+    {% set_global disp = "BASH $" %}
+  {% elif type == "BASH-ROOT" %}
+    {% set_global disp = "BASH #" %}
+
+  {# generic #}
+  {% elif type == "CMAKE" %}
+    {% set_global type = "GENERIC" %}
+    {% set_global disp = "CMake" %}
+
+  {# err #}
+  {% else %}
+    {{ throw(message="unknown enum for file_head") }}
+  {% endif %}
+
+  <span class="file-head">
+    <code class="file-head-type-{{ type | lower }} file-head-type-all">
+      {% if disp %}{{ disp }}{% else %}{{ type }}{% endif %}
+    </code>
+    <code class="file-head-path">
+      {{ body }}
+    </code>
+  </span>
+{% endcomponent file_head %}

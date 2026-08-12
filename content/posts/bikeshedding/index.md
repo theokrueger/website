@@ -24,15 +24,15 @@ I've redesigned this site five times in five years, switching between various to
 How could I have failed to achieve the sole purpose of a blog-style website (to have blog posts) for this long?
 Bikeshedding. Yak-shaving. Let's do an autopsy.
 
-{{ image_carousel(images=[
-  ["posts/bikeshedding/img/site-1.png", "2021, written in pure HTML5", "An image depicting a revision of this website in 2021. It has a grey background, black borders on elements, and a white foreground. It focuses on being a mod portfolio, with monospace text and large bold headings. Each mod has a colorful image thumbnail and centered title underneath. There is room for four entries per line."],
-  ["posts/bikeshedding/img/site-2.png", "2022, compiled by blogc", "An image depicting a revision of this website in 2022. It is similar to the 2021 revision, but foregoes the focus on mods and focuses on a blog format. Posts now have a short description, and the design is slightly more refined in general."],
-  ["posts/bikeshedding/img/site-3.png", "2023, compiled by blogc", "An image depicting a revision of this website in 2023. It is similar to the 2022 revision, but drops the images entirely in favor of a list-based format."],
-  ["posts/bikeshedding/img/site-4.png", "2024, designed using SSGen", "An image depicting a revision of this website in 2024. It is entirely different from the 2023 revision, with a new color scheme and unique navigation bar. The foreground is light-blue, and significant flair and polish has been generally added to the site."],
-  ["posts/bikeshedding/img/site-5.png", "2026 (current), built with Zola", "An image depicting a revision of this website in 2025. It is similar to the 2024 revision, but is much simpler in content formatting, and fixes longstanding alignment and padding issues. It is also designed for comfortable mobile reading."]
-  ], 
-  title="Revisions of this site 2021-2026",
-  width=1280, height=720, op="scale") }}
+<!-- { <image_carousel images={[ -->
+<!--   ["posts/bikeshedding/img/site-1.png", "2021, written in pure HTML5", "An image depicting a revision of this website in 2021. It has a grey background, black borders on elements, and a white foreground. It focuses on being a mod portfolio, with monospace text and large bold headings. Each mod has a colorful image thumbnail and centered title underneath. There is room for four entries per line."], -->
+<!--   ["posts/bikeshedding/img/site-2.png", "2022, compiled by blogc", "An image depicting a revision of this website in 2022. It is similar to the 2021 revision, but foregoes the focus on mods and focuses on a blog format. Posts now have a short description, and the design is slightly more refined in general."], -->
+<!--   ["posts/bikeshedding/img/site-3.png", "2023, compiled by blogc", "An image depicting a revision of this website in 2023. It is similar to the 2022 revision, but drops the images entirely in favor of a list-based format."], -->
+<!--   ["posts/bikeshedding/img/site-4.png", "2024, designed using SSGen", "An image depicting a revision of this website in 2024. It is entirely different from the 2023 revision, with a new color scheme and unique navigation bar. The foreground is light-blue, and significant flair and polish has been generally added to the site."], -->
+<!--   ["posts/bikeshedding/img/site-5.png", "2026 (current), built with Zola", "An image depicting a revision of this website in 2025. It is similar to the 2024 revision, but is much simpler in content formatting, and fixes longstanding alignment and padding issues. It is also designed for comfortable mobile reading."] -->
+<!--   ]},  -->
+<!--   title="Revisions of this site 2021-2026", -->
+<!--   width=1280, height=720, op="scale" /> } -->
   
 Each site pictured is a significant enough rewrite to be considered an independent revision.
 The design language may be relatively consistent, but more was thrown out than kept between each revision.
@@ -67,12 +67,12 @@ Instead of a widely-used and highly-supported site engine like Jekyll or Hugo, I
 Aptly described as "a blog compiler", it promised a close connection to straight HTML5 with powerful templating and useful modules.
 
 So a new site was born, looking strikingly similar to the first revision[^poortaste], I quickly fell into despair again working around blogc's strict philosophy.
-
+ 
 [^poortaste]: Due to poor taste.
 
-{% file_head(type="FILE") %}
+{% <file_head type="FILE"> %}
 Sample blogc Post
-{% end %}
+{% </file_head> %}
 ```md
 TITLE: post title
 -------------------------
@@ -113,9 +113,9 @@ It turns out that YAML is a horrible choice for writing websites.
 
 [^dsl]: I ended up starting on one of these in 2025, but its a footnote for a reason.
 
-{% file_head(type="FILE") %}
+{% <file_head type="FILE"> %}
 Sample SSGen Post
-{% end %}
+{% </file_head> %}
 ```yaml
 - !DEF [TITLE, 'theokrueger.dev']
 ---
@@ -155,9 +155,9 @@ I browsed through each SSG on Jamstack, making careful note of how it appears to
 The arduous search landed me on Zola, which while not without flaws is about as good as it is ever going to get for this.
 It's fast, its flexible, and offers powerful enough tooling to work around its shortcomings in macros.
 
-{% file_head(type="FILE") %}
+{% <file_head type="FILE"> %}
 Sample Zola Post
-{% end %}
+{% </file_head> %}
 ```md
 +++
 title = "theokrueger.dev"

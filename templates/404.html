@@ -1,8 +1,7 @@
 {% extends "root.html" %}
-{% import "components/mod.html" as macros %}
 
 {% block body %}
-{{ body::base() }}
+{{ <body.base /> }}
 {% endblock body %}
 
 {% block content %}
@@ -13,5 +12,5 @@
   <p><a href="/">take me home!</a></p>
 </div>
 
-{{ footer::new(name="nav") }}
+{{ <footer name="nav" /> }}
 {% endblock content %}

@@ -1,12 +1,12 @@
 {% extends "root.html" %}
-{% import "components/mod.html" as macros %}
 
 {% block body %}
-{{ body::base() }}
+{{ <body.base /> }}
 {% endblock body %}
 
 {% block content %}
-{{ title::new(title=page.title, subtitle=page.description, subsubtitle=page.date, flavor_id=page.extra.flavor_id, show_rss=false) }}
+
+{{ <title title={page.title} subtitle={page.description} subsubtitle={page.extra.subsubtitle} flavor_id={page.extra.flavor_id} show_rss={page.extra.show_rss} /> }}
 
 <div id="content">
   {% if page.extra.show_toc and page.toc %}
@@ -32,5 +32,5 @@
   {{ page.content | safe }}
 </div>
 
-{{ footer::new(name=page.extra.footer_name) }}
+{{ <footer name={page.extra.footer_name} /> }}
 {% endblock content %}

@@ -1,32 +1,32 @@
-{% macro new(name) %}
-<!-- unanchored page footer -->
-<p id="footer-bottom-text">
-  <a href="mailto:{{ config.extra.contact | safe }}"><t class="rotate-180">©</t>theokrueger</a> | <a href="{{ config.extra.source | safe}}" target="_blank">view source</a>
-</p>
+{% component footer(name, contact="contact@theokrueger.dev", source="https://gitlab.com/theokrueger/website") %}
+  <!-- unanchored page footer -->
+  <p id="footer-bottom-text">
+    <a href="mailto:{{ contact }}"><t class="rotate-180">©</t>theokrueger</a> | <a href="{{ source }}" target="_blank">view source</a>
+  </p>
 
-<!-- anchored footer -->
-<div id="footer-bottom-spacer"></div>
-<div id="footer">
-  <span>U:%%@</span>
-  <span id="nav">
-    <!-- clickable btn -->
-    <label id="nav-toggler-label" for="nav-toggler-button" class="hoverable" tabindex="0">
-      {% if name %}{{ name }}{% else %}Scratch{% endif %} ^
-    </label>
-    <input id="nav-toggler-button" type="checkbox" autocomplete="off"/>
+  <!-- anchored footer -->
+  <div id="footer-bottom-spacer"></div>
+  <div id="footer">
+    <span>U:%%@</span>
+    <span id="nav">
+      <!-- clickable btn -->
+      <label id="nav-toggler-label" for="nav-toggler-button" class="hoverable" tabindex="0">
+        {% if name %}{{ name }}{% else %}Scratch{% endif %} ^
+      </label>
+      <input id="nav-toggler-button" type="checkbox" autocomplete="off"/>
 
-    <!-- navlist -->
-    <span id="nav-menu">
-      <ul>
-	{# zola internal linking does not work outside of MD #}
-	<li><a href="{{ config.base_url }}/">home</a></li>
-	<li><a href="{{ config.base_url }}/micro/">micro</a></li>
-	<li><a href="{{ config.base_url }}/posts/">posts</a></li>
-	<li><a href="{{ config.base_url }}/portfolio/">portfolio</a></li>
-      </ul>
+      <!-- navlist -->
+      <span id="nav-menu">
+        <ul>
+  	{# zola internal linking does not work outside of MD #}
+  	<li><a href="/">home</a></li>
+  	<li><a href="/micro/">micro</a></li>
+  	<li><a href="/posts/">posts</a></li>
+  	<li><a href="/portfolio/">portfolio</a></li>
+        </ul>
+      </span>
     </span>
-  </span>
-  <!-- return to top button -->
-  <a id="nav-scroll-progress" href="#title" class="hoverable">top</a>
-</div>
-{% endmacro new %}
+    <!-- return to top button -->
+    <a id="nav-scroll-progress" href="#title" class="hoverable">top</a>
+  </div>
+{% endcomponent footer %}

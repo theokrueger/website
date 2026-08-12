@@ -1,17 +1,16 @@
 {% extends "root.html" %}
-{% import "components/mod.html" as macros %}
 
 {% block body %}
-{{ body::base() }}
+{{ <body.base slideshow={page?.extra?.extern?.slideshow or section?.extra?.extern?.slideshow or false }/> }}
 {% endblock body %}
 
 {% block content %}
 
-{{ title::new(title=section.title, subtitle=section.description, subsubtitle=section.extra.subsubtitle, flavor_id=section.extra.flavor_id, show_rss=false) }}
+{{ <title title={section.title} subtitle={section.description} subsubtitle={section.extra.subsubtitle} flavor_id={section.extra.flavor_id} show_rss={false} /> }}
 
 <div id="content">
   {{ section.content | safe }}
 </div>
 
-{{ footer::new(name=section.extra.footer_name) }}
+{{ <footer name={section.extra.footer_name} /> }}
 {% endblock content %}

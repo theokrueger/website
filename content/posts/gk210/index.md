@@ -34,11 +34,11 @@ Pruned MCP still eats tokens like no other, compaction still sucks, and SotA har
 
 So without a second thought, an eBay search for "24GB VRAM GPU" sorted by price landed what was going to either be a killer deal or a killer mistake: the NVIDIA Tesla K80.
 
-{{ image(path="/img/placeholder.png", caption="My Tesla K80 with 24GiB of VRAM", alt="An NVIDIA Tesla K80 Graphics Card. It is rectangular, with a metal bracket at one end for securing to a computer case and a power connector at the other end. The circuit board is entirely covered with a large black heatsink, which in turn is covered by a black, green, and translucent shroud to direct airflow. There is a noticeable lack of video out ports and fans on the card.") }}
+{{ <image path="/img/placeholder.png" caption="My Tesla K80 with 24GiB of VRAM" alt="An NVIDIA Tesla K80 Graphics Card. It is rectangular, with a metal bracket at one end for securing to a computer case and a power connector at the other end. The circuit board is entirely covered with a large black heatsink, which in turn is covered by a black, green, and translucent shroud to direct airflow. There is a noticeable lack of video out ports and fans on the card."/> }}
 
 As sleek as it is, this 2014 Kepler card is deemed obsolete with a price to match.
-Sellers are practically begging to rid themselves of these once >{{ currency(n=2500, code="USD") }} cards.
-Can a now {{ currency(n=60, code="USD") }} card make sense for any workload?
+Sellers are practically begging to rid themselves of these once >{{ <currency n={2500} code="USD" /> }} cards.
+Can a now {{ <currency n={60} code="USD" /> }} card make sense for any workload?
 What could possibly be so unuseful about these cards that 97% of their value slipped away?
 
 # \* Servers Need Not Apply
@@ -47,34 +47,34 @@ Cooling is supposed to come from airflow in the server chassis, blower style, an
 
 What's more is the strangely keyed power connector. Rather than taking the VGA connectors of any old ATX PSU, it accepts only six-pin CPU power cables. Some retrofitting is required in order to install in a standard PC:
 
-{{ image_carousel(images=[
-  ["img/placeholder.png", "An 8-pin CPU power cable to 2x 8-pin VGA power cable adapter", "TODO: alt text"],
-  ["img/placeholder.png", "My 12V PWM blower fan", "TODO: alt text"],
-  ["img/placeholder.png", "A temperature-sensing PWM fan controller", "TODO: alt text"],
-  ]) }}
+<!-- { image_carousel(images=[ -->
+<!--   ["img/placeholder.png", "An 8-pin CPU power cable to 2x 8-pin VGA power cable adapter", "TODO: alt text"], -->
+<!--   ["img/placeholder.png", "My 12V PWM blower fan", "TODO: alt text"], -->
+<!--   ["img/placeholder.png", "A temperature-sensing PWM fan controller", "TODO: alt text"], -->
+<!--   ]) } -->
 
 Many K80 cards will come with that power cable included, but my folly was to purchase a listing lacking that luxury.
-A smarter man could cop one such listing alongside a cheap {{ currency(n=10, code="USD") }} 12V DC-only blower fan, and call it a day for an easy sum of {{ currency(n=70, code="USD") }} (post-tax).
-I added a {{ currency(n=10, code="USD") }} PWM temperature controller and upgraded my fan choice accordingly, since I happen to prefer a lower noise profile.
+A smarter man could cop one such listing alongside a cheap {{ <currency n={10} code="USD" /> }} 12V DC-only blower fan, and call it a day for an easy sum of {{ <currency n={70} code="USD" /> }} (post-tax).
+I added a {{ <currency n={10} code="USD" /> }} PWM temperature controller and upgraded my fan choice accordingly, since I happen to prefer a lower noise profile.
 
 Installation ended up being pretty straightforward too: I oneshotted a 3D-printable bracket design[^bracket] to affix the fan/controller combo, printed it in PETG for some heat tolerance, and slapped it all together.
 
 [^bracket]: Available [here](TODO)! TODO TODO TODO
 
-{{ image_carousel(images=[
-  ["img/placeholder.png", "Installing the temperature probe in the card", "TODO: alt text"],
-  ["img/placeholder.png", "3D-printable bracket design", "TODO: alt text"],
-  ["img/placeholder.png", "Tapped Power Connector", "TODO: alt text"],
-  ]) }}
+<!-- { image_carousel(images=[ -->
+<!--   ["img/placeholder.png", "Installing the temperature probe in the card", "TODO: alt text"], -->
+<!--   ["img/placeholder.png", "3D-printable bracket design", "TODO: alt text"], -->
+<!--   ["img/placeholder.png", "Tapped Power Connector", "TODO: alt text"], -->
+<!--   ]) } -->
 
 I tapped into power and ground for the PWM fan controller from the power cable adapter as a clean hack to keep everything together nicely, giving me a likely reliable assurance the fan won't give up.
 
-One note on the PWM fan control is that the probe is not only wildly inaccurate in general, but also cannot possibly be placed to effectively measure any temperatures. This means that it could read {{ temperature(n=60, unit="C") }} while the card is boiling itself alive in its hotspot, which is a recipe for disaster.
+One note on the PWM fan control is that the probe is not only wildly inaccurate in general, but also cannot possibly be placed to effectively measure any temperatures. This means that it could read {{ <temperature n={60} unit="C" /> }} while the card is boiling itself alive in its hotspot, which is a recipe for disaster.
 
 Setting extremely aggressive fan curves is about all that can be done (within reason) about this, as well as affixing the probe over the hottest section of the heatsink.
 This hurt the noise profile significantly, but while idle was still able to remain relatively quiet.
 
-{{ image(path="/img/placeholder.png", caption="Final card assembly", alt="") }}
+{{ <image path="/img/placeholder.png" caption="Final card assembly" alt="" /> }}
 
 ## \*\* 470.256.02-r2 Woes
 Probably the biggest reason these cards are so cheap became immediately apparent to me upon installation: legacy/unsupported hardware is a total pain in the ass!

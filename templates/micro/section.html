@@ -1,8 +1,7 @@
 {% extends "root.html" %}
-{% import "components/mod.html" as macros %}
 
 {% block body %}
-{{ body::micro() }}
+{{ <body.micro /> }}
 {% endblock %}
 
 {% block content %}
@@ -103,16 +102,10 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
 
 	<h2 id="micros">Micros</h2>
 	<span id="acl-all-micros">
-	  {% set posts_by_year = section.pages | group_by(attribute="year") %}
-      {% set_global years = [] %}
-      {% for year, ignored in posts_by_year %}
-          {% set_global years = years | concat(with=year) %}
-      {% endfor %}
-      {% for year in years | reverse %}
-        {% set posts = posts_by_year[year] %}
+        {% for year, posts in section.pages | group_by(attribute="year") %}
 	  <details {% if loop.first %}open{% endif %}>
             <summary>{{ year }}</summary>
-            {% for post in posts %}
+            {% for post in posts | reverse %}
             <p>
 	      {{ post.date | date(format="%m.%d") }}:
               <a href="{{ post.permalink }}">{{ post.title }}</a>

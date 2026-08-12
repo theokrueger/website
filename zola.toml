@@ -1,6 +1,6 @@
 base_url = "https://theokrueger.dev"
 title = "theokrueger.dev"
-description = "Personal webpage"
+description = "the occasional thoughtless muse"
 default_language = "en"
 author = "theokrueger"
 
@@ -9,7 +9,7 @@ generate_sitemap = true
 generate_robots_txt = true
 compile_sass = true
 minify_html = true
-build_search_index = true
+build_search_index = false
 exclude_paginated_pages_in_sitemap = "all"
 generate_feeds = false
 feed_filenames = ["atom.xml", "rss.xml"]
@@ -20,7 +20,7 @@ taxonomy_root = "posts"
 bottom_footnotes = true
 
 [markdown.highlighting]
-theme = "catppuccin-mocha"
+theme = "catppuccin-macchiato"
 
 [search]
 include_title = true

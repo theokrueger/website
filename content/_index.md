@@ -1,6 +1,6 @@
 +++
 title = "theokrueger.dev"
-description = "personal webpage"
+description = "the mainsite"
 template = "index.html"
 page_template = "posts/post.html"
 

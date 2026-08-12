@@ -292,7 +292,7 @@ hr {
   $thismargin: 16px;
 
   flex-shrink: 0;
-  margin: 0 $thismargin $thismargin 0;
+  margin: 0 $thismargin $thismargin 8px;
   width: $cs-col-width - $thismargin;
 
   position: sticky;
@@ -300,10 +300,6 @@ hr {
   > * {
     border-radius: $cs-border-radius;
     background-color: $cs-fg2;
-  }
-
-  > h2 {
-    border-radius: $cs-border-radius $cs-border-radius 0 0;
   }
 }
 
@@ -320,7 +316,10 @@ hr {
   display: flex;
   flex-flow: column wrap;
   align-items: stretch;
-  border-radius: 0 0 $cs-border-radius $cs-border-radius;
+
+  > h2 {
+    border-radius: $cs-border-radius $cs-border-radius 0 0;
+  }
 
   > span {
     border-radius: $cs-border-radius;
@@ -366,7 +365,8 @@ hr {
     position: fixed;
     top: auto;
     bottom: auto;
-    right: 0;
+    right: 10px;
+    min-width: 256px;
     transform: perspective(200px) rotateY(-5deg);
     transform-origin: center right;
     transform-style: preserve-3d;

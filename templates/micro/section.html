@@ -82,16 +82,18 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
 	  <text>Last Seen: <em class="acl-dark-text">{{ now() | date(format="%F") }}</em></text>
 	</div>
 	<!-- links -->
-	<h2>Links</h2>
 	<div id="acl-profile-sidebar-links">
+	  <h2>Links</h2>
 	  <span class="acl-button"><a href="{{ config.base_url }}">Main Site</a></span>
 	  <span class="acl-button"><a href="{{ config.base_url }}/portfolio">Portfolio</a></span>
 	  <span class="acl-button"><a href="#micros">Micro Archive</a></span>
 	  <span class="acl-button"><a href="./atom.xml">RSS/Atom</a></span>
-	  <span class="acl-button"><a href="TODO">Badges & Stamps</a></span>
-	  <span class="acl-button"><a href="TODO">Item<br/>Line2</a></span>
-	  <span class="acl-button"><a href="TODO">Item</a></span>
-	  <span class="acl-button"><a href="TODO">Item</a></span>
+	  <!-- <span class="acl-button"><a href="TODO">Badges & Stamps</a></span> -->
+	  <!-- <span class="acl-button"><a href="TODO">Item<br/>Line2</a></span> -->
+	  <!-- <span class="acl-button"><a href="TODO">Item</a></span> -->
+	  <!-- <span class="acl-button"><a href="TODO">Item</a></span> -->
+	  <!-- <span class="acl-button"><a href="TODO">Webrings</a></span> -->
+	  <!-- <span class="acl-button"><a href="TODO">Shrines</a></span> -->
 	</div>
       </div>
       <!-- end sidebar -->
@@ -99,7 +101,7 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
       <div id="acl-profile-content">
 	{{ section.content | safe }}
 
-	<h2 id="micros">All Micros</h2>
+	<h2 id="micros">Micros</h2>
 	<span id="acl-all-micros">
 	  {% set posts_by_year = section.pages | group_by(attribute="year") %}
       {% set_global years = [] %}
@@ -108,7 +110,7 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
       {% endfor %}
       {% for year in years | reverse %}
         {% set posts = posts_by_year[year] %}
-	  <details>
+	  <details {% if loop.first %}open{% endif %}>
             <summary>{{ year }}</summary>
             {% for post in posts %}
             <p>

@@ -23,7 +23,6 @@ Additionally, the power connector on the card expects an EPS-12V (8 pin) connect
 *The PCIe power cable may fit, but you will **[fry your GPU](https://www.reddit.com/r/homelab/comments/uqfq69/psa_nvidia_tesla_cards_do_not_use_the_same_power/)** if you do not use an appropriate adapter*.
 
 ## \*\* Bill of Materials
-<span>
 {% <table heading={true} zebra={true}> %}
 | Item                          | Est. Cost |
 | NVIDIA Tesla K80              | {{ <currency n={60} code="USD" /> }} |
@@ -33,7 +32,7 @@ Additionally, the power connector on the card expects an EPS-12V (8 pin) connect
 | (Optional) PWM Fan Controller | {{ <currency n={10} code="USD" /> }} |
 | Total                         | {{ <currency n="70-90" code="USD" /> }} |
 {% </table> %}
-</span>
+
 Many listings include the power adapter, and the PWM fan controller is optional so long as you don't mind some additional noise.
 
 ## \*\* Assembly

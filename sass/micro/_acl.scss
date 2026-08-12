@@ -420,6 +420,10 @@ hr {
     margin: 4px auto;
   }
 
+  #acl-profile-sidebar-status {
+      margin-bottom: 4px;
+  }
+
   #acl-profile-sidebar-links {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, auto));
@@ -431,6 +435,10 @@ hr {
       width: auto;
       height: auto;
       margin: 2px;
+    }
+
+    > h2 {
+	display: none;
     }
   }
 }

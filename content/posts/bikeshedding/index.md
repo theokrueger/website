@@ -70,12 +70,7 @@ So a new site was born, looking strikingly similar to the first revision[^poorta
  
 [^poortaste]: Due to poor taste.
 
-{% <file_head type="FILE"> %}
-
-Sample blogc Post
-
-{% </file_head> %}
-
+{{ <file_head type="FILE" name="Sample blogc Post" /> }}
 ```md
 TITLE: post title
 -------------------------
@@ -117,9 +112,7 @@ It turns out that YAML is a horrible choice for writing websites.
 
 [^dsl]: I ended up starting on one of these in 2025, but its a footnote for a reason.
 
-{% <file_head type="FILE"> %}
-Sample SSGen Post
-{% </file_head> %}
+{{ <file_head type="FILE" name="Sample SSGen Post" /> }}
 ```yaml
 - !DEF [TITLE, 'theokrueger.dev']
 ---
@@ -159,9 +152,7 @@ I browsed through each SSG on Jamstack, making careful note of how it appears to
 The arduous search landed me on Zola, which while not without flaws is about as good as it is ever going to get for this.
 It's fast, its flexible, and offers powerful enough tooling to work around its shortcomings in macros.
 
-{% <file_head type="FILE"> %}
-Sample Zola Post
-{% </file_head> %}
+{{ <file_head type="FILE" name="Sample Zola Post" /> }}
 ```md
 +++
 title = "theokrueger.dev"

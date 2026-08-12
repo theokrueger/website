@@ -7,26 +7,26 @@ Defaults to $USD
   shortcode: ?string
   prefix: ?bool
 #}
-{% component currency(n, code="USD", symbol="$", shortcode="USD", prefix=true) %}{#- -#}{#
-  #}{% if code == "USD" %}{#
-    #}{% set_global symbol = "$" %}{#
-    #}{% set_global shortcode = "USD" %}{#
-    #}{% set_global prefix = true%}{#
-  #}{% else %}{#
-    #}{{ throw(message="preset enum specified but has no match!") }}{#
-  #}{% endif %}
-  #}{% if symbol and prefix%}{#
-    #}{{ symbol }}{#
-  #}{% endif %}{#
+{% component currency(n, code="USD", symbol="$", shortcode="USD", prefix=true) %}{#--#}{#
+#}{% if code == "USD" %}{#
+  #}{% set_global symbol = "$" %}{#
+  #}{% set_global shortcode = "USD" %}{#
+  #}{% set_global prefix = true %}{#
+#}{% else %}{#
+  #}{{ throw(message="preset enum specified but has no match!") }}{#
+#}{% endif %}{#
+#}{% if symbol and prefix %}{#
+  #}{{ symbol }}{#
+#}{% endif %}{#
   #}{{ n }}{#
-  #}{% if shortcode or (not prefix and symbol) %}{#
-    #}<span style="font-size: 0.75em;">{#
-      #}{% if not prefix and symbol %}{#
-        #}{{ symbol }}{#
-      #}{% endif %}{#
-      #}{% if shortcode %}{#
-        #}{{ shortcode }}{#
-      #}{% endif %}{#
-    #}</span>{#
-  #}{% endif %}{#-
--#}{% endcomponent currency %}
+#}{% if shortcode or (not prefix and symbol) %}{#
+  #}<span style="font-size: 0.75em;">{#
+    #}{% if not prefix and symbol %}{#
+      #}{{ symbol }}{#
+    #}{% endif %}{#
+    #}{% if shortcode %}{#
+      #}{{ shortcode }}{#
+    #}{% endif %}{#
+  #}</span>{#
+#}{% endif %}{#
+#}{#--#}{% endcomponent currency %}

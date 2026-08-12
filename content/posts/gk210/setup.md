@@ -23,6 +23,7 @@ Additionally, the power connector on the card expects an EPS-12V (8 pin) connect
 *The PCIe power cable may fit, but you will **[fry your GPU](https://www.reddit.com/r/homelab/comments/uqfq69/psa_nvidia_tesla_cards_do_not_use_the_same_power/)** if you do not use an appropriate adapter*.
 
 ## \*\* Bill of Materials
+<span>
 {% <table heading={true} zebra={true}> %}
 | Item                          | Est. Cost |
 | NVIDIA Tesla K80              | {{ <currency n={60} code="USD" /> }} |
@@ -32,7 +33,7 @@ Additionally, the power connector on the card expects an EPS-12V (8 pin) connect
 | (Optional) PWM Fan Controller | {{ <currency n={10} code="USD" /> }} |
 | Total                         | {{ <currency n="70-90" code="USD" /> }} |
 {% </table> %}
-
+</span>
 Many listings include the power adapter, and the PWM fan controller is optional so long as you don't mind some additional noise.
 
 ## \*\* Assembly
@@ -57,9 +58,7 @@ In my case, the proprietary drivers require
 
 Which on Gentoo, requires some modification to allow installation.
 
-{% <file_head type="FILE"> %}
-package.accept_keywords
-{% </file_head> %}
+{{ <file_head type="FILE" name="package.accept_keywords" /> }}
 ```bash
 # Latest CUDA for GK210
 =dev-util/nvidia-cuda-toolkit-11.8.0-r4 ~amd64
@@ -75,17 +74,13 @@ llvm-core/* ~amd64
 llvm-runtimes/* ~amd64
 ```
 
-{% <file_head type="FILE"> %}
-package.unmask
-{% </file_head> %}
+{{ <file_head type="FILE" name="package.unmask" /> }}
 ```bash
 # Nvidia 470 for GK210
 ~x11-drivers/nvidia-drivers-470.256.02
 ```
 
-{% <file_head type="FILE"> %}
-package.use
-{% </file_head> %}
+{{ <file_head type="FILE" name="package.use" /> }}
 ```bash
 # NVIDIA 470 drivers
 */* VIDEO_CARDS: nvidia
@@ -118,9 +113,7 @@ Although, you may run into the two following issues:
 ## \*\* Unsupported GCC Version
 If you see some error during compilation about GCC like so:
 
-{% <file_head type="LOG"> %}
-nvcc build log
-{% </file_head> %}
+{{ <file_head type="LOG" name="nvcc build log" /> }}
 ```
 132 | #error -- unsupported GNU version! gcc versions later than 11 are not
 supported! The nvcc flag '-allow-unsupported-compiler' can be used to override
@@ -137,9 +130,7 @@ It is a permanent fix as well, so you won't have do this every time you compile 
 
 Here's a (bad but robust) script for it:
 
-{% <file_head type="BASH-ROOT"> %}
-New glibc fix for old CUDA
-{% </file_head> %}
+{{ <file_head type="BASH-ROOT" name="New glibc fix for old CUDA"/> }}
 ```bash
 # Set $f to your target CUDA's math_functions.h file
 f="/opt/cuda/targets/x86_64-linux/include/crt/math_functions.h"

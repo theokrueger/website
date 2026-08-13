@@ -1,8 +1,4 @@
 {% component micro.emoticons.img(name) -%}
-<img src="/micro/img/emoticons/{{ name | lower }}.gif" style="display: inline-block; margin: 0; padding: 2px;" />
-{%- endcomponent %}
-
-{% component micro.emoticons.feeling(icon, desc="") -%}
 {%- set allowed_icons = [
   "ashamed",
   "elated",
@@ -12,7 +8,11 @@
   "unhappy",
 ] -%}
 {%- if not allowed_icons is containing(pat=icon | lower) %}
-  {{ throw(message="Unknown feeling icon: " ~ icon) }}
+  {{ throw(message="Unknown emoticon: " ~ icon) }}
 {% endif -%}
+<img src="/micro/img/emoticons/{{ name | lower }}.gif" style="display: inline-block; margin: 0; padding: 2px;" />
+{%- endcomponent %}
+
+{% component micro.emoticons.feeling(icon, desc="") -%}
 <span style="display: inline-flex; align-items: center;"><span>Feeling: {% if desc == "" %}{{ icon }}{% else %}{{ desc }}{% endif %}</span>{{ <micro.emoticons.img name={icon} /> }}
 {%- endcomponent %}

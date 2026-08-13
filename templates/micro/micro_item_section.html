@@ -1,0 +1,52 @@
+{% extends "root.html" %}
+{% block body %}
+{{ <body.micro /> }}
+{% endblock %}
+
+
+{% block content %}
+<div id="acl">
+  {{ <micro.nav /> }}
+  <!-- profile -->
+  <div id="acl-profile">
+    {% set t = section.title | safe | split(pat=" ") %}
+    <h1 id="acl-page-title">
+      {% for w in t %}
+        {% if loop.first %}
+          <span class="acl-dark-text">{{ w }}</span>
+        {% else %}
+          {{ w }}
+        {% endif %}
+      {% endfor %}
+      <a href="./atom.xml">
+	<img src="/micro/acl/rss.gif" alt="RSS Button"/>
+      </a>
+    </h1>
+    <div id="acl-page-description" style="">
+      All {{ section.pages | length }} Micros, conveniently organized.
+    </div>
+
+
+    <hr/>
+    <div id="acl-page-content">
+      {{ section.content | safe }}
+
+      <span id="acl-all-micros">
+        {% for year, posts in section.pages | sort(attribute="year") | reverse | group_by(attribute="year") %}
+          <h2>
+	    {{ year }}
+	    <span class="acl-dark-text" style="float: right">{{ posts | length }}</span>
+	  </h2>
+          {% for post in posts | sort(attribute="date") | reverse %}
+            <div style="padding: 0 1%;">
+  	      {{ post.date | date(format="%m.%d") }}:
+              <a href="{{ post.permalink }}">{{ post.title | safe }}</a>
+              {% if post.description %} - {{ post.description | safe }}{% endif %}
+	    </div>
+          {% endfor %}
+	 {% endfor %}
+      </span>
+    </div>
+  </div>
+</div>
+{% endblock content %}

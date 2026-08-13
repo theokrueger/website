@@ -5,20 +5,20 @@
 {% endblock %}
 
 {% block content %}
+{% set RSS_LINK = "/micro/item/atom.xml" %}
+{% set micro_items_section = get_section(path="micro/item/_index.md") %}
 <!-- site version accessible on mobile and noscript -->
 <div id="acl">
-  <!-- navigation -->
-  <div id="acl-nav">
-    <a href="/"><img src="/micro/acl/logo_header.gif"></a>
+  {% <micro.nav> %}
     <noscript>
-<pre style="padding-left: 4px;">This page is best w/ JS!
-<b>NO</b> clientside tracking.
+      <pre style="padding-left: 4px;">This page is best w/ JS!
+	<b>NO</b> clientside tracking.
 Read the <a href="{{ config.extra.source }}">source code</a>.
-</pre>
+      </pre>
     </noscript>
     <!-- filled by js -->
     <pre id="acl-nav-message"></pre>
-  </div>
+  {% </micro.nav> %}
   <!-- profile -->
   <div id="acl-profile">
     <!-- header -->
@@ -44,7 +44,7 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
 	<div id="acl-extra-level">
 	  <span>Micros:</span>
 	  <a href="#micros"><em>
-	    {{ section.pages | length }}
+	    {{ micro_items_section.pages | length }}
 	  </em></a>
 	</div>
 	<div id="acl-extra-badge">
@@ -63,7 +63,7 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
 	  <a class="acl-button" href="https://theokrueger.atabook.org/">
 	    Guestbook↗
 	  </a>
-	  <a class="acl-button" id="acl-extra-rss" href="./atom.xml">
+	  <a class="acl-button" id="acl-extra-rss" href="{{ RSS_LINK }}">
 	    Feed
 	    <img src="/micro/acl/rss.gif" alt="RSS Button" style="padding-left: 4px;"/>
 	  </a>
@@ -83,16 +83,15 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
 	<!-- links -->
 	<div id="acl-profile-sidebar-links">
 	  <h2>Links</h2>
-	  <span class="acl-button"><a href="{{ config.base_url }}">Main Site</a></span>
-	  <span class="acl-button"><a href="{{ config.base_url }}/portfolio">Portfolio</a></span>
-	  <span class="acl-button"><a href="#micros">Micro Archive</a></span>
-	  <span class="acl-button"><a href="./atom.xml">RSS/Atom</a></span>
-	  <!-- <span class="acl-button"><a href="TODO">Badges & Stamps</a></span> -->
-	  <!-- <span class="acl-button"><a href="TODO">Item<br/>Line2</a></span> -->
-	  <!-- <span class="acl-button"><a href="TODO">Item</a></span> -->
-	  <!-- <span class="acl-button"><a href="TODO">Item</a></span> -->
-	  <!-- <span class="acl-button"><a href="TODO">Webrings</a></span> -->
-	  <!-- <span class="acl-button"><a href="TODO">Shrines</a></span> -->
+	  <a class="acl-button" href="/">Main Site</a>
+	  <a class="acl-button" href="">Badges &amp; Stamps</a>
+	  <a class="acl-button" href="/micro/item">Micro Archive</a>
+	  <a class="acl-button" href="{{ RSS_LINK }}">RSS/Atom</a>
+	  <a class="acl-button" href="/portfolio">Portfolio</a>
+	  <a class="acl-button" href="{{ config.extra.source }}">Source Code</a>
+	  <!-- Badges & Stamps -->
+	  <!-- Webrings -->
+	  <!-- Shrines -->
 	</div>
       </div>
       <!-- end sidebar -->
@@ -102,7 +101,7 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
 
 	<h2 id="micros">Micros</h2>
 	<span id="acl-all-micros">
-        {% for year, posts in section.pages | sort(attribute="year") | reverse | group_by(attribute="year") %}
+        {% for year, posts in micro_items_section.pages | sort(attribute="year") | reverse | group_by(attribute="year") %}
 	  <details {% if loop.first %}open{% endif %}>
             <summary>{{ year }}</summary>
             {% for post in posts | sort(attribute="date") | reverse %}

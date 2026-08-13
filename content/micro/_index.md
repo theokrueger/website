@@ -2,8 +2,6 @@
 title = "Micro"
 description = "my smaller thoughts on a more personal site"
 template = "micro/section.html"
-page_template = "micro/post.html"
-generate_feeds = true
 +++
 ## Me
 I write software and mess with electronics.

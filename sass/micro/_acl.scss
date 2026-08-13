@@ -331,7 +331,7 @@ hr {
     border-radius: $cs-border-radius $cs-border-radius 0 0;
   }
 
-  > span {
+  > a {
     border-radius: $cs-border-radius;
     background-color: $cs-fg;
     font-size: 20px;
@@ -373,8 +373,8 @@ hr {
 @media screen and (width >= 1250px) {
   #acl-profile-sidebar {
     position: fixed;
-    top: 50%;
-    bottom: 50%;
+    top: 20%;
+    bottom: 80%;
     right: 10px;
     min-width: 256px;
     transform: perspective(200px) rotateY(-5deg);
@@ -474,7 +474,18 @@ hr {
 #acl-page-content {
   margin: 0 2%;
 
+  > *h2 {
+      border-radius: $cs-border-radius;
+  }
+
   :first-child {
     margin-top: 0;
+  }
+
+  > img,
+  > p > img {
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
   }
 }

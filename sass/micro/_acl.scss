@@ -167,8 +167,8 @@ hr {
 #acl-profile-header {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  height: 220px;
+  height: 220px - 16px;
+  padding-top: 16px;
 }
 
 #acl-pfp-info-flex {
@@ -176,23 +176,24 @@ hr {
   align-items: start;
   justify-content: left;
   flex-wrap: wrap;
+  margin: 0 16px;
+  gap: 32px;
 }
 
 #acl-pfp-container {
-  display: flex;
+  max-width: 168px;
   align-items: center;
   justify-content: center;
-  margin: 16px;
 }
 
 #acl-pfp-image {
-  width: 164px;
-  height: 164px;
+  width: 100%;
+  height: 100%;
   border: 2px solid $cs-bg;
 }
 
 #acl-info {
-  margin: 32px 16px 0;
+  margin-top: 32px;
 }
 
 #acl-info-username {
@@ -385,9 +386,18 @@ hr {
 
 // mobile
 @media screen and (width <= 767px) {
-  #acl-pfp-info-flex > * {
-    margin: auto;
-    padding: 8px;
+  #acl-pfp-info-flex {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  #acl-info {
+    margin: 0;
+    align-self: center;
+  }
+
+  #acl-pfp-container {
+    align-self: center;
   }
 
   #acl-nav {
@@ -409,6 +419,7 @@ hr {
     align-items: center;
     justify-content: center;
     padding: 5px;
+    gap: 16px;
   }
 
   #acl-pfp-image {
@@ -418,7 +429,7 @@ hr {
   }
 
   #acl-extra {
-    margin: auto;
+    margin: 0;
   }
 
   #acl-profile-body {

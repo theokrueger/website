@@ -9,7 +9,7 @@
   {{ <micro.nav /> }}
   <div id="acl-profile">
     {% set t = page.title | safe | split(pat=" ") %}
-    <h1 id="acl-page-title">{% for w in t %} {% if loop.first %} <span class="acl-dark-text">{{ w }}</span>{% else %} {{ w }} {% endif %}{% endfor %}</h1>
+    <h1 id="acl-page-title">{% for w in t %} {% if loop.first %} <span class="acl-dark-text">{{ w | safe }}</span>{% else %} {{ w | safe }} {% endif %}{% endfor %}</h1>
     <div id="acl-page-description" style="">{{ page.description | safe }}</div>
     <p id="acl-page-link" style="">
       <a href="{{ page.permalink }}">{{ page.date }}</a> - {% if page.authors %}{{ page.authors | join(pat=" ,") }} {% else %}{{ config.author }}{% endif %}

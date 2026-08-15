@@ -5,7 +5,12 @@
 {% endblock body %}
 {% block content %}
 
-{{ <title title={page.title} subtitle={page.description} subsubtitle={page.extra.subsubtitle} flavor_id={page.extra.flavor_id} show_rss={page.extra.show_rss} /> }}
+{% set dateline = page.date %}
+{% if page.updated %}
+  {% set dateline = dateline ~ "<br/><em class='small-font'> Upd. " ~ page.updated ~ "</em>" %}
+{% endif %}
+
+{{ <title title={page.title} subtitle={page.description} subsubtitle={dateline} flavor_id={page.extra.flavor_id} show_rss={page.extra.show_rss} /> }}
 
 <div id="content">
   {% if page.extra.show_toc and page.toc %}

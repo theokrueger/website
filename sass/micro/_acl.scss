@@ -129,16 +129,12 @@ hr {
   top: 0;
   overflow-x: auto;
   z-index: 2;
-
-  --side-pad: max(calc((100vw - 768px) / 2), 0px);
-
   display: flex;
   align-items: center;
+  padding-left: calc((100% - 768px) / 2 + 16px);
   background-color: $cs-heading;
   color: $cs-text;
-  width: calc(100vw - 2 * var(--side-pad) - 16px * 2);
   height: $cs-nav-height;
-  padding: 0 calc(var(--side-pad) + 16px);
 }
 
 #acl-nav-message {
@@ -395,6 +391,7 @@ hr {
   }
 
   #acl-nav {
+    padding: 0;
     justify-content: center;
   }
 
@@ -475,7 +472,7 @@ hr {
   margin: 0 2%;
 
   > *h2 {
-      border-radius: $cs-border-radius;
+    border-radius: $cs-border-radius;
   }
 
   :first-child {
@@ -484,8 +481,8 @@ hr {
 
   > img,
   > p > img {
-      max-width: 100%;
-      display: block;
-      margin: 0 auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
   }
 }

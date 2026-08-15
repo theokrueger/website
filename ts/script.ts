@@ -83,7 +83,6 @@ const legendaryTypingFlairs = [
 
 async function typeElement(
   elem: Element,
-  text: string,
   cursor: string,
   addRandomFlair: boolean,
   allowMistakes: boolean,
@@ -170,4 +169,4 @@ const title = document.getElementById("title-text")!;
 const cursor = document.getElementById("title-cursor")!;
 const cursorText = cursor.outerHTML;
 cursor.outerHTML = "";
-typeElement(title, title.innerHTML, cursorText, shouldAddFlair, true);
+typeElement(title, cursorText, shouldAddFlair, true);

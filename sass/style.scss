@@ -4,7 +4,7 @@
 /* ELEMENTS */
 :root {
   background-color: $bg-color;
-  font-family: $font-family;
+  font-family: $mono-font-family;
   scroll-behavior: smooth;
   color: $text-color;
   margin: 0;
@@ -36,8 +36,6 @@ body {
 
 pre {
   overflow-x: auto;
-
-  //  scrollbar-width: none;
 }
 
 pre > code {
@@ -71,6 +69,12 @@ body > div {
   border-style: $border-style;
   border-width: $border-width;
   padding: $default-padding;
+}
+
+ul,
+ol {
+  display: table;
+  margin: 0 auto;
 }
 
 ul {

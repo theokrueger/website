@@ -35,7 +35,8 @@ $content-side-margin: 15vw;
   src: url("/fonts/motivasans/MotivaSansTest-Light.woff2");
 }
 
-$font-family: ibmplexmono, monospace;
+$sans-font-family: motivasans, sans-serif;
+$mono-font-family: ibmplexmono, monospace;
 $tiny-font: 0.382em;
 $small-font: 0.618rem;
 $normal-font: 1rem;

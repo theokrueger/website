@@ -91,7 +91,7 @@ hr {
 
   *code {
     color: s.$purple;
-    font-family: s.$font-family;
+    font-family: s.$mono-font-family;
   }
 
   *details[open] > *:not(summary) {

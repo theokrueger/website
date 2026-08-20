@@ -1,28 +1,29 @@
 @use "sass:math";
+@import "themes/named-colors";
+@import "themes/emacs-light-blue-theme";
 
-/* STYLE */
-$red: #fd0506;
 $lightred: #ff6767;
 $purple: #b369b2;
-$teal: #66cdaa;
-$lightblue: #add8e6;
-$lightgreen: #b5ffd1;
-$bg-color: #d3d3d3;
-$fg-color: $lightblue;
-$text-color: #10100b;
+
+/* STYLE */
+$bg-color: $lb-fringe-background;
+$fg-color: $lb-default-background;
+$text-color: $lb-default-foreground;
+$selection-color: $lb-region-background;
+$highlight-color: $lb-mode-line-buffer-id-overline;
+$accent-color: $lb-mode-line-background;
+$accent-border: #ffc;
 $border-color: #00000015;
 $border-radius: 5px;
 $border-width: 3px;
 $border-style: solid;
-$accent-color: #eee8aa;
-$accent-border: #ffc;
-$highlight-color: $red;
-$selection-color: $lightgreen;
 $tint-color: #00000035;
 $dark-tint-color: #0009;
 $default-margin: 5px;
 $default-padding: 10px;
 $content-side-margin: 15vw;
+
+/* FONTS */
 
 @font-face {
   font-family: IBMPlexMono;
@@ -35,41 +36,40 @@ $content-side-margin: 15vw;
 }
 
 $font-family: ibmplexmono, monospace;
-$default-font-scale: 1rem;
+$tiny-font: 0.382em;
+$small-font: 0.618rem;
+$normal-font: 1rem;
+$medium-font: 1.618rem;
+$large-font: 2.058rem;
+$huge-font: 2.618rem;
+$gigantic-font: 4.236rem;
 
-@function font-ratio($n) {
-  $scale: $default-font-scale * math.pow(1.4, $n);
-  $high-cap: 100vw / 16;
-
-  @return min($scale, $high-cap);
+.tiny-font {
+  font-size: $tiny-font;
 }
 
-@mixin huge-font {
-  font-size: font-ratio(4);
+.small-font {
+  font-size: $small-font;
 }
 
-@mixin largehuge-font {
-  font-size: font-ratio(3);
+.normal-font {
+  font-size: $normal-font;
 }
 
-@mixin large-font {
-  font-size: font-ratio(2);
+.medium-font {
+  font-size: $medium-font;
 }
 
-@mixin medium-font {
-  font-size: font-ratio(1);
+.large-font {
+  font-size: $large-font;
 }
 
-@mixin normal-font {
-  font-size: font-ratio(0);
+.huge-font {
+  font-size: $huge-font;
 }
 
-@mixin small-font {
-  font-size: font-ratio(-1);
-}
-
-@mixin tiny-font {
-  font-size: font-ratio(-2);
+.gigantic-font {
+  font-size: $gigantic-font;
 }
 
 /* MODIFIERS */
@@ -82,21 +82,4 @@ $default-font-scale: 1rem;
   position: relative;
   transform: rotate(-180deg);
   display: inline-block;
-}
-
-
-@mixin right-align-text {
-  text-align: right;
-}
-
-@mixin left-align-text {
-  text-align: left;
-}
-
-@mixin center-align-text {
-  text-align: center;
-}
-
-@mixin justify-text {
-  text-align: justify;
 }

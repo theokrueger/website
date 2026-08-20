@@ -1,62 +1,36 @@
 @use "sass:math";
-@use "shared" as s;
-
-/* FONTS */
-.huge-font {
-  @include s.huge-font;
-}
-
-.largehuge-font {
-  @include s.largehuge-font;
-}
-
-.large-font {
-  @include s.large-font;
-}
-
-.normal-font {
-  @include s.normal-font;
-}
-
-.small-font {
-  @include s.small-font;
-}
-
-.tiny-font {
-  @include s.tiny-font;
-}
+@import "shared";
 
 /* ELEMENTS */
 :root {
-  background-color: s.$bg-color;
-  font-family: s.$font-family;
+  background-color: $bg-color;
+  font-family: $font-family;
   scroll-behavior: smooth;
-  color: s.$text-color;
+  color: $text-color;
   margin: 0;
   padding: 0;
 }
 
 ::selection {
   color: inherit;
-  background: s.$selection-color;
+  background: $selection-color;
 }
 
 body {
-  @include s.normal-font;
-
-  margin: s.$default-margin 25vw;
+  font-size: $normal-font;
+  margin: $default-margin 25vw;
 }
 
 // remove padding on non-desktop views
 @media only screen and (width <= 1600px) {
   body {
-    margin: s.$default-margin 15vw;
+    margin: $default-margin 15vw;
   }
 }
 
 @media only screen and (width <= 1000px) {
   body {
-    margin: s.$default-margin;
+    margin: $default-margin;
   }
 }
 
@@ -71,35 +45,32 @@ pre > code {
 }
 
 h1 {
-  @include s.largehuge-font;
-
+  font-size: $large-font;
   line-height: 1;
 }
 
 h2 {
-  @include s.large-font;
-
+  font-size: $medium-font;
   line-height: 1;
 }
 
 h3 {
-  @include s.normal-font;
-
+  font-size: $normal-font;
   line-height: 1;
 }
 
 code {
-  color: s.$purple;
+  color: $orchid3;
 }
 
 body > div {
-  border-radius: s.$border-radius;
-  background-color: s.$fg-color;
-  margin: s.$default-margin;
-  border-color: s.$border-color;
-  border-style: s.$border-style;
-  border-width: s.$border-width;
-  padding: s.$default-padding;
+  border-radius: $border-radius;
+  background-color: $fg-color;
+  margin: $default-margin;
+  border-color: $border-color;
+  border-style: $border-style;
+  border-width: $border-width;
+  padding: $default-padding;
 }
 
 ul {
@@ -108,9 +79,9 @@ ul {
 
 // an element that is transparent initially, then transparency is removed as soon as js loads
 .js-element {
-    color: transparent !important;
-    background-color: transparent !important;
-    border-color: transparent !important;
+  color: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
 }
 
 /* FILE HEADINGS */
@@ -118,66 +89,66 @@ ul {
   display: grid;
   grid-template-columns: max-content auto;
   margin-bottom: -1em;
-  background-color: s.$accent-color;
+  background-color: $accent-color;
 }
 
 .file-head-type-all {
-  color: s.$dark-tint-color;
+  color: $dark-tint-color;
   font-weight: bold;
   padding: 0.2em;
   padding-top: calc(0.2em + 1px);
 }
 
 .file-head-type-file {
-  background-color: s.$teal;
+  background-color: $pale-turquoise3;
 }
 
 .file-head-type-dir {
-  background-color: s.$purple;
+  background-color: $blue-violet;
 }
 
 .file-head-type-log {
-  background-color: s.$bg-color;
+  background-color: $papaya-whip;
 }
 
 .file-head-type-bash {
-  background-color: s.$lightgreen;
+  background-color: $spring-green1;
 }
 
 .file-head-type-bash-root {
-  background-color: s.$lightred;
+  background-color: $tomato1;
 }
 
 .file-head-type-generic {
-  background-color: s.$accent-border;
+  background-color: $mint-cream;
 }
 
 .file-head-path {
   border-width: 1px 0 0;
   border-style: solid;
-  border-color: s.$accent-border;
+  border-color: $accent-border;
   padding: 0.2em;
 }
 
 /* MODIFIERS */
 .rotate-180 {
-  @include s.rotate-180;
+  @include rotate-180;
 }
 
 a,
 .hoverable {
   border-color: transparent;
-  border-style: s.$border-style;
+  border-style: $border-style;
 }
 
 a:hover,
 .hoverable:hover {
-  border-color: s.$tint-color;
+  border-color: $tint-color;
   cursor: pointer;
 }
 
 .zebra-table > tbody > tr:nth-child(even) {
-  background-color: s.$tint-color;
+  background-color: $tint-color;
 }
 
 td {
@@ -186,23 +157,42 @@ td {
 
 /* IDS */
 #title-title {
-  @include s.huge-font;
-
-  margin: s.$default-margin 0;
+  font-size: $gigantic-font;
+  margin: $default-margin 0;
   font-weight: normal;
 }
 
 #title-text {
-  @include s.no-decoration;
+  @include no-decoration;
 }
 
-@media only screen and (width <= 500px) {
-  #title-text {
+@media only screen and (width <= 700px) {
+  #title-title {
+    font-size: $huge-font;
     font-weight: bold;
   }
 
   #subtitle {
+    font-size: $medium-font !important;
     font-style: italic;
+  }
+
+  #flavor-text {
+    font-size: $normal-font !important;
+  }
+}
+
+@media only screen and (width <= 500px) {
+  #title-title {
+    font-size: $medium-font;
+  }
+
+  #subtitle {
+    font-size: $normal-font !important;
+  }
+
+  #flavor-text {
+    font-size: $small-font !important;
   }
 }
 
@@ -213,25 +203,25 @@ td {
 
 #rss-button {
   display: inline-block;
-  width: s.$default-font-scale;
-  height: s.$default-font-scale;
+  width: $normal-font;
+  height: $normal-font;
 }
 
 // #rss-button-img {}
 
 #subtitle {
-  @include s.no-decoration;
-  @include s.large-font;
+  @include no-decoration;
 
-  margin: s.$default-margin 0;
+  font-size: $large-font;
+  margin: $default-margin 0;
   font-weight: normal;
 }
 
 #flavor-text {
-  @include s.no-decoration;
-  @include s.right-align-text;
-  @include s.medium-font;
+  @include no-decoration;
 
+  text-align: right;
+  font-size: $medium-font;
   font-weight: normal;
   margin: 0;
 }
@@ -243,8 +233,8 @@ td {
 }
 
 #content > p {
-  padding-left: s.$default-padding;
-  padding-right: s.$default-padding;
+  padding-left: $default-padding;
+  padding-right: $default-padding;
 }
 
 .content-image {
@@ -263,7 +253,7 @@ td {
 @keyframes blink {
   0%,
   50% {
-    color: s.$highlight-color;
+    color: $highlight-color;
   }
 
   51%,
@@ -273,15 +263,15 @@ td {
 }
 
 /* FOOTER */
-$footer-font-size: s.font-ratio(1.2);
+$footer-font-size: $medium-font;
 $footer-height: calc($footer-font-size + env(safe-area-inset-bottom, 0));
 $footer-top: calc($footer-height + 4px);
 
 #footer {
   border-radius: 0;
   border-width: 2px 0 0;
-  border-color: s.$accent-border;
-  background-color: s.$accent-color;
+  border-color: $accent-border;
+  background-color: $accent-color;
   padding: 0 0 2px;
   margin: 0;
   width: 100vw;
@@ -307,52 +297,43 @@ $footer-top: calc($footer-height + 4px);
 }
 
 #footer-bottom-text {
-  @include s.right-align-text;
-  @include s.small-font;
-
+  text-align: right;
+  font-size: $small-font;
   margin: 0;
 }
 
 #footer-bottom-text > a {
-  @include s.no-decoration;
+  @include no-decoration;
 }
 
 #nav {
+  align-content: center;
   margin: 0 $footer-font-size;
   padding: 0;
 }
 
-#nav-toggler-label {
-  appearance: auto;
-  cursor: pointer;
-  border-color: s.$highlight-color;
+#nav-toggler {
+  font-size: calc($footer-font-size - 4px);
+  background-color: transparent;
+  font-family: inherit;
+  padding: 0;
+  margin: -2px 0;
+  border-color: $highlight-color;
   border-style: solid none;
-  border-width: 1px 0;
+  border-width: 2px 0;
   display: inline-block;
 }
 
-#nav-toggler-button {
-  display: none;
-}
-
-#nav-toggler-button:checked ~ #nav-menu {
-  display: block;
-}
-
 #nav-menu {
-  display: none;
-  background-color: s.$fg-color;
+  background-color: $fg-color;
   margin: 0;
-  width: 100vw;
   position: fixed;
-  bottom: $footer-top;
-  left: 0;
-  right: 100vw;
+  inset: auto 100vw $footer-top 0;
   padding: 0;
-  border-color: s.$accent-color;
-  border-style: s.$border-style none none none;
+  border-color: $accent-color;
+  border-style: $border-style none none none;
   border-width: $footer-height / $footer-font-size;
-  box-shadow: 0 -9px 9px s.$tint-color;
+  box-shadow: 0 -9px 9px $tint-color;
   z-index: -1;
 }
 
@@ -360,30 +341,30 @@ $footer-top: calc($footer-height + 4px);
   margin: 0;
   padding: 0;
   text-decoration: none;
-  color: s.$text-color;
+  color: $text-color;
 }
 
 #nav-menu > ul {
   list-style-type: none;
-  width: 100vw;
+  width: 100%;
 }
 
 #nav-menu > ul > li {
-  padding: 2px s.$default-padding;
+  padding: 2px $default-padding;
   border-color: transparent;
 }
 
 #nav-menu > ul > li:hover {
-  background-color: s.$selection-color;
+  background-color: $selection-color;
 }
 
 #nav-menu > ul > li > a {
   width: 100vw;
   display: block;
   border-color: transparent;
-  color: s.$purple;
+  color: $orchid3;
 }
 
 #nav-scroll-progress {
-  @include s.no-decoration;
+  @include no-decoration;
 }

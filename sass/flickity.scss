@@ -16,7 +16,6 @@
   margin-right: auto;
   max-width: 100%;
   max-height: 35vh;
-
 }
 
 .carousel-cell > p {
@@ -28,13 +27,12 @@
 }
 
 .flickity-title {
-    @include s.medium-font;
-
-    text-align: center;
+  font-size: s.$medium-font;
+  text-align: center;
 }
 
 .flickity-button {
-  background: rgba(s.$fg-color, .5);
+  background: rgba(s.$fg-color, 0.5);
   color: s.$text-color;
 }
 
@@ -44,9 +42,9 @@
 }
 
 .flickity-page-dots > .dot {
-    background: s.$text-color;
+  background: s.$text-color;
 }
 
 .flickity-page-dots > .is-selected {
-    background: s.$selection-color !important;
+  background: s.$selection-color !important;
 }

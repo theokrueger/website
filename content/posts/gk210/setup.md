@@ -140,6 +140,6 @@ cp "$f" "$f.bak" &&
 diff "$f.bak" "$f"
 ```
 
-# Appendix
+# \*  Appendix
 At this point, you're off to the races with your K80.
 Below are some random tangents that don't quit fit in the [main post](@/posts/gk210/index.md).

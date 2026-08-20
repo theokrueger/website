@@ -1,0 +1,35 @@
+// light-blue theme from emacs
+@import 'named-colors';
+
+$lb-default-background: $light-blue;
+$lb-default-foreground: $black;
+$lb-cursor-background: $red;
+$lb-fringe-background: $gray85;
+$lb-highlight-background: $cyan;
+$lb-region-background: $medium-aquamarine;
+$lb-secondary-selection-background: $white;
+$lb-secondary-selection-foreground: $black;
+$lb-isearch-background: $green;
+$lb-isearch-foreground: $black;
+$lb-lazy-highlight-background: $dark-turquoise;
+$lb-query-replace-background: $white;
+$lb-query-replace-foreground: $black;
+$lb-match-background: $sky-blue;
+$lb-mode-line-background: $pale-goldenrod;
+$lb-mode-line-foreground: $black;
+$lb-mode-line-buffer-id-overline: $red;
+$lb-mode-line-buffer-id-underline: $red;
+$lb-mode-line-inactive-background: $light-gray;
+$lb-mode-line-inactive-foreground: $gray20;
+$lb-mode-line-inactive-box-color: $gray75;
+$lb-escape-glyph-background: $gold;
+$lb-escape-glyph-foreground: $blue;
+$lb-homoglyph-background: $gold;
+$lb-homoglyph-foreground: $blue;
+$lb-font-lock-builtin-face-foreground: #b35caf;
+$lb-font-lock-constant-face-foreground: #006D6D;
+$lb-font-lock-function-name-face-foreground: $red;
+$lb-font-lock-keyword-face-foreground: $blue3;
+$lb-font-lock-string-face-foreground: $magenta4;
+$lb-font-lock-warning-face-foreground: $orange-red;
+$lb-next-error-background: $sky-blue;

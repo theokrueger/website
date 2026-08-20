@@ -1,32 +1,33 @@
-{% component footer(name, contact="contact@theokrueger.dev", source="https://gitlab.com/theokrueger/website") %}
-  <!-- unanchored page footer -->
-  <p id="footer-bottom-text">
-    <a href="mailto:{{ contact }}"><t class="rotate-180">©</t>theokrueger</a> | <a href="{{ source }}" target="_blank">view source</a>
-  </p>
+{% component footer(name, contact="contact@theokrueger.dev",
+source="https://gitlab.com/theokrueger/website") %}
+<!-- unanchored page footer -->
+<p id="footer-bottom-text">
+  <a href="mailto:{{ contact }}"><t class="rotate-180">©</t>theokrueger</a> |
+  <a href="{{ source }}" target="_blank">view source</a>
+</p>
 
-  <!-- anchored footer -->
-  <div id="footer-bottom-spacer"></div>
-  <div id="footer">
-    <span>U:%%@</span>
-    <span id="nav">
-      <!-- clickable btn -->
-      <label id="nav-toggler-label" for="nav-toggler-button" class="hoverable" tabindex="0">
-        {% if name %}{{ name }}{% else %}Scratch{% endif %} ^
-      </label>
-      <input id="nav-toggler-button" type="checkbox" autocomplete="off"/>
+<!-- anchored footer -->
+<div id="footer-bottom-spacer"></div>
+<div id="footer">
+  <span>U:%%@</span>
+  <span id="nav">
+    <!-- clickable btn -->
+    <button id="nav-toggler" popovertarget="nav-menu" class="hoverable">
+      {% if name %}{{ name }}{% else %}Scratch{% endif %} ^
+    </button>
 
-      <!-- navlist -->
-      <span id="nav-menu">
-        <ul>
-  	{# zola internal linking does not work outside of MD #}
-  	<li><a href="/">home</a></li>
-  	<li><a href="/micro/">micro</a></li>
-  	<li><a href="/posts/">posts</a></li>
-  	<li><a href="/portfolio/">portfolio</a></li>
-        </ul>
-      </span>
-    </span>
-    <!-- return to top button -->
-    <a id="nav-scroll-progress" href="#title" class="hoverable">top</a>
-  </div>
+    <!-- navlist -->
+    <div popover id="nav-menu">
+      <ul>
+        {# zola internal linking does not work outside of MD #}
+        <li><a href="/">home</a></li>
+        <li><a href="/micro/">micro</a></li>
+        <li><a href="/posts/">posts</a></li>
+        <li><a href="/portfolio/">portfolio</a></li>
+      </ul>
+    </div>
+  </span>
+  <!-- return to top button -->
+  <a id="nav-scroll-progress" href="#title" class="hoverable">top</a>
+</div>
 {% endcomponent footer %}

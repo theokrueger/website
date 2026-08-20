@@ -96,10 +96,10 @@ async function typeElement(
 
   updateElement("", txt);
 
-  // 2% chance for mistakes
+  // 6% chance for mistakes
   let mistakeStart = -1;
   let mistakes = "";
-  if (allowMistakes && len > 5 && chancePercent(2)) {
+  if (allowMistakes && len > 5 && chancePercent(6)) {
     mistakeStart = Math.floor(randomNumber(0, len - 1));
     const mistake_cnt = Math.min(
       Math.floor(randomNumber(2, 5)),

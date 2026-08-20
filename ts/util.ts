@@ -65,7 +65,6 @@ const keyNear = function (key: string, keymap: Keymap): string {
 
   // return original if key out of bounds
   if (i >= km.length || j >= km[i]!.length) {
-    console.log("braek");
     return key;
   }
 

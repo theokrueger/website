@@ -71,16 +71,6 @@ body > div {
   padding: $default-padding;
 }
 
-ul,
-ol {
-  display: table;
-  margin: 0 auto;
-}
-
-ul {
-  list-style-type: square;
-}
-
 // an element that is transparent initially, then transparency is removed as soon as js loads
 .js-element {
   color: transparent !important;
@@ -206,12 +196,14 @@ td {
 }
 
 #rss-button {
-  display: inline-block;
+  float: right;
+}
+
+#rss-button-img {
+  display: block;
   width: $normal-font;
   height: $normal-font;
 }
-
-// #rss-button-img {}
 
 #subtitle {
   @include no-decoration;

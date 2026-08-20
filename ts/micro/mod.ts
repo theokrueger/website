@@ -1,9 +1,9 @@
-import { pathname_match, random_elem, chance_percent } from "../util.js";
+import { pathnameMatch, randomElem, chancePercent } from "../util.js";
 
 console.log("javascript enabled for this webpage");
 
 // micro homepage
-if (pathname_match("/micro")) {
+if (pathnameMatch("/micro")) {
   console.log("running JS for micro index");
 
   type BadgeEntry80x80 = {
@@ -18,7 +18,7 @@ if (pathname_match("/micro")) {
     }
 
     document.getElementById("acl-extra-badge")!.innerHTML = badgeHTML(
-      random_elem(badges),
+      randomElem(badges),
     );
   }
 
@@ -36,7 +36,7 @@ if (pathname_match("/micro")) {
     });
 
   // flavor text
-  if (chance_percent(5)) {
+  if (chancePercent(5)) {
     const flavors: string[] = [
       "<em>Right behind you.</em>",
       "Where you should be.",
@@ -51,7 +51,6 @@ if (pathname_match("/micro")) {
       "Responsibly responsive.",
       "Sit loud.",
     ];
-    document.getElementById("acl-nav-message")!.innerHTML =
-      random_elem(flavors);
+    document.getElementById("acl-nav-message")!.innerHTML = randomElem(flavors);
   }
 }

@@ -1,10 +1,10 @@
 import {
   sleep,
-  chance_percent,
-  random_number,
-  key_near,
+  chancePercent,
+  randomNumber,
+  keyNear,
   Keymap,
-  random_elem,
+  randomElem,
 } from "./util.js";
 
 console.log("javascript enabled for this webpage");
@@ -38,7 +38,7 @@ async function addFlavour() {
   for (const [k] of Object.entries(idsToModify)) {
     const elem = document.getElementById(k);
     if (elem) {
-      elem.innerHTML = random_elem(idsToModify[k]!);
+      elem.innerHTML = randomElem(idsToModify[k]!);
     }
   }
 }
@@ -97,22 +97,22 @@ async function typeElement(
   updateElement("", txt);
 
   // 2% chance for mistakes
-  let mistake_start = -1;
+  let mistakeStart = -1;
   let mistakes = "";
-  if (allowMistakes && len > 5 && chance_percent(2)) {
-    mistake_start = Math.floor(random_number(0, len - 1));
+  if (allowMistakes && len > 5 && chancePercent(2)) {
+    mistakeStart = Math.floor(randomNumber(0, len - 1));
     const mistake_cnt = Math.min(
-      Math.floor(random_number(2, 5)),
-      len - 1 - mistake_start,
+      Math.floor(randomNumber(2, 5)),
+      len - 1 - mistakeStart,
     );
     for (let i = 0; i < mistake_cnt; i++) {
-      mistakes += key_near(txt.charAt(mistake_start + i), Keymap.ColemakDh);
+      mistakes += keyNear(txt.charAt(mistakeStart + i), Keymap.ColemakDh);
     }
   }
 
   for (let i = 0; i < len; i++) {
     // type mistakes if they must be typed
-    if (i == mistake_start) {
+    if (i == mistakeStart) {
       for (let j = 0; j < mistakes.length; j++) {
         await sleep(typingSpeed);
         updateElement(
@@ -135,12 +135,12 @@ async function typeElement(
   }
 
   // 6% chance for random flair
-  if (addRandomFlair && chance_percent(6)) {
-    await sleep(random_number(1000, 5000));
-    let flair = " " + random_elem(typingFlairs);
-    if (chance_percent(0.1)) {
+  if (addRandomFlair && chancePercent(6)) {
+    await sleep(randomNumber(1000, 5000));
+    let flair = " " + randomElem(typingFlairs);
+    if (chancePercent(0.1)) {
       // overall 1/20,000 chance
-      flair = " " + random_elem(legendaryTypingFlairs);
+      flair = " " + randomElem(legendaryTypingFlairs);
     }
 
     // type flair
@@ -150,13 +150,14 @@ async function typeElement(
     }
 
     // remove flair
-    await sleep(random_number(1000, 3000));
+    await sleep(randomNumber(1000, 3000));
     for (let i = flair.length; i >= 0; i--) {
       await sleep(typingSpeed);
       updateElement(txt + flair.slice(0, i), "");
     }
   }
 }
+
 /* set visibility of js elements */
 const invis = document.getElementsByClassName("js-element");
 while (invis.length) {
@@ -164,7 +165,10 @@ while (invis.length) {
 }
 
 /* type some elements */
-const shouldAddFlair = !window.location.pathname.includes("/posts/");
+const shouldAddFlair = !(
+  window.location.pathname.includes("/posts/") &&
+  window.location.pathname.length > 7
+);
 const title = document.getElementById("title-text")!;
 const cursor = document.getElementById("title-cursor")!;
 const cursorText = cursor.outerHTML;

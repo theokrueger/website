@@ -1,5 +1,8 @@
 {% component title(title, subtitle, subsubtitle, flavor_id, show_rss) %}
 <div id="title">
+  {% if show_rss %}
+  <a id="rss-button" href="/posts/atom.xml"><img id="rss-button-img" src="/img/rss.svg"/></a>
+  {% endif %}
   <span>
     {% if title %}
     <!-- noscript title -->
@@ -27,9 +30,6 @@
       <span {% if flavor_id %}id="{{ flavor_id }}"{% endif %}>
 	{% if subsubtitle %}{{ subsubtitle | safe }}{% else %}<span style="color: transparent;">secret text :)</span>{% endif %}
       </span>
-      {% if show_rss %}
-      <a id="rss-button" href="/posts/atom.xml"><img id="rss-button-img" src="/img/rss.svg"/></a>
-      {% endif %}
     </h3>
   </span>
 </div>

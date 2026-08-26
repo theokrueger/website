@@ -7,7 +7,6 @@ extra.show_toc = true
 extra.footer_name = "gk210"
 template = "posts/post.html"
 extra.extern.slideshow = false
-draft = true
 +++
 # \* Info
 This is the companion piece of *["Private AI for U$70"](@/posts/gk210/index.md)*.
@@ -92,8 +91,6 @@ dev-util/hip -video_cards_amdgpu
 
 Install your Linux 6.6 of choice, select the kernel in `eselect`, run `emerge =x11-drivers/nvidia-drivers-470.256.02-r2 =dev-util/nvidia-cuda-toolkit-11.8.0-r4` and then rebuild world.
 
-At this point, you are ready to actually run things on the K80.
-
 ## \*\* Caveats
 As if there weren't already enough sticking points, one huge caveat for anyone who has more than one NVIDIA GPU in their system is that multiple driver slots are not really a possibility.
 So if one card (say, an RTX 4070) is still supported on the latest `610.xxx` drivers (and only supported on `>=472`), you are SOL if you want the K80 in the same host system.
@@ -106,6 +103,24 @@ When Linux 6.6 becomes EOL, a VM will be your *only* (relatively sane) option.
 # \* Software
 It's not hard to install [llama.cpp](https://github.com/ggml-org/llama.cpp) once you have the dependencies satisfied.
 Just follow their [build instructions](https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md#cuda) for CUDA.
+
+You should download and build `nccl` it according to the instructions at the [nccl repository](https://github.com/NVIDIA/nccl). I used version [2.24.3-1](https://github.com/NVIDIA/nccl/releases/tag/v2.24.3-1), as the latest will not compile with this old of a CUDA toolkit.
+
+Specifically for the K80, you will want the following commands:
+
+{{ <file_head type="BASH" name="compile nccl and llama.cpp" /> }}
+```bash
+# build nccl
+cd [nccl_directory]
+make src.build CUDA_HOME=/opt/cuda/ NVCC_GENCODE="-gencode=arch=compute_37,code=sm_37" -j$(nproc)
+make pkg.txz.build
+NCDIR=[nccl_build_dir]
+
+# build llama.cpp
+cd [llama.cpp_directory]
+cmake -B build -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=37 -DGGML_CUDA_NCCL=ON -DNCCL_INCLUDE_DIR=$NCDIR/include/ -DNCCL_LIBRARY=$NCDIR/lib/libnccl.so
+cmake --build build --config Release -j$(nproc)
+```
 
 Although, you may run into the two following issues:
 
@@ -121,6 +136,8 @@ compilation failure or incorrect run time execution. Use at your own risk.
 ```
 
 Then you will need to install GCC 11, then `export NVCC_PREPEND_FLAGS="-ccbin /usr/bin/gcc-11"` before invoking `cmake`.
+
+For `nccl`, you just need to set `CXX` in `makefiles/common.mk`.
 
 ## \*\* New glibc Compatibility
 Exactly as per [llama.cpp documentation](https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md#fixing-compatibility-issues-with-old-cuda-and-new-glibc), you may run into build issues from `math.h`.
@@ -142,4 +159,92 @@ diff "$f.bak" "$f"
 
 # \*  Appendix
 At this point, you're off to the races with your K80.
-Below are some random tangents that don't quit fit in the [main post](@/posts/gk210/index.md).
+Below are some random snippets that don't quit fit in the [main post](@/posts/gk210/index.md).
+
+## \*\* llama.cpp Args
+Here is a full list of arguments that I used.
+Note that you may need to increase lockable memory with `ulimit -l` as root.
+
+{{ <file_head type="BASH" name="llama.sh"/> }}
+```bash
+#!/usr/bin/env bash
+BIN="/home/me/code/llama.cpp/cuda/build/bin/llama"
+
+exec \
+  "$BIN" serve \
+  --cache-prompt \
+  --models-max 1 \
+  --split-mode tensor \
+  --mlock \
+  --no-mmap \
+  --threads $(nproc) \
+  --flash-attn on \
+  --direct-io \
+  --parallel 1 \
+  --offline \
+  $@
+```
+I didn't read the docs too hard, I mostly just picked options that seemed like they would cache everything really hard for my single-user & single-session setup.
+
+## \*\* Overclocking
+Memory bandwidth is the biggest bottleneck, so our efforts are focused on that mostly.
+
+### \*\*\* Supported tweaks
+By default, the only thing you can change is ECC and the power limit, which tops at 175W per-die.
+Run `nvidia-smi -e 0` as root to disable ECC until you turn it back on.
+Power limit is not persistent, but installing `dev-python/nvidia-ml-py` lets you easily change powerlimit via a script.
+
+{{ <file_head type="PYTHON" name="overclock.py"/> }}
+```python
+#!/usr/bin/env python
+# get UUIDs with:
+# nvidia-smi -q | grep "\(Product Name\|UUID\)"
+from pynvml import *
+
+power_limits = {
+    "GPU-d18e19a0-5e83-4052-fa1e-43ed462725fd": 175000,
+    "GPU-ff564a6d-376d-8f6d-2a9a-e956486d03d3": 175000
+}
+
+nvmlInit()
+for uuid in power_limits.keys():
+    try:
+        h = nvmlDeviceGetHandleByUUID(uuid)
+        pl = power_limits[uuid]
+        nvmlDeviceSetPowerManagementLimit(h, pl)
+    except Exception as e:
+        print(f"some failure with {uuid}: {e}")
+
+nvmlShutdown()
+```
+
+### \*\*\* VBIOS Flashing
+In order to change the clocks of the card, you have to flash the BIOS (scary).
+What's worse is that it requires Windows (terrible).
+
+This gets a little dangerous here; I accept zero liability for your card!
+
+I simply followed [this guide](https://linustechtips.com/topic/1058561-simple-tutorial-ish-for-kepler-and-probably-maxwell-ii-bios-tweaker/) on modifying and flashing the VBIOS of Kepler cards.
+I truly do not know if way overtuning the clocks is recoverable, so I went with conservative values.
+
+After a reboot back into a sane operating system, you can verify that your settings actually applied by running `nvidia-smi -q -d CLOCK`.
+
+{{ <file_head type="LOG" name="nvidia-smi -q -d CLOCK"/> }}
+```
+==============NVSMI LOG==============
+
+Timestamp                                 : Wed Aug 26 15:47:19 2026
+Driver Version                            : 470.256.02
+CUDA Version                              : 11.4
+
+Attached GPUs                             : 2
+GPU 00000000:06:00.0
+    Max Clocks
+        Graphics                          : 875 MHz
+        Memory                            : 3200 MHz
+
+GPU 00000000:07:00.0
+    Max Clocks
+        Graphics                          : 875 MHz
+        Memory                            : 3200 MHz
+```

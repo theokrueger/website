@@ -1,5 +1,6 @@
 @use "sass:math";
 @import "shared";
+@import "file-head";
 
 /* ELEMENTS */
 :root {
@@ -78,52 +79,6 @@ body > div {
   border-color: transparent !important;
 }
 
-/* FILE HEADINGS */
-.file-head {
-  display: grid;
-  grid-template-columns: max-content auto;
-  margin-bottom: -1em;
-  background-color: $accent-color;
-}
-
-.file-head-type-all {
-  color: $dark-tint-color;
-  font-weight: bold;
-  padding: 0.2em;
-  padding-top: calc(0.2em + 1px);
-}
-
-.file-head-type-file {
-  background-color: $pale-turquoise3;
-}
-
-.file-head-type-dir {
-  background-color: $blue-violet;
-}
-
-.file-head-type-log {
-  background-color: $papaya-whip;
-}
-
-.file-head-type-bash {
-  background-color: $spring-green1;
-}
-
-.file-head-type-bash-root {
-  background-color: $tomato1;
-}
-
-.file-head-type-generic {
-  background-color: $mint-cream;
-}
-
-.file-head-path {
-  border-width: 1px 0 0;
-  border-style: solid;
-  border-color: $accent-border;
-  padding: 0.2em;
-}
-
 /* MODIFIERS */
 .rotate-180 {
   @include rotate-180;
@@ -137,7 +92,7 @@ a,
 
 a:hover,
 .hoverable:hover {
-  border-color: $tint-color;
+  border-color: $tint-color !important;
   cursor: pointer;
 }
 
@@ -260,15 +215,20 @@ td {
 
 /* FOOTER */
 $footer-font-size: $medium-font;
-$footer-height: calc($footer-font-size + env(safe-area-inset-bottom, 0));
-$footer-top: calc($footer-height + 4px);
+$footer-height: calc(
+  $footer-font-size + env(safe-area-inset-bottom, 0) + 2 * $border-width
+);
+$footer-top: calc($footer-height + 2px);
 
 #footer {
-  border-radius: 0;
-  border-width: 2px 0 0;
-  border-color: $accent-border;
+  display: grid;
+  grid-template-columns: max-content max-content max-content auto;
+  grid-template-rows: 2px auto 2px;
+  column-padding: $footer-font-size;
   background-color: $accent-color;
   padding: 0 0 2px;
+  border-radius: 0;
+  border-width: 0;
   margin: 0;
   width: 100vw;
   position: fixed;
@@ -279,6 +239,24 @@ $footer-top: calc($footer-height + 4px);
   line-height: 1;
   height: $footer-height;
   z-index: 1;
+  > span {
+    border-width: 0;
+  }
+  > * {
+    border-style: $border-style;
+    border-width: $border-width;
+    border-color: transparent;
+    margin: 0;
+    padding: 0;
+  }
+
+  > .accent {
+    background-color: $highlight-color;
+  }
+
+  > .normal {
+    background-color: $accent-border;
+  }
 }
 
 #footer-bottom-spacer {
@@ -302,21 +280,12 @@ $footer-top: calc($footer-height + 4px);
   @include no-decoration;
 }
 
-#nav {
-  align-content: center;
-  margin: 0 $footer-font-size;
-  padding: 0;
-}
-
 #nav-toggler {
   font-size: calc($footer-font-size - 4px);
+  margin: 0;
+  padding: 0;
   background-color: transparent;
   font-family: inherit;
-  padding: 0;
-  margin: -2px 0;
-  border-color: $highlight-color;
-  border-style: solid none;
-  border-width: 2px 0;
   display: inline-block;
 }
 
@@ -357,7 +326,7 @@ $footer-top: calc($footer-height + 4px);
 #nav-menu > ul > li > a {
   width: 100vw;
   display: block;
-  border-color: transparent;
+  border-color: transparent !important;
   color: $orchid3;
 }
 

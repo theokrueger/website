@@ -22,4 +22,4 @@ my personal website
 * credits
 - everything in the above /special thanks to/
 - all the [[./static/fonts/README.org][various fonts]] used on this site
-- the [[./static/micro/acl/badges/README.org][micro badges]] used on this site
+- the [[./static/micro/badges/README.org][badges]] used on this site

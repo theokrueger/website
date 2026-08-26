@@ -11,7 +11,7 @@ footer_name = "index"
 +++
 
 ## \* directory
-[latest post](@/posts/gk210/index.md) - competent hardware with 24GiB of VRAM for $70
+[latest post](@/posts/gk210/index.md) - competent(?) hardware with 24GiB of VRAM for $70
 
 - [all posts](@/posts/_index.md) - where you should go
 - [portfolio](@/portfolio.md) - public works

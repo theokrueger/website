@@ -1,0 +1,49 @@
+/* Styling for file head component */
+.file-head {
+  display: grid;
+  grid-template-columns: max-content auto;
+  margin-bottom: -1em;
+  background-color: $accent-color;
+}
+
+.file-head-type-all {
+  color: $dark-tint-color;
+  font-weight: bold;
+  padding: 0.2em;
+  padding-top: calc(0.2em + 1px);
+}
+
+.file-head-type-file {
+  background-color: $pale-turquoise3;
+}
+
+.file-head-type-dir {
+  background-color: $blue-violet;
+}
+
+.file-head-type-log {
+  background-color: $papaya-whip;
+}
+
+.file-head-type-bash {
+  background-color: $green3;
+}
+
+.file-head-type-bash-root {
+  background-color: $orange-red3;
+}
+
+.file-head-type-python {
+  background-color: $dodger-blue;
+}
+
+.file-head-type-generic {
+  background-color: $mint-cream;
+}
+
+.file-head-path {
+  border-width: 1px 0 0;
+  border-style: solid;
+  border-color: $accent-border;
+  padding: 0.2em;
+}

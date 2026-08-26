@@ -9,25 +9,37 @@ source="https://gitlab.com/theokrueger/website") %}
 <!-- anchored footer -->
 <div id="footer-bottom-spacer"></div>
 <div id="footer">
-  <span>U:%%@</span>
-  <span id="nav">
-    <!-- clickable btn -->
-    <button id="nav-toggler" popovertarget="nav-menu" class="hoverable">
-      {% if name %}{{ name }}{% else %}Scratch{% endif %} ^
-    </button>
+  <span class="normal"></span>
+  <span class="accent"></span>
+  <span class="normal"></span>
+  <span class="normal"></span>
+  <p style="margin-right: 1em">U:%%@</p>
+  <button id="nav-toggler" popovertarget="nav-menu" class="hoverable">
+    {% if name %}{{ name }}{% else %}Scratch{% endif %} ^
+  </button>
+  <a
+    style="margin-left: 1em"
+    id="nav-scroll-progress"
+    href="#title"
+    class="hoverable"
+    >top</a
+  >
+  <p></p>
 
-    <!-- navlist -->
-    <div popover id="nav-menu">
-      <ul>
-        {# zola internal linking does not work outside of MD #}
-        <li><a href="/">home</a></li>
-        <li><a href="/micro/">micro</a></li>
-        <li><a href="/posts/">posts</a></li>
-        <li><a href="/portfolio/">portfolio</a></li>
-      </ul>
-    </div>
-  </span>
-  <!-- return to top button -->
-  <a id="nav-scroll-progress" href="#title" class="hoverable">top</a>
+  <span class="none"></span>
+  <span class="accent"></span>
+  <span class="none"></span>
+  <span class="none"></span>
+
+  <!-- navlist -->
+  <div popover id="nav-menu">
+    <ul>
+      {# zola internal linking does not work outside of MD #}
+      <li><a href="/">home</a></li>
+      <li><a href="/micro/">micro</a></li>
+      <li><a href="/posts/">posts</a></li>
+      <li><a href="/portfolio/">portfolio</a></li>
+    </ul>
+  </div>
 </div>
 {% endcomponent footer %}

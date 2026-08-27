@@ -1,7 +1,7 @@
 +++
 title = "Tesla K80 for Local Inference"
 description = "The less interesting part."
-date = 1970-01-01
+date = 2026-08-26
 extra.flavor_id = ""
 extra.show_toc = true
 extra.footer_name = "gk210"
@@ -12,7 +12,7 @@ extra.extern.slideshow = false
 This is the companion piece of *["Private AI for U$70"](@/posts/gk210/index.md)*.
 
 The main reason the Tesla K80 is cheap is because it is obsolete.
-Not necessarily in performance, as it is quite good in that regard (with tempered expectations), but is sorely lacking in modern support.
+Not necessarily in performance, as it is fine in that regard (with tempered expectations), but is sorely lacking in modern support.
 This post contains the dry information not quite suited for the main post.
 
 # \* Components
@@ -35,7 +35,7 @@ Additionally, the power connector on the card expects an EPS-12V (8 pin) connect
 Many listings include the power adapter, and the PWM fan controller is optional so long as you don't mind some additional noise.
 
 ## \*\* Assembly
-You need to 3D-print the [fan mount bracket](TODOTODOTODO), or have it printed for you.
+You need to 3D-print a [fan mount bracket](https://www.printables.com/model/1816354-nvidia-tesla-k80-fan-bracket), or have it printed for you.
 It should be printed in a heat-resistant filament like ABS or PETG.
 PLA will warp over time due to the heat; PETG is resistant enough to heat that it should be no issue
 
@@ -43,6 +43,8 @@ Everything should fit into place if printed on a reasonable printer.
 In case your needs are different, the design files are available.
 FreeCAD was used, so it is similarly free to actually perform the modifications you may need.
 
+
+Seal any gaps with duct tape (it's meant for that!) so that the airflow is directed nicely.
 
 # \* Drivers
 Depending on your distro, drivers range from annoying to impossible to install.
@@ -104,7 +106,7 @@ When Linux 6.6 becomes EOL, a VM will be your *only* (relatively sane) option.
 It's not hard to install [llama.cpp](https://github.com/ggml-org/llama.cpp) once you have the dependencies satisfied.
 Just follow their [build instructions](https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md#cuda) for CUDA.
 
-You should download and build `nccl` it according to the instructions at the [nccl repository](https://github.com/NVIDIA/nccl). I used version [2.24.3-1](https://github.com/NVIDIA/nccl/releases/tag/v2.24.3-1), as the latest will not compile with this old of a CUDA toolkit.
+You should download and build `nccl` according to the instructions at the [nccl repository](https://github.com/NVIDIA/nccl). I used version [2.24.3-1](https://github.com/NVIDIA/nccl/releases/tag/v2.24.3-1), as the latest will not compile with this old of a CUDA toolkit.
 
 Specifically for the K80, you will want the following commands:
 
@@ -187,7 +189,7 @@ exec \
 I didn't read the docs too hard, I mostly just picked options that seemed like they would cache everything really hard for my single-user & single-session setup.
 
 ## \*\* Overclocking
-Memory bandwidth is the biggest bottleneck, so our efforts are focused on that mostly.
+Memory bandwidth is the biggest bottleneck, so my efforts are focused on that mostly.
 
 ### \*\*\* Supported tweaks
 By default, the only thing you can change is ECC and the power limit, which tops at 175W per-die.

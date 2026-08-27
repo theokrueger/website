@@ -14,7 +14,7 @@
 {% for year, posts in section.pages | sort(attribute="year") | group_by(attribute="year") %}
     <h2>* {{ year }}</h2>
 
-    {% for post in posts | sort(attribute="date") %}
+    {% for post in posts | sort(attribute="date") | reverse %}
     <p>
       <a href="{{ post.permalink }}">{{ post.title }}</a>
       {% if post.description %} - {{ post.description }}{% endif %}</p>

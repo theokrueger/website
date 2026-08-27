@@ -215,24 +215,23 @@ td {
 
 /* FOOTER */
 $footer-font-size: $medium-font;
-$footer-height: calc(
-  $footer-font-size + env(safe-area-inset-bottom, 0) + 2 * $border-width
-);
-$footer-top: calc($footer-height + 2px);
+$footer-bottom: env(safe-area-inset-bottom, 0);
+$footer-height: calc($footer-font-size + $footer-bottom + 4 * $border-width);
+$footer-top: calc($footer-height);
 
 #footer {
   display: grid;
   grid-template-columns: max-content max-content max-content auto;
-  grid-template-rows: 2px auto 2px;
+  grid-template-rows: $border-width auto $border-width;
   column-padding: $footer-font-size;
   background-color: $accent-color;
-  padding: 0 0 2px;
+  padding: 0;
   border-radius: 0;
   border-width: 0;
   margin: 0;
   width: 100vw;
   position: fixed;
-  bottom: 0;
+  bottom: $footer-bottom;
   left: 0;
   right: 100vw;
   font-size: $footer-font-size;
@@ -246,24 +245,35 @@ $footer-top: calc($footer-height + 2px);
     border-style: $border-style;
     border-width: $border-width;
     border-color: transparent;
-    margin: 0;
+    margin: -$border-width 0;
     padding: 0;
   }
 
   > .accent {
+    margin: 0;
     background-color: $highlight-color;
   }
 
-  > .normal {
+  > .top {
     background-color: $accent-border;
+  }
+
+  > .bottom {
+    background-color: $tint-color;
+  }
+
+  > .accent,
+  > .top,
+  > .bottom {
+    margin: 0;
   }
 }
 
 #footer-bottom-spacer {
-  height: $footer-height;
+  height: calc($footer-height + $footer-bottom + 8px);
   border-radius: 0;
-  padding: 2px;
-  margin: 2px;
+  padding: 0;
+  margin: 0;
   border-width: 0;
   border-color: transparent;
   background-color: transparent;
@@ -281,15 +291,13 @@ $footer-top: calc($footer-height + 2px);
 }
 
 #nav-toggler {
-  font-size: calc($footer-font-size - 4px);
-  margin: 0;
-  padding: 0;
+  font-size: calc($footer-font-size - 2 * $border-width);
   background-color: transparent;
   font-family: inherit;
-  display: inline-block;
 }
 
 #nav-menu {
+  font-size: $footer-font-size;
   background-color: $fg-color;
   margin: 0;
   position: fixed;
@@ -297,7 +305,8 @@ $footer-top: calc($footer-height + 2px);
   padding: 0;
   border-color: $accent-color;
   border-style: $border-style none none none;
-  border-width: $footer-height / $footer-font-size;
+  border-width: $border-width;
+  border-radius: 0;
   box-shadow: 0 -9px 9px $tint-color;
   z-index: -1;
 }

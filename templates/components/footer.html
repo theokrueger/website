@@ -9,10 +9,10 @@ source="https://gitlab.com/theokrueger/website") %}
 <!-- anchored footer -->
 <div id="footer-bottom-spacer"></div>
 <div id="footer">
-  <span class="normal"></span>
+  <span class="top"></span>
   <span class="accent"></span>
-  <span class="normal"></span>
-  <span class="normal"></span>
+  <span class="top"></span>
+  <span class="top"></span>
   <p style="margin-right: 1em">U:%%@</p>
   <button id="nav-toggler" popovertarget="nav-menu" class="hoverable">
     {% if name %}{{ name }}{% else %}Scratch{% endif %} ^
@@ -26,20 +26,19 @@ source="https://gitlab.com/theokrueger/website") %}
   >
   <p></p>
 
-  <span class="none"></span>
+  <span class="bottom"></span>
   <span class="accent"></span>
-  <span class="none"></span>
-  <span class="none"></span>
-
-  <!-- navlist -->
-  <div popover id="nav-menu">
-    <ul>
-      {# zola internal linking does not work outside of MD #}
-      <li><a href="/">home</a></li>
-      <li><a href="/micro/">micro</a></li>
-      <li><a href="/posts/">posts</a></li>
-      <li><a href="/portfolio/">portfolio</a></li>
-    </ul>
-  </div>
+  <span class="bottom"></span>
+  <span class="bottom"></span>
+</div>
+<!-- navlist -->
+<div popover id="nav-menu">
+  <ul>
+    {# zola internal linking does not work outside of MD #}
+    <li><a href="/">home</a></li>
+    <li><a href="/micro/">micro</a></li>
+    <li><a href="/posts/">posts</a></li>
+    <li><a href="/portfolio/">portfolio</a></li>
+  </ul>
 </div>
 {% endcomponent footer %}

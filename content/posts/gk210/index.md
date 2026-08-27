@@ -214,7 +214,7 @@ If, like me and don't trust ZDR, then this is probably the cheapest way to ensur
 Yet it's hard to imagine any workload that would benefit from this slow generation. You may still be better off *not* spending a dime and running light models on or your existing GPU.
 
 To put it bluntly: it's literally multiple times faster to run these models on my CPU at the same wattage.
-A reasonably modern gaming GPU (i.e. 6700xt) can blow this out of the water, including running *larger* models with less VRAM with MoE streaming, solely because of memory bandwidth.
+A reasonably modern gaming GPU (i.e. 6700xt) can blow this out of the water, including running *larger* models with less VRAM by way of MoE streaming.
 
 Don't buy a Tesla K80.
 Though if you do, you might as well buy eight just for fun.

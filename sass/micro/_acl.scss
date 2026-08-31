@@ -481,8 +481,10 @@ hr {
 
 #acl-page-content {
   margin: 0 2%;
-
-  > *h2 {
+  > h1,
+  > h2,
+  > h3,
+  > pre {
     border-radius: $cs-border-radius;
   }
 

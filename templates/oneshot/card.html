@@ -1,21 +1,22 @@
-<!DOCTYPE html>{#- -#}
-<html>{#- -#}
-  <head><link rel="icon" href="data:image;"></head>{#- -#}
+{#- <html> -#}
+  {#- <head> -#}
+    <link rel="icon" href="data:image;">{#- -#}
+  {#- </head> -#}
   <body id=b>{#- -#}
     <style>{#- -#}
-      *{font-family:monospace;background:#123;color:#abc;text-decoration:none}{#- -#}
-      :hover{color:#ddd}{#- -#}
+      *{font-family:monospace;color:#abc;text-decoration:none}{#- -#}
+      :hover{color:#def}{#- -#}
       h1>a{color:#faf}{#- -#}
-      body{margin:0;display:flex;align-items:center;justify-content:center;height:100vh}{#- -#}
-      #a{position:fixed;color:#777}{#- -#}
+      body{margin:0;display:flex;align-items:center;justify-content:center;height:100%;background:#123;}{#- -#}
+      #a{position:fixed}{#- -#}
     </style>{#- -#}
     <a id=a href=http://1kb.club>&lt;1kB</a>{#- -#}
     <h1><a href=mailto:me@theokrueger.dev>theokrueger</a></h1>{#- -#}
     <ul>{#- -#}
       <li><a href=/posts>blog</a></li>{#- -#}
       <li><a href=/micro>thoughts</a></li>{#- -#}
-      <li><a href=http://github.com/theokrueger>git</a></li>{#- -#}
-    </ul>{#- -#}
+      <li><a href=http://github.com/theokrueger>git{#- </a></li> -#}
+    {#- </ul> -#}
     <script type=module>{#- -#}
       for(let M=Math,P=M.PI,s=a.style,{#- alias -#}
         x=0,y=0,{#- loop vars -#}
@@ -25,8 +26,8 @@
         x>n-t.width||x<0?X=-X:y>m-t.height||y<0?Y=-Y:0;{#- -#}
         s.top=y+'px';{#- -#}
         s.left=x+'px';{#- -#}
-        await{then:r=>setTimeout(r,8)};{#- -#}
+        await{then:r=>setTimeout(r,9)};{#- -#}
       }{#- -#}
     </script>{#- -#}
-  </body>{#- -#}
-</html>{#- -#}
+  {#- </body> -#}
+{#- </html> -#}

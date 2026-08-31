@@ -4,7 +4,7 @@
     <style>{#- -#}
       *{:hover{color:#ddd!important}font-family:monospace;background-color:#123;color:#abc;text-decoration:none}{#- -#}
       h1>a{color:#faf}{#- -#}
-      body{height:100vh}{#- -#}
+      body{height:100%;margin:0}{#- -#}
       f{display:flex;align-items:center;justify-content:center;height:100%;margin:auto}{#- -#}
       #a{display:none;position:fixed;color:#777}{#- -#}
     </style>{#- -#}
@@ -20,18 +20,19 @@
     <script type=module>{#- -#}
       {#- move the element across the screen -#}
       {#-  -#}
-      let M=Math,R=_=>M.random()*M.PI,P=n=>n+'px',{#- math -#}
+      let M=Math,P=M.PI,Q=P/2,R=_=>(M.random()-.5)*P,S=M.sin,C=M.cos,H=100,{#- math -#}
         s=a.style,r=a.getBoundingClientRect.bind(a),{#- callable -#}
         x=0,y=0,t,{#- loop vars -#}
         h=R();{#- heading in rad -#}
       s.display='block';{#- -#}
       for(;;){ {#- -#}
-        await new Promise(r=>setTimeout(r,15));{#- -#}
+        await new Promise(r=>setTimeout(r,9));{#- -#}
         t=r();{#- -#}
-        x=x+1;
-        y=y+1;
-        s.top=P(y);{#- -#}
-        s.left=P(x);{#- -#}
+        h=x>H?R()+Q*3:y>H?R()+Q*2:x<0?R():y<0?R()+Q:h;
+        x=x+S(h)/3;{#- -#}
+        y=y+C(h)/3;{#- -#}
+        s.top=y+'%';{#- -#}
+        s.left=x+'%';{#- -#}
         {#- -#}
       }{#- -#}
     </script>{#- -#}

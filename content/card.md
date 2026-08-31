@@ -1,4 +1,4 @@
 +++
 title = "card"
-template = "card.html"
+template = "oneshot/card.html"
 +++

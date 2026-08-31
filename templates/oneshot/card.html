@@ -1,5 +1,5 @@
-<!doctype html>{#- -#}
 <html>{#- -#}
+  <head><link rel="icon" href="data:image/png;base64,iVBORw0KGgo="></head>{#- -#}
   <body>{#- -#}
     <style>{#- -#}
       *{:hover{color:#ddd}font-family:monospace;background-color:#123;color:#abc;text-decoration:none}{#- -#}
@@ -18,17 +18,14 @@
      </ul>{#- -#}
     </f>{#- -#}
     <script type=module>{#- -#}
-      {#- move the element across the screen -#}
-      {#-  -#}
       let M=Math,P=M.PI,s=a.style,W=window.screen,{#- alias -#}
-        r=a.getBoundingClientRect.bind(a),{#- callable -#}
         x=0,y=0,{#- loop vars -#}
         h=P/4*M.random()+P*5/8,X=M.sin(h),Y=M.cos(h);{#- movement props -#}
       s.display='block';{#- -#}
       for(;;){ {#- -#}
-        let n=W.width,m=W.height,t=r();{#- -#}
-        x=x+X;{#- -#}
-        y=y+Y;{#- -#}
+        let n=W.width,m=W.height,t=a.getBoundingClientRect();{#- -#}
+        x+=X;{#- -#}
+        y+=Y;{#- -#}
         x>n-t.width||x<0?X=-X:0;{#- -#}
         y>m-t.height||y<0?Y=-Y:0;{#- -#}
         s.top=y+'px';{#- -#}

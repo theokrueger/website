@@ -30,22 +30,19 @@
     <hr/>
     <div id="acl-page-content">
       {{ section.content | safe }}
-
-      <span id="acl-all-micros">
-        {% for year, posts in section.pages | sort(attribute="year") | reverse | group_by(attribute="year") %}
-          <h2>
+      {% for year, posts in section.pages | sort(attribute="year") | reverse | group_by(attribute="year") %}
+        <h2>
 	    {{ year }}
 	    <span class="acl-dark-text" style="float: right">{{ posts | length }}</span>
 	  </h2>
-          {% for post in posts | sort(attribute="date") | reverse %}
-            <div style="padding: 0 1%;">
-  	      {{ post.date | date(format="%m.%d") }}:
-              <a href="{{ post.permalink }}">{{ post.title | safe }}</a>
-              {% if post.description %} - {{ post.description | safe }}{% endif %}
+        {% for post in posts | sort(attribute="date") | reverse %}
+          <div style="padding: 0 1%;">
+	      {{ post.date | date(format="%m.%d") }}:
+            <a href="{{ post.permalink }}">{{ post.title | safe }}</a>
+            {% if post.description %} - {{ post.description | safe }}{% endif %}
 	    </div>
-          {% endfor %}
-	 {% endfor %}
-      </span>
+        {% endfor %}
+      {% endfor %}
     </div>
   </div>
 </div>

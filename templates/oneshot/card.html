@@ -3,29 +3,26 @@
   <head><link rel="icon" href="data:image;"></head>{#- -#}
   <body id=b>{#- -#}
     <style>{#- -#}
-      *{:hover{color:#ddd}font-family:monospace;background-color:#123;color:#abc;text-decoration:none}{#- -#}
+      *{font-family:monospace;background:#123;color:#abc;text-decoration:none}{#- -#}
+      :hover{color:#ddd}{#- -#}
       h1>a{color:#faf}{#- -#}
-      body{height:100%;margin:0;display:flex;align-items:center;justify-content:center;height:100vh}{#- -#}
-      #a{position:fixed;color:#123}{#- -#}
+      body{margin:0;display:flex;align-items:center;justify-content:center;height:100vh}{#- -#}
+      #a{position:fixed;color:#777}{#- -#}
     </style>{#- -#}
-    <a id=a href=https://1kb.club>&lt;1kB</a>{#- -#}
+    <a id=a href=http://1kb.club>&lt;1kB</a>{#- -#}
     <h1><a href=mailto:me@theokrueger.dev>theokrueger</a></h1>{#- -#}
     <ul>{#- -#}
       <li><a href=/posts>blog</a></li>{#- -#}
       <li><a href=/micro>thoughts</a></li>{#- -#}
-      <li><a href=https://github.com/theokrueger>git</a></li>{#- -#}
+      <li><a href=http://github.com/theokrueger>git</a></li>{#- -#}
     </ul>{#- -#}
     <script type=module>{#- -#}
-      let M=Math,P=M.PI,s=a.style,{#- alias -#}
+      for(let M=Math,P=M.PI,s=a.style,{#- alias -#}
         x=0,y=0,{#- loop vars -#}
-        h=P/4*M.random()+P*5/8,X=M.sin(h),Y=M.cos(h);{#- movement props -#}
-      s.color='#777';{#- -#}
-      for(;;){ {#- -#}
+        h=P/4*M.random()+P*5/8,X=M.sin(h),Y=M.cos(h){#- movement props -#}
+      ;;x+=X,y+=Y){ {#- -#}
         let n=b.clientWidth,m=b.clientHeight,t=a.getBoundingClientRect();{#- -#}
-        x+=X;{#- -#}
-        y+=Y;{#- -#}
-        x>n-t.width||x<0?X=-X:0;{#- -#}
-        y>m-t.height||y<0?Y=-Y:0;{#- -#}
+        x>n-t.width||x<0?X=-X:y>m-t.height||y<0?Y=-Y:0;{#- -#}
         s.top=y+'px';{#- -#}
         s.left=x+'px';{#- -#}
         await{then:r=>setTimeout(r,8)};{#- -#}

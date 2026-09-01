@@ -1,31 +1,32 @@
 {#- <html> -#}
   {#- <head> -#}
-    <link rel="icon" href="data:image;">{#- -#}
+    <link rel="icon" href="data:">{#- -#}
   {#- </head> -#}
   <body id=b>{#- -#}
     <style>{#- -#}
-      *{font-family:mono;color:#abc;text-decoration:none}{#- -#}
+      *{font-family:mono;color:#abc;text-decoration:none;margin:0}{#- -#}
       :hover{color:#def}{#- -#}
       h1>a{color:#faf}{#- -#}
-      #b{margin:0;display:flex;align-items:center;justify-content:center;height:100%;background:#123}{#- -#}
+      #b{display:flex;align-items:center;justify-content:center;height:100%;background:#123}{#- -#}
       #a{position:fixed}{#- -#}
     </style>{#- -#}
     <a id=a href=http://1kb.club>&lt;1kB</a>{#- -#}
-    <h1><a href=mailto:me@theokrueger.dev>theokrueger</a></h1>{#- -#}
+    <s>{#- -#}
+      <h1><a href=mailto:me@theokrueger.dev>theokrueger</a></h1>{#- -#}
+      <t>button box enthusiast</t>
+    </s>{#- -#}
     <ul>{#- -#}
-      <li><a href=/posts>blog</a></li>{#- -#}
-      <li><a href=/micro>thoughts</a></li>{#- -#}
+      <li><a href=/>blog{#- </a></li> -#}
+      <li><a href=/micro>thoughts{#- </a></li> -#}
       <li><a href=http://github.com/theokrueger>git{#- </a></li> -#}
     {#- </ul> -#}
     <script type=module>{#- -#}
       for(let M=Math,P=M.PI,s=a.style,{#- alias -#}
         x=0,y=0,{#- loop vars -#}
         h=P/4*M.random()+P*5/8,X=M.sin(h),Y=M.cos(h){#- movement props -#}
-      ;;x+=X,y+=Y){ {#- -#}
-        let n=b.clientWidth,m=b.clientHeight,t=a.getBoundingClientRect();{#- -#}
-        x>n-t.width||x<0?X=-X:y>m-t.height||y<0?Y=-Y:0;{#- -#}
-        s.top=y+'px';{#- -#}
-        s.left=x+'px';{#- -#}
+      ;;x+=X,y+=Y,s.top=y+'px',s.left=x+'px'){ {#- -#}
+        let t=a.getBoundingClientRect();{#- -#}
+        x>b.clientWidth-t.width||x<0?X=-X:y>b.clientHeight-t.height||y<0?Y=-Y:0;{#- -#}
         await{then:r=>setTimeout(r,9)};{#- -#}
       }{#- -#}
     </script>{#- -#}

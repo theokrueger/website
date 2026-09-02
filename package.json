@@ -4,7 +4,8 @@
   "description": "this node package is just for eslint",
   "main": "assets/script.js",
   "scripts": {
-    "lint": "npx eslint $(find ts -regex '.*\\.ts');npx stylelint $(find sass -regex '.*\\.scss'); npx tsc --noemit"
+    "lint": "npx eslint $(find ts -regex '.*\\.ts');npx stylelint $(find sass -regex '.*\\.scss'); npx tsc --noemit",
+    "build": "npx tsc && for f in $(find static -regex '.*\\.js' ! -path flickity ); do npx uglify-js --compress --mangle --output \"$f\" -- \"$f\"; done"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "stylelint": "^17.14.0",
     "stylelint-config-standard-scss": "^17.0.0",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.63.0"
+    "typescript-eslint": "^8.63.0",
+    "uglify-js": "^3.19.3"
   }
 }

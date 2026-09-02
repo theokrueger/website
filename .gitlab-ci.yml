@@ -24,9 +24,8 @@ pages:
       wget $zola_url
       tar -xzf *.tar.gz
       npm install
-      npx tsc
+      npm run build
       ./zola build
-      #./zola build --base-url $CI_PAGES_URL
 
   artifacts:
     paths:

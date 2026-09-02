@@ -7,10 +7,11 @@ my personal website
 - ~npm install~
 
 ** building
-~./build.sh~
+- ~npm run build~
+- ~zola build~
 
 ** dev
-- ~npx tsc~ for updating static with transpiled js
+- ~npm run build~ for updating static with transpiled+minified js
 - ~npm run lint~ for linters
 - ~zola serve~ for sitegen
 

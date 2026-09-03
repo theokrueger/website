@@ -1,0 +1,27 @@
+{% component micro.badge(type, name, href="") -%}
+{%- set p = "/micro/badges/" ~ type ~ "/" ~ name ~ ".gif" -%}
+
+{#- assert badge exists -#}
+{%- set allowed_types = [
+  "80x15",
+  "80x80",
+  "88x31",
+] -%}
+{%- if not allowed_types is containing(pat=type) %}
+  {{ throw(message="Unknown badge type: " ~ icon) }}
+{% endif -%}
+{%- set _unused_ = get_hash(path=p, sha_type=256) -%}
+
+{%- if href -%}<a href="{{ href }}" target="_blank">{%- endif -%}
+<img src="{{p}}" />
+{%- if href -%}</a>{%- endif -%}
+{%- endcomponent %}
+
+{% component micro.badges(type, badges) -%}
+<span>
+  {%- for txt in badges -%}
+    {%- set a = txt | split(pat="|") -%}
+    {{- <micro.badge type={type} name={a[0]} href={a[1]} /> -}}
+  {%- endfor -%}
+</span>
+{%- endcomponent %}

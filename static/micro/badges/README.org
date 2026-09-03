@@ -8,3 +8,7 @@
 
 ** 80x15
 - [[./80x15/test.gif][Test Badge]], made by me
+- [[./80x15/gentoo-badge2.gif][Gentoo Web badge 2]], from [[Gentoo.org][https://www.gentoo.org/inside-gentoo/artwork/]].
+
+** 88x31
+- [[./88x31/gplv3.gif]], by Jose Obed for [[GNU][https://www.gnu.org/graphics/license-logos.html]]

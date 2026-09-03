@@ -141,20 +141,30 @@ hr {
   margin-left: 4px;
 }
 
-#acl-profile {
+#acl-profile,
+#acl-micro-content {
   background-color: $cs-fg;
   border-radius: 0 0 $cs-border-radius $cs-border-radius;
 }
 
-#acl-badges {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 4px 0;
+#acl-micro-content {
+  :last-child {
+    margin-bottom: 0;
+  }
+}
 
-  > * {
-    padding: 2px;
+#acl-badges {
+  padding: 0;
+  > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 4px 0;
+
+    > * {
+      padding: 2px;
+    }
   }
 }
 

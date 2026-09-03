@@ -1,0 +1,12 @@
+{% component micro.footer() %}
+<div id="acl-badges">
+  {{ <micro.badges type="80x15" badges={[
+    "test|https://theokrueger.dev/",
+    "gentoo-badge2|https://www.gentoo.org/",
+  ]} /> }}
+  {{ <micro.badges type="88x31" badges={[
+    "gplv3|https://www.gnu.org/licenses/gpl-3.0.en.html",
+  ]} /> }}
+
+</div>
+{% endcomponent %}

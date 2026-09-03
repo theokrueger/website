@@ -119,41 +119,6 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
     <!-- end profile content -->
   </div>
   <!-- end body -->
-  <!-- badges -->
-  <div id="acl-badges">
-    {# 80x15 #}
-    {% set badges = [
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-      "test|https://example.com/",
-    ] %}
-    {% for txt in badges %}
-      {% set a = txt | split(pat="|") %}
-      {% if a[1] %}<a href="{{ a[1] }}" target="_blank">{% endif %}
-      <img src="/micro/badges/80x15/{{ a[0] }}.gif" />
-      {% if a[1] %}</a>{% endif %}
-    {% endfor %}
-  </div>
+  {{ <micro.footer /> }}
 </div>
 {% endblock content %}

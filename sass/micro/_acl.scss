@@ -161,10 +161,11 @@ hr {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 4px 0;
-
-    > * {
-      padding: 2px;
+    margin: 0;
+    padding: 0;
+    > a {
+	font-size: 0px;
+	margin: 2px;
     }
   }
 }
@@ -172,7 +173,7 @@ hr {
 #acl-profile,
 #acl-badges,
 #acl-micro-content {
-  margin: 0 auto;
+  margin: 0 auto 4px auto;
   width: 768px;
 }
 

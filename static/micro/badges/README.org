@@ -7,9 +7,18 @@
 - [[./80x80/slimecat.gif][The Lucky Slime]] from /Slime Rancher/
 
 ** 80x15
-- [[./80x15/test.gif][Test Badge]], made by me
+- Made by me:
+  - [[./80x15/test.gif][Test Badge]]
+  - [[./80x15/micro.gif][Micro]]
+  - [[./80x15/main.gif][Main]]
+- From [[Web Badges World][https://web.badges.world/]]:
+  - [[./80x15/1024x768.gif][1024x768]]
+  - [[./80x15/firefox.gif][Firefox]]
+  - [[./80x15/rss.gif][RSS]]
 - [[./80x15/gentoo-badge2.gif][Gentoo Web badge 2]], from [[Gentoo.org][https://www.gentoo.org/inside-gentoo/artwork/]]
+- [[./80x15/emacs.gif][Emacs]] from [[Grimalkin][https://www.grimalkin.org/emacs/]]
 
 ** 88x31
-- [[./88x31/zola.gif]], traced by me from [[Zola's logo][https://getzola.org]]
-- [[./88x31/gplv3.gif]], by Jose Obed for [[GNU][https://www.gnu.org/graphics/license-logos.html]]
+- [[./88x31/zola.gif]], traced by me from [[https://getzola.org][Zola's logo]]
+- [[./88x31/gplv3.gif]], by Jose Obed for [[https://www.gnu.org/graphics/license-logos.html][GNU]]
+- [[./88x31/gnu-linux.gif]], found on [[https://cyber.dabamos.de/88x31/index2.html][[The Cyber Vanguard]]

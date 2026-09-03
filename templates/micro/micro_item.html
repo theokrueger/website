@@ -7,7 +7,7 @@
 {% block content %}
 <div id="acl">
   {{ <micro.nav /> }}
-  <div id="acl-micro-content">
+  <div id="acl-body">
     {% set t = page.title | safe | split(pat=" ") %}
     <h1 id="acl-page-title">{% for w in t %} {% if loop.first %} <span class="acl-dark-text">{{ w | safe }}</span>{% else %} {{ w | safe }} {% endif %}{% endfor %}</h1>
     <div id="acl-page-description" style="">{{ page.description | safe }}</div>
@@ -19,5 +19,6 @@
       {{ page.content | safe }}
     </div>
   </div>
+  {{ <micro.footer badges={false} /> }}
 </div>
 {% endblock content %}

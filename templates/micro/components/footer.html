@@ -1,4 +1,5 @@
-{% component micro.footer() %}
+{% component micro.footer(badges=true) %}
+{% if badges %}
 <div id="acl-badges">
   {{ <micro.badges type="80x15" badges={[
     "main|/",
@@ -16,5 +17,6 @@
     "ilikecomputer",
   ]} /> }}
 </div>
+{% endif %}
 {% endcomponent %}
 

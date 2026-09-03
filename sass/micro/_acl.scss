@@ -141,21 +141,16 @@ hr {
   margin-left: 4px;
 }
 
-#acl-profile,
-#acl-micro-content {
+#acl-body {
+  overflow: auto;
   background-color: $cs-fg;
   border-radius: 0 0 $cs-border-radius $cs-border-radius;
-}
-
-#acl-micro-content {
-  :last-child {
-    margin-bottom: 0;
-  }
 }
 
 #acl-badges {
   padding: 0;
   image-rendering: pixelated;
+
   > span {
     display: flex;
     align-items: center;
@@ -163,17 +158,17 @@ hr {
     flex-wrap: wrap;
     margin: 0;
     padding: 0;
+
     > a {
-	font-size: 0px;
+	font-size: 0;
 	margin: 2px;
     }
   }
 }
 
-#acl-profile,
-#acl-badges,
-#acl-micro-content {
-  margin: 0 auto 4px auto;
+#acl-body,
+#acl-badges {
+  margin: 0 auto 4px;
   width: 768px;
 }
 
@@ -423,9 +418,8 @@ hr {
     display: none;
   }
 
-  #acl-profile,
-  #acl-badges,
-  #acl-micro-content {
+  #acl-body,
+  #acl-badges {
     width: 95%;
   }
 

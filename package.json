@@ -5,7 +5,7 @@
   "main": "assets/script.js",
   "scripts": {
     "lint": "npx eslint $(find ts -regex '.*\\.ts');npx stylelint $(find sass -regex '.*\\.scss'); npx tsc --noemit",
-    "build": "npx tsc && for f in $(find static -regex '.*\\.js' ! -path flickity ); do npx uglify-js --compress --mangle --output \"$f\" -- \"$f\"; done"
+    "build": "npx tsc && for f in $(find static -regex '.*\\.js' | grep -Fvf ./ugly-exclude.txt); do npx uglify-js --compress --mangle --output \"$f\" -- \"$f\"; done"
   },
   "repository": {
     "type": "git",

@@ -19,6 +19,8 @@
 - [[./80x15/emacs.gif][Emacs]] from [[Grimalkin][https://www.grimalkin.org/emacs/]]
 
 ** 88x31
-- [[./88x31/zola.gif]], traced by me from [[https://getzola.org][Zola's logo]]
+- Sorta made by me
+  - [[./88x31/zola.gif]], traced from [[https://getzola.org][Zola's logo]]
+  - [[./88x31/ilikecomputer.gif]], remake of original found on [[https://suitservice.neocities.org/][suitservice]]
 - [[./88x31/gplv3.gif]], by Jose Obed for [[https://www.gnu.org/graphics/license-logos.html][GNU]]
 - [[./88x31/gnu-linux.gif]], found on [[https://cyber.dabamos.de/88x31/index2.html][[The Cyber Vanguard]]

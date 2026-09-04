@@ -12,7 +12,9 @@
 {% endif -%}
 {%- set _unused_ = get_hash(path=p, sha_type=256) -%}
 
-<a {% if href %}href="{{ href }}"{% endif %} target="_blank"><img src="{{p}}" /></a>
+{% if href %}<a href="{{ href }}" target="_blank">{% endif -%}
+  <img src="{{p}}" />
+{%- if href %}</a>{% endif -%}
 {%- endcomponent %}
 
 {% component micro.badges(type, badges) -%}

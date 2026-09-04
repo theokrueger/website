@@ -6,14 +6,14 @@ console.log("javascript enabled for this webpage");
 if (pathnameMatch("/micro")) {
   console.log("running JS for micro index");
 
-  type BadgeEntry80x80 = {
+  type BadgeEntry = {
     img: string;
     title: string;
     desc: string;
   };
 
-  function replace80x80Badge(badges: [BadgeEntry80x80]) {
-    function badgeHTML(badge: BadgeEntry80x80) {
+  function replace80x80Badge(badges: [BadgeEntry]) {
+    function badgeHTML(badge: BadgeEntry) {
       return `<img src="/micro/badges/80x80/${badge.img}" /><text><h4>${badge.title}</h4><p>${badge.desc}</p></text>`;
     }
 
@@ -23,7 +23,7 @@ if (pathnameMatch("/micro")) {
   }
 
   // badge replacement
-  const badgeURL = "/micro/badges/badges.json";
+  const badgeURL = "/micro/badges/badges.min.json";
   fetch(badgeURL)
     .then((resp) => {
       if (!resp.ok) {
@@ -32,7 +32,7 @@ if (pathnameMatch("/micro")) {
       return resp.json();
     })
     .then((json) => {
-      replace80x80Badge(json["80x80"]);
+      replace80x80Badge(json);
     });
 
   // flavor text

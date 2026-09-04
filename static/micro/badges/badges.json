@@ -3,22 +3,133 @@
     {
       "img": "icon.gif",
       "title": "Icon",
-      "desc": "500 XP"
+      "desc": "500 XP",
+      "source": "Saints Row: The Third",
+      "source_url": "https://store.steampowered.com/app/55230/",
+      "commentary": "Level 5 Steam badge. I've never actually played the game, it was only purchased for the PAYDAY 2 collab rewards."
     },
     {
       "img": "groove-coaster.gif",
       "title": "DXFM",
-      "desc": "Linka's strongest soldier"
+      "desc": "Linka's strongest soldier",
+      "source": "Groove Coaster: Steam Edition",
+      "source_url": "https://store.steampowered.com/app/744060/",
+      "commentary": "Level 5 Steam badge. A very enjoyable arcade experience, although the Steam edition is dead in the water."
     },
     {
       "img": "apple.gif",
       "title": "Very Hungry",
-      "desc": "At a picnic near you"
+      "desc": "At a picnic near you",
+      "source": "The Very Hungry Caterpillar",
+      "commentary": "A truly life-changing book."
     },
     {
       "img": "slimecat.gif",
       "title": "Lucky Cat",
-      "desc": "+5 Fortune"
+      "desc": "+5 Fortune",
+      "source": "Slime Rancher",
+      "commentary": "I still don't know what this guy does ingame."
+    }
+  ],
+  "80x15": [
+    {
+      "img": "test.gif",
+      "title": "Test Badge",
+      "desc": "A test badge made by me",
+      "source_url": "/micro/badges",
+      "source": "me",
+      "commentary": "This badge notably has incorrect convention on its border, and looks terrible next to most correctly styled badges."
+    },
+    {
+      "animated": true,
+      "img": "micro.gif",
+      "title": "Micro Badge",
+      "desc": "For my micro sub-site",
+      "source_url": "/micro",
+      "source": "me",
+      "commentary": "I couldn't think of an interesting animation, so I just did something random. The colour scheme is nice."
+    },
+    {
+      "animated": true,
+      "img": "main.gif",
+      "title": "Mainsite Badge",
+      "desc": "For my mainsite",
+      "source_url": "/micro/item/animated-badges",
+      "source": "me",
+      "commentary": "This badge contains a replay of a simple untimed snake game. It's one of those things that would take 15 (gruelling) minutes to do by hand, and a measly 90 minutes to automate!"
+    },
+    {
+      "img": "1024x768.gif",
+      "title": "1024x768 Resolution",
+      "desc": "God-tier resolution",
+      "source_url": "https://web.badges.world/",
+      "source": "Web Badges World",
+      "commentary": "This entire site has responsive design for small screens, but the intended viewing resolution is 1024x768. HiDPI is completely unaccounted for."
+    },
+    {
+      "img": "firefox.gif",
+      "title": "Firefox",
+      "desc": "Install today!",
+      "source_url": "https://web.badges.world/",
+      "source": "Web Badges World",
+      "commentary": "Firefox (rather, Librewolf) has been my browser of choice for double-digit years. I can't think of a single reason I'd rather use a Chromium fork."
+    },
+    {
+      "img": "rss.gif",
+      "title": "RSS Validated",
+      "desc": "Subscribe today :)",
+      "source_url": "https://web.badges.world/",
+      "source": "Web Badges World",
+      "commentary": "rss.xml is served, but atom.xml is what you should be using."
+    },
+    {
+      "img": "gentoo-badge2.gif",
+      "title": "Gentoo Web Badge 2",
+      "desc": "I &lt;3 Gentoo",
+      "source_url": "https://www.gentoo.org/inside-gentoo/artwork/",
+      "source": "m@o for Gentoo.org",
+      "commentary": "You can't overshill for Gentoo."
+    },
+    {
+      "img": "emacs.gif",
+      "title": "Emacs",
+      "desc": "I &lt;3 Emacs",
+      "source_url": "https://www.grimalkin.org/emacs",
+      "source": "Grimalkin",
+      "commentary": "I don't live in Emacs the way others do, but it really can do anything."
+    }
+  ],
+  "88x31": [
+    {
+      "img": "zola.gif",
+      "title": "Zola",
+      "desc": "This site's SSG",
+      "source_url": "https://getzola.org",
+      "source": "Zola &amp; me",
+      "commentary": "Traced from the official logo."
+    },
+    {
+      "img": "ilikecomputer.gif",
+      "title": "ILIKECOMPUTER",
+      "source_url": "https://suitservice.neocities.org/",
+      "source": "suitservice &amp; me",
+      "commentary": "The original is out there somewhere, but I instead cleaned up a JPEG version found elsewhere."
+    },
+    {
+      "img": "gplv3.gif",
+      "title": "GNU GPLv3",
+      "desc": "This site's license of choice",
+      "source_url": "https://www.gnu.org/graphics/license-logos.html",
+      "source": "Jose Obed for GNU",
+      "commentary": "A pretty based license choice if you ask me. Not like scrapers (my true enemy) respect licensing in the first place!"
+    },
+    {
+      "img": "gnu-linux.gif",
+      "title": "GNU/Linux",
+      "desc": "A complete operating system",
+      "source_url": "https://cyber.dabamos.de/88x31/index2.html",
+      "source": "The Cyber Vanguard",
+      "commentary": "I should try BSD+MUSL+Busybox sometime."
     }
   ]
 }

@@ -48,20 +48,6 @@ $cs-nav-height: 60px;
   }
 }
 
-// elements
-body {
-  // TODO figure out how to get rid of this
-  background-color: $cs-bg;
-}
-
-pre {
-  overflow-x: auto;
-}
-
-hr {
-  color: $cs-link;
-}
-
 // desktop
 #acl {
   font-family: $font-family;
@@ -70,6 +56,9 @@ hr {
   -webkit-font-smoothing: none;
   color: $cs-text;
   background-color: $cs-bg;
+  cursor: url("/micro/acl/cursor-normal.gif"), auto;
+  min-height: 100vh;
+  width: 100vw;
 
   ::selection {
     color: $cs-text;
@@ -81,8 +70,20 @@ hr {
     text-decoration: none;
   }
 
+  p,
+  code {
+    &:hover {
+      cursor:
+        url("/micro/acl/cursor-select.gif") 5 7,
+        auto;
+    }
+  }
+
   a:hover {
     color: $cs-link-hover;
+    cursor:
+      url("/micro/acl/cursor-hover.gif") 14 0,
+      auto;
   }
 
   code {
@@ -100,6 +101,14 @@ hr {
 
     margin: 0;
     padding: 4px;
+  }
+
+  pre {
+    overflow-x: auto;
+  }
+
+  hr {
+    color: $cs-link;
   }
 }
 
@@ -156,8 +165,8 @@ hr {
     padding: 0;
 
     > a {
-	font-size: 0;
-	margin: 2px;
+      font-size: 0;
+      margin: 2px;
     }
   }
 }

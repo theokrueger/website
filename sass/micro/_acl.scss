@@ -52,13 +52,11 @@ $cs-nav-height: 60px;
 #acl {
   font-family: $font-family;
   font-size: 13px;
-  font-smooth: never;
-  -webkit-font-smoothing: none;
   color: $cs-text;
   background-color: $cs-bg;
   cursor: url("/micro/acl/cursor-normal.gif"), auto;
-  min-height: 100vh;
-  overflow: auto;
+  min-height: calc(100vh - 16px);
+  padding-bottom: 16px;
 
   ::selection {
     color: $cs-text;

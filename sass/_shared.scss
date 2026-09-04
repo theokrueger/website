@@ -1,17 +1,15 @@
-@use "sass:math";
-@import "themes/named-colors";
-@import "themes/emacs-light-blue-theme";
+@use "themes/emacs-light-blue-theme" as lb;
+@forward "themes/named-colors";
 
-$lightred: #ff6767;
 $purple: #b369b2;
 
 /* STYLE */
-$bg-color: $lb-fringe-background;
-$fg-color: $lb-default-background;
-$text-color: $lb-default-foreground;
-$selection-color: $lb-region-background;
-$highlight-color: $lb-mode-line-buffer-id-overline;
-$accent-color: $lb-mode-line-background;
+$bg-color: lb.$fringe-background;
+$fg-color: lb.$default-background;
+$text-color: lb.$default-foreground;
+$selection-color: lb.$region-background;
+$highlight-color: lb.$mode-line-buffer-id-overline;
+$accent-color: lb.$mode-line-background;
 $accent-border: #ffc;
 $border-color: #00000015;
 $border-radius: 5px;
@@ -45,32 +43,21 @@ $large-font: 2.058rem;
 $huge-font: 2.618rem;
 $gigantic-font: 4.236rem;
 
-.tiny-font {
-  font-size: $tiny-font;
-}
+// font-size utility classes map directly to the variables above
+$font-sizes: (
+  tiny: $tiny-font,
+  small: $small-font,
+  normal: $normal-font,
+  medium: $medium-font,
+  large: $large-font,
+  huge: $huge-font,
+  gigantic: $gigantic-font
+);
 
-.small-font {
-  font-size: $small-font;
-}
-
-.normal-font {
-  font-size: $normal-font;
-}
-
-.medium-font {
-  font-size: $medium-font;
-}
-
-.large-font {
-  font-size: $large-font;
-}
-
-.huge-font {
-  font-size: $huge-font;
-}
-
-.gigantic-font {
-  font-size: $gigantic-font;
+@each $name, $size in $font-sizes {
+  .#{$name}-font {
+    font-size: $size;
+  }
 }
 
 /* MODIFIERS */

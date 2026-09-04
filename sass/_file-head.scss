@@ -1,49 +1,40 @@
+@use "shared" as s;
+
 /* Styling for file head component */
 .file-head {
   display: grid;
   grid-template-columns: max-content auto;
   margin-bottom: -1em;
-  background-color: $accent-color;
+  background-color: s.$accent-color;
 }
 
 .file-head-type-all {
-  color: $dark-tint-color;
+  color: s.$dark-tint-color;
   font-weight: bold;
   padding: 0.2em;
   padding-top: calc(0.2em + 1px);
 }
 
-.file-head-type-file {
-  background-color: $pale-turquoise3;
-}
+// each file/directory type maps to a palette color
+$file-type-colors: (
+  file: s.$pale-turquoise3,
+  dir: s.$blue-violet,
+  log: s.$papaya-whip,
+  bash: s.$green3,
+  bash-root: s.$orange-red3,
+  python: s.$dodger-blue,
+  generic: s.$mint-cream
+);
 
-.file-head-type-dir {
-  background-color: $blue-violet;
-}
-
-.file-head-type-log {
-  background-color: $papaya-whip;
-}
-
-.file-head-type-bash {
-  background-color: $green3;
-}
-
-.file-head-type-bash-root {
-  background-color: $orange-red3;
-}
-
-.file-head-type-python {
-  background-color: $dodger-blue;
-}
-
-.file-head-type-generic {
-  background-color: $mint-cream;
+@each $type, $color in $file-type-colors {
+  .file-head-type-#{$type} {
+    background-color: $color;
+  }
 }
 
 .file-head-path {
   border-width: 1px 0 0;
   border-style: solid;
-  border-color: $accent-border;
+  border-color: s.$accent-border;
   padding: 0.2em;
 }

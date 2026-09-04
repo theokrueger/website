@@ -58,10 +58,6 @@ pre {
   overflow-x: auto;
 }
 
-pre > code {
-  overflow-x: auto;
-}
-
 hr {
   color: $cs-link;
 }
@@ -75,31 +71,31 @@ hr {
   color: $cs-text;
   background-color: $cs-bg;
 
-  *::selection {
+  ::selection {
     color: $cs-text;
     background: $cs-link;
   }
 
-  *a {
+  a {
     color: $cs-link;
     text-decoration: none;
   }
 
-  *a:hover {
+  a:hover {
     color: $cs-link-hover;
   }
 
-  *code {
+  code {
     color: s.$purple;
     font-family: s.$mono-font-family;
   }
 
-  *details[open] > *:not(summary) {
+  details[open] > :not(summary) {
     animation: acl-details 0.5s ease-in-out;
   }
 
-  *h2,
-  *h3 {
+  h2,
+  h3 {
     @include acl-gradient;
 
     margin: 0;
@@ -476,15 +472,7 @@ hr {
 }
 
 // post
-#acl-page-title {
-  margin: 0 2%;
-}
-
-#acl-page-description {
-  margin: 0 2%;
-}
-
-#acl-page-link {
+:is(#acl-page-title, #acl-page-description, #acl-page-link) {
   margin: 0 2%;
 }
 

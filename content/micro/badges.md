@@ -105,15 +105,12 @@ template = "micro/page.html"
 {%- set badgedata = load_data(path="/static/micro/badges/badges.json") -%}
 
 ## Link to here?
-Feel free to hotlink or download the badge statically.
+Feel free to either hotlink or download the badge statically.
 
-<center>
-<a href="/micro">
-<img src="/micro/badges/88x31/microworks.gif">
-</a>
-</center><p><code>
-&lt;a href="https://theokrueger.dev/micro"&gt;&lt;img src="https://theokrueger.dev/micro/badges/88x31/microworks.gif"&gt;&lt;/a&gt;
-</code></p>
+<center style="max-width: 80%; margin: auto; background-color: #abcdef22; border-radius: 4px; padding-top: 4px;"><a href="/micro"><img src="/micro/badges/88x31/microworks.gif"></a>
+<code style="display: block;">&lt;a href="https://theokrueger.dev/micro"&gt;&lt;img src="https://theokrueger.dev/micro/badges/88x31/microworks.gif"&gt;&lt;/a&gt;</code><p></p></center>
+
+GIF format, 256 color, animated.
 
 ## Listing
 A complete listing of every badge/button/stamp/whatever featured on this site.

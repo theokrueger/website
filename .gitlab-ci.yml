@@ -27,7 +27,7 @@ pages:
       npm install
       npm run build
       ./zola build
-      RGX='.*\.\(htm\|\py|html\|xml\|txt\|text\|js\|css\|svg\|\sh)$'
+      RGX='.*\.\(htm\|\py|html\|xml\|txt\|text\|js\|css\|svg\|\sh\|webmanifest\)$'
       find public -type f -regex "$RGX" -exec gzip -f -k -9 {} \;
       find public -type f -regex "$RGX" -exec brotli -f -k -Z {} \;
 

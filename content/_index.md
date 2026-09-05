@@ -16,7 +16,7 @@ footer_name = "index"
 - [all posts](@/posts/_index.md) - where you should go
 - [portfolio](@/portfolio.md) - public works
 - [micro](@/micro/_index.md) - smaller thoughts
-- [card](@/card.md) - me in 1kB
+- [card](@/c.md) - me in 1kB
 
 click on '*`index ^`*' at the bottom of your screen to view this directory.
 

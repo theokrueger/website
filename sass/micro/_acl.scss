@@ -493,7 +493,7 @@ $cs-nav-height: 60px;
     border-radius: $cs-border-radius;
   }
 
-  :first-child {
+  &:first-child {
     margin-top: 0;
   }
 

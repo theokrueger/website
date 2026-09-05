@@ -9,20 +9,28 @@ But two frames into animating it, I realized that automating would be a lot bett
 So I made a brief Python script to play an untimed game of snake, and render each board state as a numbered PNG. This was then easy to import as layers into GIMP and overlay onto the badge design I initially wanted.
 
 <details>
-<summary>View Code</summary>
+<summary>View Snake Code</summary>
 
-{% set script = load_data(path="/etc/snake2png.py") %}
+{% set script1 = load_data(path="/etc/img/gen/snake2png.py") %}
 ```python
-{{ script }}
+{{ script1 }}
+```
+</details>
+
+<details>
+<summary>View Fireworks Code</summary>
+
+{% set script2 = load_data(path="/etc/img/gen/fireworks2png.py") %}
+```python
+{{ script2 }}
 ```
 </details>
 
 In retrospect this is the type of thing perfectly suited for vibecoding, but it was too enjoyable a bikeshed to *not* build by hand.
 The results speak for themselves:
 
-<center>
-
-![micro badge](/micro/badges/80x15/micro.gif)
-![mainsite badge](/micro/badges/80x15/main.gif)
-
-</center>
+<span style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+<img src="/micro/badges/80x15/micro.gif"/>
+<img src="/micro/badges/88x31/microworks.gif"/>
+<img src="/micro/badges/80x15/main.gif"/>
+</span>

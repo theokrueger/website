@@ -36,7 +36,6 @@
       "img": "test.gif",
       "title": "Test Badge",
       "desc": "A test badge made by me",
-      "source_url": "/micro/badges",
       "source": "me",
       "commentary": "This badge notably has incorrect convention on its border, and looks terrible next to most correctly styled badges."
     },
@@ -45,7 +44,6 @@
       "img": "micro.gif",
       "title": "Micro Badge",
       "desc": "For my micro sub-site",
-      "source_url": "/micro",
       "source": "me",
       "commentary": "I couldn't think of an interesting animation, so I just did something random. The colour scheme is nice."
     },
@@ -54,7 +52,6 @@
       "img": "main.gif",
       "title": "Mainsite Badge",
       "desc": "For my mainsite",
-      "source_url": "/micro/item/animated-badges",
       "source": "me",
       "commentary": "This badge contains a replay of a simple untimed snake game. It's one of those things that would take 15 (gruelling) minutes to do by hand, and a measly 90 minutes to automate!"
     },
@@ -130,6 +127,14 @@
       "source_url": "https://cyber.dabamos.de/88x31/index2.html",
       "source": "The Cyber Vanguard",
       "commentary": "I should try BSD+MUSL+Busybox sometime."
+    },
+    {
+      "animated": true,
+      "img": "microworks.gif",
+      "title": "Micro Fireworks",
+      "desc": "For external linking",
+      "source": "me",
+      "commentary": "This doesn't look perfect by any stretch of the imagination, but the randomness is hard to wrangle."
     }
   ]
 }

@@ -34,6 +34,7 @@ template = "micro/page.html"
       display: flex;
       flex-wrap: wrap;
 	  margin-bottom: 2px;
+	  align-items: center;
 
 	  & > span {
 	    margin-right: auto;
@@ -103,14 +104,29 @@ template = "micro/page.html"
 {%- endcomponent -%}
 {%- set badgedata = load_data(path="/static/micro/badges/badges.json") -%}
 
+## Link to here?
+Feel free to hotlink or download the badge statically.
+
+<center>
+<a href="/micro">
+<img src="/micro/badges/88x31/microworks.gif">
+</a>
+</center><p><code>
+&lt;a href="https://theokrueger.dev/micro"&gt;&lt;img src="https://theokrueger.dev/micro/badges/88x31/microworks.gif"&gt;&lt;/a&gt;
+</code></p>
+
+## Listing
 A complete listing of every badge/button/stamp/whatever featured on this site.
-All images are GIFs generally limited to a 256 color pallette, and are to the best of my knowledge free to use.
-## 80x15
+All images are GIFs generally limited to a 256 color pallette, and are to the best of my knowledge free to use or otherwise fall under fair use.
+
+### 80x15
 {{ <micro.badges_listing w='80' h='15' lst={badgedata['80x15']} /> }}
 
-## 88x31
+### 88x31
 {{ <micro.badges_listing w='88' h='31' lst={badgedata['88x31']} /> }}
 
-## 80x80
+### 80x80
 {{ <micro.badges_listing w='80' h='80' lst={badgedata['80x80']} /> }}
+
+
 

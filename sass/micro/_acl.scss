@@ -145,7 +145,7 @@ $cs-nav-height: 60px;
 }
 
 #acl-body {
-  overflow: auto;
+  overflow: visible;
   background-color: $cs-fg;
   border-radius: 0 0 $cs-border-radius $cs-border-radius;
 }
@@ -346,6 +346,11 @@ $cs-nav-height: 60px;
     font-size: 20px;
     padding: 2px;
     margin: 2px;
+    transition: all 0.2s ease;
+    &:hover {
+      z-index: 10;
+      transform: scale(110%);
+    }
   }
 }
 

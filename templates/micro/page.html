@@ -1,10 +1,10 @@
 {% extends "root.html" %}
+{% block head %}
+{{ <head.micro /> }}
+{% endblock head %}
+
+
 {% block body %}
-{{ <body.micro /> }}
-{% endblock %}
-
-
-{% block content %}
 <div id="acl">
   {{ <micro.nav /> }}
   <!-- body -->
@@ -32,4 +32,4 @@
   </div>
   {{ <micro.footer badges={false} /> }}
 </div>
-{% endblock content %}
+{% endblock body %}

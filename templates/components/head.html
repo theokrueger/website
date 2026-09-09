@@ -1,14 +1,14 @@
-{% component body.rss_link(base) %}
+{% component head.rss_link(base) %}
   <link rel="alternate" type="application/atom+xml" href="/{{ base }}/atom.xml" />
   <link rel="alternate" type="application/rss+xml" href="/{{ base }}/rss.xml" />
-{% endcomponent body.rss_link %}
+{% endcomponent head.rss_link %}
 
-{# this body shared by /posts/ and index and 404. main theme for the site basically #}
-{% component body.base(slideshow=false) %}
+{# this head shared by /posts/ and index and 404. main theme for the site basically #}
+{% component head.base(slideshow=false) %}
   <script type="module" src="/script.js" defer></script>
   <link rel="stylesheet" type="text/css" href="/style.css" />
 
-  {{ <body.rss_link base="posts" /> }}
+  {{ <head.rss_link base="posts" /> }}
 
   <!-- external modules -->
   {% if slideshow %}
@@ -17,14 +17,14 @@
 
   <script src="/flickity/flickity.pkgd.min.js"></script>
   {% endif %}
-{% endcomponent body.base %}
+{% endcomponent head.base %}
 
 
-{% component body.micro() %}
-  {# this body exclusive to /micro/ #}
+{% component head.micro() %}
+  {# this head exclusive to /micro/ #}
 
   <script type="module" src="/micro/mod.js" defer></script>
   <link rel="stylesheet" type="text/css" href="/micro/index.css" />
 
-  {{ <body.rss_link base="micro/item" />}}
-{% endcomponent body.micro %}
+  {{ <head.rss_link base="micro/item" />}}
+{% endcomponent head.micro %}

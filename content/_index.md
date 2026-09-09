@@ -1,13 +1,14 @@
 +++
 title = "theokrueger.dev"
 description = "the mainsite"
-template = "index.html"
-page_template = "posts/post.html"
+template = "mainsite.html"
+page_template = "mainsite.html"
 
 [extra]
 subsubtitle = ""
 flavor_id = "generic-flavor"
 footer_name = "index"
+no_section_listing = true
 +++
 
 ## \* directory

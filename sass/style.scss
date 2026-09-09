@@ -88,6 +88,11 @@ a,
   border-style: s.$border-style;
 }
 
+.external-link::after {
+    content: url('img/extlink.svg');
+    opacity: 50%;
+}
+
 a:hover,
 .hoverable:hover {
   border-color: s.$tint-color !important;

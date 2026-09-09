@@ -2,11 +2,13 @@
 title = "Tesla K80 for Local Inference"
 description = "The less interesting part."
 date = 2026-08-26
-extra.flavor_id = ""
-extra.show_toc = true
-extra.footer_name = "gk210"
-template = "posts/post.html"
-extra.extern.slideshow = false
+template = "mainsite.html"
+
+[extra]
+flavor_id = ""
+show_toc = true
+footer_name = "gk210"
+extern.slideshow = false
 +++
 # \* Info
 This is the companion piece of *["Private AI for U$70"](@/posts/gk210/index.md)*.

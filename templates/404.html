@@ -1,16 +1,18 @@
 {% extends "root.html" %}
 
-{% block body %}
-{{ <body.base /> }}
-{% endblock body %}
+{% block head %}
+{{ <head.base /> }}
+{% endblock head %}
 
-{% block content %}
+{% block body %}
 
 <div id="content">
+  {% block content %}
   <h1>404 not found</h1>
   <p>you are looking for something that does not exist.</p>
   <p><a href="/">take me home!</a></p>
+  {% endblock content %}
 </div>
 
 {{ <footer name="nav" /> }}
-{% endblock content %}
+{% endblock body %}

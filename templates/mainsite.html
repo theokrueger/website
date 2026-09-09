@@ -1,0 +1,62 @@
+{% extends "root.html" %}
+
+{% block head %}
+{{ <head.base slideshow={section?.extra?.extern?.slideshow or page?.extra?.extern?.slideshow or false}/> }}
+{% endblock head %}
+{% block body %}
+
+{% set dateline = page?.date or section?.date %}
+{% if page?.updated or section?.update %}
+  {% set dateline = dateline ~ "<br/><em class='small-font'> Upd. " ~ page?.updated or section?.updated ~ "</em>" %}
+{% endif %}
+
+{{ <title
+  title={page?.title or section?.title}
+  subtitle={page?.description or section?.description}
+  subsubtitle={dateline}
+  flavor_id={page?.extra?.flavor_id or section?.extra?.flavor_id}
+  show_rss={page?.extra?.show_rss or section?.extra?.show_rss} /> }}
+
+<div id="content">
+  {% if page?.extra?.show_toc or section?.extra?.show_toc %}
+    {% set toc = section?.toc or page?.toc or false %}
+    {% if toc %}
+      <h1>* Contents</h1>
+      <ul class="normal-font" style="list-style-type: none;margin: unset;">
+        {% for h1 in toc %}
+        <li>
+          <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+          {% if h1.children %}
+          <ul class="normal-font" style="list-style-type: none;">
+            {% for h2 in h1.children %}
+            <li>
+              <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      {{ throw(message="TOC defined but not available!") }}
+    {% endif %}
+  {% endif %}
+
+  {% if section and not section.extra.no_section_listing %}
+    {% for year, posts in section.pages | sort(attribute="year") | group_by(attribute="year") %}
+    <h2>* {{ year }}</h2>
+    {% for post in posts | sort(attribute="date") | reverse %}
+      <p>
+        <a href="{{ post.permalink }}">{{ post.title }}</a>
+        {% if post.description %} - {{ post.description }}{% endif %}
+      </p>
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
+
+  {% block content %}{{ (page?.content or section?.content) | safe }}{% endblock content %}
+</div>
+
+{{ <footer name={page?.extra?.footer_name or section?.extra?.footer_name} /> }}
+{% endblock body %}

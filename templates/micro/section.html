@@ -1,10 +1,10 @@
 {% extends "root.html" %}
 
-{% block body %}
-{{ <body.micro /> }}
-{% endblock %}
+{% block head %}
+{{ <head.micro /> }}
+{% endblock head %}
 
-{% block content %}
+{% block body %}
 {% set RSS_LINK = "/micro/item/atom.xml" %}
 {% set micro_items_section = get_section(path="micro/item/_index.md") %}
 <!-- site version accessible on mobile and noscript -->
@@ -120,4 +120,4 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
   <!-- end body -->
   {{ <micro.footer /> }}
 </div>
-{% endblock content %}
+{% endblock body %}

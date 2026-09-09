@@ -1,0 +1,16 @@
+{% extends "mainsite.html" %}
+
+{% block content %}
+<h2>* directory</h2>
+
+{% set sec = get_section(path="posts/_index.md") %}
+{% set sp = sec.pages | sort(attribute="year") | reverse | group_by(attribute="year") %}
+{% set year = sp | keys | first %}
+{% set latest_post = sp[year] | sort(attribute="date") | reverse | first %}
+
+{% set latest_url = latest_post.permalink %}
+{% set tagline = latest_post.extra.tagline or latest_post.description %}
+
+<a href="{{ latest_url }}">latest post</a> - {{ tagline }}
+{{ section.content | safe }}
+{% endblock content %}

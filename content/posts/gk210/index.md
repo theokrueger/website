@@ -7,6 +7,7 @@ date = 2026-08-26
 flavor_id = ""
 footer_name = "gk210"
 extern.slideshow = true
+tagline = "Competent hardware with 24GiB of VRAM for two-figures..?"
 +++
 
 # \* An Impulsive Purchase

@@ -1,18 +1,15 @@
 +++
 title = "theokrueger.dev"
 description = "the mainsite"
-template = "mainsite.html"
+template = "index.html"
 page_template = "mainsite.html"
 
 [extra]
 subsubtitle = ""
 flavor_id = "generic-flavor"
 footer_name = "index"
-no_section_listing = true
 +++
-
-## \* directory
-[latest post](@/posts/gk210/index.md) - competent(?) hardware with 24GiB of VRAM for $70
+<!-- * directory and first post are included in template -->
 
 - [all posts](@/posts/_index.md) - where you should go
 - [portfolio](@/portfolio.md) - public works

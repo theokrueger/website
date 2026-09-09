@@ -10,4 +10,5 @@ subsubtitle = ""
 flavor_id = "generic-flavor"
 footer_name = "posts"
 show_rss = true
+show_section_listing = true
 +++

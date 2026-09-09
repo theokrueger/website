@@ -1,7 +1,7 @@
 +++
 title = "Badges, Buttons, &amp; Stamps"
 description = "Every asset featured on this website and where I found it."
-template = "micro/page.html"
+extra.exclude_author = true
 +++
 <style>
 @keyframes idkman {

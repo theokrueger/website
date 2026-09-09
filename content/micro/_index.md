@@ -1,7 +1,8 @@
 +++
 title = "Micro"
 description = "my smaller thoughts on a more personal site"
-template = "micro/section.html"
+template = "micro/index.html"
+page_template = "micro/micro.html"
 +++
 ## Me
 I write software and mess with electronics.

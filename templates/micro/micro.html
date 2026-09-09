@@ -1,0 +1,59 @@
+{% extends "root.html" %}
+{% block head %}
+{{ <head.micro /> }}
+{% endblock head %}
+
+
+{% block body %}
+<div id="acl">
+  {% block content %}
+  {{ <micro.nav/> }}
+  <!-- body -->
+  <div id="acl-body">
+    {% set t = (page?.title or section?.title) | safe | split(pat=" ") %}
+    <h1 id="acl-page-title">
+      {% for w in t %}
+        {% if loop.first %}
+          <span class="acl-dark-text">{{ w | safe }}</span>
+        {% else %}
+          {{ w | safe }}
+        {% endif %}
+      {% endfor %}
+    </h1>
+
+    <div id="acl-page-description" style="">
+      {{ (section?.description| safe) or (page?.description | safe) }}
+    </div>
+
+    {% if page and not page.extra.exclude_author %}
+    <p id="acl-page-link" style="">
+      <a href="{{ page.permalink }}">{{ page.date }}</a> - {% if page.authors %}{{ page.authors | join(pat=", ") }} {% else %}{{ config.author }}{% endif %}
+    </p>
+    {% endif %}
+
+    <hr/>
+
+    <div id="acl-page-content">
+      {{ (section?.content | safe) or (page?.content | safe) }}
+      {% if section and section.extra.show_section_listing %}
+        {% for year, posts in section.pages | sort(attribute="year") | reverse | group_by(attribute="year") %}
+          <h2>
+  	    {{ year }}
+  	    <span class="acl-dark-text" style="float: right">{{ posts | length }}</span>
+  	  </h2>
+          {% for post in posts | sort(attribute="date") | reverse %}
+            <div style="padding: 0 1%;">
+  	      {{ post.date | date(format="%m.%d") }}:
+              <a href="{{ post.permalink }}">{{ post.title | safe }}</a>
+              {% if post.description %} - {{ post.description | safe }}{% endif %}
+  	    </div>
+          {% endfor %}
+        {% endfor %}
+      {% endif %}
+    </div>
+
+  </div>
+  {{ <micro.footer badges={(section and true) or false} /> }}
+  {% endblock content %}
+</div>
+{% endblock body %}

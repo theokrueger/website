@@ -33,15 +33,27 @@ $cs-nav-height: 60px;
   filter: contrast(110%) brightness(95%);
 }
 
+body {
+  color: $cs-text;
+  background-color: $cs-bg;
+}
+
 // classes
 .acl-dark-text {
   color: $cs-dark-text;
 }
 
-.acl-button:hover {
-  background-image: unset !important;
-  background-color: $cs-link-hover !important;
-  color: $cs-text !important;
+.acl-button {
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-image: unset !important;
+    background-color: $cs-link-hover !important;
+    color: $cs-text !important;
+
+    z-index: 10;
+    transform: scale(110%);
+  }
 
   > a {
     color: $cs-text !important;
@@ -52,10 +64,7 @@ $cs-nav-height: 60px;
 #acl {
   font-family: $font-family;
   font-size: 13px;
-  color: $cs-text;
-  background-color: $cs-bg;
   cursor: url("/micro/acl/cursor-normal.gif"), auto;
-  min-height: calc(100vh - 16px);
   padding-bottom: 16px;
 
   ::selection {
@@ -346,11 +355,6 @@ $cs-nav-height: 60px;
     font-size: 20px;
     padding: 2px;
     margin: 2px;
-    transition: all 0.2s ease;
-    &:hover {
-      z-index: 10;
-      transform: scale(110%);
-    }
   }
 }
 

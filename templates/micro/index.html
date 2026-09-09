@@ -40,7 +40,7 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
 	<div id="acl-extra-level">
 	  <span>Micros:</span>
 	  <a href="#micros"><em>
-	    {{ micro_items_section.pages | length }}
+	    {{- micro_items_section.pages | length -}}
 	  </em></a>
 	</div>
 	<div id="acl-extra-badge">
@@ -116,4 +116,5 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
   <!-- end body -->
   {{ <micro.footer /> }}
 </div>
+<!-- TODO other version -->
 {% endblock content %}

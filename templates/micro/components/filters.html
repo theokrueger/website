@@ -1,14 +1,64 @@
-{% component micro.filter.limit256colors() %}
+{% component micro.filter.overlay(id) -%}
 <style>
-.filterlimit256colors {
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 99999999;
+.{{id}} {
+  position:fixed;
+  display: block;
+  padding: 0;
+  margin: 0;
+  inset:0;
+  z-index:99999;
+  pointer-events:none;
+  background:rgba(0,0,0,0.001);
+  backdrop-filter:url(#{{id}});
 }
 </style>
-<div class="filterlimit256colors"></div>
-{% endcomponent %}
+<div class="{{id}}"></div>
+{%- endcomponent -%}
+
+{%- component micro.filter.limit_8bpp() -%}
+{%- set id = "overlay-pallette-9bpp" -%}
+<svg viewBox="0 0 1 1" style="position:fixed;inset:0;width:1px;height:1px;overflow:hidden">
+<filter id="{{id}}"
+color-interpolation-filters="sRGB">
+  <!-- RRRGGGBB -->
+  <feComponentTransfer in="SourceGraphic">
+    <feFuncR type="discrete" tableValues="0 0.142857 0.285714 0.428571 0.571428 0.714285 0.857142 1"/>
+    <feFuncG type="discrete" tableValues="0 0.142857 0.285714 0.428571 0.571428 0.714285 0.857142 1"/>
+    <feFuncB type="discrete" tableValues="0 0.333333 0.666666 1"/>
+  </feComponentTransfer>
+</filter>
+</svg>
+{{- <micro.filter.overlay id={id} /> -}}
+{%- endcomponent -%}
+
+{%- component micro.filter.limit_xterm() -%}
+{%- set id = "overlay-pallette-xterm" -%}
+<svg viewBox="0 0 1 1" style="position:fixed;inset:0;width:1px;height:1px;overflow:hidden">
+<filter id="{{id}}"
+color-interpolation-filters="sRGB">
+  <!-- 0, 95, 135, 175, 215, 255 -->
+  <feComponentTransfer in="SourceGraphic">
+    <feFuncR type="discrete" tableValues="0 0.372549 0.529412 0.686275 0.843137 1"/>
+    <feFuncG type="discrete" tableValues="0 0.372549 0.529412 0.686275 0.843137 1"/>
+    <feFuncB type="discrete" tableValues="0 0.372549 0.529412 0.686275 0.843137 1"/>
+  </feComponentTransfer>
+</filter>
+</svg>
+{{- <micro.filter.overlay id={id} /> -}}
+{%- endcomponent -%}
+
+{%- component micro.filter.limit_9bpp() -%}
+{%- set id = "overlay-pallette-9bpp" -%}
+<svg viewBox="0 0 1 1" style="position:fixed;inset:0;width:1px;height:1px;overflow:hidden">
+<filter id="{{id}}"
+color-interpolation-filters="sRGB">
+  <!-- RRRGGGBBB -->
+  <feComponentTransfer in="SourceGraphic">
+    <feFuncR type="discrete" tableValues="0 0.142857 0.285714 0.428571 0.571428 0.714285 0.857142 1"/>
+    <feFuncG type="discrete" tableValues="0 0.142857 0.285714 0.428571 0.571428 0.714285 0.857142 1"/>
+    <feFuncB type="discrete" tableValues="0 0.142857 0.285714 0.428571 0.571428 0.714285 0.857142 1"/>
+  </feComponentTransfer>
+</filter>
+</svg>
+{{- <micro.filter.overlay id={id} /> -}}
+{%- endcomponent -%}

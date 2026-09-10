@@ -60,6 +60,23 @@ body {
   }
 }
 
+.zoomable-parent {
+  z-index: 20;
+  position: relative;
+}
+
+@each $size in [200, 150, 120] {
+  .zoomable-#{$size} {
+    transition:
+      scale 0.2s ease,
+      transform 0.2s ease,
+      filter 0.2s ease;
+    &:hover {
+      scale: $size/100;
+    }
+  }
+}
+
 // desktop
 #acl {
   font-family: $font-family;
@@ -140,7 +157,7 @@ body {
   position: sticky;
   top: 0;
   overflow-x: auto;
-  z-index: 2;
+  z-index: 100;
   display: flex;
   align-items: center;
   padding-left: calc((100% - 768px) / 2 + 16px);

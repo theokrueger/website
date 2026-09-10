@@ -26,8 +26,10 @@ extra.exclude_author = true
     display: grid;
 	gap: 8px;
 
-	& > img {
+	& > span {
       align-self: center;
+      background-color: #abcdef11;
+      border-radius: 8px;
 	}
 
     & > div > flex {
@@ -46,7 +48,7 @@ extra.exclude_author = true
   }
 
   & > hr {
-	opacity: 25%;
+    border-color: #bfba5066;
   }
 }
 </style>
@@ -68,8 +70,16 @@ extra.exclude_author = true
   <style>
     .{{ classname }} {
       & > div {
-		grid-template-columns: {{w}}px auto;
-	    & > img {
+		{% if w > h %}{% set m = w %}{% else %}{% set m = h %}{% endif %}
+		grid-template-columns: {{m+8}}px auto;
+	    & > span {
+          width:{{m + 8}}px;
+          height:{{m + 8}}px;
+		}
+
+		& > span > img {
+		  margin-top: {{(m-h+8)/2}};
+		  margin-left: {{(m-w+8)/2}};
           width:{{w}}px;
           height:{{h}}px;
 		}
@@ -79,7 +89,7 @@ extra.exclude_author = true
   <div class="badge-listings {{ classname }}">
   {%- for b in lst -%}
     <div>
-	  <img src="/micro/badges/{{w}}x{{h}}/{{b.img}}" loading="lazy" />
+	  <span><img src="/micro/badges/{{w}}x{{h}}/{{b.img}}" class="zoomable-200" loading="lazy" /></span>
 	  <div>
 	    <flex>
 		  <span>
@@ -117,13 +127,12 @@ A complete listing of every badge/button/stamp/whatever featured on this site.
 All images are GIFs generally limited to a 256 color pallette, and are to the best of my knowledge free to use or otherwise fall under fair use.
 
 ### 80x15
-{{ <micro.badges_listing w='80' h='15' lst={badgedata['80x15']} /> }}
+{{ <micro.badges_listing w={80} h={15} lst={badgedata['80x15']} /> }}
 
 ### 88x31
-{{ <micro.badges_listing w='88' h='31' lst={badgedata['88x31']} /> }}
+{{ <micro.badges_listing w={88} h={31} lst={badgedata['88x31']} /> }}
 
 ### 80x80
-{{ <micro.badges_listing w='80' h='80' lst={badgedata['80x80']} /> }}
+{{ <micro.badges_listing w={80} h={80} lst={badgedata['80x80']} /> }}
 
-
-
+#

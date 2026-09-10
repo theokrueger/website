@@ -7,10 +7,9 @@
 <div id="acl">
   {% <micro.nav> %}
     <noscript>
-      <pre style="padding-left: 4px;">This page is best w/ JS!
-	<b>NO</b> clientside tracking.
-Read the <a href="{{ config.extra.source }}">source code</a>.
-      </pre>
+      <pre style="margin: 0 0 0 4px;">This page is best w/ JS!
+<b>NO</b> clientside tracking.
+Read the <a href="{{ config.extra.source }}">source code</a>.</pre>
     </noscript>
     <!-- filled by js -->
     <pre id="acl-nav-message"></pre>
@@ -22,10 +21,11 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
       <!-- left aligned stuff -->
       <span id="acl-pfp-info-flex">
 	<!-- pfp -->
-	<span id="acl-pfp-container">
+	<span id="acl-pfp-container" class="zoomable-parent">
 	  <img
 	    id="acl-pfp-image"
 	    src="/micro/acl/pfp.gif"
+	    class="zoomable-120"
 	  />
 	</span>
 	<!-- name/bio -->
@@ -43,12 +43,12 @@ Read the <a href="{{ config.extra.source }}">source code</a>.
 	    {{- micro_items_section.pages | length -}}
 	  </em></a>
 	</div>
-	<div id="acl-extra-badge">
+	<div id="acl-extra-badge" class="zoomable-parent">
             <!-- default badge, gets replaced when JS enabled. -->
-	    <noscript>
-	      <img src="/micro/badges/80x80/icon.gif" />
+	    <noscript id="acl-extra-badge-img" class="zoomable-150">
+	      <img src="/micro/badges/80x80/icon.gif" loading="lazy"/>
 	    </noscript>
-	    <noscript>
+	    <noscript id="acl-extra-badge-text">
 	      <text>
 		<h4>Icon</h4>
 		<p>500 XP</p>

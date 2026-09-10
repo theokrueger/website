@@ -5,8 +5,8 @@
 
 
 {% block body %}
-<div id="acl">
-  {% block content %}
+{% block content %}
+  <div id="acl">
   {{ <micro.nav/> }}
   <!-- body -->
   <div id="acl-body">
@@ -54,6 +54,7 @@
 
   </div>
   {{ <micro.footer badges={(section and true) or false} /> }}
-  {% endblock content %}
-</div>
+  </div>
+{% endblock content %}
+{{ <micro.filter.limit256colors /> }}
 {% endblock body %}

@@ -64,7 +64,7 @@ if (pathnameMatch("/micro")) {
 // zoom shinies :)
 [150, 120, 200].forEach((s) => {
   const es = document.getElementsByClassName(`zoomable-${s}`);
-  for (var i = 0; i < es.length; i++) {
+  for (let i = 0; i < es.length; i++) {
     const e = <HTMLElement>es[i]!;
     e.onmouseover = async () => {
       await sleep(250);
@@ -74,6 +74,7 @@ if (pathnameMatch("/micro")) {
     e.onmouseout = async () => {
       e.style.transition = "";
       e.style.transform = "";
+      e.style.filter = "";
       await sleep(250);
     };
     e.onmousemove = (ev: MouseEvent) => {
@@ -81,7 +82,7 @@ if (pathnameMatch("/micro")) {
       const rx = (ev.clientX - r.left) / r.width - 0.5,
         ry = (ev.clientY - r.top) / r.height - 0.5;
       e.style.transform = `rotate3d(${-1 * ry}, ${rx}, 0, 30deg)`;
-      e.style.filter = `drop-shadow(${-10 * ry}%, ${10 * rx}%, 100%, black)`;
+      e.style.filter = `drop-shadow(${-0.25 * rx * r.width}px ${-0.25 * ry * r.height}px ${Math.min(r.width, r.height) / 40}px #0009)`;
     };
   }
 });

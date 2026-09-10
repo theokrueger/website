@@ -3,6 +3,7 @@ title = "Badges, Buttons, &amp; Stamps"
 description = "Every asset featured on this website and where I found it."
 extra.exclude_author = true
 +++
+<!-- Rainbow animation taken verbatim from https://stackoverflow.com/questions/70005935/css-rainbow-gradient-loop-animation -->
 <style>
 @keyframes idkman {
   to {background-position:-200% 0}
@@ -13,7 +14,7 @@ extra.exclude_author = true
   background:
    linear-gradient(to right, rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%, rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%, rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%)
    0 0/200% 100%;
-  margin: 2px;
+  margin: 2px 4px 2px 0;
   padding: 2px;
   border-radius: 2px;
   animation: idkman 2s linear infinite;

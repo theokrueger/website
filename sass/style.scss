@@ -90,7 +90,7 @@ a,
 
 .external-link::after {
     content: url('img/extlink.svg');
-    opacity: 50%;
+    opacity: 0.5;
 }
 
 a:hover,

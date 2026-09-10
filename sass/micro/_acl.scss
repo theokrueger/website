@@ -50,7 +50,6 @@ body {
     background-image: unset !important;
     background-color: $cs-link-hover !important;
     color: $cs-text !important;
-
     z-index: 10;
     transform: scale(110%);
   }
@@ -71,8 +70,9 @@ body {
       scale 0.2s ease,
       transform 0.2s ease,
       filter 0.2s ease;
+
     &:hover {
-      scale: $size/100;
+      scale: $size / 100;
     }
   }
 }
@@ -178,7 +178,6 @@ body {
 
 #acl-badges {
   padding: 0;
-  image-rendering: pixelated;
 
   > span {
     display: flex;
@@ -320,7 +319,6 @@ body {
 
 #acl-extra-rss {
   > img {
-    image-rendering: pixelated;
     width: 16px;
     height: 16px;
   }

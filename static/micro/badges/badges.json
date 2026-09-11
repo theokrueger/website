@@ -115,10 +115,18 @@
     {
       "img": "gplv3.gif",
       "title": "GNU GPLv3",
-      "desc": "This site's license of choice",
+      "desc": "My go-to license",
       "source_url": "https://www.gnu.org/graphics/license-logos.html",
       "source": "Jose Obed for GNU",
       "commentary": "A pretty based license choice if you ask me. Not like scrapers (my true enemy) respect licensing in the first place!"
+    },
+    {
+      "img": "agplv3.gif",
+      "title": "GNU AGPLv3",
+      "desc": "This site's license of choice",
+      "source_url": "https://www.gnu.org/graphics/license-logos.html",
+      "source": "Jose Obed for GNU",
+      "commentary": "Messy stuff."
     },
     {
       "img": "gnu-linux.gif",

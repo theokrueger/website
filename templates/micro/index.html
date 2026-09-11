@@ -1,6 +1,7 @@
-{% extends "micro/micro.html" %} {% block content %} {% set RSS_LINK =
-"/micro/item/atom.xml" %} {% set micro_items_section =
-get_section(path="micro/item/_index.md") %}
+{% extends "micro/micro.html" %}
+{% block content %}
+{% set RSS_LINK = "/micro/item/atom.xml" %}
+{% set micro_items_section = get_section(path="micro/item/_index.md") %}
 <!-- site version accessible on mobile and noscript -->
 <div id="acl">
   {%
@@ -34,6 +35,10 @@ Read the <a href="{{ config.extra.source }}">source code</a>.</pre>
       </span>
       <!-- extra -->
       <span id="acl-extra">
+        <span id="award-spikey">
+          <img src="/micro/img/award_spikey.svg" />
+          <text id="award-spikey-text"><noscript>free</noscript></text>
+        </span>
         <div id="acl-extra-level">
           <span>Micros:</span>
           <a href="#micros"

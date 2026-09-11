@@ -1,8 +1,10 @@
 @use "sass:color";
 @use "../shared" as s;
+@use "../animations" as a;
 
 // fonts
 $font-family: motivasans, sans-serif;
+$silly-font-family: comicsans, 'Comic Sans MS', 'Comic Sans', 'Brush Script MT', cursive, sans-serif;
 
 // acl colors
 $cs-heading: #000;
@@ -247,6 +249,36 @@ body {
   > * {
     max-width: 224px;
   }
+}
+
+#award-spikey {
+    position: absolute;
+    z-index: 30;
+    margin-left: 165px;
+    margin-top: -25px;
+    pointer-events: none;
+
+    > img {
+        display: block;
+        width: 100px;
+        height: 100px;
+        animation: rotate-360 30s linear infinite;
+    }
+
+    text {
+        display: block;
+        width: 80px;
+        height: 80px;
+        position: relative;
+        text-align: center;
+        align-content: center;
+        top: -90px;
+        left: 10px;
+        font-family: $silly-font-family;
+        font-weight: 900;
+        font-size: 35px;
+        transform: rotate(23deg);
+    }
 }
 
 #acl-extra-level {

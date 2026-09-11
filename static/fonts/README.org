@@ -1,3 +1,6 @@
 * fonts
-- [[IBM Plex Mono][./ibmplexmono]] by IBM, licensed under [[./ibmplexmono/OFL.txt][OFL]]
-- [[Motiva Sans][./motivasans]] by Rodrigo Saiani, licensed for personal use.
+- [[IBM Plex Mono][./ibmplexmono/]] by IBM, licensed under [[./ibmplexmono/OFL.txt][OFL]].
+- [[Motiva Sans][./motivasans/]] by Rodrigo Saiani, licensed for personal use.
+- [[Climate Crisis][./climatecrisis/]] by Daniel Coull, Eino Korkala , under [[./climatecrisis/OFL.txt][OFL]].
+- [[TrueType Core Fonts][./truetype]] from Microsoft under their [[./truetype/LICENSE][EULA]]
+  - This is okay to woff2 because extraction=subsetting & its not a derivative work to compress (is lossless/reversible).

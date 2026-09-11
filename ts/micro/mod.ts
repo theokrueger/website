@@ -28,7 +28,7 @@ if (pathnameMatch("/micro")) {
 
   // badge replacement
   const badgeURL = "/micro/badges/badges.min.json";
-  fetch(badgeURL)
+  fetch(badgeURL, { cache: "force-cache" })
     .then((resp) => {
       if (!resp.ok) {
         throw new Error("Failed fetching badges " + resp.status);
@@ -56,6 +56,53 @@ if (pathnameMatch("/micro")) {
       "Sit loud.",
     ];
     document.getElementById("acl-nav-message")!.innerHTML = randomElem(flavors);
+  }
+
+  // award badge
+  const spikey = document.getElementById("award-spikey-text")!;
+  if (chancePercent(1)) {
+    spikey.innerHTML = randomElem([
+      "voted coolest site of 2026 award",
+      "graphic design is my passion",
+      "arsieaqnwsienwqeisn",
+    ]);
+  } else {
+    spikey.innerHTML = randomElem([
+      "free",
+      "free!",
+      ":)",
+      ":D",
+      "winner",
+      "you're\n\nwinner",
+      "coolest",
+      "the\n\nbest",
+      "the\n\nbestest",
+      "website",
+      "award!!",
+      "wow!",
+      "<3",
+      "website",
+      "bwaaaa",
+      "<1MB!",
+      "responsive\n\ndesign!",
+      "one of\n\nany",
+      "ethically\n\nsourced!",
+      "shiny",
+      "ababa",
+      "buggin",
+      "i'm with\n\nstupid\n\n<-",
+      "virus\n\nfree",
+      "RFC1149\n\ncompliant",
+      "y2k\n\ncompliant",
+      "#1 ",
+      "h ",
+      "halal",
+    ]);
+
+    const spikeyFontSize =
+      140 / Math.max(...spikey.innerHTML.split("\n\n").map((l) => l.length));
+    spikey.style.fontSize = `${spikeyFontSize}px`;
+    spikey.style.lineHeight = `${spikeyFontSize*4/5}px`;
   }
 }
 

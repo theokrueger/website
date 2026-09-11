@@ -33,6 +33,17 @@ $content-side-margin: 15vw;
   src: url("/fonts/motivasans/MotivaSansTest-Light.woff2");
 }
 
+// unused
+// @font-face {
+//     font-family: ClimateCrisis;
+//     src: url("/fonts/climatecrisis/ClimateCrisis-Regular-VariableFont_YEAR.woff2");
+// }
+
+@font-face {
+    font-family: ComicSans;
+    src: url("/fonts/truetype/Comic.woff2");
+}
+
 $sans-font-family: motivasans, sans-serif;
 $mono-font-family: ibmplexmono, monospace;
 $tiny-font: 0.382em;

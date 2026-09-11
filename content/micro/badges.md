@@ -121,11 +121,11 @@ Feel free to either hotlink or download the badge statically.
 <center style="max-width: 80%; margin: auto; background-color: #abcdef22; border-radius: 4px; padding-top: 4px;"><a href="/micro"><img src="/micro/badges/88x31/microworks.gif"></a>
 <code style="display: block;">&lt;a href="https://theokrueger.dev/micro"&gt;&lt;img src="https://theokrueger.dev/micro/badges/88x31/microworks.gif"&gt;&lt;/a&gt;</code><p></p></center>
 
-GIF format, 256 color, animated.
+GIF format, animated.
 
 ## Listing
 A complete listing of every badge/button/stamp/whatever featured on this site.
-All images are GIFs generally limited to a 256 color pallette, and are to the best of my knowledge free to use or otherwise fall under fair use.
+All images are GIFs generally limited to a 12BPP pallette, and are to the best of my knowledge free to use or otherwise fall under fair use.
 
 ### 80x15
 {{ <micro.badges_listing w={80} h={15} lst={badgedata['80x15']} /> }}

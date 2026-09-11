@@ -1,114 +1,119 @@
-{% extends "micro/micro.html" %}
-
-{% block content %}
-{% set RSS_LINK = "/micro/item/atom.xml" %}
-{% set micro_items_section = get_section(path="micro/item/_index.md") %}
+{% extends "micro/micro.html" %} {% block content %} {% set RSS_LINK =
+"/micro/item/atom.xml" %} {% set micro_items_section =
+get_section(path="micro/item/_index.md") %}
 <!-- site version accessible on mobile and noscript -->
 <div id="acl">
-  {% <micro.nav> %}
+  {%
+  <micro.nav>
+    %}
     <noscript>
-      <pre style="margin: 0 0 0 4px;">This page is best w/ JS!
+      <pre style="margin: 0 0 0 4px">This page is best w/ JS!
 <b>NO</b> clientside tracking.
 Read the <a href="{{ config.extra.source }}">source code</a>.</pre>
     </noscript>
     <!-- filled by js -->
     <pre id="acl-nav-message"></pre>
-  {% </micro.nav> %}
+    {%
+  </micro.nav>
+  %}
   <!-- profile -->
   <div id="acl-body">
     <!-- header -->
     <span id="acl-profile-header">
       <!-- left aligned stuff -->
       <span id="acl-pfp-info-flex">
-	<!-- pfp -->
-	<span id="acl-pfp-container" class="zoomable-parent">
-	  <img
-	    id="acl-pfp-image"
-	    src="/micro/acl/pfp.gif"
-	    class="zoomable-120"
-	  />
-	</span>
-	<!-- name/bio -->
-	<span id="acl-info">
-	  <span id="acl-info-username">theokrueger</span>
-	  <p id="acl-info-bio">button box enthusiast
-	  </p>
-	</span>
-      </span
+        <!-- pfp -->
+        <span id="acl-pfp-container">
+          <img id="acl-pfp-image" src="/micro/acl/pfp.gif" />
+        </span>
+        <!-- name/bio -->
+        <span id="acl-info">
+          <span id="acl-info-username">theokrueger</span>
+          <p id="acl-info-bio">button box enthusiast</p>
+        </span>
+      </span>
       <!-- extra -->
       <span id="acl-extra">
-	<div id="acl-extra-level">
-	  <span>Micros:</span>
-	  <a href="#micros"><em>
-	    {{- micro_items_section.pages | length -}}
-	  </em></a>
-	</div>
-	<div id="acl-extra-badge" class="zoomable-parent">
-            <!-- default badge, gets replaced when JS enabled. -->
-	    <noscript id="acl-extra-badge-img" class="zoomable-150">
-	      <img src="/micro/badges/80x80/icon.gif" loading="lazy"/>
-	    </noscript>
-	    <noscript id="acl-extra-badge-text">
-	      <text>
-		<h4>Icon</h4>
-		<p>500 XP</p>
-	      </text>
-	    </noscript>
-	</div>
-	<span id="acl-extra-buttons">
-	  <a class="acl-button" href="https://theokrueger.atabook.org/">
-	    Guestbook↗
-	  </a>
-	  <a class="acl-button" id="acl-extra-rss" href="{{ RSS_LINK }}">
-	    Feed
-	    <img src="/micro/acl/rss.gif" alt="RSS Button" style="padding-left: 4px;"/>
-	  </a>
-	</span>
-
+        <div id="acl-extra-level">
+          <span>Micros:</span>
+          <a href="#micros"
+            ><em> {{- micro_items_section.pages | length -}} </em></a
+          >
+        </div>
+        <div id="acl-extra-badge" class="zoomable-parent">
+          <!-- default badge, gets replaced when JS enabled. -->
+          <noscript id="acl-extra-badge-img" class="zoomable-150">
+            <img src="/micro/badges/80x80/icon.gif" loading="lazy" />
+          </noscript>
+          <noscript id="acl-extra-badge-text">
+            <text>
+              <h4>Icon</h4>
+              <p>500 XP</p>
+            </text>
+          </noscript>
+        </div>
+        <span id="acl-extra-buttons">
+          <a class="acl-button" href="https://theokrueger.atabook.org/">
+            Guestbook↗
+          </a>
+          <a class="acl-button" id="acl-extra-rss" href="{{ RSS_LINK }}">
+            Feed
+            <img
+              src="/micro/acl/rss.gif"
+              alt="RSS Button"
+              style="padding-left: 4px"
+            />
+          </a>
+        </span>
       </span>
-
     </span>
     <!-- body -->
     <span id="acl-profile-body">
       <!-- sidebar -->
       <div id="acl-profile-sidebar">
-	<!-- status -->
-	<div id="acl-profile-sidebar-status">
-	  <text>Last Seen: <em class="acl-dark-text">{{ now() | date(format="%F") }}</em></text>
-	</div>
-	<!-- links -->
-	<div id="acl-profile-sidebar-links">
-	  <h2>Links</h2>
-	  <a class="acl-button" href="/">Main Site</a>
-	  <a class="acl-button" href="/micro/item">Micro Archive</a>
-	  <a class="acl-button" href="/card">1kB Card</a>
-	  <a class="acl-button" href="/micro/badges">Badges &amp; Stamps</a>
-	  <!-- <a class="acl-button" href="{{ RSS_LINK }}">RSS/Atom</a> -->
-	  <a class="acl-button" href="/portfolio">Portfolio</a>
-	  <a class="acl-button" href="{{ config.extra.source }}">Source Code</a>
-	  <!-- Webrings -->
-	  <!-- Shrines -->
-	</div>
+        <!-- status -->
+        <div id="acl-profile-sidebar-status">
+          <text
+            >Last Seen:
+            <em class="acl-dark-text">{{ now() | date(format="%F") }}</em></text
+          >
+        </div>
+        <!-- links -->
+        <div id="acl-profile-sidebar-links">
+          <h2>Links</h2>
+          <a class="acl-button" href="/">Main Site</a>
+          <a class="acl-button" href="/micro/item">Micro Archive</a>
+          <a class="acl-button" href="/card">1kB Card</a>
+          <a class="acl-button" href="/micro/badges">Badges &amp; Stamps</a>
+          <!-- <a class="acl-button" href="{{ RSS_LINK }}">RSS/Atom</a> -->
+          <a class="acl-button" href="/portfolio">Portfolio</a>
+          <a class="acl-button" href="{{ config.extra.source }}">Source Code</a>
+          <!-- Webrings -->
+          <!-- Shrines -->
+        </div>
       </div>
       <!-- end sidebar -->
       <!-- profile content -->
       <div id="acl-profile-content">
-	{{ section.content | safe }}
+        {{ section.content | safe }}
 
-	<h2 id="micros">Micros</h2>
-	<span id="acl-all-micros">
-        {% for year, posts in micro_items_section.pages | sort(attribute="year") | reverse | group_by(attribute="year") %}
-	  <details {% if loop.first %}open{% endif %}>
+        <h2 id="micros">Micros</h2>
+        <span id="acl-all-micros">
+          {% for year, posts in micro_items_section.pages |
+          sort(attribute="year") | reverse | group_by(attribute="year") %}
+          <details {% if loop.first %}open{% endif %}>
             <summary>{{ year }}</summary>
             {% for post in posts | sort(attribute="date") | reverse %}
             <p>
-	      {{ post.date | date(format="%m.%d") }}:
+              {{ post.date | date(format="%m.%d") }}:
               <a href="{{ post.permalink }}">{{ post.title | safe }}</a>
-              {% if post.description %} - {{ post.description | safe }}{% endif %}</p>
+              {% if post.description %} - {{ post.description | safe }}{% endif
+              %}
+            </p>
             {% endfor %}
           </details>
-	  {% endfor %}
-	</span>
+          {% endfor %}
+        </span>
       </div>
     </span>
     <!-- end profile content -->

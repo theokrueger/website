@@ -109,8 +109,14 @@
       "img": "ilikecomputer.gif",
       "title": "ILIKECOMPUTER",
       "source_url": "https://suitservice.neocities.org/",
-      "source": "suitservice &amp; me",
+      "source": "suitservice",
       "commentary": "The original is out there somewhere, but I instead cleaned up a JPEG version found elsewhere."
+    },
+    {
+      "img": "ihatecomputer.gif",
+      "title": "IHATECOMPUTER",
+      "source": "me",
+      "commentary": "True."
     },
     {
       "img": "gplv3.gif",
@@ -118,7 +124,7 @@
       "desc": "My go-to license",
       "source_url": "https://www.gnu.org/graphics/license-logos.html",
       "source": "Jose Obed for GNU",
-      "commentary": "A pretty based license choice if you ask me. Not like scrapers (my true enemy) respect licensing in the first place!"
+      "commentary": "Based license choice."
     },
     {
       "img": "agplv3.gif",
@@ -143,6 +149,14 @@
       "desc": "For external linking",
       "source": "me",
       "commentary": "This doesn't look perfect by any stretch of the imagination, but the randomness is hard to wrangle."
+    },
+    {
+      "img": "c0flag.gif",
+      "title": "DVD Decryption Key",
+      "desc": "",
+      "source_url": "https://seirdy.one/meta/badges/",
+      "source": "seirdy.one",
+      "commentary": "09 F9 11 02 9D 74 E3 5B D8 41 56 C5 63 56 88 C0"
     }
   ]
 }

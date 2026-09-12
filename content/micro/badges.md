@@ -127,13 +127,17 @@ GIF format, animated.
 A complete listing of every badge/button/stamp/whatever featured on this site.
 All images are GIFs generally limited to a 12BPP pallette, and are to the best of my knowledge free to use or otherwise fall under fair use.
 
-### 80x15
+### 80x15 (Badges)
 {{ <micro.badges_listing w={80} h={15} lst={badgedata['80x15']} /> }}
 
-### 88x31
+### 88x31 (Buttons)
 {{ <micro.badges_listing w={88} h={31} lst={badgedata['88x31']} /> }}
 
-### 80x80
-{{ <micro.badges_listing w={80} h={80} lst={badgedata['80x80']} /> }}
+### 99x56 (Stamps)
+{{ <micro.badges_listing w={99} h={56} lst={badgedata['99x56']} /> }}
 
-#
+### 150x20 (Blinkies)
+None so far.
+
+### 80x80 (Non-defacto)
+{{ <micro.badges_listing w={80} h={80} lst={badgedata['80x80']} /> }}

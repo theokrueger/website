@@ -97,7 +97,16 @@ Read the <a href="{{ config.extra.source }}">source code</a>.</pre>
           <!-- Shrines -->
         </div>
       </div>
-      <!-- end sidebar -->
+      <!-- stamps -->
+      <div id="acl-profile-stamps">
+        <span>
+        {% for s in load_data(path="/static/micro/badges/badges.json")['99x56'] %}
+          {% for bwaawb___ in [1,2,3,4,5,6,78,9,0,0,24,234,234,23,423,423,4,2] %}
+          {{ <micro.badge type="99x56" name={ s.img | trim_end(pat=".gif") } zoomable={false} /> }}
+          {% endfor %}
+        {% endfor %}
+        </span>
+      </div>
       <!-- profile content -->
       <div id="acl-profile-content">
         {{ section.content | safe }}

@@ -4,7 +4,9 @@
 
 // fonts
 $font-family: motivasans, sans-serif;
-$silly-font-family: comicsans, 'Comic Sans MS', 'Comic Sans', 'Brush Script MT', cursive, sans-serif;
+$silly-font-family:
+  "Comic Sans MS", "Comic Sans", comicsans, "Brush Script MT", cursive,
+  sans-serif;
 
 // acl colors
 $cs-heading: #000;
@@ -252,33 +254,33 @@ body {
 }
 
 #award-spikey {
-    position: absolute;
-    z-index: 30;
-    margin-left: 165px;
-    margin-top: -25px;
-    pointer-events: none;
+  position: absolute;
+  z-index: 30;
+  margin-left: 165px;
+  margin-top: -25px;
+  pointer-events: none;
 
-    > img {
-        display: block;
-        width: 100px;
-        height: 100px;
-        animation: rotate-360 30s linear infinite;
-    }
+  > img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    animation: rotate-360 30s linear infinite;
+  }
 
-    text {
-        display: block;
-        width: 80px;
-        height: 80px;
-        position: relative;
-        text-align: center;
-        align-content: center;
-        top: -90px;
-        left: 10px;
-        font-family: $silly-font-family;
-        font-weight: 900;
-        font-size: 35px;
-        transform: rotate(23deg);
-    }
+  text {
+    display: block;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    text-align: center;
+    align-content: center;
+    top: -90px;
+    left: 10px;
+    font-family: $silly-font-family;
+    font-weight: 900;
+    font-size: 35px;
+    transform: rotate(23deg);
+  }
 }
 
 #acl-extra-level {
@@ -358,17 +360,17 @@ body {
 
 #acl-profile-body {
   display: flex;
-  flex-flow: row-reverse nowrap;
+  flex-flow: row-reverse wrap;
   align-items: start;
 }
 
-#acl-profile-sidebar {
-  $thismargin: 16px;
+$sidebar-margin: 16px;
 
+#acl-profile-sidebar {
   z-index: 1;
   flex-shrink: 0;
-  margin: 0 $thismargin $thismargin 8px;
-  width: $cs-col-width - $thismargin;
+  margin: 0 $sidebar-margin $sidebar-margin 8px;
+  width: $cs-col-width - $sidebar-margin;
   position: sticky;
   top: $cs-nav-height + 20px;
 
@@ -406,6 +408,8 @@ body {
 }
 
 #acl-profile-content {
+  width: 768px - $cs-col-width - $sidebar-margin / 2;
+
   > p {
     margin: 8px;
   }
@@ -413,6 +417,28 @@ body {
   > h2,
   > h3 {
     border-radius: 0 $cs-border-radius $cs-border-radius 0;
+  }
+}
+
+#acl-profile-stamps {
+  $p: 2;
+
+  height: 56px + 2 * $p;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+  flex-shrink: 0;
+  padding: $p;
+  order: -1;
+
+  > span {
+    animation: scroll-right 15s linear infinite;
+
+    > img {
+      z-index: 0;
+    }
   }
 }
 
@@ -449,6 +475,10 @@ body {
     > * {
       outline: 1px solid transparent;
     }
+  }
+
+  #acl-profile-content {
+    width: unset;
   }
 }
 
@@ -506,9 +536,14 @@ body {
   }
 
   #acl-profile-sidebar {
+    order: -2;
     position: unset;
     width: 98%;
     margin: 4px auto;
+  }
+
+  #acl-profile-content {
+    width: unset;
   }
 
   #acl-profile-sidebar-status {

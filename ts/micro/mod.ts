@@ -70,8 +70,8 @@ if (pathnameMatch("/micro")) {
     spikey.innerHTML = randomElem([
       "free",
       "free!",
-      ":)",
-      ":D",
+      ":) ",
+      ":D ",
       "winner",
       "you're\n\nwinner",
       "coolest",

@@ -111,7 +111,7 @@ Read the <a href="{{ config.extra.source }}">source code</a>.</pre>
         <span>
         {%- for s in data -%}
           {%- if not s.exclude -%}
-            {%- if loop.index >= (768/99+1) -%}
+            {%- if loop.index >= (768/102 + 2) -%}
               <img/>
             {%- else -%}
               {{ <micro.badge type="99x56" name={s.img | trim_end(pat=".gif") } zoomable={false} /> }}

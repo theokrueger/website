@@ -12,5 +12,6 @@ cat ./badges.json |
 	--indent 0 \
 	--sort-keys \
 	-- '.["80x80"] | map ({title, img, desc})' \
+    | tr -d '\n' \
     > "$f"
 cat "$f"

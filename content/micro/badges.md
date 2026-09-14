@@ -9,6 +9,16 @@ extra.exclude_author = true
   to {background-position:-200% 0}
 }
 
+#badge-wall {
+  line-height: 0;
+  > img {
+    margin: 2px;
+  }
+  > summary {
+    line-height: 1em;
+  }
+}
+
 .animated-badge {
   text-shadow: 0 0 4px black;
   background:
@@ -89,7 +99,7 @@ extra.exclude_author = true
   </style>
   <div class="badge-listings {{ classname }}">
   {%- for b in lst -%}
-    <div>
+    <div id="{{b.img}}">
 	  <span><img src="/micro/badges/{{w}}x{{h}}/{{b.img}}" class="zoomable-200" loading="lazy" /></span>
 	  <div>
 	    <flex>
@@ -123,9 +133,22 @@ Feel free to either hotlink or download the badge statically.
 
 GIF format, animated.
 
+<details id="badge-wall">
+<summary><b>View as wall</b></summary>
+{% for sa in [[80,15],[88,31],[99,56],[80,80]] -%}
+  {%- set k = '' ~ sa[0] ~ 'x' ~ sa[1] -%}
+  {%- for b in badgedata[k] | sort(attribute="title") -%}
+    <a href="#{{b.img}}"><img src="/micro/badges/{{sa[0]}}x{{sa[1]}}/{{b.img}}" class="zoomable-200" loading="lazy" width="{{sa[0]}}" height="{{sa[1]}}"/></a>
+  {%- endfor -%}
+  <br/>
+{%- endfor %}
+</details>
+<p></p>
+
 ## Listing
 A complete listing of every badge/button/stamp/whatever featured on this site.
-All images are GIFs generally limited to a 12BPP pallette, and are to the best of my knowledge free to use or otherwise fall under fair use.
+All these GIFs are to the best of my knowledge free to use or otherwise fall under fair use.
+I find the original where I can, but I end up linking just to where I found it initially more often than not.
 
 ### 80x15 (Badges)
 {{ <micro.badges_listing w={80} h={15} lst={badgedata['80x15']} /> }}
@@ -136,8 +159,8 @@ All images are GIFs generally limited to a 12BPP pallette, and are to the best o
 ### 99x56 (Stamps)
 {{ <micro.badges_listing w={99} h={56} lst={badgedata['99x56']} /> }}
 
-### 150x20 (Blinkies)
-None so far.
+<!-- ### 150x20 (Blinkies) -->
+<!-- None so far. -->
 
 ### 80x80 (Non-defacto)
 {{ <micro.badges_listing w={80} h={80} lst={badgedata['80x80']} /> }}

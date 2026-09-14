@@ -8,6 +8,8 @@ export {
   randomIndex,
   randomElem,
   pathnameMatch,
+  Holidays,
+  getHoliday,
 };
 
 const sleep = (delay: number) =>
@@ -75,4 +77,48 @@ const keyNear = function (key: string, keymap: Keymap): string {
   j = clamp(j + dj, 0, km[i]!.length - 1);
 
   return isUppercase ? km[i]![j]!.toUpperCase() : km[i]![j]!.toLowerCase();
+};
+
+enum Holidays {
+  None, // celebrate every day!
+  Christmas,
+  ChristmasEve,
+  Halloween,
+  HalloweenEve,
+  NewYears,
+  NewYearsEve,
+  Valentines,
+  BabaIsYouRelease,
+  TeamFortress2Release,
+  MicroRelease,
+}
+
+// return today's holiday
+const getHoliday = function (): Holidays {
+  const d = new Date();
+  switch (`${d.getMonth()+1}/${d.getDate()}`) {
+    case "12/24":
+      return Holidays.ChristmasEve;
+    case "12/25":
+      return Holidays.Christmas;
+    case "10/31":
+      return Holidays.Halloween;
+    case "10/30":
+      return Holidays.HalloweenEve;
+    case "12/31":
+      return Holidays.NewYearsEve;
+    case "1/1":
+      return Holidays.NewYears;
+    case "2/14":
+      return Holidays.Valentines;
+    case "3/13":
+      return Holidays.BabaIsYouRelease;
+    case "10/10":
+      return Holidays.TeamFortress2Release;
+    case "8/9":
+      return Holidays.MicroRelease;
+
+    default:
+      return Holidays.None;
+  }
 };

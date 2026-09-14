@@ -153,7 +153,6 @@
     {
       "img": "c0flag.gif",
       "title": "DVD Decryption Key",
-      "desc": "",
       "source_url": "https://seirdy.one/meta/badges/",
       "source": "seirdy.one",
       "commentary": "09 F9 11 02 9D 74 E3 5B D8 41 56 C5 63 56 88 C0"
@@ -163,10 +162,96 @@
     {
       "img": "thog.gif",
       "title": "Thog don't care",
-      "desc": "",
       "source_url": "https://web.archive.org/web/20190111185714/https://answers.yahoo.com/question/index?qid=20061015073019AA0P58u",
       "source": "thog",
-      "commentary": "Why do chips get stale?? gross i just eat a cheeto and it was NASTY .... like all stale & crap. eww."
+      "commentary": "Why do chips get stale?? gross i just eat a cheeto and it was NASTY .... like all stale &amp; crap. eww."
+    },
+    {
+      "img": "milk.gif",
+      "title": "I &lt;3 Milk",
+      "source_url": "https://raining-starss.neocities.org/stampcollection",
+      "source": "Raining Starss",
+      "commentary": "What doesn't kill you makes you stronger"
+    },
+    {
+      "img": "isopod_hours.gif",
+      "title": "Real isopod hours",
+      "desc": "",
+      "source_url": "https://raining-starss.neocities.org/stampcollection",
+      "source": "Raining Starss",
+      "commentary": "It is currently real isopod hours"
+    },
+    {
+      "img": "isopod_heart.gif",
+      "title": "Isopod &lt;3",
+      "source_url": "https://raining-starss.neocities.org/stampcollection",
+      "source": "Raining Starss",
+      "commentary": "Dream figure."
+    },
+    {
+      "img": "dawg.gif",
+      "title": "Dawg",
+      "source_url": "https://raining-starss.neocities.org/stampcollection",
+      "source": "Raining Starss",
+      "commentary": "I got that dawg in me"
+    },
+    {
+      "img": "gleeble.gif",
+      "title": "Gleeble",
+      "source_url": "https://www.tumblr.com/staticstamps/793327397237932032/random-stamps-2",
+      "source": "staticstamps",
+      "commentary": "Unfortunately, he was immediately shot on first contact."
+    },
+    {
+      "img": "walter.gif",
+      "title": "Walter Clements",
+      "source_url": "https://twitter.com/PupperNelson/status/1046428179618045952",
+      "source": "PupperNelson",
+      "commentary": "i like fire trucks and moster trucks"
+    },
+    {
+      "img": "goose.gif",
+      "title": "Canadian Goose",
+      "source": "me",
+      "commentary": "You can't see the beautiful bokeh due to the downscale"
+    },
+    {
+      "img": "duck.gif",
+      "title": "Duck",
+      "source": "me",
+      "commentary": "A friendly duck"
+    },
+    {
+      "img": "yoshi.gif",
+      "title": "Yoshi",
+      "source": "me",
+      "commentary": ":_("
+    },
+    {
+      "img": "nellie.gif",
+      "title": "Nellie",
+      "source": "me",
+      "commentary": "Sleepy girl"
+    },
+    {
+      "img": "fred.gif",
+      "title": "Fred",
+      "source": "me",
+      "commentary": "World's slobberiest dog"
+    },
+    {
+      "img": "novideo.gif",
+      "title": "NOVIDEO",
+      "source": "unknown",
+      "commentary": "Truly unbearable driver stack",
+      "exclude": true
+    },
+    {
+      "img": "eating_sand.gif",
+      "title": "i love eating sand",
+      "source": "borozigaming",
+      "source_url": "https://tenor.com/view/borzoigaming-borzoi-sand-dog-meme-gif-7540556842493661710",
+      "commentary": "yummy"
     }
   ]
 }

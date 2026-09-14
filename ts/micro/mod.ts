@@ -1,4 +1,11 @@
-import { pathnameMatch, randomElem, chancePercent, sleep } from "../util.js";
+import {
+  pathnameMatch,
+  randomElem,
+  chancePercent,
+  sleep,
+  Holidays,
+  getHoliday,
+} from "../util.js";
 
 console.log("javascript enabled for this webpage");
 
@@ -60,23 +67,100 @@ if (pathnameMatch("/micro")) {
 
   // award badge
   const spikey = document.getElementById("award-spikey-text")!;
-  if (chancePercent(1)) {
+  const holiday = getHoliday();
+  let noResizeSpikeyText = false;
+
+  if (holiday !== Holidays.None) {
+    spikey.innerHTML = randomElem(
+      (() => {
+        switch (holiday!) {
+          case Holidays.Christmas:
+            return ["merry\nchristmas!"];
+          case Holidays.ChristmasEve:
+            return [
+              "coal\nfor\nyou",
+              "you're on\nthe naughty\nlist",
+              "don't\nforget\nmy\ncookies!",
+            ];
+          case Holidays.Halloween:
+            if (chancePercent(50)) {
+              return ["happy\nhalloween!"];
+            } // share rest w/ eve
+          case Holidays.HalloweenEve:
+            return ["spooooky", "haunting\nyou", "boo!", "RAAARGH"];
+          case Holidays.NewYears:
+            return [
+              "happy\nnew\nyear!",
+              `it's\nalready\n${new Date().getFullYear()}!`,
+              `${new Date().getFullYear()}\nedition!`,
+              `fresh for\n${new Date().getFullYear()}!`,
+            ];
+          case Holidays.NewYearsEve:
+            return [
+              "see you\nnext year!",
+              "last day\nof ${new Date().getFullYear()}!",
+            ];
+          case Holidays.Valentines:
+            return [
+              "she goes to\nanother\nschool",
+              "happy\nvalentines!",
+              "send me\nchocolate",
+              "<3",
+            ];
+          case Holidays.BabaIsYouRelease:
+            return [
+              "oruga\nis you",
+              "baba",
+              "ba\nba",
+              "st\nop",
+              "you\nis\nwin",
+            ];
+          case Holidays.TeamFortress2Release:
+            return [
+              "play\ntf2!",
+              "oruga\nfortress\ntwo",
+              "9 years in\ndevelopment",
+              "civilian\nmain",
+              "too many\nhours",
+            ];
+          case Holidays.MicroRelease:
+            return [
+              `${new Date().getFullYear() - 2026}\nyears\nold!`,
+              "since\n2026.08.09",
+              "est.\n2026",
+              "anniversary!",
+            ];
+
+          default:
+            return ["error!"];
+        }
+      })(),
+    );
+  } else if (chancePercent(1)) {
     spikey.innerHTML = randomElem([
-      "voted coolest site of 2026 award",
+      "voted coolest site of always award",
       "graphic design is my passion",
       "arsieaqnwsienwqeisn",
+      ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+        .map((c) => `<t style='color:${c};'>${c.charAt(0)}</t>`)
+        .join(""),
     ]);
+    spikey.style.fontSize = "20px";
+    noResizeSpikeyText = true;
   } else {
     spikey.innerHTML = randomElem([
+      // some of these are stolen from
+      // https://minecraft.wiki/w/Splash
+      // because i am not creative
       "free",
       "free!",
-      ":) ",
-      ":D ",
+      ":)",
+      ":D",
       "winner",
-      "you're\n\nwinner",
+      "you're\nwinner",
       "coolest",
-      "the\n\nbest",
-      "the\n\nbestest",
+      "the\nbest",
+      "the\nbestest",
       "website",
       "award!!",
       "wow!",
@@ -84,25 +168,70 @@ if (pathnameMatch("/micro")) {
       "website",
       "bwaaaa",
       "<1MB!",
-      "responsive\n\ndesign!",
-      "one of\n\nany",
-      "ethically\n\nsourced!",
+      "responsive\ndesign!",
+      "one of\nany",
+      "ethically\nsourced!",
       "shiny",
       "ababa",
       "buggin",
-      "i'm with\n\nstupid\n\n<-",
-      "virus\n\nfree",
-      "RFC1149\n\ncompliant",
-      "y2k\n\ncompliant",
-      "#1 ",
-      "h ",
+      "virus\nfree",
+      "RFC1149\ncompliant",
+      "y2k\ncompliant",
+      "#1",
+      "h",
       "halal",
+      "waow",
+      "swag",
+      "umazing!",
+      "*",
+      "test",
+      "noscript\ncompatible",
+      "404!",
+      "200\nOK",
+      "limited\nedition",
+      "it's a\nwebsite!",
+      "uses\nZola!",
+      "yaaaaay!",
+      "90%\nfunctional!",
+      "generally\nacceptable!",
+      "no\nmsg!",
+      "over\n256\ncolors!",
+      "[dated\nreference]",
+      "..!",
+      "terrifying!",
+      "zzzzzz",
+      "free\nram",
+      "TODO",
+      "ඞ",
+      "uoh", // 😭
+      "urgh", // this is specifically the pufferfish one
+      "clear\nyour\nnvram",
+      "buy\nused!",
+      "it\nworks!",
+      "!!!",
+      "freshly\nsqueezed!",
+      "(not)\noriginal!",
+      "the quick\nbrown fox\njumps over\nthe lazy\ndog",
+      "px\npilled",
+      "upgrade to\n1024x768",
+      "same\ngreat\ntaste!",
+      "bookmark\nit!",
+      "the\noriginal\nand best!",
+      "runs on\nlinux!",
+      "certified!",
+      "forklift\ncertified!",
+      "licensed!",
+      "GPLv3!",
     ]);
+  }
 
+  if (!noResizeSpikeyText) {
+    const splitTxt = spikey.innerHTML.split("\n");
     const spikeyFontSize =
-      140 / Math.max(...spikey.innerHTML.split("\n\n").map((l) => l.length));
+      120 /
+      Math.max(...splitTxt.map((l) => l.length), splitTxt.length * 2, 2.5);
     spikey.style.fontSize = `${spikeyFontSize}px`;
-    spikey.style.lineHeight = `${spikeyFontSize*4/5}px`;
+    spikey.style.lineHeight = `${(spikeyFontSize * 4) / 5}px`;
   }
 }
 

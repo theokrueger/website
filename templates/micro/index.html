@@ -99,12 +99,25 @@ Read the <a href="{{ config.extra.source }}">source code</a>.</pre>
       </div>
       <!-- stamps -->
       <div id="acl-profile-stamps">
+        {%- set data = load_data(path="/static/micro/badges/badges.json")['99x56'] | sort(attribute="commentary") -%}
         <span>
-        {% for s in load_data(path="/static/micro/badges/badges.json")['99x56'] %}
-          {% for bwaawb___ in [1,2,3,4,5,6,78,9,0,0,24,234,234,23,423,423,4,2] %}
-          {{ <micro.badge type="99x56" name={ s.img | trim_end(pat=".gif") } zoomable={false} /> }}
-          {% endfor %}
-        {% endfor %}
+        {%- for s in data -%}
+          {%- if not s.exclude -%}
+          {{ <micro.badge type="99x56" name={s.img | trim_end(pat=".gif") } zoomable={false} /> }}
+          {%- endif -%}
+        {%- endfor -%}
+        </span>
+        {#- for perfect looping -#}
+        <span>
+        {%- for s in data -%}
+          {%- if not s.exclude -%}
+            {%- if loop.index >= (768/99+1) -%}
+              <img/>
+            {%- else -%}
+              {{ <micro.badge type="99x56" name={s.img | trim_end(pat=".gif") } zoomable={false} /> }}
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
         </span>
       </div>
       <!-- profile content -->

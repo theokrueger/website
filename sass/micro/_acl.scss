@@ -434,10 +434,13 @@ $sidebar-margin: 16px;
   order: -1;
 
   > span {
-    animation: scroll-right 15s linear infinite;
+    animation: scroll-right 20s linear infinite;
 
     > img {
+      width: 99px;
+      height: 56px;
       z-index: 0;
+      padding: 0 1px;
     }
   }
 }

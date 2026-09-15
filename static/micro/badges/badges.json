@@ -29,6 +29,35 @@
       "desc": "+5 Fortune",
       "source": "Slime Rancher",
       "commentary": "I still don't know what this guy does ingame."
+    },
+    {
+      "img": "monkey_money.gif",
+      "title": "Monkey Money",
+      "desc": "0DTE SPY Options",
+      "source": "unknown",
+      "commentary": "A much better trader than I."
+    },
+    {
+      "img": "heavily_armored.gif",
+      "title": "Heavily Armored",
+      "desc": "For secure cash transit",
+      "source": "unknown",
+      "commentary": "Whether you're a bank, retailer, or hospitality group, we move your cash securely and on schedule — so your team never has to make a risky bank run."
+    },
+    {
+      "img": "rocket_dog.gif",
+      "title": "Rocket Dog",
+      "desc": "14km off the ground",
+      "source": "unknown",
+      "commentary": "Challenger two."
+    },
+    {
+      "img": "smiling_dog.gif",
+      "title": "Smiling Dog",
+      "desc": ":)",
+      "source": "Miles Eduardo",
+      "source_url": "https://www.flickr.com/photos/mileseduardo/3726182707/",
+      "commentary": "Not sure if link is the real original actually, but its the closest I've found."
     }
   ],
   "80x15": [
@@ -252,6 +281,24 @@
       "source": "borozigaming",
       "source_url": "https://tenor.com/view/borzoigaming-borzoi-sand-dog-meme-gif-7540556842493661710",
       "commentary": "yummy"
+    },
+    {
+      "img": "pollo.gif",
+      "title": "Pollo👍",
+      "source": "unknown"
+    },
+    {
+      "img": "thrill_7b.gif",
+      "title": "Thrill 7 Billion People",
+      "desc": "i-.. what...?",
+      "source": "unknown",
+      "commentary": "?? is this real..??"
+    },
+    {
+      "img": "colon_three.gif",
+      "title": ":3",
+      "commentary": ":3",
+      "source": "unknown"
     }
   ]
 }

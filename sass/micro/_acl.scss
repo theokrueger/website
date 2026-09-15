@@ -421,20 +421,48 @@ $sidebar-margin: 16px;
 }
 
 #acl-profile-stamps {
-  $p: 2;
+  $fade-w: 15px;
 
-  height: 56px + 2 * $p;
+  height: 56px;
   width: 100%;
   display: flex;
   flex-wrap: nowrap;
   white-space: nowrap;
   overflow: hidden;
   flex-shrink: 0;
-  padding: $p;
+  margin: 2px 0;
   order: -1;
+  anchor-name: --stamps-anchor;
+
+  &::before,
+  &::after {
+    content: "";
+    width: $fade-w;
+    height: 56px;
+    display: block;
+    flex-shrink: 0;
+    pointer-events: none;
+    z-index: 20;
+  }
+
+  &::before {
+    background: linear-gradient(to right, $cs-fg, transparent);
+    position: absolute;
+    position-anchor: --stamps-anchor;
+    position-area: start left;
+  }
+
+  &::after {
+    background: linear-gradient(to left, $cs-fg, transparent);
+    position: absolute;
+    position-anchor: --stamps-anchor;
+    position-area: right;
+    margin-left: -1 * $fade-w;
+  }
 
   > span {
-    animation: scroll-right 20s linear infinite;
+    z-index: 10;
+    animation: scroll-right 25s linear infinite;
 
     > img {
       width: 99px;

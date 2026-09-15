@@ -47,7 +47,7 @@ if (pathnameMatch("/micro")) {
     });
 
   // flavor text
-  if (chancePercent(5)) {
+  if (chancePercent(1)) {
     const flavors: string[] = [
       "<em>Right behind you.</em>",
       "Where you should be.",
@@ -60,7 +60,7 @@ if (pathnameMatch("/micro")) {
       "Turn scrape to scrap.",
       "REQ x>255px.",
       "Responsibly responsive.",
-      "Sit loud.",
+      "[secret text]",
     ];
     document.getElementById("acl-nav-message")!.innerHTML = randomElem(flavors);
   }

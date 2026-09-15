@@ -116,7 +116,7 @@ extra.exclude_author = true
             {%- endif -%}
           </em>
 	    </flex>
-        {{ b.commentary }}
+        {%- if b.commentary %}{{ b.commentary or "" }}{% endif -%}
 	  </div>
 	</div>
 	{%- if not loop.last %}<hr/>{% endif %}
@@ -125,7 +125,7 @@ extra.exclude_author = true
 {%- endcomponent -%}
 {%- set badgedata = load_data(path="/static/micro/badges/badges.json") -%}
 
-## Link to here?
+## Link back?
 Feel free to either hotlink or download the badge statically.
 
 <center style="max-width: 80%; margin: auto; background-color: #abcdef22; border-radius: 4px; padding-top: 4px;"><a href="/micro"><img src="/micro/badges/88x31/microworks.gif"></a>
@@ -135,7 +135,7 @@ GIF format, animated.
 
 <details id="badge-wall">
 <summary><b>View as wall</b></summary>
-{% for sa in [[80,15],[88,31],[99,56],[80,80]] -%}
+{% for sa in [[80,80],[99,56],[88,31],[80,15]] -%}
   {%- set k = '' ~ sa[0] ~ 'x' ~ sa[1] -%}
   {%- for b in badgedata[k] | sort(attribute="title") -%}
     <a href="#{{b.img}}"><img src="/micro/badges/{{sa[0]}}x{{sa[1]}}/{{b.img}}" class="zoomable-200" loading="lazy" width="{{sa[0]}}" height="{{sa[1]}}"/></a>

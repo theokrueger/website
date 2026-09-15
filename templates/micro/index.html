@@ -99,7 +99,7 @@ Read the <a href="{{ config.extra.source }}">source code</a>.</pre>
       </div>
       <!-- stamps -->
       <div id="acl-profile-stamps">
-        {%- set data = load_data(path="/static/micro/badges/badges.json")['99x56'] | sort(attribute="commentary") -%}
+        {%- set data = load_data(path="/static/micro/badges/badges.json")['99x56'] | sort(attribute="title") -%}
         <span>
         {%- for s in data -%}
           {%- if not s.exclude -%}

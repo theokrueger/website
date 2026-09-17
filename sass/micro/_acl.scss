@@ -502,8 +502,10 @@ $sidebar-margin: 16px;
   }
 
   > span {
+    transform: translateX(-100%);
     z-index: 10;
     animation: scroll-right 25s linear infinite;
+    animation-direction: reverse;
 
     > img {
       width: 99px;

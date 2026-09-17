@@ -44,6 +44,12 @@ body {
   background-color: $cs-bg;
 }
 
+.external-link::after {
+    content: url('/img/extlink-light.svg');
+    opacity: 0.5;
+}
+
+
 // classes
 .acl-dark-text {
   color: $cs-dark-text;

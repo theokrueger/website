@@ -1,0 +1,62 @@
+{
+  "990 Bytes": {
+    "direction": "down",
+    "vals": [
+      86,
+      38,
+      97,
+      92,
+      4
+    ]
+  },
+  "Animated Badges": {
+    "direction": "up",
+    "vals": [
+      76,
+      82,
+      82,
+      50,
+      73
+    ]
+  },
+  "Great Migration": {
+    "direction": "down",
+    "vals": [
+      84,
+      94,
+      20,
+      54,
+      15
+    ]
+  },
+  "Merged PR": {
+    "direction": "up",
+    "vals": [
+      12,
+      50,
+      22,
+      41,
+      50
+    ]
+  },
+  "Please, fix your website's &#60;pre&#62;!": {
+    "direction": "up",
+    "vals": [
+      69,
+      55,
+      50,
+      50,
+      88
+    ]
+  },
+  "Sentiment Ticker": {
+    "direction": "up",
+    "vals": [
+      70,
+      88,
+      82,
+      64,
+      90
+    ]
+  }
+}

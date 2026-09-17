@@ -17,6 +17,7 @@ Read the <a href="{{ config.extra.source }}">source code</a>.</pre>
     {%
   </micro.nav>
   %}
+
   <!-- profile -->
   <div id="acl-body">
     <!-- header -->
@@ -97,6 +98,7 @@ Read the <a href="{{ config.extra.source }}">source code</a>.</pre>
           <!-- Shrines -->
         </div>
       </div>
+
       <!-- stamps -->
       <div id="acl-profile-stamps">
         {%- set data = load_data(path="/static/micro/badges/badges.json")['99x56'] | sort(attribute="title") -%}
@@ -120,6 +122,7 @@ Read the <a href="{{ config.extra.source }}">source code</a>.</pre>
         {%- endfor -%}
         </span>
       </div>
+
       <!-- profile content -->
       <div id="acl-profile-content">
         {{ section.content | safe }}
@@ -147,6 +150,28 @@ Read the <a href="{{ config.extra.source }}">source code</a>.</pre>
   </div>
   <!-- end body -->
   {{ <micro.footer /> }}
+
+  <!-- ticker -->
+  <div id="acl-profile-ticker">
+    {%- set ticker_graphs = load_data(path="/content/micro/item_sentiment.json") -%}
+    {%- set ticker_line = "" -%}
+    {%- for post in micro_items_section.pages | sort(attribute="date") | reverse -%}
+      {%- if loop.index0 >= 10 -%} {%- break -%} {%- endif -%}
+      {%- set data = ticker_graphs[post.title] -%}
+      {%- if data -%}
+        {%- set graph = "<" ~ data.direction ~ ">{l:" ~ data.vals | join(sep=",") ~ "}</" ~ data.direction ~ ">" -%}
+        {%- set_global ticker_line = ticker_line ~
+        '<a href="' ~ post.permalink ~ '">' ~
+          post.title  ~ ' ' ~ graph ~ '</a> ~ ' -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- set ticker_line = "<span>" ~ ticker_line ~ "</span>" -%}
+    {{- ticker_line | safe -}}
+    {{- ticker_line | safe -}}
+  </div>
+
+  <div id="acl-index-bottom-spacer"></div>
 </div>
 <!-- TODO other version -->
 {% endblock content %}

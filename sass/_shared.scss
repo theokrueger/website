@@ -33,15 +33,24 @@ $content-side-margin: 15vw;
   src: url("/fonts/motivasans/MotivaSansTest-Light.woff2");
 }
 
-// unused
-// @font-face {
-//     font-family: ClimateCrisis;
-//     src: url("/fonts/climatecrisis/ClimateCrisis-Regular-VariableFont_YEAR.woff2");
-// }
+@font-face {
+    font-family: ClimateCrisis;
+    src: url("/fonts/climatecrisis/ClimateCrisis-Regular-VariableFont_YEAR.woff2");
+}
 
 @font-face {
     font-family: ComicSans;
     src: url("/fonts/truetype/Comic.woff2");
+}
+
+@font-face {
+    font-family: Bytesized;
+    src: url("/fonts/bytesized/Bytesized-Regular.woff2");
+}
+
+@font-face {
+    font-family: Datatype;
+    src: url("/fonts/datatype/Datatype-VariableFont_wdth,wght.woff2");
 }
 
 $sans-font-family: motivasans, sans-serif;

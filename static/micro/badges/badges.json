@@ -292,7 +292,8 @@
       "title": "Thrill 7 Billion People",
       "desc": "i-.. what...?",
       "source": "unknown",
-      "commentary": "?? is this real..??"
+      "commentary": "?? is this real..??",
+      "exclude": true
     },
     {
       "img": "colon_three.gif",

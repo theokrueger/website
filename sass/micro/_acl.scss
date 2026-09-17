@@ -7,6 +7,7 @@ $font-family: motivasans, sans-serif;
 $silly-font-family:
   "Comic Sans MS", "Comic Sans", comicsans, "Brush Script MT", cursive,
   sans-serif;
+$ticker-font-family: datatype, monospace;
 
 // acl colors
 $cs-heading: #000;
@@ -24,6 +25,7 @@ $cs-link-hover: rgb(147 143 60);
 $cs-border-radius: 4px;
 $cs-col-width: 240px;
 $cs-nav-height: 60px;
+$cs-ticker-font-size: 20px;
 
 // mixins
 @mixin acl-gradient {
@@ -245,6 +247,7 @@ body {
 }
 
 #acl-extra {
+  anchor-name: --extra-anchor;
   width: $cs-col-width;
   margin: auto 0 auto auto;
 
@@ -254,11 +257,13 @@ body {
 }
 
 #award-spikey {
+  overflow: hidden;
   position: absolute;
   z-index: 30;
-  margin-left: 165px;
-  margin-top: -25px;
+  position-anchor: --extra-anchor;
   pointer-events: none;
+  position-area: x-end center;
+  margin-left: -60px;
 
   > img {
     display: block;
@@ -267,7 +272,7 @@ body {
     animation: rotate-360 30s linear infinite;
   }
 
-  text {
+  > text {
     display: block;
     width: 80px;
     height: 80px;
@@ -367,7 +372,7 @@ body {
 $sidebar-margin: 16px;
 
 #acl-profile-sidebar {
-  z-index: 1;
+  z-index: 50;
   flex-shrink: 0;
   margin: 0 $sidebar-margin $sidebar-margin 8px;
   width: $cs-col-width - $sidebar-margin;
@@ -417,6 +422,42 @@ $sidebar-margin: 16px;
   > h2,
   > h3 {
     border-radius: 0 $cs-border-radius $cs-border-radius 0;
+  }
+}
+
+#acl-index-bottom-spacer {
+  height: $cs-ticker-font-size;
+}
+
+#acl-profile-ticker {
+  position: fixed;
+  bottom: 0;
+  font-family: $ticker-font-family;
+  font-size: $cs-ticker-font-size;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 9999;
+  background-color: $cs-fg2;
+  overflow: hidden;
+  white-space: nowrap;
+
+  > span {
+    display: inline-block;
+    animation: scroll-right 60s linear infinite;
+
+    > a {
+        color: #ff66cc;
+        margin: 0 0.5em;
+
+      > up {
+        color: green;
+      }
+
+      > down {
+        color: red;
+      }
+    }
   }
 }
 
@@ -514,7 +555,7 @@ $sidebar-margin: 16px;
 }
 
 // mobile
-@media screen and (width <= 767px) {
+@media screen and (width <= 768px) {
   #acl-pfp-info-flex {
     justify-content: center;
     gap: 16px;

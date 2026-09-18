@@ -630,10 +630,11 @@ body {
     height: $sq;
     animation: acl-bg-animate-grid 240s linear infinite;
 
-    > rect {
+    > line {
       z-index: -90;
-      fill: $cs-dark-text;
-      opacity: 0.2;
+      stroke: $cs-dark-text;
+      stroke-width: 0.5px;
+      opacity: 0.1;
       vector-effect: non-scaling-stroke;
       animation-name: acl-bg-animate-gridline;
       animation-timing-function: ease-in-out;

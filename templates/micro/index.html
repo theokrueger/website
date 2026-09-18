@@ -159,7 +159,7 @@ Read the <a href="{{ config.extra.source }}">source code</a>.</pre>
       {%- if loop.index0 >= 10 -%} {%- break -%} {%- endif -%}
       {%- set data = ticker_graphs[post.title] -%}
       {%- if data -%}
-        {%- set graph = "<" ~ data.direction ~ ">{l:" ~ data.vals | join(sep=",") ~ "}</" ~ data.direction ~ ">" -%}
+        {%- set graph = "<t class='" ~ data.direction ~ "'>{l:" ~ data.vals | join(sep=",") ~ "}</t>" -%}
         {%- set_global ticker_line = ticker_line ~
         '<a href="' ~ post.permalink ~ '">' ~
           post.title  ~ ' ' ~ graph ~ '</a> ~ ' -%}

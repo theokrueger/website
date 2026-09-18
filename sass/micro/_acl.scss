@@ -88,6 +88,23 @@ body {
   }
 }
 
+@keyframes acl-details {
+  0% {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-1em);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    max-height: 100em;
+  }
+}
+
 // desktop
 #acl {
   font-family: $font-family;
@@ -145,40 +162,485 @@ body {
   hr {
     color: $cs-link;
   }
-}
 
-@keyframes acl-details {
-  0% {
-    opacity: 0;
-    max-height: 0;
-    transform: translateY(-1em);
+  #acl-nav {
+    position: sticky;
+    top: 0;
+    overflow-x: auto;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    padding-left: calc((100% - 768px) / 2 + 16px);
+    background-color: $cs-heading;
+    color: $cs-text;
+    height: $cs-nav-height;
+
+    #acl-nav-message {
+      margin-left: 4px;
+    }
   }
 
-  20% {
-    opacity: 1;
-    transform: translateY(0);
+  #acl-body {
+    overflow: visible;
+    background-color: $cs-fg;
+    border-radius: 0 0 $cs-border-radius $cs-border-radius;
+
+    #acl-profile-header {
+      display: flex;
+      flex-wrap: wrap;
+      height: 220px - 16px;
+      padding-top: 16px;
+
+      #acl-pfp-info-flex {
+        display: flex;
+        align-items: start;
+        justify-content: left;
+        flex-wrap: wrap;
+        margin: 0 16px;
+        gap: 32px;
+
+        #acl-pfp-container {
+          max-width: 168px;
+          align-items: center;
+          justify-content: center;
+        }
+
+        #acl-pfp-image {
+          width: 100%;
+          height: 100%;
+          border: 2px solid $cs-bg;
+        }
+
+        #acl-info {
+          margin-top: 32px;
+        }
+
+        #acl-info-username {
+          font-size: 32px;
+        }
+
+        #acl-info-bio {
+          color: $cs-dark-text;
+        }
+      }
+
+      #acl-extra {
+        anchor-name: --extra-anchor;
+        width: $cs-col-width;
+        margin: auto 0 auto auto;
+
+        > * {
+          max-width: 224px;
+        }
+
+        #award-spikey {
+          overflow: hidden;
+          position: absolute;
+          z-index: 30;
+          position-anchor: --extra-anchor;
+          pointer-events: none;
+          position-area: x-end center;
+          margin-left: -60px;
+
+          > img {
+            display: block;
+            width: 100px;
+            height: 100px;
+            animation: rotate-360 30s linear infinite;
+          }
+
+          > text {
+            display: block;
+            width: 80px;
+            height: 80px;
+            position: relative;
+            text-align: center;
+            align-content: center;
+            top: -90px;
+            left: 10px;
+            font-family: $silly-font-family;
+            font-weight: 900;
+            font-size: 35px;
+            transform: rotate(23deg);
+          }
+        }
+
+        #acl-extra-level {
+          font-size: 24px;
+
+          > * {
+            padding: 2px;
+          }
+        }
+
+        #acl-extra-badge {
+          @include acl-gradient;
+
+          display: grid;
+          grid-template-columns: 70px auto;
+          width: 100%;
+          height: 70px;
+          border-radius: $cs-border-radius;
+
+          // extensions like noscript convert noscript tags into span sometimes. bleh.
+          > noscript,
+          > span {
+            display: flex;
+            align-items: center;
+          }
+
+          > img,
+          > noscript > img,
+          > span > img {
+            width: 58px;
+            height: 58px;
+            border-radius: $cs-border-radius;
+            margin: 6px;
+          }
+
+          > text,
+          > noscript > text,
+          > span > text {
+            margin: auto 0;
+
+            > h4 {
+              margin: 0;
+            }
+
+            > p {
+              color: $cs-dark-text;
+              margin: 0;
+            }
+          }
+        }
+
+        #acl-extra-buttons {
+          display: grid;
+          grid-template-columns: auto auto;
+          column-gap: 4px;
+          width: 100%;
+          margin-top: 8px;
+
+          > a {
+            @include acl-gradient;
+
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            height: 24px;
+            color: $cs-text;
+            border-radius: $cs-border-radius;
+          }
+        }
+
+        #acl-extra-rss {
+          > img {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+
+    #acl-profile-body {
+      display: flex;
+      flex-flow: row-reverse wrap;
+      align-items: start;
+
+      $sidebar-margin: 16px;
+
+      #acl-profile-sidebar {
+        z-index: 50;
+        flex-shrink: 0;
+        margin: 0 $sidebar-margin $sidebar-margin 8px;
+        width: $cs-col-width - $sidebar-margin;
+        position: sticky;
+        top: $cs-nav-height + 20px;
+
+        > * {
+          border-radius: $cs-border-radius;
+          background-color: $cs-fg2;
+        }
+
+        #acl-profile-sidebar-status {
+          margin-bottom: 10px;
+          font-size: 16px;
+          padding: 4px;
+          height: 36px - 8px;
+          display: grid;
+          align-items: center;
+        }
+
+        #acl-profile-sidebar-links {
+          display: flex;
+          flex-flow: column wrap;
+          align-items: stretch;
+
+          > h2 {
+            border-radius: $cs-border-radius $cs-border-radius 0 0;
+          }
+
+          > a {
+            border-radius: $cs-border-radius;
+            background-color: $cs-fg;
+            font-size: 20px;
+            padding: 2px;
+            margin: 2px;
+          }
+        }
+      }
+
+      #acl-profile-content {
+        width: 768px - $cs-col-width - $sidebar-margin / 2;
+
+        > p {
+          margin: 8px;
+        }
+
+        > h2,
+        > h3 {
+          border-radius: 0 $cs-border-radius $cs-border-radius 0;
+        }
+      }
+
+      #acl-profile-stamps {
+        $fade-w: 15px;
+
+        height: 56px;
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        overflow: hidden;
+        flex-shrink: 0;
+        margin: 2px 0;
+        order: -1;
+        anchor-name: --stamps-anchor;
+
+        &::before,
+        &::after {
+          content: "";
+          width: $fade-w;
+          height: 56px;
+          display: block;
+          flex-shrink: 0;
+          pointer-events: none;
+          z-index: 20;
+        }
+
+        &::before {
+          background: linear-gradient(to right, $cs-fg, transparent);
+          position: absolute;
+          position-anchor: --stamps-anchor;
+          position-area: start left;
+        }
+
+        &::after {
+          background: linear-gradient(to left, $cs-fg, transparent);
+          position: absolute;
+          position-anchor: --stamps-anchor;
+          position-area: right;
+          margin-left: -1 * $fade-w;
+        }
+
+        > span {
+          transform: translateX(-100%);
+          z-index: 10;
+          animation: scroll-right 25s linear infinite;
+          animation-direction: reverse;
+
+          > img {
+            width: 99px;
+            height: 56px;
+            z-index: 0;
+            padding: 0 1px;
+          }
+        }
+      }
+
+      #acl-all-micros {
+        > details {
+          > summary {
+            padding-top: 4px;
+            font-size: 20px;
+          }
+
+          > p,
+          > summary {
+            margin: 0 4px;
+          }
+
+          > p:first-child {
+            margin-top: 4px;
+          }
+        }
+      }
+    }
+
+    // desktop only additions
+    @media screen and (width >= 1250px) {
+      #acl-profile-sidebar {
+        position: fixed;
+        top: 20%;
+        bottom: 80%;
+        right: 10px;
+        min-width: 256px;
+        transform: perspective(200px) rotateY(-5deg);
+        transform-origin: center right;
+        transform-style: preserve-3d;
+
+        > * {
+          outline: 1px solid transparent;
+        }
+      }
+
+      #acl-profile-content {
+        width: unset;
+      }
+    }
+
+    // mobile
+    @media screen and (width <= 768px) {
+      #acl-pfp-info-flex {
+        justify-content: center;
+        gap: 16px;
+      }
+
+      #acl-info {
+        margin: 0;
+        align-self: center;
+      }
+
+      #acl-pfp-container {
+        align-self: center;
+      }
+
+      #acl-nav {
+        padding: 0;
+        justify-content: center;
+      }
+
+      #acl-nav-message {
+        display: none;
+      }
+
+      #acl-body,
+      #acl-badges {
+        width: 95%;
+      }
+
+      #acl-profile-header {
+        height: auto;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        gap: 16px;
+      }
+
+      #acl-pfp-image {
+        max-width: 164px;
+        max-height: 164px;
+        object-fit: contain;
+      }
+
+      #acl-extra {
+        margin: 0;
+      }
+
+      #acl-profile-body {
+        flex-wrap: wrap;
+        align-items: stretch;
+      }
+
+      #acl-profile-sidebar {
+        order: -2;
+        position: unset;
+        width: 98%;
+        margin: 4px auto;
+      }
+
+      #acl-profile-content {
+        width: unset;
+      }
+
+      #acl-profile-sidebar-status {
+        margin-bottom: 4px;
+      }
+
+      #acl-profile-sidebar-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, auto));
+        margin: 0;
+        grid-auto-flow: row dense;
+
+        > span {
+          display: inline-block;
+          width: auto;
+          height: auto;
+          margin: 2px;
+        }
+
+        > h2 {
+          display: none;
+        }
+      }
+    }
+
+    // post
+    :is(#acl-page-title, #acl-page-description, #acl-page-link) {
+      margin: 0 2%;
+    }
+
+    #acl-page-content {
+      margin: 0 2%;
+
+      > h1,
+      > h2,
+      > h3,
+      > pre {
+        border-radius: $cs-border-radius;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      > img,
+      > p > img {
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
+      }
+    }
   }
 
-  100% {
-    max-height: 100em;
+  #acl-badges {
+    padding: 0;
+
+    > span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+
+      > a {
+        font-size: 0;
+        margin: 2px;
+      }
+    }
   }
-}
 
-#acl-nav {
-  position: sticky;
-  top: 0;
-  overflow-x: auto;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  padding-left: calc((100% - 768px) / 2 + 16px);
-  background-color: $cs-heading;
-  color: $cs-text;
-  height: $cs-nav-height;
-}
+  #acl-body,
+  #acl-badges {
+    margin: 0 auto 4px;
+    width: 768px;
+  }
 
-#acl-nav-message {
-  margin-left: 4px;
+  #acl-index-bottom-spacer {
+    height: $cs-ticker-font-size;
+  }
 }
 
 @keyframes acl-bg-animate-tint {
@@ -211,18 +673,48 @@ body {
   }
 }
 
+#acl-profile-ticker {
+  position: fixed;
+  bottom: 0;
+  font-family: $ticker-font-family;
+  font-size: $cs-ticker-font-size;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 9999;
+  background-color: $cs-fg2;
+  overflow: hidden;
+  white-space: nowrap;
+
+  > span {
+    display: inline-block;
+    animation: scroll-right 60s linear infinite;
+
+    > a {
+      color: #f6c;
+      margin: 0 0.5em;
+
+      > .up {
+        color: green;
+      }
+
+      > .down {
+        color: red;
+      }
+    }
+  }
+}
+
 #acl-bg-interactive {
   $sq: max(100vw, 100vh);
+
   z-index: -100;
 
   &,
   > svg {
     overflow: hidden;
     position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    inset: 0;
   }
 
   > div,
@@ -257,499 +749,5 @@ body {
       animation-iteration-count: infinite;
       animation-direction: alternate;
     }
-  }
-}
-
-#acl-body {
-  overflow: visible;
-  background-color: $cs-fg;
-  border-radius: 0 0 $cs-border-radius $cs-border-radius;
-}
-
-#acl-badges {
-  padding: 0;
-
-  > span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-
-    > a {
-      font-size: 0;
-      margin: 2px;
-    }
-  }
-}
-
-#acl-body,
-#acl-badges {
-  margin: 0 auto 4px;
-  width: 768px;
-}
-
-#acl-profile-header {
-  display: flex;
-  flex-wrap: wrap;
-  height: 220px - 16px;
-  padding-top: 16px;
-}
-
-#acl-pfp-info-flex {
-  display: flex;
-  align-items: start;
-  justify-content: left;
-  flex-wrap: wrap;
-  margin: 0 16px;
-  gap: 32px;
-}
-
-#acl-pfp-container {
-  max-width: 168px;
-  align-items: center;
-  justify-content: center;
-}
-
-#acl-pfp-image {
-  width: 100%;
-  height: 100%;
-  border: 2px solid $cs-bg;
-}
-
-#acl-info {
-  margin-top: 32px;
-}
-
-#acl-info-username {
-  font-size: 32px;
-}
-
-#acl-info-bio {
-  color: $cs-dark-text;
-}
-
-#acl-extra {
-  anchor-name: --extra-anchor;
-  width: $cs-col-width;
-  margin: auto 0 auto auto;
-
-  > * {
-    max-width: 224px;
-  }
-}
-
-#award-spikey {
-  overflow: hidden;
-  position: absolute;
-  z-index: 30;
-  position-anchor: --extra-anchor;
-  pointer-events: none;
-  position-area: x-end center;
-  margin-left: -60px;
-
-  > img {
-    display: block;
-    width: 100px;
-    height: 100px;
-    animation: rotate-360 30s linear infinite;
-  }
-
-  > text {
-    display: block;
-    width: 80px;
-    height: 80px;
-    position: relative;
-    text-align: center;
-    align-content: center;
-    top: -90px;
-    left: 10px;
-    font-family: $silly-font-family;
-    font-weight: 900;
-    font-size: 35px;
-    transform: rotate(23deg);
-  }
-}
-
-#acl-extra-level {
-  font-size: 24px;
-
-  > * {
-    padding: 2px;
-  }
-}
-
-#acl-extra-badge {
-  @include acl-gradient;
-
-  display: grid;
-  grid-template-columns: 70px auto;
-  width: 100%;
-  height: 70px;
-  border-radius: $cs-border-radius;
-
-  // extensions like noscript convert noscript tags into span sometimes. bleh.
-  > noscript,
-  > span {
-    display: flex;
-    align-items: center;
-  }
-
-  > img,
-  > noscript > img,
-  > span > img {
-    width: 58px;
-    height: 58px;
-    border-radius: $cs-border-radius;
-    margin: 6px;
-  }
-
-  > text,
-  > noscript > text,
-  > span > text {
-    margin: auto 0;
-
-    > h4 {
-      margin: 0;
-    }
-
-    > p {
-      color: $cs-dark-text;
-      margin: 0;
-    }
-  }
-}
-
-#acl-extra-buttons {
-  display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 4px;
-  width: 100%;
-  margin-top: 8px;
-
-  > a {
-    @include acl-gradient;
-
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    height: 24px;
-    color: $cs-text;
-    border-radius: $cs-border-radius;
-  }
-}
-
-#acl-extra-rss {
-  > img {
-    width: 16px;
-    height: 16px;
-  }
-}
-
-#acl-profile-body {
-  display: flex;
-  flex-flow: row-reverse wrap;
-  align-items: start;
-}
-
-$sidebar-margin: 16px;
-
-#acl-profile-sidebar {
-  z-index: 50;
-  flex-shrink: 0;
-  margin: 0 $sidebar-margin $sidebar-margin 8px;
-  width: $cs-col-width - $sidebar-margin;
-  position: sticky;
-  top: $cs-nav-height + 20px;
-
-  > * {
-    border-radius: $cs-border-radius;
-    background-color: $cs-fg2;
-  }
-}
-
-#acl-profile-sidebar-status {
-  margin-bottom: 10px;
-  font-size: 16px;
-  padding: 4px;
-  height: 36px - 8px;
-  display: grid;
-  align-items: center;
-}
-
-#acl-profile-sidebar-links {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: stretch;
-
-  > h2 {
-    border-radius: $cs-border-radius $cs-border-radius 0 0;
-  }
-
-  > a {
-    border-radius: $cs-border-radius;
-    background-color: $cs-fg;
-    font-size: 20px;
-    padding: 2px;
-    margin: 2px;
-  }
-}
-
-#acl-profile-content {
-  width: 768px - $cs-col-width - $sidebar-margin / 2;
-
-  > p {
-    margin: 8px;
-  }
-
-  > h2,
-  > h3 {
-    border-radius: 0 $cs-border-radius $cs-border-radius 0;
-  }
-}
-
-#acl-index-bottom-spacer {
-  height: $cs-ticker-font-size;
-}
-
-#acl-profile-ticker {
-  position: fixed;
-  bottom: 0;
-  font-family: $ticker-font-family;
-  font-size: $cs-ticker-font-size;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  z-index: 9999;
-  background-color: $cs-fg2;
-  overflow: hidden;
-  white-space: nowrap;
-
-  > span {
-    display: inline-block;
-    animation: scroll-right 60s linear infinite;
-
-    > a {
-      color: #ff66cc;
-      margin: 0 0.5em;
-
-      > up {
-        color: green;
-      }
-
-      > down {
-        color: red;
-      }
-    }
-  }
-}
-
-#acl-profile-stamps {
-  $fade-w: 15px;
-
-  height: 56px;
-  width: 100%;
-  display: flex;
-  flex-wrap: nowrap;
-  white-space: nowrap;
-  overflow: hidden;
-  flex-shrink: 0;
-  margin: 2px 0;
-  order: -1;
-  anchor-name: --stamps-anchor;
-
-  &::before,
-  &::after {
-    content: "";
-    width: $fade-w;
-    height: 56px;
-    display: block;
-    flex-shrink: 0;
-    pointer-events: none;
-    z-index: 20;
-  }
-
-  &::before {
-    background: linear-gradient(to right, $cs-fg, transparent);
-    position: absolute;
-    position-anchor: --stamps-anchor;
-    position-area: start left;
-  }
-
-  &::after {
-    background: linear-gradient(to left, $cs-fg, transparent);
-    position: absolute;
-    position-anchor: --stamps-anchor;
-    position-area: right;
-    margin-left: -1 * $fade-w;
-  }
-
-  > span {
-    transform: translateX(-100%);
-    z-index: 10;
-    animation: scroll-right 25s linear infinite;
-    animation-direction: reverse;
-
-    > img {
-      width: 99px;
-      height: 56px;
-      z-index: 0;
-      padding: 0 1px;
-    }
-  }
-}
-
-#acl-all-micros {
-  > details {
-    > summary {
-      padding-top: 4px;
-      font-size: 20px;
-    }
-
-    > p,
-    > summary {
-      margin: 0 4px;
-    }
-
-    > p:first-child {
-      margin-top: 4px;
-    }
-  }
-}
-
-// desktop only additions
-@media screen and (width >= 1250px) {
-  #acl-profile-sidebar {
-    position: fixed;
-    top: 20%;
-    bottom: 80%;
-    right: 10px;
-    min-width: 256px;
-    transform: perspective(200px) rotateY(-5deg);
-    transform-origin: center right;
-    transform-style: preserve-3d;
-
-    > * {
-      outline: 1px solid transparent;
-    }
-  }
-
-  #acl-profile-content {
-    width: unset;
-  }
-}
-
-// mobile
-@media screen and (width <= 768px) {
-  #acl-pfp-info-flex {
-    justify-content: center;
-    gap: 16px;
-  }
-
-  #acl-info {
-    margin: 0;
-    align-self: center;
-  }
-
-  #acl-pfp-container {
-    align-self: center;
-  }
-
-  #acl-nav {
-    padding: 0;
-    justify-content: center;
-  }
-
-  #acl-nav-message {
-    display: none;
-  }
-
-  #acl-body,
-  #acl-badges {
-    width: 95%;
-  }
-
-  #acl-profile-header {
-    height: auto;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    gap: 16px;
-  }
-
-  #acl-pfp-image {
-    max-width: 164px;
-    max-height: 164px;
-    object-fit: contain;
-  }
-
-  #acl-extra {
-    margin: 0;
-  }
-
-  #acl-profile-body {
-    flex-wrap: wrap;
-    align-items: stretch;
-  }
-
-  #acl-profile-sidebar {
-    order: -2;
-    position: unset;
-    width: 98%;
-    margin: 4px auto;
-  }
-
-  #acl-profile-content {
-    width: unset;
-  }
-
-  #acl-profile-sidebar-status {
-    margin-bottom: 4px;
-  }
-
-  #acl-profile-sidebar-links {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, auto));
-    margin: 0;
-    grid-auto-flow: row dense;
-
-    > span {
-      display: inline-block;
-      width: auto;
-      height: auto;
-      margin: 2px;
-    }
-
-    > h2 {
-      display: none;
-    }
-  }
-}
-
-// post
-:is(#acl-page-title, #acl-page-description, #acl-page-link) {
-  margin: 0 2%;
-}
-
-#acl-page-content {
-  margin: 0 2%;
-
-  > h1,
-  > h2,
-  > h3,
-  > pre {
-    border-radius: $cs-border-radius;
-  }
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  > img,
-  > p > img {
-    max-width: 100%;
-    display: block;
-    margin: 0 auto;
   }
 }

@@ -177,6 +177,7 @@ const shouldAddFlair = !(
   window.location.pathname.includes("/posts/") &&
   window.location.pathname.length > 7
 );
+
 const title = document.getElementById("title-text")!;
 const cursor = document.getElementById("title-cursor")!;
 const cursorText = cursor.outerHTML;

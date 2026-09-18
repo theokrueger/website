@@ -2,18 +2,7 @@
 {%- set p = "/micro/badges/" ~ type ~ "/" ~ name ~ ".gif" -%}
 
 {#- assert badge exists -#}
-{%- set allowed_types = [
-  "80x15",
-  "80x80",
-  "88x31",
-  "99x56",
-] -%}
-{%- if not allowed_types is containing(pat=type) %}
-  {{ throw(message="Unknown badge type: " ~ icon) }}
-{% endif -%}
-
-{#- throw on bad path -#}
-{%- set _unused_ = get_hash(path=p, sha_type=256) -%}
+{%- set _ = get_hash(path=p, sha_type=256) -%}
 
 {% if href %}<a href="{{ href }}" target="_blank">{% endif -%}
   <img {% if zoomable %}class="zoomable-150"{% endif %} src="{{p}}" />
@@ -23,8 +12,24 @@
 {% component micro.badges(type, badges) -%}
 <span>
   {%- for txt in badges -%}
-    {%- set a = txt | split(pat="|") -%}
-    {{- <micro.badge type={type} name={a[0]} href={a[1] or ""} /> -}}
+    {%- set a = txt | split(pat="?") -%}
+    {%- set b = a[0] | split(pat="|") -%}
+
+    {%- set_global ns = false %}
+    {%- set_global s = false %}
+
+    {%- for o in a -%}
+      {%- if loop.first -%}{%- continue -%}{%- endif -%}
+      {% if o == "noscript" -%}
+        {%- set_global ns = true -%}
+      {%- elif o == "script" -%}
+        {%- set_global s = true -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if ns -%}<noscript>{%- elif s -%}<span class="show-on-js">{%- endif -%}
+    {{- <micro.badge type={type} name={b[0]} href={b[1] or ""} /> -}}
+    {%- if ns -%}</noscript>{%- elif s -%}</span>{%- endif -%}
   {%- endfor -%}
 </span>
 {%- endcomponent %}

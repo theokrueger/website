@@ -262,3 +262,10 @@ if (pathnameMatch("/micro")) {
     };
   }
 });
+
+
+/* set visibility of js elements */
+const invis = document.getElementsByClassName("show-on-js");
+while (invis.length) {
+  invis[0]!.className = invis[0]!.className.replace(/\bshow\-on\-js\b/g, "");
+}

@@ -11,7 +11,7 @@ extra.exclude_author = true
 
 #badge-wall {
   line-height: 0;
-  > img {
+  > img, > a > img {
     margin: 2px;
   }
   > summary {

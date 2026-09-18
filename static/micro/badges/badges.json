@@ -145,7 +145,7 @@
       "img": "ihatecomputer.gif",
       "title": "IHATECOMPUTER",
       "source": "me",
-      "commentary": "True."
+      "commentary": "Shows in footer on &lt;noscript&gt;"
     },
     {
       "img": "gplv3.gif",
@@ -229,6 +229,38 @@
       "source_url": "https://cyber.dabamos.de/88x31/",
       "source": "The Cyber Vanguard",
       "commentary": "This site is ⑨ approved."
+    },
+    {
+      "img": "firefox.gif",
+      "title": "Firefox",
+      "desc": "Gecko for all",
+      "source_url": "https://bytemoth.neocities.org/88s/",
+      "source": "Bytemoth",
+      "commentary": "Mostly not spyware!!!"
+    },
+    {
+      "img": "notepadpp.gif",
+      "title": "Notepad++",
+      "desc": "GOAT software",
+      "source_url": "https://capstasher.neocities.org/88x31collection-page1",
+      "source": "Capstasher",
+      "commentary": "The only worthwhile program Windows has over Linux."
+    },
+    {
+      "img": "iso8601.gif",
+      "title": "ISO8601 Now!",
+      "desc": "YYYY-MM-DD",
+      "source_url": "https://88by31.neocities.org/now",
+      "source": "88by31",
+      "commentary": "Whoever thought of MM/DD/YYYY was too far gone."
+    },
+    {
+      "img": "reisen.gif",
+      "title": "Reisen Powered",
+      "desc": "Udonge",
+      "source_url": "https://88by31.neocities.org/games",
+      "source": "88by31",
+      "commentary": "From the moon"
     }
   ],
   "99x56": [

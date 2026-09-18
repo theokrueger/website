@@ -5,8 +5,19 @@
 
 
 {% block body %}
+<div id="acl-bg-interactive">
+  <div id="acl-bg-interactive-tint"></div>
+  {% set n = 120 %}
+  <svg id="acl-bg-interactive-grid" viewBox="0 0 {{n}} {{n}}" xmlns="http://www.w3.org/2000/svg">
+    {% for i in range(end=n) %}
+    {% set sty = 'style="animation-duration: ' ~ (60*i/n) | str ~  's; animation-delay:' ~ (10*i/n) | str ~ 's;"' %}
+    <rect x="{{i}}" y="{{0}}" width="{{1/n}}" height="{{n}}" {{ sty | safe }}/>
+    <rect x="{{0}}" y="{{i}}" width="{{n}}" height="{{1/n}}" {{ sty | safe }} />
+  {% endfor %}
+  </svg>
+</div>
 {% block content %}
-  <div id="acl">
+<div id="acl">
   {{ <micro.nav/> }}
   <!-- body -->
   <div id="acl-body">
@@ -54,6 +65,6 @@
 
   </div>
   {{ <micro.footer badges={(section and true) or false} /> }}
-  </div>
+</div>
 {% endblock content %}
 {% endblock body %}

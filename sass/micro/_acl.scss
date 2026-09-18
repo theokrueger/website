@@ -45,10 +45,9 @@ body {
 }
 
 .external-link::after {
-    content: url('/img/extlink-light.svg');
-    opacity: 0.5;
+  content: url("/img/extlink-light.svg");
+  opacity: 0.5;
 }
-
 
 // classes
 .acl-dark-text {
@@ -180,6 +179,85 @@ body {
 
 #acl-nav-message {
   margin-left: 4px;
+}
+
+@keyframes acl-bg-animate-tint {
+  from {
+    transform: scale(160%) rotate(0deg);
+  }
+
+  to {
+    transform: scale(160%) rotate(360deg);
+  }
+}
+
+@keyframes acl-bg-animate-grid {
+  0% {
+    transform: scale(160%) rotate(0deg);
+  }
+
+  100% {
+    transform: scale(160%) rotate(-360deg);
+  }
+}
+
+@keyframes acl-bg-animate-gridline {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(10%, 10%);
+  }
+}
+
+#acl-bg-interactive {
+  $sq: max(100vw, 100vh);
+  z-index: -100;
+
+  &,
+  > svg {
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  > div,
+  > svg,
+  & {
+    margin: 0;
+    padding: 0;
+  }
+
+  > #acl-bg-interactive-tint {
+    pointer-events: none;
+    width: $sq;
+    height: $sq;
+    z-index: -80;
+    animation: acl-bg-animate-tint 10s linear infinite;
+    background: linear-gradient(to right, $cs-bg, $cs-dark-green);
+    opacity: 0.5;
+  }
+
+  > #acl-bg-interactive-grid {
+    width: $sq;
+    height: $sq;
+    animation: acl-bg-animate-grid 240s linear infinite;
+
+    > rect {
+      z-index: -90;
+      fill: $cs-dark-text;
+      opacity: 0.2;
+      vector-effect: non-scaling-stroke;
+      animation-name: acl-bg-animate-gridline;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    }
+  }
 }
 
 #acl-body {
@@ -453,8 +531,8 @@ $sidebar-margin: 16px;
     animation: scroll-right 60s linear infinite;
 
     > a {
-        color: #ff66cc;
-        margin: 0 0.5em;
+      color: #ff66cc;
+      margin: 0 0.5em;
 
       > up {
         color: green;

@@ -477,115 +477,6 @@ body {
       }
     }
 
-    // desktop only additions
-    @media screen and (width >= 1250px) {
-      #acl-profile-sidebar {
-        position: fixed;
-        top: 20%;
-        bottom: 80%;
-        right: 10px;
-        min-width: 256px;
-        transform: perspective(200px) rotateY(-5deg);
-        transform-origin: center right;
-        transform-style: preserve-3d;
-
-        > * {
-          outline: 1px solid transparent;
-        }
-      }
-
-      #acl-profile-content {
-        width: unset;
-      }
-    }
-
-    // mobile
-    @media screen and (width <= 768px) {
-      #acl-pfp-info-flex {
-        justify-content: center;
-        gap: 16px;
-      }
-
-      #acl-info {
-        margin: 0;
-        align-self: center;
-      }
-
-      #acl-pfp-container {
-        align-self: center;
-      }
-
-      #acl-nav {
-        padding: 0;
-        justify-content: center;
-      }
-
-      #acl-nav-message {
-        display: none;
-      }
-
-      #acl-body,
-      #acl-badges {
-        width: 95%;
-      }
-
-      #acl-profile-header {
-        height: auto;
-        align-items: center;
-        justify-content: center;
-        padding: 5px;
-        gap: 16px;
-      }
-
-      #acl-pfp-image {
-        max-width: 164px;
-        max-height: 164px;
-        object-fit: contain;
-      }
-
-      #acl-extra {
-        margin: 0;
-      }
-
-      #acl-profile-body {
-        flex-wrap: wrap;
-        align-items: stretch;
-      }
-
-      #acl-profile-sidebar {
-        order: -2;
-        position: unset;
-        width: 98%;
-        margin: 4px auto;
-      }
-
-      #acl-profile-content {
-        width: unset;
-      }
-
-      #acl-profile-sidebar-status {
-        margin-bottom: 4px;
-      }
-
-      #acl-profile-sidebar-links {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(160px, auto));
-        margin: 0;
-        grid-auto-flow: row dense;
-
-        > span {
-          display: inline-block;
-          width: auto;
-          height: auto;
-          margin: 2px;
-        }
-
-        > h2 {
-          display: none;
-        }
-      }
-    }
-
     // post
     :is(#acl-page-title, #acl-page-description, #acl-page-link) {
       margin: 0 2%;
@@ -748,6 +639,123 @@ body {
       animation-timing-function: ease-in-out;
       animation-iteration-count: infinite;
       animation-direction: alternate;
+    }
+  }
+}
+
+$desktop-width: 1250px;
+$mobile-width: 768px;
+
+// both
+@media screen and ((width >= $desktop-width) or (width <= $mobile-width)) {
+  #acl-profile-content {
+    > h2,
+    > h3 {
+      border-radius: 0 !important;
+    }
+  }
+  #acl-profile-content {
+    width: unset !important;
+  }
+}
+
+// desktop only additions
+@media screen and (width >= $desktop-width) {
+  #acl-profile-sidebar {
+    position: fixed !important;
+    top: 20% !important;
+    bottom: 80% !important;
+    right: 10px !important;
+    min-width: 256px !important;
+    transform: perspective(200px) rotateY(-5deg) !important;
+    transform-origin: center right !important;
+    transform-style: preserve-3d !important;
+
+    > * {
+      outline: 1px solid transparent !important;
+    }
+  }
+}
+
+// mobile
+@media screen and (width <= $mobile-width) {
+  #acl-pfp-info-flex {
+    justify-content: center !important;
+    gap: 16px !important;
+  }
+
+  #acl-info {
+    margin: 0 !important;
+    align-self: center !important;
+  }
+
+  #acl-pfp-container {
+    align-self: center !important;
+  }
+
+  #acl-nav {
+    padding: 0 !important;
+    justify-content: center !important;
+  }
+
+  #acl-nav-message {
+    display: none !important;
+  }
+
+  #acl-body,
+  #acl-badges {
+    width: 95% !important;
+  }
+
+  #acl-profile-header {
+    height: auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 5px !important;
+    gap: 16px !important;
+  }
+
+  #acl-pfp-image {
+    max-width: 164px !important;
+    max-height: 164px !important;
+    object-fit: contain !important;
+  }
+
+  #acl-extra {
+    margin: 0 !important;
+  }
+
+  #acl-profile-body {
+    flex-wrap: wrap !important;
+    align-items: stretch !important;
+  }
+
+  #acl-profile-sidebar {
+    order: -2 !important;
+    position: unset !important;
+    width: 98% !important;
+    margin: 4px auto !important;
+  }
+
+  #acl-profile-sidebar-status {
+    margin-bottom: 4px !important;
+  }
+
+  #acl-profile-sidebar-links {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(160px, auto)) !important;
+    margin: 0 !important;
+    grid-auto-flow: row dense !important;
+
+    > span {
+      display: inline-block !important;
+      width: auto !important;
+      height: auto !important;
+      margin: 2px !important;
+    }
+
+    > h2 {
+      display: none !important;
     }
   }
 }

@@ -185,6 +185,50 @@
       "source_url": "https://seirdy.one/meta/badges/",
       "source": "seirdy.one",
       "commentary": "09 F9 11 02 9D 74 E3 5B D8 41 56 C5 63 56 88 C0"
+    },
+    {
+      "animated": true,
+      "img": "atabook.gif",
+      "title": "新book",
+      "desc": "A simple, free guestbook.",
+      "source_url": "https://atabook.org",
+      "source": "atabook.org",
+      "commentary": "My guestbook of choice."
+    },
+    {
+      "animated": true,
+      "img": "hosted_on_neocities.gif",
+      "title": "Hosted on Neocities",
+      "desc": "A home for handmade websites",
+      "source_url": "https://neocities.org",
+      "source": "neocities.org",
+      "commentary": "(not actually hosted there)."
+    },
+    {
+      "animated": true,
+      "img": "nekoweb.gif",
+      "title": "Nekoweb",
+      "desc": "the internet is for the cats",
+      "source_url": "https://nekoweb.org",
+      "source": "nekoweb.org",
+      "commentary": "An excellent web community."
+    },
+    {
+      "animated": true,
+      "img": "steam.gif",
+      "title": "Steam",
+      "desc": "Powered",
+      "source_url": "https://okhub.neocities.org/",
+      "source": "okhub",
+      "commentary": "An unbelievable TotalSpend"
+    },
+    {
+      "img": "2hu.gif",
+      "title": "東方プロジェクト",
+      "desc": "There are no buses in Gensokyo",
+      "source_url": "https://cyber.dabamos.de/88x31/",
+      "source": "The Cyber Vanguard",
+      "commentary": "This site is ⑨ approved."
     }
   ],
   "99x56": [

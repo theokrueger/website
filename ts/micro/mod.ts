@@ -242,17 +242,24 @@ if (pathnameMatch("/micro")) {
   const es = document.getElementsByClassName(`zoomable-${s}`);
   for (let i = 0; i < es.length; i++) {
     const e = <HTMLElement>es[i]!;
-    e.onmouseover = async () => {
+    const onIn = async () => {
       await sleep(250);
       e.style.transition =
         "scale 0.2s ease, transform 0.05s linear, filter 0.05s linear";
     };
-    e.onmouseout = async () => {
+    e.onmouseover = onIn;
+    e.ontouchstart = onIn;
+
+    const onOut = async () => {
       e.style.transition = "";
       e.style.transform = "";
       e.style.filter = "";
       await sleep(250);
     };
+
+    e.onmouseout = onOut;
+    e.ontouchend = onOut;
+
     e.onmousemove = (ev: MouseEvent) => {
       const r = e.getBoundingClientRect();
       const rx = (ev.clientX - r.left) / r.width - 0.5,
@@ -260,9 +267,19 @@ if (pathnameMatch("/micro")) {
       e.style.transform = `rotate3d(${-1 * ry}, ${rx}, 0, 30deg)`;
       e.style.filter = `drop-shadow(${-0.25 * rx * r.width}px ${-0.25 * ry * r.height}px ${Math.min(r.width, r.height) / 40}px #0009)`;
     };
+
+    e.ontouchmove = (ev: TouchEvent) => {
+      if (ev.touches.length == 1) {
+        const t = ev.touches[0]!;
+        const r = e.getBoundingClientRect();
+        const rx = (t.clientX - r.left) / r.width - 0.5,
+          ry = (t.clientY - r.top) / r.height - 0.5;
+        e.style.transform = `rotate3d(${-1 * ry}, ${rx}, 0, 30deg)`;
+        e.style.filter = `drop-shadow(${-0.25 * rx * r.width}px ${-0.25 * ry * r.height}px ${Math.min(r.width, r.height) / 40}px #0009)`;
+      }
+    };
   }
 });
-
 
 /* set visibility of js elements */
 const invis = document.getElementsByClassName("show-on-js");

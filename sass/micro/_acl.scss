@@ -688,6 +688,10 @@ $mobile-width: 768px;
 
 // mobile
 @media screen and (width <= $mobile-width) {
+  #acl-bg-interactive-grid {
+    display: none !important;
+  }
+
   #acl-pfp-info-flex {
     justify-content: center !important;
     gap: 16px !important;

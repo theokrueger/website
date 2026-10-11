@@ -15,6 +15,7 @@ footer_name = "index"
 - [portfolio](@/portfolio.md) - public works
 - [micro](@/micro/_index.md) - smaller thoughts
 - [card](@/card.md) - me in 1kB
+<!-- -[tools](@/tools.md) - assorted tools by me -->
 
 click on '*`index ^`*' at the bottom of your screen to view this directory.
 

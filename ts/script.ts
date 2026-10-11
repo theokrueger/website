@@ -40,6 +40,15 @@ const idsToModify: { [id: string]: string[] } = {
     "poisoning your training",
     "free no vairus :D",
   ],
+  "tools-flavor": [
+    ">oneshotting your own",
+    "tooooooooooools",
+    "better than a wrench",
+    "generally ergonomic",
+    "actually useful",
+    "so you don't have to",
+    "curated!",
+  ]
 };
 
 async function addFlavour() {

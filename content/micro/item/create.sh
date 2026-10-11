@@ -2,13 +2,13 @@
 # create a new post
 cd "$(dirname "$0")"
 
-TITLE="$(echo "$1" | tr ' ' '-')"
+TITLE="$(echo "${@,,}" | tr ' ' '-')"
 DATE="$(date '+%F')"
 OUT="$PWD/$DATE-$TITLE.md"
 
 echo \
-    "+++
-title = \"$TITLE\"
+"+++
+title = \"$@\"
 description = \"\"
 +++
 " > "$OUT"

@@ -1,16 +1,16 @@
 {#- <html> -#}
   {#- <head> -#}
-    <link rel="icon" href="data:">{#- -#}
+    <link rel=icon href=data:>{#- -#}
   {#- </head> -#}
-  <body id=b>{#- -#}
+  <body>{#- -#}
     <style>{#- -#}
       *{font-family:mono;color:#abc;text-decoration:none;margin:0}{#- -#}
       :hover{color:#def}{#- -#}
       h1>a{color:#faf}{#- -#}
-      #b{display:flex;align-items:center;justify-content:center;height:100%;background:#123}{#- -#}
+      body{display:flex;align-items:center;justify-content:center;height:100%;background:#123}{#- -#}
       #a{position:fixed}{#- -#}
     </style>{#- -#}
-    <a id=a href=/k>&lt;1kB</a>{#- -#}
+    <a id=a href=/k>&lt;1kB{#- </a> -#}
     <s>{#- -#}
       <h1><a href=mailto:me@theokrueger.dev>theokrueger</a></h1>{#- -#}
       <t>button box enthusiast</t>{#- -#}
@@ -25,8 +25,7 @@
         x=0,y=0,{#- loop vars -#}
         h=P/4*M.random()+P*5/8,X=M.sin(h),Y=M.cos(h){#- movement props -#}
       ;;x+=X,y+=Y,s.top=y+'px',s.left=x+'px'){ {#- -#}
-        let t=a.getBoundingClientRect();{#- -#}
-        x>b.clientWidth-t.width||x<0?X=-X:y>b.clientHeight-t.height||y<0?Y=-Y:0;{#- -#}
+        x>innerWidth-a.offsetWidth||x<0?X=-X:y>innerHeight-a.offsetHeight||y<0?Y=-Y:0;{#- -#}
         await{then:r=>setTimeout(r,9)};{#- -#}
       }{#- -#}
     </script>{#- -#}

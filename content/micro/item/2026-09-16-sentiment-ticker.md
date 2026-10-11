@@ -19,7 +19,7 @@ which was chosen solely because it is fast. Determinism and speed are far more i
 
 <details>
 <summary>Click to view code</summary>
-{% set script = load_data(path="/scripts/update_sentiment.py") %}
+{% set script = load_data(path="/scripts/update-sentiment.py") %}
 ```python
 {{ script }}
 ```

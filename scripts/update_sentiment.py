@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.14"
+# dependencies = [
+#     "vadersentiment>=3.3.2",
+# ]
+# ///
 import re
 import sys
 import os
@@ -6,7 +12,7 @@ import json
 import glob
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
+os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])) + "/../content/micro")
 
 
 def extract_title(md: str) -> str:

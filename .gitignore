@@ -7,6 +7,10 @@ public/
 *.sync-conflict*
 .#*
 
+# uv
+uv.lock
+.python-version
+
 # npm
 package-lock.json
 .env

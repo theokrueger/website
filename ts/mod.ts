@@ -5,7 +5,7 @@ import {
   keyNear,
   Keymap,
   randomElem,
-} from "./util.js";
+} from "./util";
 
 console.log("javascript enabled for this webpage");
 

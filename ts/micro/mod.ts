@@ -5,7 +5,7 @@ import {
   sleep,
   Holidays,
   getHoliday,
-} from "../util.js";
+} from "../util";
 
 console.log("javascript enabled for this webpage");
 

@@ -238,7 +238,8 @@ body {
         }
 
         #award-spikey {
-          overflow: hidden;
+          overflow-x: hidden;
+          overflow-y: visible;
           position: absolute;
           z-index: 30;
           position-anchor: --extra-anchor;

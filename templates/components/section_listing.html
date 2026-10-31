@@ -1,0 +1,15 @@
+{#-
+Section listing. Show all of the pages in a section.
+-#}
+{% component section_listing(section) %}
+{% for year, posts in section.pages | sort(attribute="year") | group_by(attribute="year") %}
+<h2>* {{ year }}</h2>
+  {% for post in posts | sort(attribute="date") | reverse %}
+  <p>
+    <a href="{{ post.permalink }}">{{ post.title }}</a>
+    {% set tl = post.extra.tagline or post.description %}
+    {% if tl %} - {{ tl }}{% endif %}
+  </p>
+  {% endfor %}
+{% endfor %}
+{% endcomponent %}

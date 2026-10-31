@@ -127,6 +127,13 @@
   </head>
 
   <body>
-    {% block body %}{% endblock body %}
+    {% block body %}
+      {% block content %}
+        {% if section %}
+          {{ <section_listing section={section} /> }}
+        {% endif %}
+        {{ (page?.content or section?.content) | safe }}
+      {% endblock content %}
+    {% endblock body %}
   </body>
 </html>

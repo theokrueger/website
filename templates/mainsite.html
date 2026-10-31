@@ -44,16 +44,7 @@
   {% endif %}
 
   {% if section and section.extra.show_section_listing %}
-    {% for year, posts in section.pages | sort(attribute="year") | group_by(attribute="year") %}
-    <h2>* {{ year }}</h2>
-    {% for post in posts | sort(attribute="date") | reverse %}
-      <p>
-        <a href="{{ post.permalink }}">{{ post.title }}</a>
-	{% set tl = post.extra.tagline or post.description %}
-        {% if tl %} - {{ tl }}{% endif %}
-      </p>
-      {% endfor %}
-    {% endfor %}
+    {{ <section_listing section={section} /> }}
   {% endif %}
 
   {% block content %}{{ (page?.content or section?.content) | safe }}{% endblock content %}

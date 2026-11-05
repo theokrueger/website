@@ -35,7 +35,7 @@ Suffering much the same as movies do in terms of fidelity, you could also just s
 virtual desktop, autotiling, workspaces, stage manager: there are countless paradigms of window management that address the root problem rather than the arguable band-aid of more monitors[^window_manager].
 99% of people can get 100% of the functionality of virtual monitors just by pressing `Mod+Tab`, completely avoiding the extreme aliasing required by reprojection.
 
-{{ <images.captioned path="/drafts/vr-velocity/img/vision-pro.png" alt="vision pro users" caption="Average Vision Pro User" compress={false} disp_width="100%" /> }}
+{{ <images.captioned path="./img/vision-pro.png" alt="vision pro users" caption="Average Vision Pro User" compress={false} disp_width="100%" /> }}
 
 **Videogames** are the only saving grace of VR, and the only fundamentally sound leisure activity in it.
 Novel experiences capitalizing on the unique control scheme are where VR is at its best,
@@ -72,7 +72,7 @@ It does the heaviest lifting with regards to providing users with well-defined A
 
 For instance, if your game needs hands, you can use the [XR Hand Tracking Extension](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XR_EXT_hand_tracking) (provided by your OXR runtime), fit a rig to the joints, and you're off to the races immediately.
 
-{{ <images.captioned path="/drafts/vr-velocity/img/hands.png" compress={true} alt="physics-based hand joints positioned via OXR apis" caption="OXR Hands are Easy" /> }}
+{{ <images.captioned path="./img/hands.png" compress={true} alt="physics-based hand joints positioned via OXR apis" caption="OXR Hands are Easy" /> }}
 
 Or if you need
 [floor height](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XR_REFERENCE_SPACE_TYPE_LOCAL_FLOOR),
@@ -109,7 +109,7 @@ who wants to port their software knowledge with little friction into the beast t
 Its `Query<T>` system is something I would never have architected from first principles myself,
 and the fact that it reduces so much of the computation at compile-time by effectively "only paying for what you use" is beautiful.
 
-{{ <images.captioned path="/drafts/vr-velocity/img/balls.png" compress={true} alt="Dropping a few hundred balls to test box3d physics" caption="Look at that Frametime Graph!" /> }}
+{{ <images.captioned path="./img/balls.png" compress={true} alt="Dropping a few hundred balls to test box3d physics" caption="Look at that Frametime Graph!" /> }}
 
 Paired with an [OpenXR plugin](https://github.com/awtterpip/bevy_oxr) crate,
 Bevy becomes a super straightforward 3D renderer that is far more flexible than I would have thought Rust syntax permits.

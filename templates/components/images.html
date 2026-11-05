@@ -5,9 +5,16 @@ shared arguments defaults and sanity checks for shortcodes
   op, format: ?enum_str
   compress: ?bool
 #}
-{% component images.single(src, alt, width=1280, height=720, quality=85, speed=1, op="scale", format="webp", compress=true, disp_width="") -%}
+{% component images.single(src, alt, @page, width=1280, height=720, quality=85, speed=1, op="scale", format="webp", compress=true, disp_width="") -%}
 {% if compress -%}
-  {% set_global path = resize_image(path=src, width=width, height=height, op=op, format=format, quality=quality, speed=speed) %}
+  {%- if src is starting_with(pat="/") -%}
+    {% set_global src_full = src %}
+  {%- else -%}
+    {#- pwd-style resolution against the dir of the page invoking this -#}
+    {%- set page_dir = page.colocated_path or ((page.relative_path | split(pat="/"))[:-1] | join(sep="/") ~ "/") -%}
+    {% set_global src_full = page_dir ~ (src | trim_start(pat="./")) %}
+  {%- endif -%}
+  {% set_global path = resize_image(path=src_full, width=width, height=height, op=op, format=format, quality=quality, speed=speed) %}
 {%- else -%}
   {% set_global path = src %}
 {%- endif %}

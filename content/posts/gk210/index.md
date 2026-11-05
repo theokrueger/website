@@ -34,7 +34,7 @@ Pruned MCP still eats tokens like no other, compaction still sucks, and SotA har
 
 So without a second thought, an eBay search for "24GB VRAM GPU" sorted by price landed what was going to either be a killer deal or a killer mistake: the NVIDIA Tesla K80.
 
-{{ <images.captioned path="/posts/gk210/img/card.jpeg" caption="My Tesla K80 with 24GiB of VRAM" alt="An NVIDIA Tesla K80 Graphics Card. It is rectangular, with a metal bracket at one end for securing to a computer case and a power connector at the other end. The circuit board is entirely covered with a large black heatsink, which in turn is covered by a black, green, and translucent shroud to direct airflow. There is a noticeable lack of video out ports and fans on the card." compress={false} /> }}
+{{ <images.captioned path="./img/card.jpeg" caption="My Tesla K80 with 24GiB of VRAM" alt="An NVIDIA Tesla K80 Graphics Card. It is rectangular, with a metal bracket at one end for securing to a computer case and a power connector at the other end. The circuit board is entirely covered with a large black heatsink, which in turn is covered by a black, green, and translucent shroud to direct airflow. There is a noticeable lack of video out ports and fans on the card." compress={false} /> }}
 
 As sleek as it is, this 2014 Kepler card is deemed obsolete with a price to match.
 Sellers are practically begging to rid themselves of these once >{{ <currency n={2500} code="USD" /> }} cards.
@@ -48,9 +48,9 @@ Cooling is supposed to come from airflow in the server chassis, blower style, an
 What's more is the strangely keyed power connector. Rather than taking the VGA connectors of any old ATX PSU, it accepts only six-pin CPU power cables. Some retrofitting is required in order to install in a standard PC.
 
 {{ <images.slideshow images={[
-  ["/posts/gk210/img/controller.jpeg", "Temperature-sensing PWM fan controller", "A temperature-sensing PWM Fan Speed controller on a purple PCB with a 3-digit 7-segment display."],
-  ["/posts/gk210/img/fan.jpeg", "12V PWM blower fan", "A large 12V PWM blower fan with a 4-pin cable."],
-  ["/posts/gk210/img/cable.jpeg", "8-pin CPU power cable to<br/>2x 8-pin VGA power cable adapter", "A special CPU Power cable to 2x VGA power cable. The polarities are reversed between the two."],
+  ["./img/controller.jpeg", "Temperature-sensing PWM fan controller", "A temperature-sensing PWM Fan Speed controller on a purple PCB with a 3-digit 7-segment display."],
+  ["./img/fan.jpeg", "12V PWM blower fan", "A large 12V PWM blower fan with a 4-pin cable."],
+  ["./img/cable.jpeg", "8-pin CPU power cable to<br/>2x 8-pin VGA power cable adapter", "A special CPU Power cable to 2x VGA power cable. The polarities are reversed between the two."],
   ]} compress={false} /> }}
 
 Many K80 cards will come with that power cable included, but my folly was to purchase a listing lacking that luxury.
@@ -62,10 +62,10 @@ Installation ended up being pretty straightforward too: I oneshotted a 3D-printa
 [^bracket]: Available [here](https://www.printables.com/model/1816354-nvidia-tesla-k80-fan-bracket). Don't use it though, its not very good.
 
 {{ <images.slideshow images={[
-  ["/posts/gk210/img/bare-card.jpeg", "Not pictured: the perfect amount of thermal paste", "A Tesla K80 with its heatsinks and shrouds removed. The two bare dies are visibly clean from thermal paste."],
-  ["/posts/gk210/img/bracket.jpeg", "3D-printed fan bracket design", "A blower-style fan bracket mount for the Tesla K80, 3D printed in Pink PETG."],
-  ["/posts/gk210/img/power.jpeg", "Tapped Power Connector", "An image showing the +12V and GND wires of the PWM fan controller affixed to unpopulated power pins on the K80"],
-  ["/posts/gk210/img/assembled.jpeg", "Final card assembly", "An image depicting the fully assembled card with fan and bracket and controller."],
+  ["./img/bare-card.jpeg", "Not pictured: the perfect amount of thermal paste", "A Tesla K80 with its heatsinks and shrouds removed. The two bare dies are visibly clean from thermal paste."],
+  ["./img/bracket.jpeg", "3D-printed fan bracket design", "A blower-style fan bracket mount for the Tesla K80, 3D printed in Pink PETG."],
+  ["./img/power.jpeg", "Tapped Power Connector", "An image showing the +12V and GND wires of the PWM fan controller affixed to unpopulated power pins on the K80"],
+  ["./img/assembled.jpeg", "Final card assembly", "An image depicting the fully assembled card with fan and bracket and controller."],
   ]} compress={false} /> }}
 
 I tapped into power and ground for the PWM fan controller from the card itself as a clean hack to keep everything together nicely, giving me a reliable assurance the fan won't lose power.
@@ -75,7 +75,7 @@ One note on the PWM fan control is that the probe is not only wildly inaccurate 
 Setting extremely aggressive fan curves is about all that can be done (within reason) about this, as well as affixing the probe over the hottest section of the heatsink.
 This hurt the noise profile significantly, but while idle was still able to remain relatively quiet.
 
-{{ <images.captioned path="/posts/gk210/img/installed.jpeg" caption="Oversized Card Installation" alt="An image depicting the comically long GPU fan sticking out of a modified Fracal Terra case." compress={false} /> }}
+{{ <images.captioned path="./img/installed.jpeg" caption="Oversized Card Installation" alt="An image depicting the comically long GPU fan sticking out of a modified Fracal Terra case." compress={false} /> }}
 
 It didn't fit in my case, but that's nothing unfixable with a pair of flush cutters.
 If you're doing this at home, use a test bench or extension cable.

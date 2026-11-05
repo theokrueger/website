@@ -25,11 +25,11 @@ How could I have failed to achieve the sole purpose of a blog-style website (to 
 Bikeshedding. Yak-shaving. Let's do an autopsy.
 
 {{ <images.slideshow images={ [
-  ["posts/bikeshedding/img/site-1.png", "2021, written in pure HTML5", "An image depicting a revision of this website in 2021. It has a grey background, black borders on elements, and a white foreground. It focuses on being a mod portfolio, with monospace text and large bold headings. Each mod has a colorful image thumbnail and centered title underneath. There is room for four entries per line."],
-  ["posts/bikeshedding/img/site-2.png", "2022, compiled by blogc", "An image depicting a revision of this website in 2022. It is similar to the 2021 revision, but foregoes the focus on mods and focuses on a blog format. Posts now have a short description, and the design is slightly more refined in general."],
-  ["posts/bikeshedding/img/site-3.png", "2023, compiled by blogc", "An image depicting a revision of this website in 2023. It is similar to the 2022 revision, but drops the images entirely in favor of a list-based format."],
-  ["posts/bikeshedding/img/site-4.png", "2024, designed using SSGen", "An image depicting a revision of this website in 2024. It is entirely different from the 2023 revision, with a new color scheme and unique navigation bar. The foreground is light-blue, and significant flair and polish has been generally added to the site."],
-  ["posts/bikeshedding/img/site-5.png", "2026 (current), built with Zola", "An image depicting a revision of this website in 2025. It is similar to the 2024 revision, but is much simpler in content formatting, and fixes longstanding alignment and padding issues. It is also designed for comfortable mobile reading."]
+  ["./img/site-1.png", "2021, written in pure HTML5", "An image depicting a revision of this website in 2021. It has a grey background, black borders on elements, and a white foreground. It focuses on being a mod portfolio, with monospace text and large bold headings. Each mod has a colorful image thumbnail and centered title underneath. There is room for four entries per line."],
+  ["./img/site-2.png", "2022, compiled by blogc", "An image depicting a revision of this website in 2022. It is similar to the 2021 revision, but foregoes the focus on mods and focuses on a blog format. Posts now have a short description, and the design is slightly more refined in general."],
+  ["./img/site-3.png", "2023, compiled by blogc", "An image depicting a revision of this website in 2023. It is similar to the 2022 revision, but drops the images entirely in favor of a list-based format."],
+  ["./img/site-4.png", "2024, designed using SSGen", "An image depicting a revision of this website in 2024. It is entirely different from the 2023 revision, with a new color scheme and unique navigation bar. The foreground is light-blue, and significant flair and polish has been generally added to the site."],
+  ["./img/site-5.png", "2026 (current), built with Zola", "An image depicting a revision of this website in 2025. It is similar to the 2024 revision, but is much simpler in content formatting, and fixes longstanding alignment and padding issues. It is also designed for comfortable mobile reading."]
   ]}
   title="Revisions of this site 2021-2026"
   width={1280} height={720} op="scale" /> }}

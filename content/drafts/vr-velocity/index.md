@@ -35,20 +35,27 @@ Suffering much the same as movies do in terms of fidelity, you could also just s
 virtual desktop, autotiling, workspaces, stage manager: there are countless paradigms of window management that address the root problem rather than the arguable band-aid of more monitors[^window_manager].
 99% of people can get 100% of the functionality of virtual monitors just by pressing `Mod+Tab`, completely avoiding the extreme aliasing required by reprojection.
 
-
 {{ <images.captioned path="/drafts/vr-velocity/img/vision-pro.png" alt="vision pro users" caption="Average Vision Pro User" compress={false} disp_width="100%" /> }}
 
-**Videogames** are the only saving grace of VR, and the only fundamentally sound activity to do with one.
-Novel experiences capitalizing on the unique control scheme are where VR is at its best, instead of weird mixed experiences or compromises on existing (superior) methods of media ingestion.
+**Videogames** are the only saving grace of VR, and the only fundamentally sound leisure activity in it.
+Novel experiences capitalizing on the unique control scheme are where VR is at its best,
+instead of weird mixed experiences or compromises on existing (superior) methods of media ingestion.
 
 The issue is that maybe three games exist that are actually fun.
 These vary by player; mine would be Half-Life: Alyx, Beat Saber, and H3VR.
 Others may say VRChat or Skyrim VR or even vehicle simulators are their system-sellers.
-But it's a tough pill to swallow for enthusiasts (much less real people) to dive into spending so much on a setup capable of running the actually good games, just to play for a few hours and never pick up the headset again.
+But it's a tough pill to swallow for enthusiasts (much less real people) to dive into spending so much on a setup capable of running the actually good games,
+just to play for a few hours and never pick up the headset again.
 
-[^vision_movies]: I say this never having tried a Vision Pro, but paying {{<currency n={3500} code="USD" />}} to look like a dork sucks more than just buying a really nice TV or improving your workspace hygiene. Nobody needs to try it to know that truth.
+[^vision_movies]: I say this never having tried a Vision Pro,
+but paying {{<currency n={3500} code="USD" />}} to look like a dork sucks more than just buying a really nice TV or improving your workspace hygiene.
+Nobody needs to try it to know that truth.
 
-[^window_manager]: A large 4K monitor with quarter-screen tiling is cheaper and easier than four 1080p monitors for displaying all the information you could hope to process, more ergonomic than having to crane your head to look at your virtual displays, and more portable in reality than a separate battery-powered limited-compute device. Play fullscreen games or do screensharing? Get a second monitor, and leave it at two. There is no reason in the year of our lord 2026 to need more than two monitors for the overwhelming majority of people.
+[^window_manager]: A large 4K monitor with quarter-screen tiling is cheaper and easier than four 1080p monitors for displaying all the information you could hope to process,
+more ergonomic than having to crane your head to look at your virtual displays,
+and more portable in reality than a separate battery-powered limited-compute device.
+Play fullscreen games or do screensharing? Get a second monitor, and leave it at two.
+There is no reason in the year of our lord 2026 to need more than two monitors for the overwhelming majority of people.
 
 
 # \* What Changed?
@@ -56,7 +63,7 @@ I hold out hope for VR gaming as a mainstream-viable platform.
 Not because of new hardware, nor because of a singular game, but simply due to the sheer power of iteration.
 Through years of trial and error, they have figured out the unified (enough) VR APIs,
 development environments, and game engine integrations to make creating a good VR game easier than it has ever been,
-just as code became the cheapest it has ever been.
+just as code became cheaper than ever.
 
 
 ## \*\* OpenXR
@@ -80,7 +87,7 @@ All real platforms support this, easing porting of your app.
 Linux, Windows, Android, whatever.
 
 It didn't used to be this way!
-OpenXR kinda sucked for a while actually, and only through the sheer power of revisions and extensions over
+OpenXR kinda sucked for a while actually, and only through countless revisions and extensions over
 a long period of trial and error and shifting markets, on top of actual runtimes adopting it,
 has OXR gotten to where it is today.
 
@@ -89,8 +96,8 @@ I remember the horrors of Linux VR pre-Monado :(
 
 ## \*\* Engines
 Real game engine support only gets better by the day.
-The big names like Unity and Unreal, of course, have had solid enough support for a long time now,
-but the most exciting aspect to me is the huge advances in open-source.
+The big names like Unity and Unreal, of course, have had solid support for a long time now,
+but the most exciting aspect to me is the advancement in open-source.
 
 Godot has a well-maintained [OpenXR plugin](https://godotvr.github.io/godot-xr-tools/docs/home/) that jump-starts any VR project, which
 alongside its excellent community, asset store, documentation, and tutorial libraries makes it a strong contender for small developers.
@@ -108,11 +115,11 @@ Paired with an [OpenXR plugin](https://github.com/awtterpip/bevy_oxr) crate,
 Bevy becomes a super straightforward 3D renderer that is far more flexible than I would have thought Rust syntax permits.
 Add to that the recently-released [box3d](https://github.com/erincatto/box3d) physics engine,
 plus the [seedling](https://crates.io/crates/bevy_seedling) audio plugin,
-and you have yourself a full-featured VR game engine you interact with entirely via text files.
+and you have yourself a full-featured VR game engine you develop in entirely via text files.
 
 Not to mention the speed: those rendering, physics, and audio engines are all SOTA and extremely quick on modern hardware.
 Sure, I've only played in simple scenes so far, but I'm wholly impressed by the strong performance characteristics.
-Even the dev builds (using a codegen backend that hurts runtime performance) are playable :)
+Even the dev builds (using a codegen backend that *really* hurts runtime performance) are playable :)
 
 
 ## \*\* Rapid Prototyping
@@ -139,9 +146,10 @@ eager to carelessly add its own interconnected nodes into that web at your comma
 AI slop!!!!! Yay!!!!
 
 But for real though.
-These stupid machines are going to take my career right out of my hands while I sit wearing a green baseball cap,
+These stupid machines are going to take my career right out of my hands,
 but holy hell can they implement the annoying garbage that I don't want to.
-Prototype code quality doesn't matter one bit as you are always one `git checkout` away from starting your own clean implementation, which you inevitably implement *better* after the prototype teaches you what functionality sticks.
+Prototype code quality doesn't matter one bit as you are always one `git checkout` away from starting your own clean implementation,
+which you inevitably implement *better* after the prototype teaches you what functionality sticks.
 
 This allows riskier approaches to be tested without costing months of time,
 directly resulting in more games that are more interesting.
@@ -151,8 +159,10 @@ directly resulting in more games that are more interesting.
 Ergonomic development experiences are absolutely crucial to getting VR to where it needs to be.
 But I have been consistently ignoring the cost of entry aspect as an inconvenient truth.
 
-The Steam Frame just came out for a painful {{<currency n={1059} code="USD" />}}, comfortably placing Facebook as the affordable hardware platform. Even if the Quest 3 is still an overpriced {{<currency n={599} code="USD" />}}.
-Not to mention the Windows Mixed Reality project which was gutted so long ago, people didn't even realise it was completely removed from Windows 11, making an entire class of PCVR headsets obsolete.
+The Steam Frame just came out for a painful {{<currency n={1059} code="USD" />}},
+comfortably placing Facebook as the affordable hardware platform. Even if the Quest 3 is still an overpriced {{<currency n={599} code="USD" />}}.
+Not to mention the Windows Mixed Reality project which was gutted so long ago, people didn't even realise it was completely removed from Windows 11,
+making an entire class of PCVR headsets obsolete.
 
 There is only one catch: that a lack of cheap, good hardware prevents fostering a large install-base.
 People are smart with their money, choosing not to buy expensive hardware.
@@ -161,7 +171,11 @@ Manufacturers are smart with their margins, choosing not to develop hardware for
 
 But devs are changing. Software is coming.
 Manufacturers will make hardware targeting that software and players will buy that hardware.
-This is unlike the times in the past where businesses forcibly tried to remove an edge in this interdependent triangle. Facebook pushed their Quest line to force adoption, while buying studios to force software. In that order, leaving software an IOU. Apple shipped a {{<currency n={3500} code="USD" />}} headset with absolutely nothing, completely ignoring games in favour of what amounts to a worse Macbook with creepy anti-social social features.
+This is unlike the times in the past where businesses forcibly tried to remove an edge in this interdependent triangle.
+Facebook pushed their Quest line to force adoption, while buying studios to force software.
+In that order, leaving software an IOU.
+Apple shipped a {{<currency n={3500} code="USD" />}} headset with absolutely nothing,
+completely ignoring games in favour of what amounts to a worse iPad with creepy anti-social social features.
 
 Developers can now build at a cost so low they do it out of passion, just to see what happens.
 Project initialization happens in hours instead of days,

@@ -48,7 +48,7 @@ const idsToModify: { [id: string]: string[] } = {
     "actually useful",
     "so you don't have to",
     "curated!",
-  ]
+  ],
 };
 
 async function addFlavour() {
@@ -62,26 +62,33 @@ async function addFlavour() {
 addFlavour();
 
 /* Scroll percentage in footer */
-async function addScrollPercent() {
+function addScrollPercent() {
   const scrollProgressBox = document.querySelector("#nav-scroll-progress");
-
-  if (scrollProgressBox) {
-    window.addEventListener("scroll", () => {
-      const maxHeightY =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-      const frac = (window.scrollY * 100) / maxHeightY;
-      let s = "";
-      if (frac < 5 || maxHeightY <= 0 || Number.isNaN(frac)) {
-        s = "top";
-      } else if (frac > 95) {
-        s = "bot";
-      } else {
-        s = Math.floor(frac).toString() + "%";
-      }
-      scrollProgressBox.innerHTML = s;
-    });
+  if (!scrollProgressBox) {
+    console.log("failed to find scroll progress box");
+    return;
   }
+
+  const update = () => {
+    const maxHeightY =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    const frac = (window.scrollY * 100) / maxHeightY;
+    let s = "";
+    if (frac < 1 || maxHeightY <= 0 || Number.isNaN(frac)) {
+      s = "top";
+    } else if (frac > 99) {
+      s = "bot";
+    } else {
+      s = Math.floor(frac).toString() + "%";
+    }
+    scrollProgressBox!.textContent = s;
+  };
+
+  window.addEventListener("scroll", update);
+  window.addEventListener("resize", update);
+  window.addEventListener("load", update);
+  new ResizeObserver(update).observe(document.body);
 }
 addScrollPercent();
 
@@ -191,4 +198,4 @@ const title = document.getElementById("title-text")!;
 const cursor = document.getElementById("title-cursor")!;
 const cursorText = cursor.outerHTML;
 cursor.outerHTML = "";
-typeElement(title, cursorText, shouldAddFlair, true);
+await typeElement(title, cursorText, shouldAddFlair, true);
